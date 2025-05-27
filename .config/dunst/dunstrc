@@ -29,7 +29,7 @@
 
     ### Text ###
     # Set font of notifications
-    font = JetBrains Mono 14
+    font = JetBrains Mono 12
     # Spacing between lines 
     line-height = 0
     # Markup parsing

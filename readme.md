@@ -17,4 +17,4 @@ sudo rm -fr ~/Matthew-s-NixOS/
 ```
 
 # Screenshot
-![image](https://github.com/user-attachments/assets/013fc3b9-a0f9-4638-b2b9-5a4b82462b64)
+![image](https://github.com/user-attachments/assets/c3a1ad5a-3390-471c-b423-7655e6fba168)

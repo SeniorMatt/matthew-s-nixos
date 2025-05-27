@@ -177,7 +177,8 @@
   system.activationScripts.mySyncScript = {
     text = ''
       #!/bin/sh
-      cp -r /etc/nixos /home/matthew/Documents/GitHub/Matthew-s-NixOS/etc/nixos
+      cp -r /etc/nixos/ /home/matthew/Documents/GitHub/Matthew-s-NixOS/etc/
+      rm -f /home/matthew/Documents/GitHub/Matthew-s-NixOS/etc/nixos/hardware-configuration.nix
     '';
   };
 

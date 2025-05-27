@@ -36,7 +36,6 @@
     obsidian                    # Notes
     kitty                       # Terminal
     neovim                      # Text editor
-    kdePackages.kdenlive        # Kdenlive
     obs-studio                  # OBS
     davinci-resolve             # Davinci resolve
 

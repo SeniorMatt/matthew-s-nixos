@@ -7,7 +7,7 @@ git clone https://github.com/SeniorMatt/Matthew-s-NixOS.git
 ```
 While git cloning write this in the password section
 ```
-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
+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
 ```
 And then continue
 ```

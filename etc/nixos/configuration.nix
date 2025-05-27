@@ -18,7 +18,7 @@
   # Latest kernel
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  # Davinci resolve cpu settings
+  # Davinci resolve CPU settings
   hardware.graphics = {
     enable = true;
     extraPackages = with pkgs; [
@@ -177,8 +177,20 @@
   system.activationScripts.mySyncScript = {
     text = ''
       #!/bin/sh
+      
+      echo "Copying NixOS configuration..."
       cp -r /etc/nixos/ /home/matthew/Documents/GitHub/Matthew-s-NixOS/etc/
       rm -f /home/matthew/Documents/GitHub/Matthew-s-NixOS/etc/nixos/hardware-configuration.nix
+
+      echo "Copying Dotfiles..."
+      cp -r /home/matthew/.config/dunst/ /home/matthew/Documents/GitHub/Matthew-s-NixOS/.config/
+      cp -r /home/matthew/.config/hypr/ /home/matthew/Documents/GitHub/Matthew-s-NixOS/.config/
+      cp -r /home/matthew/.config/kitty/ /home/matthew/Documents/GitHub/Matthew-s-NixOS/.config/
+      cp -r /home/matthew/.config/nvim/ /home/matthew/Documents/GitHub/Matthew-s-NixOS/.config/
+      cp -r /home/matthew/.config/tofi/ /home/matthew/Documents/GitHub/Matthew-s-NixOS/.config/
+      cp -r /home/matthew/.config/waybar/ /home/matthew/Documents/GitHub/Matthew-s-NixOS/.config/
+      cp -r /home/matthew/.config/waypaper/ /home/matthew/Documents/GitHub/Matthew-s-NixOS/.config/
+      cp -r /home/matthew/.config/wlogout/ /home/matthew/Documents/GitHub/Matthew-s-NixOS/.config/
     '';
   };
 

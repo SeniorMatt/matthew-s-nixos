@@ -15,3 +15,6 @@ sudo cp -fr ~/Matthew-s-NixOS/.config/ ~/
 sudo cp -fr ~/Matthew-s-NixOS/etc/nixos/ /etc/
 sudo rm -fr ~/Matthew-s-NixOS/
 ```
+
+# Screenshot
+![image](https://github.com/user-attachments/assets/013fc3b9-a0f9-4638-b2b9-5a4b82462b64)

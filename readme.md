@@ -11,7 +11,7 @@ github_pat_11A7A2JCY014gmR4xwEOfp_d5ddzJUDL4PdFRDDLQy0uLb1eTbY3q2TfRdhJod9XU3FOP
 ```
 And then continue
 ```
-sudo cp -fr ~/Matthew-s-NixOS/.config/ ~/
-sudo cp -fr ~/Matthew-s-NixOS/etc/nixos/ /etc/
+sudo cp -fr ~/Matthew-s-NixOS/.config/ ~/.config/
+sudo cp -fr ~/Matthew-s-NixOS/etc/nixos/ /etc/nixos/
 sudo rm -fr ~/Matthew-s-NixOS/
 ```

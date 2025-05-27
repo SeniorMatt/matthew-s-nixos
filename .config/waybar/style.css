@@ -1,0 +1,275 @@
+* {
+    font-family: JetBrainsMono, FontAwesome, sans-serif;
+    font-size: 20px;
+    transition-duration: .5s;
+    transition-property: background-color;
+    padding: 2px 4px;
+}
+
+window#waybar {
+    border-radius: 8px;
+    background-color: #11111b;
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+window#waybar.termite {
+    background-color: #3F3F3F;
+}
+
+window#waybar.chromium {
+    background-color: #000000;
+    border: none;
+}
+
+button {
+    /* Use box-shadow instead of border so the text isn't offset */
+    box-shadow: inset 0 -3px transparent;
+    /* Avoid rounded borders under each button name */
+    border: none;
+    border-radius: 0;
+}
+
+#battery,
+#disk,
+#backlight,
+#network,
+#pulseaudio,
+#wireplumber,
+#custom-media,
+#mode,
+#idle_inhibitor,
+#scratchpad,
+#tray,
+#clock,
+#language,
+#mpd {
+    margin: 4px 0px;
+    padding: 2px 4px;
+    color: #cdd6f4;
+    border-radius: 8px;
+}
+
+#custom-power,
+#power-profiles-daemon,
+#custom-wifi,
+#custom-bluetooth {
+    margin: 4px 0px;
+    padding: 2px 8px;
+    color: #cdd6f4;
+    border-radius: 8px;
+}
+
+#clock {
+    font-weight: bold;
+    background-color: #f9e2af;
+    color: #11111b;
+}
+
+#clock:hover {
+    background-color: #fab387;
+}
+
+#custom-distrologo {
+    color: #cba6f7;
+    margin: 4px 0px;
+}
+
+#battery:hover,
+#disk:hover,
+#backlight:hover,
+#network:hover,
+#pulseaudio:hover,
+#pulseaudio.muted:hover,
+#wireplumber:hover,
+#custom-media:hover,
+#mode:hover,
+#idle_inhibitor:hover,
+#scratchpad:hover,
+#power-profiles-daemon:hover,
+#custom-power:hover,
+#custom-wifi:hover,
+#custom-bluetooth:hover,
+#mpd:hover {
+  background-color: #313244;
+}
+
+#window {
+    margin: 0 4px;
+}
+
+/* WORKSPACES */
+
+#workspaces {
+    padding: 2px 2px;
+    margin: 4px 0px;
+    background: #313244;
+    border-radius: 8px;
+}
+
+#workspaces button {
+    font-weight: bold;
+    padding: 0 2px;
+    border-radius: 6px;
+    color: #f5e0dc;
+}
+
+#workspaces button:hover {
+    background-color: #11111b;
+}
+
+#workspaces button.focused {
+    background-color: #f38ba8;
+}
+
+#workspaces button.active {
+    background-color: #b4befe;
+    color: #11111b;
+}
+
+#workspaces button.urgent {
+    background-color: #cdd6f4;
+}
+
+#mode {
+    background-color: #64727D;
+    box-shadow: inset 0 -3px #ffffff;
+}
+
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left > widget:first-child > #workspaces {
+    margin-left: 0;
+}
+
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right > widget:last-child > #workspaces {
+    margin-right: 0;
+}
+
+@keyframes blink {
+    to {
+        background-color: @color15;
+        color: @color13;
+    }
+}
+
+/* Using steps() instead of linear as a timing function to limit cpu usage */
+#battery.critical:not(.charging) {
+    background-color: #f38ba8;
+    color: #cdd6f4;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: steps(12);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+label:focus {
+    background-color: #000000;
+}
+
+#disk {
+    background-color: #964B00;
+}
+
+#pulseaudio.muted {
+    font-weight: bold;
+    background-color: #94e2d5;
+    color: #181825;
+}
+
+#custom-media {
+    background-color: #66cc99;
+    color: #2a5c45;
+    min-width: 100px;
+}
+
+#custom-media.custom-spotify {
+    background-color: #66cc99;
+}
+
+#custom-media.custom-vlc {
+    background-color: #ffa000;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: @background;
+}
+
+#idle_inhibitor {
+    background-color: #2d3436;
+}
+
+#idle_inhibitor.activated {
+    background-color: #ecf0f1;
+    color: #2d3436;
+}
+
+#mpd {
+    background-color: #66cc99;
+    color: #2a5c45;
+}
+
+#mpd.disconnected {
+    background-color: #f53c3c;
+}
+
+#mpd.stopped {
+    background-color: #90b1b1;
+}
+
+#mpd.paused {
+    background-color: #51a37a;
+}
+
+#keyboard-state {
+    background: #97e1ad;
+    color: #000000;
+    padding: 0 0px;
+    margin: 0 5px;
+    min-width: 16px;
+}
+
+#keyboard-state > label {
+    padding: 0 5px;
+}
+
+#keyboard-state > label.locked {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+#scratchpad {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+#scratchpad.empty {
+	background-color: transparent;
+}
+
+#privacy {
+    padding: 0;
+}
+
+#privacy-item {
+    padding: 0 5px;
+    color: white;
+}
+
+#privacy-item.screenshare {
+    background-color: #cf5700;
+}
+
+#privacy-item.audio-in {
+    background-color: #1ca000;
+}
+
+#privacy-item.audio-out {
+    background-color: #0069d4;
+}

@@ -1,0 +1,13 @@
+width = 50%
+height = 50%
+border-width = 8
+corner-radius = 8
+outline-width = 0
+result-spacing = 25
+num-results = 7
+font = JetBrains Mono
+
+background-color = 181825
+border-color = #94e2d5
+selection-color = #cba6f7
+text-color = #cdd6f4

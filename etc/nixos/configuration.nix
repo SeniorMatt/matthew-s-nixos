@@ -124,6 +124,7 @@
      ly                       # Login manager
      wl-clipboard             # Clipboard
      power-profiles-daemon    # Power profiles daemon
+     lm_sensors               # Temperature sensors
      brightnessctl            # Brightness control
      dunst                    # Notifications daemon
      hyprpolkitagent          # Authenetication daemon

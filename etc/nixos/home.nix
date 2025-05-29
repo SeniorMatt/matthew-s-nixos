@@ -38,6 +38,8 @@
     neovim                      # Text editor
     obs-studio                  # OBS
     davinci-resolve             # Davinci resolve
+    batmon                      # TUI battery
+    htop                        # TUI task manager
 
     # Needs
     evince                      # Document viewer
@@ -50,6 +52,7 @@
     mpv                         # Media player
     parlatype                   # Audio player
     gnome-calculator            # Calculator
+    gnome-clocks                # Clock
     grim                        # Screenshot
     slurp                       # Selector for screenshot
 
@@ -68,6 +71,7 @@
 
     # Fun stuff :D
     nitch                       # Fetcher
+    neofetch                    # Fetcher N2
     pipes                       # Pipes
     cmatrix                     # Matrix effect
     asciiquarium                # Ascii quarium
@@ -102,21 +106,17 @@
     # '';
   };
 
-  imports = [inputs.catppuccin.homeManagerModules.catppuccin];
+  # GTK theme setup
+  imports = [inputs.catppuccin.homeModules.catppuccin];
+
+  catppuccin.gtk.enable = true;
+  catppuccin.gtk.flavor = "mocha";
+  catppuccin.gtk.accent = "blue";
+  catppuccin.gtk.size = "compact";
+  catppuccin.gtk.tweaks = [ "normal" ];
+
   gtk = {
     enable = true;
-    catppuccin = {
-      enable = true;
-      flavor = "mocha";
-      accent = "pink";
-      size = "standard";
-      tweaks = [ "normal" ];
-    };
-
-    #theme = {
-    #  name = "adw-gtk3-dark";
-    #  package = pkgs.adw-gtk3;
-    #};
 
     iconTheme = {
       name = "Adwaita";

@@ -33,6 +33,7 @@ button {
 }
 
 #battery,
+#bat1,
 #disk,
 #backlight,
 #network,
@@ -78,6 +79,7 @@ button {
 }
 
 #battery:hover,
+#bat1:hover,
 #disk:hover,
 #backlight:hover,
 #network:hover,

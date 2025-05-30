@@ -24,7 +24,7 @@
         "backlight",
         "keyboard-state",
         "battery",
-        "bat1",
+        "battery#bat1",
         "power-profiles-daemon",
         "custom/bluetooth",
         "custom/wifi",
@@ -145,7 +145,7 @@
         // "format-full": "",
         "format-icons": ["", "", "", "", ""]
     },
-    "bat1": {
+    "battery#bat1": {
         "bat": "BAT1",
         "states": {
             // "good": 95,

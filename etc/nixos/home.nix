@@ -159,10 +159,12 @@
   xdg.mimeApps = {
     enable = true;
     defaultApplications = {
-      "image/*" = "eog";
-      "video/*" = "mpv";
-      "audio/*" = "parlatype";
-      "document/pdf" = "papers";
+      "image/png" = "org.gnome.eog.desktop";
+      "image/jpeg" = "org.gnome.eog.desktop";
+      "video/mp4" = "mpv.desktop";
+      "audio/mp3" = "org.gnome.parlatype.desktop";
+      "audio/wav" = "org.gnome.parlatype.desktop";
+      "document/pdf" = "papers.desktop";
     };
   };
 

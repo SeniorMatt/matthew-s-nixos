@@ -66,7 +66,7 @@
 
     # Themes
     adw-gtk3                    # GTK theme
-    adwaita-icon-theme           # Icon theme
+    adwaita-icon-theme          # Icon theme
     bibata-cursors              # Cursor theme
 
     # Fun stuff :D
@@ -106,17 +106,13 @@
     # '';
   };
 
-  # GTK theme setup
-  imports = [inputs.catppuccin.homeModules.catppuccin];
-
-  catppuccin.gtk.enable = true;
-  catppuccin.gtk.flavor = "mocha";
-  catppuccin.gtk.accent = "blue";
-  catppuccin.gtk.size = "compact";
-  catppuccin.gtk.tweaks = [ "normal" ];
-
   gtk = {
     enable = true;
+
+    theme = {
+      name = "adw-gtk3-dark";
+      package = pkgs.adw-gtk3;
+    };
 
     iconTheme = {
       name = "Adwaita";
@@ -127,6 +123,14 @@
       name = "Bibata-Modern-Classic";
       package = pkgs.bibata-cursors;
       size = 24;
+    };
+
+    gtk3.extraConfig = {
+		  gtk-application-prefer-dark-theme = '' 1 '';
+    };
+
+    gtk4.extraConfig = {
+		  gtk-application-prefer-dark-theme = '' 1 '';
     };
   };
 

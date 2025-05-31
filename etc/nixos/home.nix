@@ -31,6 +31,7 @@
     steam                       # Steam
     zoom                        # Zoom
     unityhub                    # Unity
+    godot-mono                  # Yeah...
     aseprite                    # Aseprite
     github-desktop              # Github client
     obsidian                    # Notes
@@ -38,6 +39,7 @@
     neovim                      # Text editor
     obs-studio                  # OBS
     davinci-resolve             # Davinci resolve
+    prismlauncher 		# Minecraft launcher
     batmon                      # TUI battery
     htop                        # TUI task manager
 
@@ -47,6 +49,7 @@
     networkmanagerapplet        # Network control
     pavucontrol                 # Audio control
     nautilus                    # File manager
+    nnn 			# TUI file manager
     eog                         # Image viewer
     papers                      # Document viewer
     mpv                         # Media player

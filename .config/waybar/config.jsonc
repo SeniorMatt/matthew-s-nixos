@@ -13,22 +13,22 @@
         "cpu",
         "temperature",
         "memory",
-        "hyprland/language",
+        "battery",
+        "battery#bat1",
     ],
     "modules-center": [
-        "custom/distrologo",
+        "custom/distrologo"
     ],
     "modules-right": [
+        "hyprland/language",
         "tray",
         "pulseaudio",
         "backlight",
         "keyboard-state",
-        "battery",
-        "battery#bat1",
+        "clock",
         "power-profiles-daemon",
         "custom/bluetooth",
         "custom/wifi",
-        "clock",
         "custom/power"
     ],
     // Modules configuration

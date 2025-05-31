@@ -1,5 +1,5 @@
 * {
-    font-family: JetBrainsMono, FontAwesome, sans-serif;
+    font-family: JetBrainsMono, FontAwesome;
     font-size: 14pt;
     transition-duration: .5s;
     transition-property: background-color;
@@ -45,6 +45,10 @@ button {
 #tray,
 #clock,
 #language,
+#custom-power,
+#power-profiles-daemon,
+#custom-wifi,
+#custom-bluetooth,
 #mpd {
     margin: 4px 0px;
     padding: 2px 4px;
@@ -52,14 +56,10 @@ button {
     border-radius: 8px;
 }
 
-#custom-power,
-#power-profiles-daemon,
-#custom-wifi,
-#custom-bluetooth {
-    margin: 4px 0px;
-    padding: 2px 8px;
-    color: #cdd6f4;
-    border-radius: 8px;
+#custom-power {
+    padding: 2px 10px;
+    background-color: #f38ba8;
+    color: #11111b;
 }
 
 #clock {
@@ -77,7 +77,16 @@ button {
     margin: 4px 0px;
 }
 
-#battery:hover,
+#battery {
+    background-color: #a6e3a1;
+    color: #11111b;
+}
+
+#battery:hover {
+    background-color: #89dceb;
+    color: #11111b;
+}
+
 #disk:hover,
 #backlight:hover,
 #network:hover,
@@ -155,15 +164,9 @@ button {
     }
 }
 
-/* Using steps() instead of linear as a timing function to limit cpu usage */
 #battery.critical:not(.charging) {
     background-color: #f38ba8;
-    color: #cdd6f4;
-    animation-name: blink;
-    animation-duration: 0.5s;
-    animation-timing-function: steps(12);
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
+    color: #11111b;
 }
 
 label:focus {

@@ -68,7 +68,7 @@
     hyprpaper                   # Wallpaper
 
     # Themes
-    adw-gtk3                    # GTK theme
+    #adw-gtk3                    # GTK theme
     adwaita-icon-theme          # Icon theme
     bibata-cursors              # Cursor theme
 
@@ -108,14 +108,23 @@
     #   org.gradle.daemon.idletimeout=3600000
     # '';
   };
+  
+  # GTK theme setup
+  imports = [inputs.catppuccin.homeModules.catppuccin];
+
+  catppuccin.gtk.enable = true;
+  catppuccin.gtk.flavor = "mocha";
+  catppuccin.gtk.accent = "blue";
+  catppuccin.gtk.size = "compact";
+  catppuccin.gtk.tweaks = [ "normal" ];
 
   gtk = {
     enable = true;
 
-    theme = {
-      name = "adw-gtk3-dark";
-      package = pkgs.adw-gtk3;
-    };
+    #theme = {
+    #  name = "adw-gtk3-dark";
+    #  package = pkgs.adw-gtk3;
+    #};
 
     iconTheme = {
       name = "Adwaita";

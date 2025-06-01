@@ -119,10 +119,12 @@
      git
      gcc
      ffmpeg
+     keyd
 
      hyprland                 # WM
      ly                       # Login manager
-     wl-clipboard             # Clipboard
+     udiskie 		      # Disk manager
+     wl-clipboard             # Clipboard manager
      power-profiles-daemon    # Power profiles daemon
      lm_sensors               # Temperature sensors
      brightnessctl            # Brightness control
@@ -167,6 +169,25 @@
   services.power-profiles-daemon.enable = true;
   services.gnome.gnome-keyring.enable = true;
   services.displayManager.ly.enable = true;
+
+  # Remaping key
+  services.keyd = {
+    enable = true;
+
+    keyboards = {
+      default = {
+        ids = [ "*" ];
+
+        settings = {
+          main = {
+            backslash = "backspace";
+          };
+        };
+
+        extraConfig = "";
+      };
+    };
+  };
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];

@@ -58,6 +58,8 @@
     gnome-clocks                # Clock
     grim                        # Screenshot
     slurp                       # Selector for screenshot
+    xdg-desktop-portal
+    xdg-desktop-portal-hyprland
 
     # System applications
     wlsunset                    # Blue light filter

@@ -1,12 +1,12 @@
 // -*- mode: jsonc -*-
 {
     // "layer": "top", // Waybar at top layer
-    // "position": "bottom", // Waybar position (top|bottom|left|right)
-    // "height": 32, // Waybar height (to be removed for auto height)
+    "position": "top", // Waybar position (top|bottom|left|right)
+    // "height": 48, // Waybar height (to be removed for auto height)
     // "width": 1280, // Waybar width
-    // "margin-top": 8,
-    // "margin-left": 8,
-    // "margin-right": 8,
+    "margin-top": 8,
+    "margin-left": 8,
+    "margin-right": 8,
     "spacing": 4,
     "modules-left": [
         "hyprland/workspaces",
@@ -14,7 +14,7 @@
         "temperature",
         "memory",
         "battery",
-        "battery#bat1",
+        "battery#bat1"
     ],
     "modules-center": [
         "custom/distrologo"
@@ -63,8 +63,8 @@
         "format": "{icon} {count}",
         "show-empty": false,
         "format-icons": ["", ""],
-        "tooltip": true,
-        "tooltip-format": "{app}: {title}"
+        "tooltip-format": "{app}: {title}",
+        "tooltip": true
     },
     "mpd": {
         "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
@@ -126,8 +126,11 @@
     },
     "backlight": {
         // "device": "acpi_video1",
-        "format": "{percent}% {icon}",
-        "format-icons": ["", "", "", "", "", "", "", "", ""]
+        // "format": "{percent}% {icon}",
+        "format": "{icon}",
+        "format-icons": ["", "", "", "", "", "", "", "", ""],
+        "tooltip": true,
+        "tooltip-format": "Backlight: {percent}%"
     },
     "battery": {
         "bat": "BAT0",
@@ -183,7 +186,7 @@
     },
     "pulseaudio": {
         "scroll-step": 1, // %, can be a float
-        "format": "{volume}% {icon} {format_source}",
+        "format": "{volume}% {icon}", 
         "format-bluetooth": "{volume}% {icon} {format_source}",
         "format-bluetooth-muted": " {icon} {format_source}",
         "format-muted": " {format_source}",

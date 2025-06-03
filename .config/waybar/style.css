@@ -1,13 +1,13 @@
 * {
     font-family: JetBrainsMono, FontAwesome;
-    font-size: 12pt;
+    font-size: 14pt;
     transition-duration: .5s;
     transition-property: background-color;
     padding: 2px 4px;
 }
 
 window#waybar {
-    /* border-radius: 8px; */
+    border-radius: 8px;
     background-color: #1e1e2e;
 }
 

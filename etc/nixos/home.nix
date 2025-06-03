@@ -24,8 +24,10 @@
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
+    ffmpeg 			# Best convertor
 
     # Applications
+    youtube-music 		# Youtube music client
     telegram-desktop            # Telegram client
     vesktop                     # Discord client
     steam                       # Steam
@@ -36,7 +38,6 @@
     github-desktop              # Github client
     obsidian                    # Notes
     kitty                       # Terminal
-    neovim                      # Text editor
     obs-studio                  # OBS
     davinci-resolve             # Davinci resolve
     prismlauncher 		# Minecraft launcher
@@ -95,6 +96,19 @@
     #   echo "Hello, ${config.home.username}!"
     # '')
   ];
+
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+
+    extraPackages = [
+      pkgs.vimPlugins.catppuccin-vim
+    ];
+  };
+
+  programs.git = {
+    enable = true;
+  };
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.

@@ -8,7 +8,7 @@
 
 window#waybar {
     /* border-radius: 8px; */
-    background-color: #11111b;
+    background-color: #1e1e2e;
 }
 
 window#waybar.hidden {
@@ -62,6 +62,10 @@ button {
     color: #11111b;
 }
 
+#custom-power:hover {
+    background-color: #cba6f7;
+}
+
 #clock {
     font-weight: bold;
     background-color: #f9e2af;
@@ -98,7 +102,6 @@ button {
 #idle_inhibitor:hover,
 #scratchpad:hover,
 #power-profiles-daemon:hover,
-#custom-power:hover,
 #custom-wifi:hover,
 #custom-bluetooth:hover,
 #mpd:hover {

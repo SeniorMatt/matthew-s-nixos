@@ -27,6 +27,7 @@
     ffmpeg 			# Best convertor
 
     # Applications
+    gimp 			# Image editor
     youtube-music 		# Youtube music client
     telegram-desktop            # Telegram client
     vesktop                     # Discord client

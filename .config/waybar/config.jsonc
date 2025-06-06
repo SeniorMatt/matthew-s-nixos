@@ -4,9 +4,9 @@
     // "position": "top", // Waybar position (top|bottom|left|right)
     // "height": 48, // Waybar height (to be removed for auto height)
     // "width": 1280, // Waybar width
-    "margin-top": 8,
-    "margin-left": 8,
-    "margin-right": 8,
+    "margin-top": 0,
+    "margin-left": 0,
+    "margin-right": 0,
     "spacing": 8,
     "modules-left": [
         "hyprland/workspaces",

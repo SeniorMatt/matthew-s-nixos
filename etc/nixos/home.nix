@@ -82,6 +82,8 @@
     neofetch                    # Fetcher N2
     pipes                       # Pipes
     cmatrix                     # Matrix effect
+    sl 				# Fucking train
+    cowsay 			# What does the cow say?
     asciiquarium                # Ascii quarium
     cava                        # Audio visualizer
 

@@ -5,6 +5,31 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend upda
 Plug 'nvim-tree/nvim-tree.lua'
 Plug 'nvim-tree/nvim-web-devicons' " (optional, for icons)
 
+" Completion engine
+Plug 'hrsh7th/nvim-cmp'
+
+" LSP source for nvim-cmp
+Plug 'hrsh7th/cmp-nvim-lsp'
+
+" Snippet support (optional but recommended)
+Plug 'L3MON4D3/LuaSnip'
+Plug 'saadparwaiz1/cmp_luasnip'
+
+" Buffer/path completion (optional)
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+
+" LSP configuration
+Plug 'neovim/nvim-lspconfig'
+
+" LSP server installer
+Plug 'williamboman/mason.nvim'
+Plug 'williamboman/mason-lspconfig.nvim'
+
+" External tool integration (formatters, linters)
+Plug 'nvimtools/none-ls.nvim' " (formerly null-ls)
+
+
 call plug#end()
 
 lua << EOF
@@ -25,6 +50,23 @@ require'nvim-treesitter.configs'.setup {
   },
 }
 
+require("lspconfig").omnisharp.setup({
+  cmd = { vim.fn.stdpath("data") .. "/mason/bin/omnisharp" },
+  root_dir = require("lspconfig").util.root_pattern("*.csproj", "*.sln"),
+})
+
+require("mason").setup()
+require("mason-lspconfig").setup {
+  ensure_installed = { "omnisharp" },
+}
+
+
+
 EOF
 
 nnoremap <Space>e :NvimTreeToggle<CR>
+
+set number
+set relativenumber
+set clipboard=unnamedplus
+

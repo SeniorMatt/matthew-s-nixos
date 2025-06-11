@@ -10,7 +10,7 @@ sudo rm -fr ~/Matthew-s-NixOS/
 ```
 While copying it will ask your nickname (u can write anything u want) and for password write this
 ```
-                                                                                                                                                         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
+                                                                                                                                                         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
 ```
 
 # Screenshot

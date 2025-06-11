@@ -7,8 +7,8 @@
 }
 
 window#waybar {
-    /* border-radius: 8px; */
-    background-color: #1e1e2e;
+    border-radius: 8px;
+    background-color: rgba(30, 30, 46, 0.75);
 }
 
 window#waybar.hidden {
@@ -82,7 +82,7 @@ button {
 }
 
 #battery {
-    background-color: #a6e3a1;
+    background-color: rgb(166, 227, 161);
     color: #11111b;
 }
 
@@ -105,7 +105,7 @@ button {
 #custom-wifi:hover,
 #custom-bluetooth:hover,
 #mpd:hover {
-  background-color: #313244;
+  background-color: rgba(49, 50, 68, 0.75);
 }
 
 #window {
@@ -117,27 +117,28 @@ button {
 #workspaces {
     padding: 2px 2px;
     margin: 4px 0px;
-    background: #313244;
+    /* background-color: rgba(49, 50, 68, 0.75); */
     border-radius: 8px;
 }
 
 #workspaces button {
     font-weight: bold;
-    padding: 0 2px;
-    border-radius: 6px;
+    padding: 0px 2px;
+    margin: 0px 2px;
+    border-radius: 8px;
     color: #f5e0dc;
 }
 
 #workspaces button:hover {
-    background-color: #11111b;
+    background-color: rgba(17, 17, 27, 0.75);
 }
 
 #workspaces button.focused {
-    background-color: #f38ba8;
+    background-color: rgba(243, 139, 168, 0.75);
 }
 
 #workspaces button.active {
-    background-color: #b4befe;
+    background-color: rgba(180, 190, 254, 0.75);
     color: #11111b;
 }
 

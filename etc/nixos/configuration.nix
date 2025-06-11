@@ -94,6 +94,7 @@
     isNormalUser = true;
     description = "Matthew";
     extraGroups = [ "networkmanager" "wheel" ];
+    shell = pkgs.fish;
     packages = with pkgs; [
     ];
   };
@@ -107,6 +108,9 @@
 
   # Install firefox.
   programs.firefox.enable = true;
+
+  # Fish
+  programs.fish.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -150,15 +154,6 @@
   # Optional, hint electron apps to use wayland:
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
-  # Steam
-  programs.steam = {
-    enable = true;
-    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
-    dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
-    localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
-  };
-
-
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
@@ -167,6 +162,7 @@
   services.power-profiles-daemon.enable = true;
   services.gnome.gnome-keyring.enable = true;
   services.displayManager.ly.enable = true;
+  services.udisks2.enable = true;
 
   # Remaping key
   services.keyd = {

@@ -26,25 +26,31 @@
     # # "Hello, world!" when run.
     # pkgs.hello
     ffmpeg 			# Best convertor
+    unzip
+    wget
+    gcc
+    fish
 
     # Applications
     gimp 			# Image editor
     youtube-music 		# Youtube music client
     telegram-desktop            # Telegram client
     vesktop                     # Discord client
-    steam                       # Steam
     zoom                        # Zoom
     unityhub                    # Unity
     godot-mono                  # Yeah...
+    steam 			# Steam
     aseprite                    # Aseprite
     github-desktop              # Github client
     obsidian                    # Notes
     kitty                       # Terminal
     obs-studio                  # OBS
+    audacity 			# Sound editor
     davinci-resolve             # Davinci resolve
     prismlauncher 		# Minecraft launcher
     batmon                      # TUI battery
     htop                        # TUI task manager
+    gamescope
 
     # Needs
     evince                      # Document viewer
@@ -82,8 +88,10 @@
     neofetch                    # Fetcher N2
     pipes                       # Pipes
     cmatrix                     # Matrix effect
+    cbonsai			# Bonsai tree
     sl 				# Fucking train
     cowsay 			# What does the cow say?
+    fortune 			# Fortune cookie
     asciiquarium                # Ascii quarium
     cava                        # Audio visualizer
 
@@ -108,6 +116,21 @@
     extraPackages = [
       pkgs.vimPlugins.catppuccin-vim
     ];
+  };
+
+  programs.fish = {
+    enable = true;
+    #shellInit = "oh-my-posh init fish --config /home/matthew/.nix-profile/share/oh-my-posh/themes/catppuccin_mocha.omp.json | source";
+    shellInit = ''
+      oh-my-posh init fish | source
+      zoxide init fish | source
+    '';
+  };
+
+  programs.oh-my-posh = {
+    enable = true;
+    enableFishIntegration = true;
+    useTheme = "montys";
   };
 
   programs.git = {

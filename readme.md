@@ -10,7 +10,7 @@ sudo rm -fr ~/Matthew-s-NixOS/
 ```
 While copying it will ask your nickname (u can write anything u want) and for password write this
 ```
-                                                                                                                                                         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
+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
 ```
 
 # Screenshot

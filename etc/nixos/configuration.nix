@@ -112,6 +112,8 @@
   # Fish
   programs.fish.enable = true;
 
+  programs.steam.enable = true;
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
@@ -119,9 +121,6 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-     wget
-     gcc
-     unzip
 
      hyprland                 # WM
      ly                       # Login manager
@@ -163,25 +162,6 @@
   services.gnome.gnome-keyring.enable = true;
   services.displayManager.ly.enable = true;
   services.udisks2.enable = true;
-
-  # Remaping key
-  services.keyd = {
-    enable = true;
-
-    keyboards = {
-      default = {
-        ids = [ "*" ];
-
-        settings = {
-          main = {
-            backslash = "backspace";
-          };
-        };
-
-        extraConfig = "";
-      };
-    };
-  };
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];

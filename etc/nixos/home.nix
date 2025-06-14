@@ -1,6 +1,15 @@
 { config, pkgs, inputs, ... }:
 
 {
+  nixpkgs.overlays = [
+    (final: _: {
+      # this allows you to access `pkgs.unstable` anywhere in your config
+      unstable = import inputs.nixpkgs-unstable {
+        inherit (final.stdenv.hostPlatform) system;
+        inherit (final) config;
+      };
+    })
+  ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "matthew";
@@ -30,6 +39,7 @@
     wget
     gcc
     fish
+    unstable.audacity
 
     # Applications
     gimp 			# Image editor
@@ -39,18 +49,17 @@
     zoom                        # Zoom
     unityhub                    # Unity
     godot-mono                  # Yeah...
-    steam 			# Steam
     aseprite                    # Aseprite
     github-desktop              # Github client
     obsidian                    # Notes
     kitty                       # Terminal
     obs-studio                  # OBS
-    audacity 			# Sound editor
     davinci-resolve             # Davinci resolve
     prismlauncher 		# Minecraft launcher
     batmon                      # TUI battery
     htop                        # TUI task manager
     gamescope
+    mesa
 
     # Needs
     evince                      # Document viewer
@@ -120,7 +129,6 @@
 
   programs.fish = {
     enable = true;
-    #shellInit = "oh-my-posh init fish --config /home/matthew/.nix-profile/share/oh-my-posh/themes/catppuccin_mocha.omp.json | source";
     shellInit = ''
       oh-my-posh init fish | source
       zoxide init fish | source

@@ -88,7 +88,6 @@
     hyprpaper                   # Wallpaper
 
     # Themes
-    #adw-gtk3                    # GTK theme
     adwaita-icon-theme          # Icon theme
     bibata-cursors              # Cursor theme
 
@@ -171,11 +170,6 @@
 
   gtk = {
     enable = true;
-
-    #theme = {
-    #  name = "adw-gtk3-dark";
-    #  package = pkgs.adw-gtk3;
-    #};
 
     iconTheme = {
       name = "Adwaita";

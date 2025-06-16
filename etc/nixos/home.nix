@@ -35,11 +35,10 @@
     # # "Hello, world!" when run.
     # pkgs.hello
     ffmpeg 			# Best convertor
+    fish			# Shell
     unzip
     wget
     gcc
-    fish
-    unstable.audacity
 
     # Applications
     gimp 			# Image editor
@@ -58,26 +57,26 @@
     prismlauncher 		# Minecraft launcher
     batmon                      # TUI battery
     htop                        # TUI task manager
-    gamescope
-    mesa
+    unstable.audacity		# Audio editor
+    gamescope			# Downscale games
+    # mesa			# Mesa Intel drivers
 
     # Needs
-    evince                      # Document viewer
     blueberry                   # Bluetooth control
-    networkmanagerapplet        # Network control
     pavucontrol                 # Audio control
+    grim                        # Screenshot
+    slurp                       # Selector for screenshot
+
+    # Gnome ecosystem
+    evince                      # Document viewer
+    networkmanagerapplet        # Network control
     nautilus                    # File manager
-    nnn 			# TUI file manager
     eog                         # Image viewer
     papers                      # Document viewer
     mpv                         # Media player
     parlatype                   # Audio player
     gnome-calculator            # Calculator
     gnome-clocks                # Clock
-    grim                        # Screenshot
-    slurp                       # Selector for screenshot
-    xdg-desktop-portal
-    xdg-desktop-portal-hyprland
 
     # System applications
     wlsunset                    # Blue light filter
@@ -86,10 +85,19 @@
     wlogout                     # Logout menu
     hyprlock                    # Lock manager
     hyprpaper                   # Wallpaper
+    xdg-desktop-portal-hyprland	# Desktop portal hyprland
+    # xdg-desktop-portal		# Dekstop portal
 
     # Themes
+    (catppuccin-kvantum.override{
+      variant = "mocha";
+      accent = "lavender";
+    }) # QT theme
     adwaita-icon-theme          # Icon theme
     bibata-cursors              # Cursor theme
+
+    libsForQt5.qt5ct		
+    libsForQt5.qtstyleplugin-kvantum
 
     # Fun stuff :D
     nitch                       # Fetcher
@@ -159,13 +167,13 @@
     # '';
   };
   
-  # GTK theme setup
+  # GTK theme
   imports = [inputs.catppuccin.homeModules.catppuccin];
 
   catppuccin.gtk.enable = true;
   catppuccin.gtk.flavor = "mocha";
-  catppuccin.gtk.accent = "blue";
-  catppuccin.gtk.size = "compact";
+  catppuccin.gtk.accent = "lavender";
+  # catppuccin.gtk.size = "compact";
   catppuccin.gtk.tweaks = [ "normal" ];
 
   gtk = {
@@ -183,14 +191,30 @@
     };
 
     gtk3.extraConfig = {
-		  gtk-application-prefer-dark-theme = '' 1 '';
+      gtk-application-prefer-dark-theme = '' 1 '';
     };
 
     gtk4.extraConfig = {
-		  gtk-application-prefer-dark-theme = '' 1 '';
+      gtk-application-prefer-dark-theme = '' 1 '';
     };
   };
 
+  # QT theme
+  qt = {
+    enable = true;
+    platformTheme.name = "qt5ct";
+    style.name = "kvantum";
+  };
+
+  xdg.configFile."Kvantum/kvantum.kvconfig".source = (pkgs.formats.ini {}).generate "kvantum.kvconfig" {
+      General.theme = "catppuccin-mocha-lavender";
+  };
+
+  xdg.configFile."qt5ct/qt5ct.conf".source = (pkgs.formats.ini {}).generate "kvantum.kvconfig" {
+    Appearance.icon_theme = "Adwaita";
+  };
+
+  # Mouse cursor
   home.file.".icons/default/index.theme".text = ''
     [Icon Theme]
     Inherits=Bibata-Modern-Classic
@@ -215,6 +239,8 @@
   #
   home.sessionVariables = {
     # EDITOR = "emacs";
+    QT_QPA_PLATFORMTHEME="qt5ct";
+    QT_STYLE_OVERRIDE="kvantum";
   };
 
   xdg.mimeApps = {

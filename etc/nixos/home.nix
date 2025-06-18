@@ -54,7 +54,7 @@
     kitty                       # Terminal
     obs-studio                  # OBS
     davinci-resolve             # Davinci resolve
-    prismlauncher 		# Minecraft launcher
+    prismlauncher 		# The Minecraft launcher
     batmon                      # TUI battery
     htop                        # TUI task manager
     unstable.audacity		# Audio editor

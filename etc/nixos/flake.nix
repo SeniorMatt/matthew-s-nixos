@@ -1,5 +1,5 @@
 {
-  description = "Nixos config flake";
+  description = "NixOS config flake";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
@@ -11,17 +11,35 @@
       url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # Plasma Manager
+    plasma-manager = {
+      url = "github:nix-community/plasma-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, catppuccin, home-manager, ... }@inputs: {
-    # use "nixos", or your hostname as the name of the configuration
-    # it's a better practice than "default" shown in the video
-    nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-      specialArgs = {inherit inputs;};
-      modules = [
-        ./configuration.nix
-	catppuccin.nixosModules.catppuccin
-        inputs.home-manager.nixosModules.default
+  outputs = inputs @ { nixpkgs, nixpkgs-unstable, home-manager, plasma-manager, ... }:
+    let 
+      system = "x86_64-linux";
+    in
+    {
+      nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
+        inherit system;
+
+        specialArgs = {inherit inputs;};
+        modules = [
+          ./configuration.nix
+
+	  home-manager.nixosModules.default
+          {
+            home-manager.useUserPackages = true;
+            home-manager.sharedModules = [
+	      inputs.catppuccin.homeModules.catppuccin
+              plasma-manager.homeManagerModules.plasma-manager
+            ];
+          }
       ];
     };
   };

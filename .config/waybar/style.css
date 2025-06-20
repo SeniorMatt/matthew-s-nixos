@@ -48,6 +48,9 @@ button {
 #power-profiles-daemon,
 #custom-wifi,
 #custom-bluetooth,
+#cpu,
+#temperature,
+#memory,
 #mpd {
     margin: 4px 0px;
     padding: 0px 4px;

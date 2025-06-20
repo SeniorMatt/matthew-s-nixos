@@ -101,6 +101,7 @@
 
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
+    backupFileExtension = "backup";
     users = {
       "matthew" = import ./home.nix;
       };
@@ -155,7 +156,7 @@
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   # KDE Plasma
-  # services.desktopManager.plasma6.enable = true;
+  services.desktopManager.plasma6.enable = true;
 
   # List services that you want to enable:
 

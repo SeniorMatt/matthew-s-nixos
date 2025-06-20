@@ -128,10 +128,6 @@
   programs.neovim = {
     enable = true;
     defaultEditor = true;
-
-    extraPackages = [
-      pkgs.vimPlugins.catppuccin-vim
-    ];
   };
 
   programs.fish = {
@@ -152,6 +148,30 @@
     enable = true;
   };
 
+  programs.plasma = {
+    enable = true;
+
+
+    workspace = {
+      colorScheme = "Breeze Dark";
+      cursor = {
+        theme = "Breeze";
+	size = 24;
+      };
+    };
+
+    fonts = {
+      general = {
+        family = "Noto Sans";
+        pointSize = 12;
+      };
+    };
+
+    shortcuts = {
+      "kwin"."Window Close" = ["Meta+C,Close Window"];
+    };
+  };
+
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
@@ -168,13 +188,11 @@
   };
   
   # GTK theme
-  imports = [inputs.catppuccin.homeModules.catppuccin];
-
-  catppuccin.gtk.enable = true;
-  catppuccin.gtk.flavor = "mocha";
-  catppuccin.gtk.accent = "lavender";
-  # catppuccin.gtk.size = "compact";
-  catppuccin.gtk.tweaks = [ "normal" ];
+  #catppuccin.gtk.enable = true;
+  #catppuccin.gtk.flavor = "mocha";
+  #catppuccin.gtk.accent = "lavender";
+  #catppuccin.gtk.tweaks = [ "normal" ];
+  #catppuccin.gtk.size = "compact";
 
   gtk = {
     enable = true;
@@ -200,19 +218,19 @@
   };
 
   # QT theme
-  qt = {
-    enable = true;
-    platformTheme.name = "qt5ct";
-    style.name = "kvantum";
-  };
+  #qt = {
+  #  enable = true;
+  #  platformTheme.name = "qt5ct";
+  #  style.name = "kvantum";
+  #};
 
-  xdg.configFile."Kvantum/kvantum.kvconfig".source = (pkgs.formats.ini {}).generate "kvantum.kvconfig" {
-      General.theme = "catppuccin-mocha-lavender";
-  };
+  #xdg.configFile."Kvantum/kvantum.kvconfig".source = (pkgs.formats.ini {}).generate "kvantum.kvconfig" {
+  #    General.theme = "catppuccin-mocha-lavender";
+  #};
 
-  xdg.configFile."qt5ct/qt5ct.conf".source = (pkgs.formats.ini {}).generate "kvantum.kvconfig" {
-    Appearance.icon_theme = "Adwaita";
-  };
+  #xdg.configFile."qt5ct/qt5ct.conf".source = (pkgs.formats.ini {}).generate "kvantum.kvconfig" {
+  #  Appearance.icon_theme = "Adwaita";
+  #};
 
   # Mouse cursor
   home.file.".icons/default/index.theme".text = ''

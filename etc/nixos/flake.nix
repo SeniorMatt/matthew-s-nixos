@@ -11,16 +11,9 @@
       url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    # Plasma Manager
-    plasma-manager = {
-      url = "github:nix-community/plasma-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.home-manager.follows = "home-manager";
-    };
   };
 
-  outputs = inputs @ { nixpkgs, nixpkgs-unstable, home-manager, plasma-manager, ... }:
+  outputs = inputs @ { nixpkgs, nixpkgs-unstable, home-manager, ... }:
     let 
       system = "x86_64-linux";
     in
@@ -37,7 +30,6 @@
             home-manager.useUserPackages = true;
             home-manager.sharedModules = [
 	      inputs.catppuccin.homeModules.catppuccin
-              plasma-manager.homeManagerModules.plasma-manager
             ];
           }
       ];

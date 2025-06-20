@@ -155,9 +155,6 @@
   # Optional, hint electron apps to use wayland:
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
-  # KDE Plasma
-  services.desktopManager.plasma6.enable = true;
-
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.

@@ -101,10 +101,11 @@
 
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
-    backupFileExtension = "backup";
+    useUserPackages = true;
     users = {
       "matthew" = import ./home.nix;
-      };
+    };
+    backupFileExtension = "hm-backup";
   };
 
   # Install firefox.
@@ -154,6 +155,11 @@
   programs.hyprland.enable = true;
   # Optional, hint electron apps to use wayland:
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
+  
+  # KDE Plasma
+  services.desktopManager.plasma6.enable = true;
+  services.displayManager.sddm.enable = true;
+  services.displayManager.sddm.wayland.enable = true;
 
   # List services that you want to enable:
 
@@ -162,8 +168,8 @@
   
   services.power-profiles-daemon.enable = true;
   services.gnome.gnome-keyring.enable = true;
-  services.displayManager.ly.enable = true;
   services.udisks2.enable = true;
+  services.displayManager.ly.enable = false;
 
   # Remaping key
   services.keyd = {

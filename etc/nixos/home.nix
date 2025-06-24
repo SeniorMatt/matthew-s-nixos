@@ -1,6 +1,12 @@
 { config, pkgs, inputs, ... }:
 
-{
+
+let
+  breezeCursorDefault = pkgs.runCommandLocal "breeze-cursor-default-theme" { } ''
+    mkdir -p $out/share/icons
+    ln -s ${pkgs.kdePackages.breeze}/share/icons/breeze_cursors $out/share/icons/default
+  '';
+in {
   imports = 
   [
     # ./theme-configuration.nix
@@ -57,13 +63,13 @@
 
     # Needs
     blueberry                   # Bluetooth control
+    networkmanagerapplet        # Network control
     pavucontrol                 # Audio control
     grim                        # Screenshot
     slurp                       # Selector for screenshot
 
     # Gnome ecosystem
     evince                      # Document viewer
-    networkmanagerapplet        # Network control
     nautilus                    # File manager
     eog                         # Image viewer
     papers                      # Document viewer
@@ -71,6 +77,10 @@
     parlatype                   # Audio player
     gnome-calculator            # Calculator
     gnome-clocks                # Clock
+
+    # KDE ecosystem
+    kdePackages.kclock		# Klock
+    kdePackages.kalk		# Kalculator
 
     # System applications
     wlsunset                    # Blue light filter
@@ -85,6 +95,7 @@
     (catppuccin-kvantum.override { variant = "mocha"; accent = "lavender"; } ) # QT theme
     adwaita-icon-theme          # Icon theme
     bibata-cursors              # Cursor theme
+    breezeCursorDefault
 
     libsForQt5.qt5ct
     libsForQt5.qtstyleplugin-kvantum
@@ -143,9 +154,9 @@
     enable = true;
 
     workspace = {
-      colorScheme = "Breeze Dark";
+      colorScheme = "BreezeDark";
       cursor = {
-        theme = "Breeze";
+        theme = "breeze_cursors";
 	size = 24;
       };
     };
@@ -587,6 +598,11 @@
       "kate/anonymous.katesession"."Plugin:katesearchplugin:MainWindow:0"."UseRegExp" = false;
     };
   };
+
+  # Mouse cursor
+  home.file.".icons/default".source = "${pkgs.kdePackages.breeze}/share/icons/breeze_cursors";
+
+  #$out/share/icons/default
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.

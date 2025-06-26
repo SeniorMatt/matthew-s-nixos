@@ -132,7 +132,6 @@
      lm_sensors               # Temperature sensors
      brightnessctl            # Brightness control
      dunst                    # Notifications daemon
-     hyprpolkitagent          # Authenetication daemon
      gnome-keyring            # Keyring daemon
      zoxide                   # Moving in terminal
   ];
@@ -158,8 +157,9 @@
   
   # KDE Plasma
   services.desktopManager.plasma6.enable = true;
-  services.displayManager.sddm.enable = true;
-  services.displayManager.sddm.wayland.enable = true;
+
+  # LM
+  services.displayManager.ly.enable = true;
 
   # List services that you want to enable:
 
@@ -169,7 +169,6 @@
   services.power-profiles-daemon.enable = true;
   services.gnome.gnome-keyring.enable = true;
   services.udisks2.enable = true;
-  services.displayManager.ly.enable = false;
 
   # Remaping key
   services.keyd = {

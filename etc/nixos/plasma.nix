@@ -1,5 +1,9 @@
 { config, pkgs, inputs, ... }:
 
+# Run
+# nix run github:nix-community/plasma-manager
+# to copy your current config
+
 let
   breezeCursorDefault = pkgs.runCommandLocal "breeze-cursor-default-theme" { } ''
     mkdir -p $out/share/icons
@@ -49,7 +53,6 @@ in {
         pointSize = 12;
       };
     };
-
     shortcuts = {
       "ActivityManager"."switch-to-activity-90184e44-ef83-4e9e-9c7c-1b99b0862bbd" = [ ];
       "KDE Keyboard Layout Switcher"."Switch keyboard layout to English (US)" = [ ];
@@ -157,7 +160,7 @@ in {
       "kwin"."Window Custom Quick Tile Left" = [ ];
       "kwin"."Window Custom Quick Tile Right" = [ ];
       "kwin"."Window Custom Quick Tile Top" = [ ];
-      "kwin"."Window Fullscreen" = [ ];
+      "kwin"."Window Fullscreen" = "Meta+F,,Make Window Fullscreen";
       "kwin"."Window Grow Horizontal" = [ ];
       "kwin"."Window Grow Vertical" = [ ];
       "kwin"."Window Lower" = [ ];
@@ -318,7 +321,7 @@ in {
       "katerc"."filetree"."showToolbar" = true;
       "katerc"."filetree"."sortRole" = 0;
       "katerc"."filetree"."viewShade" = "81,49,95";
-      "kcminputrc"."Libinput/2/10/TPPS\\/2 IBM TrackPoint"."PointerAcceleration" = 0.200;
+      "kcminputrc"."Libinput/2/10/TPPS\\/2 IBM TrackPoint"."PointerAcceleration" = 0.2;
       "kcminputrc"."Libinput/2/10/TPPS\\/2 IBM TrackPoint"."PointerAccelerationProfile" = 1;
       "kcminputrc"."Libinput/9639/64124/Compx 2.4G Wireless Receiver"."PointerAcceleration" = "-0.200";
       "kcminputrc"."Libinput/9639/64124/Compx 2.4G Wireless Receiver"."PointerAccelerationProfile" = 1;
@@ -377,15 +380,15 @@ in {
       "kwinrc"."Plugins"."cubeEnabled" = true;
       "kwinrc"."Plugins"."kwin4_effect_geometry_changeEnabled" = true;
       "kwinrc"."Tiling"."padding" = 4;
-      "kwinrc"."Tiling/2d23759b-13f5-51a0-af5c-818ff350cfc4"."tiles" = "{\"layoutDirection\":\"horizontal\",\"tiles\":[{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}]}";
-      "kwinrc"."Tiling/2ea62e39-36f9-48c4-be93-36a12382ddad/521ea49f-9bef-4ac8-85d5-e58c7e97e7d0"."tiles" = "{\"layoutDirection\":\"horizontal\",\"tiles\":[{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}]}";
-      "kwinrc"."Tiling/2ea62e39-36f9-48c4-be93-36a12382ddad/c46cdf32-0e9c-430d-b1a9-bd16bdc31793"."tiles" = "{\"layoutDirection\":\"horizontal\",\"tiles\":[{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}]}";
-      "kwinrc"."Tiling/60e0bdc5-aade-4806-b22c-b40dd9b741e6/521ea49f-9bef-4ac8-85d5-e58c7e97e7d0"."tiles" = "{\"layoutDirection\":\"horizontal\",\"tiles\":[{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}]}";
-      "kwinrc"."Tiling/60e0bdc5-aade-4806-b22c-b40dd9b741e6/c46cdf32-0e9c-430d-b1a9-bd16bdc31793"."tiles" = "{\"layoutDirection\":\"horizontal\",\"tiles\":[{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}]}";
-      "kwinrc"."Tiling/8d8a8926-d8d6-4121-9afa-a0463a59bc2f/521ea49f-9bef-4ac8-85d5-e58c7e97e7d0"."tiles" = "{\"layoutDirection\":\"horizontal\",\"tiles\":[{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}]}";
-      "kwinrc"."Tiling/a746b084-54ea-4e31-8d71-3524edc77a9c/521ea49f-9bef-4ac8-85d5-e58c7e97e7d0"."tiles" = "{\"layoutDirection\":\"horizontal\",\"tiles\":[{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}]}";
-      "kwinrc"."Tiling/a746b084-54ea-4e31-8d71-3524edc77a9c/c46cdf32-0e9c-430d-b1a9-bd16bdc31793"."tiles" = "{\"layoutDirection\":\"horizontal\",\"tiles\":[{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}]}";
-      "kwinrc"."Tiling/bbec4f90-f894-42c3-a64f-95437f6149c1/521ea49f-9bef-4ac8-85d5-e58c7e97e7d0"."tiles" = "{\"layoutDirection\":\"horizontal\",\"tiles\":[{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}]}";
+      "kwinrc"."Tiling/2d23759b-13f5-51a0-af5c-818ff350cfc4"."tiles" = "{\"layoutDirection\":\"horizontal\",\"tiles\":\x5b{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}\x5d}";
+      "kwinrc"."Tiling/2ea62e39-36f9-48c4-be93-36a12382ddad/521ea49f-9bef-4ac8-85d5-e58c7e97e7d0"."tiles" = "{\"layoutDirection\":\"horizontal\",\"tiles\":\x5b{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}\x5d}";
+      "kwinrc"."Tiling/2ea62e39-36f9-48c4-be93-36a12382ddad/c46cdf32-0e9c-430d-b1a9-bd16bdc31793"."tiles" = "{\"layoutDirection\":\"horizontal\",\"tiles\":\x5b{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}\x5d}";
+      "kwinrc"."Tiling/60e0bdc5-aade-4806-b22c-b40dd9b741e6/521ea49f-9bef-4ac8-85d5-e58c7e97e7d0"."tiles" = "{\"layoutDirection\":\"horizontal\",\"tiles\":\x5b{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}\x5d}";
+      "kwinrc"."Tiling/60e0bdc5-aade-4806-b22c-b40dd9b741e6/c46cdf32-0e9c-430d-b1a9-bd16bdc31793"."tiles" = "{\"layoutDirection\":\"horizontal\",\"tiles\":\x5b{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}\x5d}";
+      "kwinrc"."Tiling/8d8a8926-d8d6-4121-9afa-a0463a59bc2f/521ea49f-9bef-4ac8-85d5-e58c7e97e7d0"."tiles" = "{\"layoutDirection\":\"horizontal\",\"tiles\":\x5b{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}\x5d}";
+      "kwinrc"."Tiling/a746b084-54ea-4e31-8d71-3524edc77a9c/521ea49f-9bef-4ac8-85d5-e58c7e97e7d0"."tiles" = "{\"layoutDirection\":\"horizontal\",\"tiles\":\x5b{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}\x5d}";
+      "kwinrc"."Tiling/a746b084-54ea-4e31-8d71-3524edc77a9c/c46cdf32-0e9c-430d-b1a9-bd16bdc31793"."tiles" = "{\"layoutDirection\":\"horizontal\",\"tiles\":\x5b{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}\x5d}";
+      "kwinrc"."Tiling/bbec4f90-f894-42c3-a64f-95437f6149c1/521ea49f-9bef-4ac8-85d5-e58c7e97e7d0"."tiles" = "{\"layoutDirection\":\"horizontal\",\"tiles\":\x5b{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}\x5d}";
       "kwinrc"."Windows"."NextFocusPrefersMouse" = true;
       "kwinrc"."Xwayland"."Scale" = 1;
       "kwinrc"."org.kde.kdecoration2"."ButtonsOnLeft" = "MF";
@@ -399,7 +402,7 @@ in {
       "plasmanotifyrc"."Applications/org.telegram.desktop"."Seen" = true;
       "plasmarc"."Wallpapers"."usersWallpapers" = "";
       "spectaclerc"."GuiConfig"."captureMode" = 0;
-      "spectaclerc"."ImageSave"."lastImageSaveLocation" = "file:///home/matthew/Pictures/Screenshots/Screenshot_20250622_022709.png";
+      "spectaclerc"."ImageSave"."lastImageSaveLocation" = "file:///home/matthew/Pictures/Screenshots/Screenshot_20250627_234958.png";
       "spectaclerc"."ImageSave"."translatedScreenshotsFolder" = "Screenshots";
       "spectaclerc"."VideoSave"."preferredVideoFormat" = 2;
       "spectaclerc"."VideoSave"."translatedScreencastsFolder" = "Screencasts";

@@ -3,7 +3,7 @@
 {
   home.packages = with pkgs; [
     # Themes
-    (catppuccin-kvantum.override { variant = "mocha"; accent = "lavender"; } ) # QT theme
+    (catppuccin-kvantum.override { variant = "mocha"; accent = "blue"; } ) # QT theme
     adwaita-icon-theme          # Icon theme
     bibata-cursors              # Cursor theme
     libsForQt5.qt5ct
@@ -71,7 +71,7 @@
   };
 
   xdg.configFile."Kvantum/kvantum.kvconfig".source = (pkgs.formats.ini {}).generate "kvantum.kvconfig" {
-      General.theme = "catppuccin-mocha-lavender";
+      General.theme = "catppuccin-mocha-blue";
   };
 
   xdg.configFile."qt5ct/qt5ct.conf".source = (pkgs.formats.ini {}).generate "kvantum.kvconfig" {
@@ -83,4 +83,9 @@
     [Icon Theme]
     Inherits=Bibata-Modern-Classic
   '';
+
+  home.sessionVariables = {
+    QT_QPA_PLATFORMTHEME="qt5ct";
+    QT_STYLE_OVERRIDE="kvantum";
+  };
 }

@@ -3,8 +3,8 @@
 {
   imports = 
   [
-      ./hyprland.nix
-      # ./plasma.nix
+      #./hyprland.nix
+      ./plasma.nix
   ];
 
   # Home Manager needs a bit of information about you and the paths it should
@@ -54,16 +54,6 @@
     htop                        # TUI task manager
     audacity			# Audio editor
     gamescope			# Downscale games
-
-    # Gnome ecosystem
-    evince                      # Document viewer
-    nautilus                    # File manager
-    eog                         # Image viewer
-    papers                      # Document viewer
-    mpv                         # Media player
-    parlatype                   # Audio player
-    gnome-calculator            # Calculator
-    gnome-clocks                # Clock
 
     # Fun stuff :D
     nitch                       # Fetcher

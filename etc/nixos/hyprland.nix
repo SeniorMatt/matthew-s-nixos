@@ -19,6 +19,16 @@
     hyprpolkitagent		# Authentification agent
     xdg-desktop-portal-hyprland	# Desktop portal hyprland
 
+    # Gnome ecosystem
+    evince                      # Document viewer
+    nautilus                    # File manager
+    eog                         # Image viewer
+    papers                      # Document viewer
+    mpv                         # Media player
+    parlatype                   # Audio player
+    gnome-calculator            # Calculator
+    gnome-clocks                # Clock
+
     # Needs
     blueberry                   # Bluetooth control
     networkmanagerapplet        # Network control

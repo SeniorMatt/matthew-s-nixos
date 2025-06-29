@@ -105,7 +105,6 @@
     users = {
       "matthew" = import ./home.nix;
     };
-    backupFileExtension = "hm-backup";
   };
 
   # Install firefox.
@@ -157,7 +156,7 @@
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
   
   # KDE Plasma
-  services.desktopManager.plasma6.enable = true;
+  # services.desktopManager.plasma6.enable = true;
   programs.kdeconnect.enable = true;
 
   # LM

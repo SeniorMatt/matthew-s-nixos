@@ -1,10 +1,8 @@
 { config, pkgs, inputs, ... }:
 
 {
-  imports = 
-  [
-      #./hyprland.nix
-      #./plasma.nix
+  imports = [
+    ./hyprland.nix
   ];
 
   # Home Manager needs a bit of information about you and the paths it should
@@ -141,17 +139,17 @@
     # EDITOR = "emacs";
   };
 
-  #xdg.mimeApps = {
-  #  enable = true;
-  #  defaultApplications = {
-  #    "image/png" = "org.gnome.eog.desktop";
-  #    "image/jpeg" = "org.gnome.eog.desktop";
-  #    "video/mp4" = "mpv.desktop";
-  #    "audio/mp3" = "org.gnome.parlatype.desktop";
-  #    "audio/wav" = "org.gnome.parlatype.desktop";
-  #    "document/pdf" = "papers.desktop";
-  #  };
-  #};
+  xdg.mimeApps = {
+    enable = true;
+    defaultApplications = {
+      "image/png" = "org.gnome.eog.desktop";
+      "image/jpeg" = "org.gnome.eog.desktop";
+      "video/mp4" = "mpv.desktop";
+      "audio/mp3" = "org.gnome.parlatype.desktop";
+      "audio/wav" = "org.gnome.parlatype.desktop";
+      "document/pdf" = "papers.desktop";
+    };
+  };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;

@@ -123,6 +123,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+     steam-run
 
      hyprland                 # WM
      ly                       # Login manager
@@ -157,6 +158,7 @@
   
   # KDE Plasma
   services.desktopManager.plasma6.enable = true;
+  programs.kdeconnect.enable = true;
 
   # LM
   services.displayManager.ly.enable = true;
@@ -211,7 +213,6 @@
       cp -r /home/matthew/.config/nvim/ /home/matthew/Documents/GitHub/Matthew-s-NixOS/.config/
       cp -r /home/matthew/.config/tofi/ /home/matthew/Documents/GitHub/Matthew-s-NixOS/.config/
       cp -r /home/matthew/.config/waybar/ /home/matthew/Documents/GitHub/Matthew-s-NixOS/.config/
-      cp -r /home/matthew/.config/waypaper/ /home/matthew/Documents/GitHub/Matthew-s-NixOS/.config/
       cp -r /home/matthew/.config/wlogout/ /home/matthew/Documents/GitHub/Matthew-s-NixOS/.config/
     '';
   };

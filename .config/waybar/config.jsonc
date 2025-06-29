@@ -11,7 +11,7 @@
         "temperature",
         "memory",
         "battery",
-        "battery#bat1"
+        "battery#bat1"	// Comment this line to remove second battery
     ],
     "modules-center": [
         "custom/distrologo"
@@ -232,7 +232,7 @@
       "tooltip-format": "I'm using NixOS BTW",
       "tooltip": true,
       "format-icons": {
-        "default": "",
+        "default": ""
       },
 		  "on-click": "kitty --hold bash -c nitch"
     }

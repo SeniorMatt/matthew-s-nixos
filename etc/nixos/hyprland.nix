@@ -24,7 +24,6 @@
     nautilus                    # File manager
     eog                         # Image viewer
     papers                      # Document viewer
-    mpv                         # Media player
     parlatype                   # Audio player
     gnome-calculator            # Calculator
     gnome-clocks                # Clock

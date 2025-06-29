@@ -53,6 +53,7 @@
             home-manager.sharedModules = [
               inputs.catppuccin.homeModules.catppuccin
               plasma-manager.homeManagerModules.plasma-manager
+	      ./plasma.nix
             ];
           }
         ];

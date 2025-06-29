@@ -4,7 +4,7 @@
   imports = 
   [
       #./hyprland.nix
-      ./plasma.nix
+      #./plasma.nix
   ];
 
   # Home Manager needs a bit of information about you and the paths it should
@@ -54,6 +54,7 @@
     htop                        # TUI task manager
     audacity			# Audio editor
     gamescope			# Downscale games
+    mpv 			# Media player
 
     # Fun stuff :D
     nitch                       # Fetcher

@@ -1,11 +1,20 @@
 { config, pkgs, inputs, ... }:
 
+let
+  bibataCursorDefault = pkgs.runCommandLocal "bibata-cursor-default-theme" { } ''
+    mkdir -p $out/share/icons
+    # point “default” at the Classic variant
+    ln -s ${pkgs.bibata-cursors}/share/icons/Bibata-Modern-Classic \
+          $out/share/icons/default
+  '';
+in
 {
   home.packages = with pkgs; [
     # Themes
     (catppuccin-kvantum.override { variant = "mocha"; accent = "blue"; } ) # QT theme
     adwaita-icon-theme          # Icon theme
     bibata-cursors              # Cursor theme
+    bibataCursorDefault
     libsForQt5.qt5ct
     libsForQt5.qtstyleplugin-kvantum
 
@@ -18,6 +27,7 @@
     hyprpaper                   # Wallpaper
     hyprpolkitagent		# Authentification agent
     xdg-desktop-portal-hyprland	# Desktop portal hyprland
+    swayosd
 
     # Gnome ecosystem
     evince                      # Document viewer
@@ -88,10 +98,7 @@
   };
 
   # Mouse cursor
-  home.file.".icons/default/index.theme".text = ''
-    [Icon Theme]
-    Inherits=Bibata-Modern-Classic
-  '';
+  home.file.".icons/default".source = "${pkgs.bibata-cursors}/share/icons/Bibata-Modern-Classic";
 
   home.sessionVariables = {
     QT_QPA_PLATFORMTHEME="qt5ct";

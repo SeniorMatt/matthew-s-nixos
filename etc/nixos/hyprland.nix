@@ -1,19 +1,16 @@
 { config, pkgs, inputs, ... }:
 
 let
-  bibataCursorDefault = pkgs.runCommandLocal "bibata-cursor-default-theme" { } ''
+  cursor-default-theme = pkgs.runCommandLocal "cursor-default-theme" { } ''
     mkdir -p $out/share/icons
-    # point “default” at the Classic variant
-    ln -s ${pkgs.bibata-cursors}/share/icons/Bibata-Modern-Classic \
-          $out/share/icons/default
-  '';
+    ln -s ${pkgs.catppuccin-cursors}/share/icons/catppuccin-mocha-dark-cursors $out/share/icons/default
+    '';
 in
 {
   home.packages = with pkgs; [
     # Themes
     adwaita-icon-theme          # Icon theme
-    bibata-cursors              # Cursor theme
-    bibataCursorDefault		# The worst way to setup cursor
+    cursor-default-theme 	# Cursor theme as well
     libsForQt5.qtstyleplugin-kvantum
     libsForQt5.qt5ct
 
@@ -46,7 +43,7 @@ in
   ];
 
   # Theme
-  catppuccin.enable = true;
+  catppuccin.starship.enable = true;
   catppuccin.flavor = "mocha";
   catppuccin.accent = "lavender";
 
@@ -71,8 +68,8 @@ in
     };
 
     cursorTheme = {
-      name = "Bibata-Modern-Classic";
-      package = pkgs.bibata-cursors;
+      name = "catppuccin-mocha-dark-cursors";
+      package = pkgs.catppuccin-cursors.mochaDark;
       size = 24;
     };
 
@@ -92,5 +89,12 @@ in
   };
 
   # Mouse cursor
-  home.file.".icons/default".source = "${pkgs.bibata-cursors}/share/icons/Bibata-Modern-Classic";
+  home.file.".icons/default".source = "${pkgs.catppuccin-cursors.mochaDark}/share/icons/catppuccin-mocha-dark-cursors";
+
+  home.sessionVariables = {
+    XCURSOR_THEME = "catppuccin-mocha-dark-cursors";
+    XCURSOR_SIZE = "24";
+    HYPRCURSOR_THEME = "catppuccin-mocha-dark-cursors";
+    HYPRCURSOR_SIZE = "24";
+  };
 }

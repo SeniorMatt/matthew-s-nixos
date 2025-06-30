@@ -36,6 +36,7 @@
     gcc
 
     # Applications
+    steam-run			# To run godot builds
     gimp 			# Image editor
     telegram-desktop            # Telegram client
     vesktop                     # Discord client

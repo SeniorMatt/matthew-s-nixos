@@ -122,8 +122,6 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-     steam-run
-
      hyprland                 # WM
      ly                       # Login manager
      udiskie 		      # Disk manager
@@ -141,6 +139,13 @@
      font-awesome             # Icon font
      nerd-fonts.symbols-only  # Nerd font
   ];
+
+  environment.sessionVariables = {
+    XCURSOR_THEME      = "catppuccin-mocha-dark-cursors";
+    XCURSOR_SIZE       = "24";
+    HYPRCURSOR_THEME   = "catppuccin-mocha-dark-cursors";
+    HYPRCURSOR_SIZE    = "24";
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

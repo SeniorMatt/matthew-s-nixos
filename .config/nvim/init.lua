@@ -1,1 +1,3 @@
-/nix/store/cs77yvhpx52wh8vv1z0rj5cf6nmagh1v-home-manager-files/.config/nvim/init.lua
+-- bootstrap lazy.nvim, LazyVim and your plugins
+require("config.lazy")
+require("catppuccin").load "mocha"

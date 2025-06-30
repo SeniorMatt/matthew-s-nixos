@@ -11,12 +11,11 @@ in
 {
   home.packages = with pkgs; [
     # Themes
-    (catppuccin-kvantum.override { variant = "mocha"; accent = "blue"; } ) # QT theme
     adwaita-icon-theme          # Icon theme
     bibata-cursors              # Cursor theme
-    bibataCursorDefault
-    libsForQt5.qt5ct
+    bibataCursorDefault		# The worst way to setup cursor
     libsForQt5.qtstyleplugin-kvantum
+    libsForQt5.qt5ct
 
     # System applications
     wlsunset                    # Blue light filter
@@ -27,7 +26,7 @@ in
     hyprpaper                   # Wallpaper
     hyprpolkitagent		# Authentification agent
     xdg-desktop-portal-hyprland	# Desktop portal hyprland
-    swayosd
+    swayosd			# Notifications for the volume and brightness
 
     # Gnome ecosystem
     evince                      # Document viewer
@@ -46,12 +45,22 @@ in
     slurp                       # Selector for screenshot
   ];
 
-  # GTK theme
+  # Theme
+  catppuccin.enable = true;
+  catppuccin.flavor = "mocha";
+  catppuccin.accent = "lavender";
+
   catppuccin.gtk.enable = true;
   catppuccin.gtk.flavor = "mocha";
   catppuccin.gtk.accent = "lavender";
   catppuccin.gtk.tweaks = [ "normal" ];
   catppuccin.gtk.size = "compact";
+
+  qt = {
+    enable = true;
+    platformTheme.name = "kvantum";
+    style.name = "kvantum";
+  };
 
   gtk = {
     enable = true;
@@ -82,26 +91,6 @@ in
     };
   };
 
-  # QT theme
-  qt = {
-    enable = true;
-    platformTheme.name = "qt5ct";
-    style.name = "kvantum";
-  };
-
-  xdg.configFile."Kvantum/kvantum.kvconfig".source = (pkgs.formats.ini {}).generate "kvantum.kvconfig" {
-      General.theme = "catppuccin-mocha-blue";
-  };
-
-  xdg.configFile."qt5ct/qt5ct.conf".source = (pkgs.formats.ini {}).generate "kvantum.kvconfig" {
-    Appearance.icon_theme = "Adwaita";
-  };
-
   # Mouse cursor
   home.file.".icons/default".source = "${pkgs.bibata-cursors}/share/icons/Bibata-Modern-Classic";
-
-  home.sessionVariables = {
-    QT_QPA_PLATFORMTHEME="qt5ct";
-    QT_STYLE_OVERRIDE="kvantum";
-  };
 }

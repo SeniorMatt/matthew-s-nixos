@@ -27,6 +27,7 @@
         };
 
         modules = [
+	  inputs.catppuccin.nixosModules.catppuccin
           ./configuration.nix
           {
             nixpkgs.overlays = [

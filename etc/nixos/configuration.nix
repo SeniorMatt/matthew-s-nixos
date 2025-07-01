@@ -140,13 +140,6 @@
      nerd-fonts.symbols-only  # Nerd font
   ];
 
-  environment.sessionVariables = {
-    XCURSOR_THEME      = "catppuccin-mocha-dark-cursors";
-    XCURSOR_SIZE       = "24";
-    HYPRCURSOR_THEME   = "catppuccin-mocha-dark-cursors";
-    HYPRCURSOR_SIZE    = "24";
-  };
-
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;

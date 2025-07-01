@@ -43,9 +43,12 @@ in
   ];
 
   # Theme
-  catppuccin.starship.enable = true;
   catppuccin.flavor = "mocha";
   catppuccin.accent = "lavender";
+
+  catppuccin.starship.enable = true;
+
+  catppuccin.kvantum.enable = true;
 
   catppuccin.gtk.enable = true;
   catppuccin.gtk.flavor = "mocha";
@@ -92,6 +95,8 @@ in
   home.file.".icons/default".source = "${pkgs.catppuccin-cursors.mochaDark}/share/icons/catppuccin-mocha-dark-cursors";
 
   home.sessionVariables = {
+    QT_QPA_PLATFORMTHEME="kvantum";
+    QT_STYLE_OVERRIDE="kvantum";
     XCURSOR_THEME = "catppuccin-mocha-dark-cursors";
     XCURSOR_SIZE = "24";
     HYPRCURSOR_THEME = "catppuccin-mocha-dark-cursors";

@@ -176,25 +176,6 @@
   services.gnome.gnome-keyring.enable = true;
   services.udisks2.enable = true;
 
-  # Remaping key
-  services.keyd = {
-    enable = true;
-
-    keyboards = {
-      default = {
-        ids = [ "*" ];
-
-        settings = {
-          main = {
-            backslash = "backspace";
-          };
-        };
-
-        extraConfig = "";
-      };
-    };
-  };
-
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];

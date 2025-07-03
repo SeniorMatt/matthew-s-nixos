@@ -154,7 +154,7 @@
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
   
   # KDE Plasma
-  # services.desktopManager.plasma6.enable = true;
+  services.desktopManager.plasma6.enable = true;
   programs.kdeconnect.enable = true;
 
   # LM
@@ -174,26 +174,6 @@
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
-
-  # Copying configuration files in to my GitHub repo
-  system.activationScripts.mySyncScript = {
-    text = ''
-      #!/bin/sh
-      
-      echo "Copying NixOS configuration..."
-      cp -r /etc/nixos/ /home/matthew/Documents/GitHub/Matthew-s-NixOS/etc/
-      rm -f /home/matthew/Documents/GitHub/Matthew-s-NixOS/etc/nixos/hardware-configuration.nix
-
-      echo "Copying Dotfiles..."
-      cp -r /home/matthew/.config/dunst/ /home/matthew/Documents/GitHub/Matthew-s-NixOS/.config/
-      cp -r /home/matthew/.config/hypr/ /home/matthew/Documents/GitHub/Matthew-s-NixOS/.config/
-      cp -r /home/matthew/.config/kitty/ /home/matthew/Documents/GitHub/Matthew-s-NixOS/.config/
-      cp -r /home/matthew/.config/nvim/ /home/matthew/Documents/GitHub/Matthew-s-NixOS/.config/
-      cp -r /home/matthew/.config/tofi/ /home/matthew/Documents/GitHub/Matthew-s-NixOS/.config/
-      cp -r /home/matthew/.config/waybar/ /home/matthew/Documents/GitHub/Matthew-s-NixOS/.config/
-      cp -r /home/matthew/.config/wlogout/ /home/matthew/Documents/GitHub/Matthew-s-NixOS/.config/
-    '';
-  };
 
   # Cleaning old builds
   nix = {

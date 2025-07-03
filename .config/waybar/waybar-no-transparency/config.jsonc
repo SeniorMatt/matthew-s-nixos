@@ -234,6 +234,6 @@
       "format-icons": {
         "default": ""
       },
-      "on-click": "kitty --hold bash -c nitch"
+		  "on-click": "kitty --hold bash -c nitch"
     }
 }

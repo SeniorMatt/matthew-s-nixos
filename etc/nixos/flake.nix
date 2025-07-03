@@ -6,14 +6,19 @@
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     catppuccin.url = "github:catppuccin/nix";
 
-    # Home Manager
     home-manager = {
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    
+    plasma-manager = {
+      url = "github:nix-community/plasma-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
   };
 
-  outputs = inputs @ { nixpkgs, nixpkgs-unstable, home-manager, ... }:
+  outputs = inputs @ { nixpkgs, nixpkgs-unstable, home-manager, plasma-manager, ... }:
     let
       system = "x86_64-linux";
     in
@@ -46,6 +51,7 @@
             home-manager.useUserPackages = true;
             home-manager.sharedModules = [
               inputs.catppuccin.homeModules.catppuccin
+	      inputs.plasma-manager.homeManagerModules.plasma-manager
             ];
           }
         ];

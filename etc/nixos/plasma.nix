@@ -7,6 +7,9 @@ let
     '';
 in
 {
+
+  # Theme setup
+
   home.file.".icons/default".source = "${pkgs.kdePackages.breeze}/share/icons/breeze_cursors";
 
   home.packages = with pkgs; [
@@ -14,6 +17,28 @@ in
     kdePackages.kalk
     kdePackages.kclock
   ];
+  
+  gtk = {
+    enable = true;
+
+    theme = {
+      name = "Breeze-Dark";
+      package = pkgs.kdePackages.breeze-gtk;
+    };
+
+    iconTheme = {
+      name = "Breeze-Dark";
+      package = pkgs.kdePackages.breeze-icons;
+    };
+
+    gtk3.extraConfig = {
+      gtk-application-prefer-dark-theme = '' 1 '';
+    };
+
+    gtk4.extraConfig = {
+      gtk-application-prefer-dark-theme = '' 1 '';
+    };
+  };
   
   programs.plasma = {
     enable = true;

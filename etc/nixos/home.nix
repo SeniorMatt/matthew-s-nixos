@@ -2,8 +2,8 @@
 
 {
   imports = [
-    ./hyprland.nix
-    # ./plasma.nix
+    #./hyprland.nix
+    ./plasma.nix
   ];
 
   # Home Manager needs a bit of information about you and the paths it should

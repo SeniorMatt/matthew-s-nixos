@@ -193,7 +193,6 @@
                 "applications:org.kde.dolphin.desktop"
                 "applications:firefox.desktop"
 		"applications:org.telegram.desktop.desktop"
-		"applications:vesktop.desktop"
 		"applications:obsidian.desktop"
 		"applications:kitty.desktop"
               ];

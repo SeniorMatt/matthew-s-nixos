@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ./theme.nix
+    ./theme-catppuccin.nix
   ];
 
   home.packages = with pkgs; [

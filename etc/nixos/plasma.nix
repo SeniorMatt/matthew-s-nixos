@@ -1,44 +1,14 @@
 { config, pkgs, inputs, ... }:
 
-let
-  cursor-default-theme = pkgs.runCommandLocal "cursor-default-theme" { } ''
-    mkdir -p $out/share/icons
-    ln -s ${pkgs.kdePackages.breeze}/share/icons/breeze_cursors $out/share/icons/default
-    '';
-in
 {
-
-  # Theme setup
-
-  home.file.".icons/default".source = "${pkgs.kdePackages.breeze}/share/icons/breeze_cursors";
+  imports = [
+    ./theme-breeze.nix
+  ];
 
   home.packages = with pkgs; [
-    cursor-default-theme
     kdePackages.kalk
     kdePackages.kclock
   ];
-  
-  gtk = {
-    enable = true;
-
-    theme = {
-      name = "Breeze-Dark";
-      package = pkgs.kdePackages.breeze-gtk;
-    };
-
-    iconTheme = {
-      name = "Breeze-Dark";
-      package = pkgs.kdePackages.breeze-icons;
-    };
-
-    gtk3.extraConfig = {
-      gtk-application-prefer-dark-theme = '' 1 '';
-    };
-
-    gtk4.extraConfig = {
-      gtk-application-prefer-dark-theme = '' 1 '';
-    };
-  };
   
   programs.plasma = {
     enable = true;
@@ -147,6 +117,22 @@ in
     };
 
     shortcuts = {
+      "services/firefox.desktop" = {
+        "_launch" = "Meta+Shift+F";
+      };
+
+      "services/org.telegram.desktop.desktop" = {
+        "_launch" = "Meta+Shift+T";
+      };
+
+      "services/obsidian.desktop" = {
+        "_launch" = "Meta+Shift+O";
+      };
+
+      "services/kitty.desktop" = {
+        "_launch" = "Meta+Shift+C";
+      };
+
       ksmserver = {
         "LogOut" = [
           "Meta+M"
@@ -182,30 +168,6 @@ in
       };
     };
 
-    hotkeys.commands."launch-kitty" = {
-      name = "Launch Kitty";
-      key = "Meta+Shift+C";
-      command = "kitty";
-    };
-
-    hotkeys.commands."launch-obsidian" = {
-      name = "Launch Obsidian";
-      key = "Meta+Shift+O";
-      command = "obsidian";
-    };
-
-    hotkeys.commands."launch-telegram" = {
-      name = "Launch Telegram";
-      key = "Meta+Shift+T";
-      command = "Telegram";
-    };
-
-    hotkeys.commands."launch-firefox" = {
-      name = "Launch Firefox";
-      key = "Meta+Shift+F";
-      command = "firefox";
-    };
-
     panels = [
       {
         floating = true;
@@ -213,6 +175,50 @@ in
         lengthMode = "fill";
         location = "bottom";
         opacity = "adaptive";
+	widgets = [
+          {
+            kickoff = {
+              sortAlphabetically = true;
+              icon = "nix-snowflake-white";
+            };
+          }
+	  {
+            iconTasks = {
+              launchers = [
+	        # Run list these directories
+		# to find .desktop files
+		# /etc/profiles/per-user/matthew/share/applications/ for per user apps
+		# /run/current-system/sw/share/applications/ for system apps
+
+                "applications:org.kde.dolphin.desktop"
+                "applications:firefox.desktop"
+		"applications:org.telegram.desktop.desktop"
+		"applications:vesktop.desktop"
+		"applications:obsidian.desktop"
+		"applications:kitty.desktop"
+              ];
+            };
+          }
+          "org.kde.plasma.marginsseparator"
+          {
+            systemTray.items = {
+              shown = [
+                "org.kde.plasma.battery"
+                "org.kde.plasma.bluetooth"
+                "org.kde.plasma.volume"
+              ];
+              hidden = [
+                "org.kde.plasma.networkmanagement"
+              ];
+            };
+          }
+	  {
+            digitalClock = {
+              calendar.firstDayOfWeek = "monday";
+              time.format = "12h";
+            };
+          }
+	];
       }
     ];
     

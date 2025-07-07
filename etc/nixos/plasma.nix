@@ -70,7 +70,7 @@
       
       mice = [
         {
-          accelerationProfile = "none";
+          accelerationProfile = "flat";
           name = "TPPS/2 IBM TrackPoint";
           productId = "000a";
           vendorId = "0002";

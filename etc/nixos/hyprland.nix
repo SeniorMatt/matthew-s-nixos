@@ -10,8 +10,6 @@
     wlsunset                    # Blue light filter
     tofi                        # App launcher
     waybar                      # Panel
-    wlogout                     # Logout menu
-    hyprlock                    # Lock manager
     hyprpaper                   # Wallpaper
     hyprpolkitagent		# Authentification agent
     xdg-desktop-portal-hyprland	# Desktop portal hyprland

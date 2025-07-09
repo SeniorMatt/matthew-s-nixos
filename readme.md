@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/c3d7a468-48f9-4ab8-b579-fd09e750dce6)# About
+# About
 My Hyprland + NixOS dotfiles for personal setup.
 
 # To install

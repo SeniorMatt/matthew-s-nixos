@@ -11,51 +11,48 @@
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    
-    plasma-manager = {
-      url = "github:nix-community/plasma-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.home-manager.follows = "home-manager";
-    };
   };
 
-  outputs = inputs @ { nixpkgs, nixpkgs-unstable, home-manager, plasma-manager, nvf, ... }:
-    let
-      system = "x86_64-linux";
-    in
-    {
-      nixosConfigurations.nixos = nixpkgs-unstable.lib.nixosSystem {
-        inherit system;
+  outputs = inputs @ {
+    nixpkgs,
+    nixpkgs-unstable,
+    home-manager,
+    nvf,
+    ...
+  }: let
+    system = "x86_64-linux";
+  in {
+    nixosConfigurations.nixos = nixpkgs-unstable.lib.nixosSystem {
+      inherit system;
 
-        specialArgs = {
-          inherit inputs;
-          unstable = nixpkgs-unstable.legacyPackages.x86_64-linux;
-        };
+      specialArgs = {
+        inherit inputs;
+        unstable = nixpkgs-unstable.legacyPackages.x86_64-linux;
+      };
 
-        modules = [
-	  inputs.catppuccin.nixosModules.catppuccin
-          ./configuration.nix
-          {
-            nixpkgs.overlays = [
-              (final: _: {
-                # this allows you to access `pkgs.unstable` anywhere in your config
-                unstable = import inputs.nixpkgs-unstable {
-                  inherit (final.stdenv.hostPlatform) system;
-                  inherit (final) config;
-                };
-              })
-            ];
-          }
+      modules = [
+        inputs.catppuccin.nixosModules.catppuccin
+        ./configuration.nix
+        {
+          nixpkgs.overlays = [
+            (final: _: {
+              # this allows you to access `pkgs.unstable` anywhere in your config
+              unstable = import inputs.nixpkgs-unstable {
+                inherit (final.stdenv.hostPlatform) system;
+                inherit (final) config;
+              };
+            })
+          ];
+        }
 
-          home-manager.nixosModules.default
-          {
-            home-manager.useUserPackages = true;
-            home-manager.sharedModules = [
-              inputs.catppuccin.homeModules.catppuccin
-	      inputs.plasma-manager.homeManagerModules.plasma-manager
-            ];
-          }
-        ];
+        home-manager.nixosModules.default
+        {
+          home-manager.useUserPackages = true;
+          home-manager.sharedModules = [
+            inputs.catppuccin.homeModules.catppuccin
+          ];
+        }
+      ];
     };
   };
 }

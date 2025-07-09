@@ -5,6 +5,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     catppuccin.url = "github:catppuccin/nix";
+    nvf.url = "github:notashelf/nvf";
 
     home-manager = {
       url = "github:nix-community/home-manager/master";
@@ -18,7 +19,7 @@
     };
   };
 
-  outputs = inputs @ { nixpkgs, nixpkgs-unstable, home-manager, plasma-manager, ... }:
+  outputs = inputs @ { nixpkgs, nixpkgs-unstable, home-manager, plasma-manager, nvf, ... }:
     let
       system = "x86_64-linux";
     in

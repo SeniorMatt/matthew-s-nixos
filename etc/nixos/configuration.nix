@@ -1,15 +1,17 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ config, pkgs, inputs, ... }:
-
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      inputs.home-manager.nixosModules.default
-    ];
+  config,
+  pkgs,
+  inputs,
+  ...
+}: {
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    inputs.home-manager.nixosModules.default
+  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -22,7 +24,7 @@
   hardware.graphics = {
     enable = true;
     extraPackages = with pkgs; [
-        intel-compute-runtime
+      intel-compute-runtime
     ];
   };
 
@@ -34,7 +36,7 @@
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Experimental features
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = ["nix-command" "flakes"];
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -93,14 +95,14 @@
   users.users.matthew = {
     isNormalUser = true;
     description = "Matthew";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = ["networkmanager" "wheel"];
     shell = pkgs.fish;
     packages = with pkgs; [
     ];
   };
 
   home-manager = {
-    extraSpecialArgs = { inherit inputs; };
+    extraSpecialArgs = {inherit inputs;};
     useUserPackages = true;
     backupFileExtension = "backup";
     users = {
@@ -122,23 +124,29 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-     hyprland                 # WM
-     ly                       # Login manager
-     udiskie 		      # Disk manager
-     wl-clipboard             # Clipboard manager
-     power-profiles-daemon    # Power profiles daemon
-     lm_sensors               # Temperature sensors
-     brightnessctl            # Brightness control
-     dunst                    # Notifications daemon
-     gnome-keyring            # Keyring daemon
-     zoxide                   # Moving in terminal
+    #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    hyprland # WM
+    ly # Login manager
+    udiskie # Disk manager
+    wl-clipboard # Clipboard manager
+    lm_sensors # Temperature sensors
+    brightnessctl # Brightness control
+    dunst # Notifications daemon
+    gnome-keyring # Keyring daemon
+    zoxide # Moving in terminal
+    # dotnet-sdk
+    # omnisharp-roslyn
   ];
 
+  #environment.sessionVariables = {
+  #DOTNET_ROOT = "/run/current-system/sw/share/dotnet";
+  #};
+  #environment.etc."dotnet/install_location".text = "/run/current-system/sw/share/dotnet";
+
   fonts.packages = with pkgs; [
-     jetbrains-mono           # System font
-     font-awesome             # Icon font
-     nerd-fonts.symbols-only  # Nerd font
+    jetbrains-mono # System font
+    font-awesome # Icon font
+    nerd-fonts.jetbrains-mono # Nerd font
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -149,13 +157,20 @@
   #   enableSSHSupport = true;
   # };
 
+  programs.nix-ld.enable = true;
+  programs.nix-ld.libraries = with pkgs; [
+    # Add any missing dynamic libraries for unpackaged programs
+    # here, NOT in environment.systemPackages
+    omnisharp-roslyn # OmniSharp
+  ];
+
   # Hyprland
   programs.hyprland.enable = true;
   # Optional, hint electron apps to use wayland:
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
-  
+
   # KDE Plasma
-  services.desktopManager.plasma6.enable = true;
+  # services.desktopManager.plasma6.enable = true;
   programs.kdeconnect.enable = true;
 
   # LM
@@ -165,8 +180,27 @@
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
-  
-  services.power-profiles-daemon.enable = true;
+
+  services.tlp = {
+    enable = true;
+    settings = {
+      CPU_SCALING_GOVERNOR_ON_AC = "performance";
+      CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
+
+      CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
+      CPU_ENERGY_PERF_POLICY_ON_AC = "performance";
+
+      CPU_MIN_PERF_ON_AC = 0;
+      CPU_MAX_PERF_ON_AC = 100;
+      CPU_MIN_PERF_ON_BAT = 0;
+      CPU_MAX_PERF_ON_BAT = 20;
+
+      #Optional helps save long term battery health
+      START_CHARGE_THRESH_BAT0 = 40; # 40 and below it starts to charge
+      STOP_CHARGE_THRESH_BAT0 = 90; # 90 and above it stops charging
+    };
+  };
+
   services.gnome.gnome-keyring.enable = true;
   services.udisks2.enable = true;
 

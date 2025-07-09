@@ -1,4 +1,4 @@
-# About
+![image](https://github.com/user-attachments/assets/c3d7a468-48f9-4ab8-b579-fd09e750dce6)# About
 My Hyprland + NixOS dotfiles for personal setup.
 
 # To install
@@ -13,7 +13,9 @@ While copying it will ask your nickname (u can write anything u want) and for pa
 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
 ```
 
-# Screenshot
-![image](https://github.com/user-attachments/assets/f5d7da93-3f0e-4742-9287-17b93b02142c)
-![image](https://github.com/user-attachments/assets/e18fb16c-a1d4-4e25-8ba3-2e703f5b555f)
-![image](https://github.com/user-attachments/assets/f91e88eb-d1ea-4643-805b-8c8b478bbf57)
+# Screenshots
+![image_2025-07-09_22-39-49](https://github.com/user-attachments/assets/e1d60ae7-87b9-45bd-adec-3ad1cacef0fc)
+![image](https://github.com/user-attachments/assets/5fed0521-ef1a-4589-9256-612d029f6c6c)
+![image_2025-07-09_22-39-31](https://github.com/user-attachments/assets/4f265fc6-f89a-463b-a133-57f0f031ae74)
+![image_2025-07-09_22-39-30](https://github.com/user-attachments/assets/3bfebee6-3370-4c8d-bf23-1ce84bfdea7e)
+![image_2025-07-09_22-39-30 (2)](https://github.com/user-attachments/assets/d86757e6-20e4-4889-8289-1f572814da25)

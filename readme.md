@@ -14,6 +14,10 @@ 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
 ```
 
 # Screenshots
+## My current productivity setup
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/a64fd84c-09df-42ba-9137-d027da22cb80" />
+
+## What can be done
 ![image_2025-07-09_22-39-49](https://github.com/user-attachments/assets/e1d60ae7-87b9-45bd-adec-3ad1cacef0fc)
 ![image](https://github.com/user-attachments/assets/5fed0521-ef1a-4589-9256-612d029f6c6c)
 ![image](https://github.com/user-attachments/assets/2815af78-f455-46b9-b14b-e7420467c810)

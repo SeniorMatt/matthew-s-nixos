@@ -1,54 +1,30 @@
 {
-  description = "NixOS config flake";
-
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
-    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     catppuccin.url = "github:catppuccin/nix";
     nvf.url = "github:notashelf/nvf";
 
-    home-manager = {
-      url = "github:nix-community/home-manager/master";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    home-manager.url = "github:nix-community/home-manager";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs @ {
-    nixpkgs,
-    nixpkgs-unstable,
-    home-manager,
-    nvf,
-    ...
-  }: let
+  outputs = { nixpkgs, ... } @ inputs: 
+  let
     system = "x86_64-linux";
+    pkgs = nixpkgs.legacyPackages.x86_64-linux;
   in {
-    nixosConfigurations.nixos = nixpkgs-unstable.lib.nixosSystem {
+    nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       inherit system;
 
-      specialArgs = {
-        inherit inputs;
-        unstable = nixpkgs-unstable.legacyPackages.x86_64-linux;
-      };
+      specialArgs = { inherit inputs; };
 
       modules = [
-        inputs.catppuccin.nixosModules.catppuccin
         ./configuration.nix
-        {
-          nixpkgs.overlays = [
-            (final: _: {
-              # this allows you to access `pkgs.unstable` anywhere in your config
-              unstable = import inputs.nixpkgs-unstable {
-                inherit (final.stdenv.hostPlatform) system;
-                inherit (final) config;
-              };
-            })
-          ];
-        }
 
-        home-manager.nixosModules.default
         {
           home-manager.useUserPackages = true;
           home-manager.sharedModules = [
+	    ./modules/home-manager/nvf.nix
             inputs.catppuccin.homeModules.catppuccin
           ];
         }

@@ -1,9 +1,11 @@
-{ config, pkgs, inputs, ... }: 
-
 {
+  config,
+  pkgs,
+  inputs,
+  ...
+}: {
   imports = [
     ./hyprland.nix
-    #./modules/home-manager/nvf.nix
   ];
 
   home.username = "matthew";
@@ -66,32 +68,8 @@
     # '')
   ];
 
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-  };
-
-  programs.fish = {
-    enable = true;
-    shellInit = ''
-      oh-my-posh init fish | source
-      zoxide init fish | source
-      set -g fish_greeting
-    '';
-  };
-
-  programs.oh-my-posh = {
-    enable = true;
-    enableFishIntegration = true;
-    useTheme = "montys";
-  };
-
-  programs.git = {
-    enable = true;
-  };
-
   home.sessionVariables = {
-      EDITOR = "nvim";
+    EDITOR = "nvim";
   };
 
   xdg.mimeApps = {

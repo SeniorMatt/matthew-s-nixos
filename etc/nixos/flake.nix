@@ -8,15 +8,14 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { nixpkgs, ... } @ inputs: 
-  let
+  outputs = {nixpkgs, ...} @ inputs: let
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.x86_64-linux;
   in {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       inherit system;
 
-      specialArgs = { inherit inputs; };
+      specialArgs = {inherit inputs;};
 
       modules = [
         ./configuration.nix
@@ -24,7 +23,9 @@
         {
           home-manager.useUserPackages = true;
           home-manager.sharedModules = [
-	    ./modules/home-manager/nvf.nix
+            ./modules/home-manager/fish.nix
+            ./modules/home-manager/git.nix
+            ./modules/home-manager/nvf.nix
             inputs.catppuccin.homeModules.catppuccin
           ];
         }

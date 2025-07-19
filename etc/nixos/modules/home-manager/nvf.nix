@@ -1,6 +1,11 @@
 {inputs, ...}: {
   imports = [inputs.nvf.homeManagerModules.default];
 
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+  };
+
   programs.nvf = {
     enable = true;
     enableManpages = true;

@@ -10,9 +10,9 @@
     "spacing": 8,
     "modules-left": [
         "hyprland/workspaces",
-        "cpu",
-        "temperature",
-        "memory",
+        //"cpu",
+        //"temperature",
+        //"memory",
         "battery",
         "battery#bat1"	// Comment this line to remove second battery
     ],

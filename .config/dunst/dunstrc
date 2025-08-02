@@ -17,7 +17,7 @@
     # Text and seperator padding
     padding = 8
     # Horizontal padding
-    horizontal_padding = 8
+    horizontal_padding = 16
     # Width of frame around window
     frame_width = 4
     # Color of frame around window

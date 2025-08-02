@@ -40,6 +40,7 @@
     audacity # Audio editor
     gamescope # Downscale games
     mpv # Media player
+    reaper # Digital audio workstation
 
     # Fun stuff :D
     nitch # Fetcher

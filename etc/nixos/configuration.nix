@@ -99,7 +99,10 @@
   programs.fish.enable = true;
 
   # Install Steam
-  programs.steam.enable = true;
+  programs.steam = {
+    enable = true;
+    gamescopeSession.enable = true;
+  };
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;

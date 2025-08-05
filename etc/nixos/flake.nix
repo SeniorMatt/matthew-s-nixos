@@ -26,6 +26,7 @@
             ./modules/home-manager/fish.nix
             ./modules/home-manager/git.nix
             ./modules/home-manager/nvf.nix
+            ./modules/home-manager/hyprland.nix
             inputs.catppuccin.homeModules.catppuccin
           ];
         }

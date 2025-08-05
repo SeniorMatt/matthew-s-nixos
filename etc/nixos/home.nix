@@ -4,10 +4,6 @@
   inputs,
   ...
 }: {
-  imports = [
-    ./hyprland.nix
-  ];
-
   home.username = "matthew";
   home.homeDirectory = "/home/matthew";
   home.stateVersion = "25.05";

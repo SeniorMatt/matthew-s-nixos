@@ -8,7 +8,7 @@
 
 window#waybar {
     background-color: rgba(30, 30, 46, 1);
-    border-radius: 8px; 
+    border-radius: 0px; 
 }
 
 window#waybar.hidden {
@@ -56,7 +56,7 @@ button {
     margin: 4px 0px;
     padding: 0px 4px;
     color: #cdd6f4;
-    border-radius: 8px;
+    border-radius: 0px;
 }
 
 #custom-power {
@@ -121,14 +121,14 @@ button {
     padding: 2px 2px;
     margin: 4px 0px;
     background-color: rgba(49, 50, 68, 1);
-    border-radius: 8px;
+    border-radius: 0px;
 }
 
 #workspaces button {
     font-weight: bold;
     padding: 0px 2px;
     margin: 0px 0px;
-    border-radius: 8px;
+    border-radius: 0px;
     color: #f5e0dc;
 }
 

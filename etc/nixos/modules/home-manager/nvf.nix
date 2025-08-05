@@ -1,5 +1,13 @@
-{inputs, ...}: {
+{
+  inputs,
+  pkgs,
+  ...
+}: {
   imports = [inputs.nvf.homeManagerModules.default];
+
+  home.packages = with pkgs; [
+    # neovim-remote
+  ];
 
   programs.neovim = {
     enable = true;

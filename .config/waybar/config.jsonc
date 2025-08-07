@@ -23,8 +23,6 @@
         "backlight",
         "keyboard-state",
         "clock",
-        "custom/bluetooth",
-        "custom/wifi",
         "power-profiles-daemon",
         "custom/power"
     ],

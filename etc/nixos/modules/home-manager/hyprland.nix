@@ -28,7 +28,7 @@
     gnome-clocks # Clock
 
     # Needs
-    blueberry # Bluetooth control
+    blueman # Bluetooth control
     networkmanagerapplet # Network control
     pavucontrol # Audio control
     grim # Screenshot

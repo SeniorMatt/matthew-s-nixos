@@ -6,6 +6,8 @@
 }: {
   imports = [
     ./hardware-configuration.nix
+    ./modules/nixos/bluetooth.nix
+    ./modules/nixos/pipewire.nix
     inputs.home-manager.nixosModules.default
   ];
 
@@ -33,9 +35,6 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
-  # Enable bluetooth
-  hardware.bluetooth.enable = true;
-
   # Set your time zone.
   time.timeZone = "Asia/Almaty";
 
@@ -62,16 +61,6 @@
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
-
-  # Enable sound with pipewire.
-  services.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-  };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.matthew = {
@@ -152,5 +141,5 @@
     };
   };
 
-  system.stateVersion = "25.05";
+  system.stateVersion = "25.11";
 }

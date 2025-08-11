@@ -5,7 +5,8 @@
       oh-my-posh init fish | source
       zoxide init fish | source
       set -g fish_greeting
-      alias nr="sudo nixos-rebuild switch"
+      alias nrs="sudo nixos-rebuild switch"
+      alias nru="sudo nixos-rebuild switch --upgrade"
       alias n="nvim"
       alias ng="nvim ~/Documents/GitHub/"
       alias nx="sudo nvim /etc/nixos/"

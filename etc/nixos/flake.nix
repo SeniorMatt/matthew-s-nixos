@@ -1,8 +1,9 @@
 {
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    catppuccin.url = "github:catppuccin/nix";
     nvf.url = "github:notashelf/nvf";
+    catppuccin.url = "github:catppuccin/nix";
+    breeze-cursors-catppuccin.url = "github:noaccOS/breeze-cursors-catppuccin";
 
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";

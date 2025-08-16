@@ -4,14 +4,11 @@
   inputs,
   ...
 }: let
-  cursor-default-theme = pkgs.runCommandLocal "cursor-default-theme" {} ''
-    mkdir -p $out/share/icons
-    ln -s ${pkgs.catppuccin-cursors}/share/icons/catppuccin-mocha-dark-cursors $out/share/icons/default
-  '';
+  breeze-cursors-catppuccin = inputs.breeze-cursors-catppuccin.packages.${pkgs.system}.default;
 in {
   home.packages = with pkgs; [
     adwaita-icon-theme
-    cursor-default-theme
+    breeze-cursors-catppuccin
     libsForQt5.qtstyleplugin-kvantum
     libsForQt5.qt5ct
   ];
@@ -44,8 +41,8 @@ in {
     };
 
     cursorTheme = {
-      name = "catppuccin-mocha-dark-cursors";
-      package = pkgs.catppuccin-cursors.mochaDark;
+      name = "Breeze_Catppuccin";
+      package = breeze-cursors-catppuccin;
       size = 24;
     };
 
@@ -64,14 +61,14 @@ in {
   #};
   #};
 
-  home.file.".icons/default".source = "${pkgs.catppuccin-cursors.mochaDark}/share/icons/catppuccin-mocha-dark-cursors";
+  home.file.".icons/default".source = "${breeze-cursors-catppuccin}/share/icons/Breeze_Catppuccin";
 
   home.sessionVariables = {
     QT_QPA_PLATFORMTHEME = "kvantum";
     QT_STYLE_OVERRIDE = "kvantum";
-    XCURSOR_THEME = "catppuccin-mocha-dark-cursors";
+    XCURSOR_THEME = "Breeze_Catppuccin";
     XCURSOR_SIZE = "24";
-    HYPRCURSOR_THEME = "catppuccin-mocha-dark-cursors";
+    HYPRCURSOR_THEME = "Breeze_Catppuccin";
     HYPRCURSOR_SIZE = "24";
   };
 }

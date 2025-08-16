@@ -288,6 +288,11 @@
           }
           {
             mode = ["n"];
+            key = "<M-r>";
+            action = "<cmd>:lua vim.lsp.buf.rename()<CR>";
+          }
+          {
+            mode = ["n"];
             key = "<S-l>";
             action = "<cmd>BufferLineCycleNext<CR>";
           }

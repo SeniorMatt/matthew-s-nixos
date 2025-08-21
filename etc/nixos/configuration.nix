@@ -18,11 +18,11 @@
   # Latest kernel
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  # Davinci resolve CPU settings
   hardware.graphics = {
     enable = true;
     extraPackages = with pkgs; [
-      intel-compute-runtime
+      vaapiIntel
+      intel-media-driver
     ];
   };
 

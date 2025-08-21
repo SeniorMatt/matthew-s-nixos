@@ -1,16 +1,18 @@
 #!/bin/bash
 
 echo "Copying NixOS configuration..."
-sudo cp -r /etc/nixos/ /home/matthew/Documents/GitHub/Matthew-s-NixOS/etc/
-sudo rm -f /home/matthew/Documents/GitHub/Matthew-s-NixOS/etc/nixos/hardware-configuration.nix
+sudo cp -r /etc/nixos/ ~/Documents/GitHub/Matthew-s-NixOS/etc/
+sudo rm -f ~/Documents/GitHub/Matthew-s-NixOS/etc/nixos/hardware-configuration.nix
 
 echo "Copying Dotfiles..."
-sudo cp -r /home/matthew/.config/dunst/ /home/matthew/Documents/GitHub/Matthew-s-NixOS/.config/
-sudo cp -r /home/matthew/.config/hypr/ /home/matthew/Documents/GitHub/Matthew-s-NixOS/.config/
-sudo cp -r /home/matthew/.config/kitty/ /home/matthew/Documents/GitHub/Matthew-s-NixOS/.config/
-sudo cp -r /home/matthew/.config/tofi/ /home/matthew/Documents/GitHub/Matthew-s-NixOS/.config/
-sudo cp -r /home/matthew/.config/waybar/ /home/matthew/Documents/GitHub/Matthew-s-NixOS/.config/
+sudo cp -r ~/.config/dunst/ ~/Documents/GitHub/Matthew-s-NixOS/.config/
+sudo cp -r ~/.config/hypr/ ~/Documents/GitHub/Matthew-s-NixOS/.config/
+sudo cp -r ~/.config/kitty/ ~/Documents/GitHub/Matthew-s-NixOS/.config/
+sudo cp -r ~/.config/tofi/ ~/Documents/GitHub/Matthew-s-NixOS/.config/
+sudo cp -r ~/.config/waybar/ ~/Documents/GitHub/Matthew-s-NixOS/.config/
+sudo cp -r ~/.config/waybar/ ~/Documents/GitHub/Matthew-s-NixOS/.config/
+sudo cp -r ~/.mozilla/firefox/r71gz7z2.default/chrome/ ~/Documents/GitHub/Matthew-s-NixOS/.mozilla/firefox/r71gz7z2.default/
 
 echo "Copying Wallpapers..."
-sudo cp -r /home/matthew/Pictures/my-catppuccin-wallpapers/ /home/matthew/Documents/GitHub/Matthew-s-NixOS/Pictures/
-sudo cp /home/matthew/Pictures/avatar.png /home/matthew/Documents/GitHub/Matthew-s-NixOS/Pictures/
+sudo cp -r ~/Pictures/my-catppuccin-wallpapers/ ~/Documents/GitHub/Matthew-s-NixOS/Pictures/
+sudo cp ~/Pictures/avatar.png ~/Documents/GitHub/Matthew-s-NixOS/Pictures/

@@ -30,6 +30,8 @@
     kitty # Terminal
     obs-studio # OBS
     davinci-resolve # Davinci resolve
+    kdePackages.kdenlive # Kdenlive
+    shotcut # Shotcut
     prismlauncher # The Minecraft launcher
     batmon # TUI battery
     htop # TUI task manager

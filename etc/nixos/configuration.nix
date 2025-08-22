@@ -8,6 +8,7 @@
     ./hardware-configuration.nix
     ./modules/nixos/bluetooth.nix
     ./modules/nixos/pipewire.nix
+    ./modules/nixos/tlp.nix
     inputs.home-manager.nixosModules.default
   ];
 
@@ -126,7 +127,7 @@
   programs.kdeconnect.enable = true;
 
   # List services that you want to enable:
-  services.power-profiles-daemon.enable = true;
+  # services.power-profiles-daemon.enable = true;
   services.gnome.gnome-keyring.enable = true;
   services.udisks2.enable = true;
 

@@ -23,7 +23,7 @@
         "backlight",
         "keyboard-state",
         "clock",
-        "power-profiles-daemon",
+        /* "power-profiles-daemon", */
         "custom/power"
     ],
     // Modules configuration

@@ -10,6 +10,7 @@
       alias n="nvim"
       alias ng="nvim ~/Documents/GitHub/"
       alias nx="sudo nvim /etc/nixos/"
+      alias p="ping google.com"
       alias bitit="steam-run ~/Documents/GitHub/GodotTest/builds/latest-build/Bit\ It.x86_64"
     '';
   };

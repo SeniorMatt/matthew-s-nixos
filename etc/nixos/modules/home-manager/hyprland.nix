@@ -25,11 +25,9 @@
     papers # Document viewer
     parlatype # Audio player
     gnome-calculator # Calculator
-    gnome-clocks # Clock
 
     # Needs
     blueman # Bluetooth control
-    blueberry # Another bluetooth control
     networkmanagerapplet # Network control
     pavucontrol # Audio control
     grim # Screenshot

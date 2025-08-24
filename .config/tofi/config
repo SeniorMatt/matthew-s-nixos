@@ -1,7 +1,7 @@
 width = 35%
 height = 50%
 border-width = 4
-corner-radius = 8
+corner-radius = 12
 outline-width = 0
 result-spacing = 15
 num-results = 8

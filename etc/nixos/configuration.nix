@@ -22,8 +22,7 @@
   hardware.graphics = {
     enable = true;
     extraPackages = with pkgs; [
-      vaapiIntel
-      intel-media-driver
+      intel-compute-runtime-legacy1
     ];
   };
 
@@ -94,11 +93,14 @@
     gamescopeSession.enable = true;
   };
 
+  programs.gamescope.enable = true;
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
     hyprland # WM
+    gamescope
     ly # Login manager
     udiskie # Disk manager
     wl-clipboard # Clipboard manager
@@ -115,7 +117,7 @@
     nerd-fonts.jetbrains-mono # Nerd font
   ];
 
-  # LM
+  # Ly
   services.displayManager.ly.enable = true;
 
   # Hyprland
@@ -142,5 +144,5 @@
     };
   };
 
-  system.stateVersion = "25.11";
+  system.stateVersion = "25.05";
 }

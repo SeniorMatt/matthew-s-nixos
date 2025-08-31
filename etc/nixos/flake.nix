@@ -20,7 +20,6 @@
 
       modules = [
         ./configuration.nix
-
         {
           home-manager.useUserPackages = true;
           home-manager.sharedModules = [

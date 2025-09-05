@@ -97,11 +97,6 @@
             "deactivated": ""
         }
     },
-    "hyprland/language": {
-      "format": "{short}",
-      "format-us": "us",
-      "format-ru": "ru"
-    },
     "tray": {
         "icon-size": 24,
         "spacing": 10

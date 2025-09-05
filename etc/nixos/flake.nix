@@ -2,7 +2,6 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nvf.url = "github:notashelf/nvf";
-    catppuccin.url = "github:catppuccin/nix";
     breeze-cursors-catppuccin.url = "github:noaccOS/breeze-cursors-catppuccin";
 
     home-manager.url = "github:nix-community/home-manager";
@@ -26,7 +25,6 @@
             ./modules/home-manager/git.nix
             ./modules/home-manager/nvf.nix
             ./modules/home-manager/hyprland.nix
-            inputs.catppuccin.homeModules.catppuccin
           ];
         }
       ];

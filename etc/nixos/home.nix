@@ -75,9 +75,9 @@
       "image/png" = "org.gnome.eog.desktop";
       "image/jpeg" = "org.gnome.eog.desktop";
       "video/mp4" = "mpv.desktop";
-      "audio/mp3" = "org.gnome.parlatype.desktop";
-      "audio/wav" = "org.gnome.parlatype.desktop";
-      "document/pdf" = "papers.desktop";
+      "audio/mp3" = "xyz.parlatype.Parlatype.desktop";
+      "audio/wav" = "xyz.parlatype.Parlatype.desktop";
+      "application/pdf" = "org.gnome.Papers.desktop";
     };
   };
 

@@ -17,7 +17,6 @@
     wget
 
     # Applications
-    vscodium # Code editor
     steam-run # To run godot builds
     gimp # Image editor
     telegram-desktop # Telegram client

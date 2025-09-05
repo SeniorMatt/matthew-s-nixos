@@ -1,9 +1,4 @@
-{
-  config,
-  pkgs,
-  inputs,
-  ...
-}: {
+{pkgs, ...}: {
   imports = [
     ./theme-catppuccin.nix
   ];
@@ -19,7 +14,6 @@
     swayosd # Notifications for the volume and brightness
 
     # Gnome ecosystem
-    evince # Document viewer
     nautilus # File manager
     eog # Image viewer
     papers # Document viewer

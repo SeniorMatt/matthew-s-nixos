@@ -125,11 +125,7 @@
   # Optional, hint electron apps to use wayland:
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
-  # Kde connect
-  programs.kdeconnect.enable = true;
-
   # List services that you want to enable:
-  # services.power-profiles-daemon.enable = true;
   services.gnome.gnome-keyring.enable = true;
   services.udisks2.enable = true;
 

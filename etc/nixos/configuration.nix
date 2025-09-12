@@ -99,23 +99,23 @@
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
-    hyprland # WM
     gamescope
-    ly # Login manager
     udiskie # Disk manager
     wl-clipboard # Clipboard manager
     lm_sensors # Temperature sensors
     brightnessctl # Brightness control
     dunst # Notifications daemon
-    gnome-keyring # Keyring daemon
     zoxide # Moving in terminal
   ];
 
-  fonts.packages = with pkgs; [
-    jetbrains-mono # System font
-    font-awesome # Icon font
-    nerd-fonts.jetbrains-mono # Nerd font
-  ];
+  fonts = {
+    fontconfig.enable = true;
+    packages = with pkgs; [
+      jetbrains-mono # System font
+      font-awesome # Icon font
+      nerd-fonts.jetbrains-mono # Nerd font
+    ];
+  };
 
   # Ly
   services.displayManager.ly.enable = true;

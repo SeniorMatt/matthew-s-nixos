@@ -23,7 +23,7 @@
     vesktop # Discord client
     zoom # Zoom
     godot-mono # Yeah...
-    aseprite # Aseprite
+    # aseprite # Aseprite
     github-desktop # Github client
     obsidian # Notes
     kitty # Terminal
@@ -62,7 +62,14 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
+
+    # Fonts
+    jetbrains-mono # System font
+    font-awesome # Icon font
+    nerd-fonts.jetbrains-mono # Nerd font
   ];
+
+  fonts.fontconfig.enable = true;
 
   home.sessionVariables = {
     EDITOR = "nvim";

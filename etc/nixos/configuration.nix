@@ -81,9 +81,6 @@
     };
   };
 
-  # Install firefox.
-  programs.firefox.enable = true;
-
   # Enable Fish shell
   programs.fish.enable = true;
 
@@ -99,12 +96,9 @@
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
-    gamescope
     udiskie # Disk manager
-    wl-clipboard # Clipboard manager
     lm_sensors # Temperature sensors
     brightnessctl # Brightness control
-    dunst # Notifications daemon
     zoxide # Moving in terminal
   ];
 
@@ -122,6 +116,7 @@
 
   # Hyprland
   programs.hyprland.enable = true;
+
   # Optional, hint electron apps to use wayland:
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 

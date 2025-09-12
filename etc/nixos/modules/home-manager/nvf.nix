@@ -6,7 +6,7 @@
   imports = [inputs.nvf.homeManagerModules.default];
 
   home.packages = with pkgs; [
-    # neovim-remote
+    neovim-remote
   ];
 
   programs.neovim = {

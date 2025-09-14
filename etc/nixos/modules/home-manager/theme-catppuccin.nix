@@ -94,12 +94,16 @@ in {
       font=JetBrains Mono,12,-1,5,50,0,0,0,0,0
     '';
     "qt5ct/qt5ct.conf".text = ''
-          [Fonts]
+      [Fonts]
       general="JetBrains Mono,12,-1,5,50,0,0,0,0,0"
+      [Appearance]
+      icon_theme=Adwaita
     '';
     "qt6ct/qt6ct.conf".text = ''
-          [Fonts]
+      [Fonts]
       general="JetBrains Mono,12,-1,5,50,0,0,0,0,0"
+      [Appearance]
+      icon_theme=Adwaita
     '';
     "Kvantum/catppuccin-mocha-lavender".source = "${catppuccinKvantum}/share/Kvantum/catppuccin-mocha-lavender";
 

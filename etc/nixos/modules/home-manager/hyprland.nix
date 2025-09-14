@@ -6,6 +6,7 @@ in {
     ./tofi.nix # App launcher
     ./waybar.nix # Panel
     ./dunst.nix # Notification manager
+    ./thunar.nix # File manager
   ];
 
   home.packages = with pkgs; [
@@ -19,11 +20,9 @@ in {
     gamescope # Steam's gamescope
 
     # Gnome ecosystem
-    nautilus # File manager
     eog # Image viewer
     papers # Document viewer
     parlatype # Audio player
-    gnome-calculator # Calculator
 
     # Needs
     blueman # Bluetooth control
@@ -54,7 +53,7 @@ in {
     "hypr/categories/keybinds.conf".text = ''
       # Keybinds
       $terminal = kitty
-      $fileManager = nautilus
+      $fileManager = thunar
       $dmenu = tofi-drun | xargs hyprctl dispatch exec --
       $menu = tofi-run | xargs hyprctl dispatch exec --
       $mainMod = SUPER

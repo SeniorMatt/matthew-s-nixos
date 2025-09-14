@@ -1,15 +1,16 @@
 {
-  config,
   pkgs,
   inputs,
   ...
-}: {
+}: let
+  customFont = pkgs.callPackage ./modules/nixos/custom-font.nix {};
+in {
   imports = [
+    inputs.home-manager.nixosModules.default
     ./hardware-configuration.nix
     ./modules/nixos/bluetooth.nix
     ./modules/nixos/pipewire.nix
     ./modules/nixos/tlp.nix
-    inputs.home-manager.nixosModules.default
   ];
 
   # Bootloader.
@@ -22,6 +23,9 @@
   hardware.graphics = {
     enable = true;
     extraPackages = with pkgs; [
+      # For newer
+      # intel-compute-runtime
+      # For older Intel CPU's
       intel-compute-runtime-legacy1
     ];
   };
@@ -105,6 +109,7 @@
   fonts = {
     fontconfig.enable = true;
     packages = with pkgs; [
+      customFont # Custom font
       jetbrains-mono # System font
       font-awesome # Icon font
       nerd-fonts.jetbrains-mono # Nerd font

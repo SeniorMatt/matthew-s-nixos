@@ -4,7 +4,6 @@ My Hyprland + NixOS dotfiles for personal setup.
 # To install
 ```
 git clone https://github.com/SeniorMatt/Matthew-s-NixOS.git
-sudo cp -fr ~/Matthew-s-NixOS/.config/ ~/
 sudo cp -fr ~/Matthew-s-NixOS/etc/nixos/ /etc/
 sudo rm -fr ~/Matthew-s-NixOS/
 chown -R matthew ~/.config
@@ -16,7 +15,8 @@ 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
 
 # Screenshots
 ## My current productivity setup
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/a64fd84c-09df-42ba-9137-d027da22cb80" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/065a9306-8fa8-4df8-80ec-ed90eb61867e" />
+
 
 ## What can be done
 ![image_2025-07-09_22-39-49](https://github.com/user-attachments/assets/e1d60ae7-87b9-45bd-adec-3ad1cacef0fc)

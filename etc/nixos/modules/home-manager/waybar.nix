@@ -248,7 +248,7 @@
       }
     '';
 
-    "waybar/style.jsonc".text = ''
+    "waybar/style.css".text = ''
       * {
           font-family: JetBrainsMono Nerd Font Propo;
           font-size: 12pt;
@@ -258,7 +258,7 @@
       }
 
       window#waybar {
-          background-color: rgba(30, 30, 46, 0.85);
+          background-color: rgba(30, 30, 46, 1.0);
           border-radius: 8px;
       }
 

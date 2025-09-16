@@ -4,8 +4,10 @@
     nvf.url = "github:notashelf/nvf";
     breeze-cursors-catppuccin.url = "github:noaccOS/breeze-cursors-catppuccin";
 
-    home-manager.url = "github:nix-community/home-manager";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {nixpkgs, ...} @ inputs: let

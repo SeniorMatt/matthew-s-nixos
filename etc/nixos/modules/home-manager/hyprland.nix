@@ -32,6 +32,18 @@ in {
     slurp # Selector for screenshot
   ];
 
+  xdg.mimeApps = {
+    enable = true;
+    defaultApplications = {
+      "image/png" = "org.gnome.eog.desktop";
+      "image/jpeg" = "org.gnome.eog.desktop";
+      "video/mp4" = "mpv.desktop";
+      "audio/mp3" = "xyz.parlatype.Parlatype.desktop";
+      "audio/wav" = "xyz.parlatype.Parlatype.desktop";
+      "application/pdf" = "org.gnome.Papers.desktop";
+    };
+  };
+
   xdg.configFile = {
     "hypr/hyprland.conf".text = ''
       source = $HOME/.config/hypr/categories/look_and_feel.conf

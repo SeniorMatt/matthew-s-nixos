@@ -4,14 +4,39 @@
   inputs,
   ...
 }: let
+  # Font
+  fontSize = 12;
+  fontFamily = "JetBrains Mono";
+  fontSizeString = builtins.toString fontSize;
+
+  # Icon
+  iconName = "Adwaita";
+  iconTheme = pkgs.adwaita-icon-theme;
+
+  # Cursor
+  cursorName = "Breeze_Catppuccin";
+  cursor = inputs.breeze-cursors-catppuccin.packages.${pkgs.system}.default;
+  cursorSize = 24;
+  cursorSizeString = builtins.toString cursorSize;
+
+  # Theme
   catppuccinAccent = "lavender";
   catppuccinVariant = "mocha";
 
-  breeze-cursors-catppuccin = inputs.breeze-cursors-catppuccin.packages.${pkgs.system}.default;
-
-  catppuccinKvantum = pkgs.catppuccin-kvantum.override {
+  # QT theme
+  kvantumName = "catppuccin-mocha-lavender";
+  kvantumTheme = pkgs.catppuccin-kvantum.override {
     accent = catppuccinAccent;
     variant = catppuccinVariant;
+  };
+
+  # GTK theme
+  gtkName = "catppuccin-mocha-lavender-standard+normal";
+  gtkTheme = pkgs.catppuccin-gtk.override {
+    accents = [catppuccinAccent];
+    size = "standard";
+    variant = catppuccinVariant;
+    tweaks = ["normal"];
   };
 in {
   home.packages = with pkgs; [
@@ -24,29 +49,24 @@ in {
     enable = true;
 
     font = {
-      name = "JetBrains Mono";
-      size = 12;
+      name = fontFamily;
+      size = fontSize;
     };
 
     theme = {
-      name = "catppuccin-mocha-lavender-standard+normal";
-      package = pkgs.catppuccin-gtk.override {
-        accents = [catppuccinAccent];
-        size = "standard";
-        variant = catppuccinVariant;
-        tweaks = ["normal"];
-      };
+      name = gtkName;
+      package = gtkTheme;
     };
 
     iconTheme = {
-      name = "Adwaita";
-      package = pkgs.adwaita-icon-theme;
+      name = iconName;
+      package = iconTheme;
     };
 
     cursorTheme = {
-      name = "Breeze_Catppuccin";
-      package = breeze-cursors-catppuccin;
-      size = 24;
+      name = cursorName;
+      package = cursor;
+      size = cursorSize;
     };
 
     gtk3.extraConfig = {
@@ -72,7 +92,7 @@ in {
     "org/gnome/desktop/interface".color-scheme = "prefer-dark";
   };
 
-  home.file.".icons/default".source = "${breeze-cursors-catppuccin}/share/icons/Breeze_Catppuccin";
+  home.file.".icons/default".source = "${cursor}/share/icons/${cursorName}";
 
   home.sessionVariables = {
     # QT variables
@@ -80,32 +100,32 @@ in {
     QT_STYLE_OVERRIDE = "kvantum";
 
     # Cursor variables
-    XCURSOR_THEME = "Breeze_Catppuccin";
-    XCURSOR_SIZE = "24";
-    HYPRCURSOR_THEME = "Breeze_Catppuccin";
-    HYPRCURSOR_SIZE = "24";
+    XCURSOR_THEME = cursorName;
+    XCURSOR_SIZE = cursorSizeString;
+    HYPRCURSOR_THEME = cursorName;
+    HYPRCURSOR_SIZE = cursorSizeString;
   };
 
   xdg.configFile = {
     # QT Kvantum config
     "Kvantum/kvantum.kvconfig".text = ''
       [General]
-      theme=catppuccin-mocha-lavender
-      font=JetBrains Mono,12,-1,5,50,0,0,0,0,0
+      theme=${kvantumName}
+      font=${fontFamily},${fontSizeString},-1,5,50,0,0,0,0,0
     '';
     "qt5ct/qt5ct.conf".text = ''
       [Fonts]
-      general="JetBrains Mono,12,-1,5,50,0,0,0,0,0"
+      general="${fontFamily},${fontSizeString},-1,5,50,0,0,0,0,0"
       [Appearance]
-      icon_theme=Adwaita
+      icon_theme=${iconName}
     '';
     "qt6ct/qt6ct.conf".text = ''
       [Fonts]
-      general="JetBrains Mono,12,-1,5,50,0,0,0,0,0"
+      general="${fontFamily},${fontSizeString},-1,5,50,0,0,0,0,0"
       [Appearance]
-      icon_theme=Adwaita
+      icon_theme=${iconName}
     '';
-    "Kvantum/catppuccin-mocha-lavender".source = "${catppuccinKvantum}/share/Kvantum/catppuccin-mocha-lavender";
+    "Kvantum/${kvantumName}".source = "${kvantumTheme}/share/Kvantum/${kvantumName}";
 
     # Now symlink the `~/.config/gtk-4.0/` folder declaratively:
     "gtk-4.0/assets".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/assets";

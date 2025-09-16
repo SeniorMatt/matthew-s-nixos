@@ -10,26 +10,30 @@
 
   outputs = {nixpkgs, ...} @ inputs: let
     system = "x86_64-linux";
+    user = "matthew";
   in {
-    nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-      inherit system;
-
-      specialArgs = {inherit inputs;};
-
-      modules = [
-        ./configuration.nix
-        {
-          home-manager.useUserPackages = true;
-          home-manager.sharedModules = [
-            ./modules/home-manager/fish.nix
-            ./modules/home-manager/kitty.nix
-            ./modules/home-manager/firefox.nix
-            ./modules/home-manager/git.nix
-            ./modules/home-manager/nvf.nix
-            ./modules/home-manager/hyprland.nix
-          ];
-        }
-      ];
+    nixosConfigurations = {
+      t480 = nixpkgs.lib.nixosSystem {
+        inherit system;
+        specialArgs = {inherit inputs user;};
+        modules = [
+          ./hosts/t480/configuration.nix
+          {
+            home-manager = {
+              extraSpecialArgs = {inherit inputs user;};
+              useUserPackages = true;
+              sharedModules = [
+                ./modules/home-manager/fish.nix
+                ./modules/home-manager/kitty.nix
+                ./modules/home-manager/firefox.nix
+                ./modules/home-manager/git.nix
+                ./modules/home-manager/nvf.nix
+                ./modules/home-manager/hyprland.nix
+              ];
+            };
+          }
+        ];
+      };
     };
   };
 }

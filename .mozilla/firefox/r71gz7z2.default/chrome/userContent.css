@@ -1,9 +1,0 @@
-@-moz-document url("about:newtab"), url("about:home") {
-    body {
-        background-image: url(image.png) !important;
-        background-size: cover !important;
-        background-position: center center !important;
-        background-attachment: fixed !important;
-        background-repeat: no-repeat !important;
-    }
-}

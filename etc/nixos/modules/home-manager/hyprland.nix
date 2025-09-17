@@ -30,6 +30,7 @@ in {
     pavucontrol # Audio control
     grim # Screenshot
     slurp # Selector for screenshot
+    unzip # Unzip
   ];
 
   xdg.mimeApps = {

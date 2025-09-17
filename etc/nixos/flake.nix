@@ -8,7 +8,6 @@
     nvf.url = "github:notashelf/nvf";
 
     plasma-manager.url = "github:AlexNabokikh/plasma-manager";
-
     breeze-cursors-catppuccin.url = "github:noaccOS/breeze-cursors-catppuccin";
   };
 

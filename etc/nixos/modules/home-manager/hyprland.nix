@@ -1,5 +1,9 @@
-{pkgs, ...}: let
-  wallpaper = "/home/matthew/Pictures/my-catppuccin-wallpapers/the_creation_of_adam_catppuccin.png";
+{
+  pkgs,
+  config,
+  ...
+}: let
+  wallpaper = "${config.home.homeDirectory}/Pictures/wallpapers/catppuccin/the_creation_of_adam_catppuccin.png";
 in {
   imports = [
     ./theme-catppuccin.nix # GTK, QT and cursor themes

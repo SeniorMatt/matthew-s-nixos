@@ -6,7 +6,6 @@ My NixOS personal setup.
 git clone https://github.com/SeniorMatt/Matthew-s-NixOS.git
 sudo cp -fr ~/Matthew-s-NixOS/etc/nixos/ /etc/
 sudo rm -fr ~/Matthew-s-NixOS/
-chown -R matthew ~/.config
 ```
 While copying it will ask your nickname (u can write anything u want) and for password write this
 ```
@@ -18,9 +17,7 @@ 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
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/065a9306-8fa8-4df8-80ec-ed90eb61867e" />
 
 ## KDE Plasma using Plasma Manager
-<img width="1920" height="1080" alt="Screenshot_20250917_235400" src="https://github.com/user-attachments/assets/5603f07f-acd0-4068-940d-b65c9a4dcf33" />
-
-
+<img width="1920" height="1080" alt="Screenshot_20250917_235741" src="https://github.com/user-attachments/assets/b96089a8-0468-4578-a0b4-e6b0f432314c" />
 
 ## Hyprland blur and stuff ;D
 ![image_2025-07-09_22-39-49](https://github.com/user-attachments/assets/e1d60ae7-87b9-45bd-adec-3ad1cacef0fc)

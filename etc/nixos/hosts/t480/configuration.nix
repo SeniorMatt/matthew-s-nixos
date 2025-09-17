@@ -21,6 +21,7 @@ in {
   # Latest kernel
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
+  # CLI driver
   hardware.graphics = {
     enable = true;
     extraPackages = with pkgs; [
@@ -123,6 +124,9 @@ in {
   # Hyprland
   programs.hyprland.enable = true;
 
+  # Plasma
+  services.desktopManager.plasma6.enable = true;
+
   # Optional, hint electron apps to use wayland:
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
@@ -141,5 +145,6 @@ in {
     };
   };
 
+  # Never change that
   system.stateVersion = "25.05";
 }

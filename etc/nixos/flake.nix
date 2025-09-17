@@ -1,13 +1,15 @@
 {
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nvf.url = "github:notashelf/nvf";
-    breeze-cursors-catppuccin.url = "github:noaccOS/breeze-cursors-catppuccin";
-
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nvf.url = "github:notashelf/nvf";
+
+    plasma-manager.url = "github:AlexNabokikh/plasma-manager";
+
+    breeze-cursors-catppuccin.url = "github:noaccOS/breeze-cursors-catppuccin";
   };
 
   outputs = {nixpkgs, ...} @ inputs: let
@@ -30,7 +32,8 @@
                 ./modules/home-manager/firefox.nix
                 ./modules/home-manager/git.nix
                 ./modules/home-manager/nvf.nix
-                ./modules/home-manager/hyprland.nix
+                ./modules/home-manager/plasma.nix
+                #./modules/home-manager/hyprland.nix
               ];
             };
           }

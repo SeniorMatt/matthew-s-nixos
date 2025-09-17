@@ -211,10 +211,6 @@ in {
           accel_profile = flat
           sensitivity = 0.25
       }
-
-      gestures {
-          workspace_swipe = false
-      }
     '';
 
     "hypr/categories/look_and_feel.conf".text = ''

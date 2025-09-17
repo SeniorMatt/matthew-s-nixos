@@ -1,4 +1,5 @@
 {
+  # Enable tlp service
   services.tlp = {
     enable = true;
     settings = {
@@ -24,4 +25,7 @@
       STOP_CHARGE_THRESH_BAT0 = 90; # 90 and above it stops charging
     };
   };
+
+  # Disable conflicting services
+  services.power-profiles-daemon.enable = false;
 }

@@ -172,7 +172,7 @@ in {
 
     panels = [
       {
-        location = "bottom";
+        location = "top";
         height = 44;
         screen = 0;
         floating = true;

@@ -1,5 +1,5 @@
 # About
-My Hyprland + NixOS dotfiles for personal setup.
+My NixOS personal setup.
 
 # To install
 ```

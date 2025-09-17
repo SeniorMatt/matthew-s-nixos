@@ -22,6 +22,8 @@
         specialArgs = {inherit inputs user;};
         modules = [
           ./hosts/t480/configuration.nix
+          ./hosts/t480/plasma.nix
+          #./hosts/t480/hyprland.nix
           {
             home-manager = {
               extraSpecialArgs = {inherit inputs user;};
@@ -32,8 +34,6 @@
                 ./modules/home-manager/firefox.nix
                 ./modules/home-manager/git.nix
                 ./modules/home-manager/nvf.nix
-                ./modules/home-manager/plasma.nix
-                #./modules/home-manager/hyprland.nix
               ];
             };
           }

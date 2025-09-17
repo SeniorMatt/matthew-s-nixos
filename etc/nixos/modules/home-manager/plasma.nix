@@ -3,13 +3,13 @@
   pkgs,
   ...
 }: let
-  cursorName = "Breeze";
+  cursorName = "breeze_cursors";
   cursor = pkgs.kdePackages.breeze;
+
+  gtkName = "Breeze-Dark";
+  gtkTheme = pkgs.kdePackages.breeze-gtk;
 in {
   imports = [inputs.plasma-manager.homeManagerModules.plasma-manager];
-
-  # Setting mouse cursor
-  home.file.".icons/default".source = "${cursor}/share/icons/${cursorName}";
 
   home.packages = with pkgs.kdePackages; [
     kcalc
@@ -22,11 +22,11 @@ in {
     workspace = {
       lookAndFeel = "org.kde.breezedark.desktop";
       cursor = {
-        theme = "Breeze_Dark";
+        theme = "breeze_cursors";
         size = 24;
       };
       iconTheme = "breeze-dark";
-      wallpaper = "${pkgs.kdePackages.plasma-workspace-wallpapers}/share/wallpapers/Patak/contents/images/1920x1080.png";
+      wallpaper = "${pkgs.kdePackages.plasma-workspace-wallpapers}/share/wallpapers/ScarletTree/contents/images_dark/5120x2880.png";
     };
 
     hotkeys.commands = {
@@ -130,7 +130,7 @@ in {
 
     panels = [
       {
-        location = "top";
+        location = "bottom";
         height = 44;
         floating = true;
         widgets = [
@@ -176,4 +176,19 @@ in {
       sessionRestore.restoreOpenApplicationsOnLogin = "startWithEmptySession";
     };
   };
+
+  # Themes
+
+  ## GTK theme
+  gtk = {
+    enable = true;
+
+    theme = {
+      name = gtkName;
+      package = gtkTheme;
+    };
+  };
+
+  ## Setting mouse cursor
+  home.file.".icons/default".source = "${cursor}/share/icons/${cursorName}";
 }

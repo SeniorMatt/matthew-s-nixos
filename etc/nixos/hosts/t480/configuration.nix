@@ -81,7 +81,7 @@ in {
   home-manager = {
     extraSpecialArgs = {inherit inputs;};
     useUserPackages = true;
-    backupFileExtension = null;
+    backupFileExtension = "backup";
     users = {
       ${user} = import ./home.nix;
     };

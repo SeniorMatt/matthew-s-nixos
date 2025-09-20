@@ -1,4 +1,8 @@
-{
+{pkgs, ...}: {
+  home.packages = with pkgs; [
+    kitty
+  ];
+
   xdg.configFile = {
     "kitty/kitty.conf".text = ''
       # background_opacity 0.85

@@ -19,11 +19,11 @@
 in {
   imports = [inputs.plasma-manager.homeManagerModules.plasma-manager];
 
-  home.packages = with pkgs.kdePackages; [
-    kcalc # Calculator app
-    kclock # Clock app
-    kolourpaint # Paint
-    xdg-desktop-portal-kde # Desktop portal
+  home.packages = with pkgs; [
+    haruna # Media player
+    kdePackages.kcalc # Calculator app
+    kdePackages.kclock # Clock app
+    kdePackages.xdg-desktop-portal-kde # Desktop portal
   ];
 
   programs.plasma = {
@@ -250,4 +250,16 @@ in {
 
   ## Setting mouse cursor
   home.file.".icons/default".source = "${cursor}/share/icons/${cursorName}";
+
+  xdg.mimeApps = {
+    enable = true;
+    defaultApplications = {
+      "image/png" = "org.kde.gwenview.desktop";
+      "image/jpeg" = "org.kde.gwenview.desktop";
+      "video/mp4" = "org.kde.haruna.desktop";
+      "audio/mp3" = "org.kde.haruna.desktop";
+      "audio/wav" = "org.kde.haruna.desktop";
+      "application/pdf" = "org.kde.okular.desktop";
+    };
+  };
 }

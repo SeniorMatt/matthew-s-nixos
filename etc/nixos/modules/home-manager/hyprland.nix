@@ -21,17 +21,21 @@ in {
     xdg-desktop-portal-hyprland # Desktop portal hyprland
     swayosd # Notifications for the volume and brightness
     wl-clipboard # Clipboard manager
-    gamescope # Steam's gamescope
 
-    # Gnome ecosystem
+    # Players
+    mpv # Media player
     eog # Image viewer
     papers # Document viewer
     parlatype # Audio player
 
-    # Needs
+    # Controls
+    batmon # TUI battery
+    htop # TUI task manager
     blueman # Bluetooth control
     networkmanagerapplet # Network control
     pavucontrol # Audio control
+
+    # Needs
     grim # Screenshot
     slurp # Selector for screenshot
     unzip # Unzip

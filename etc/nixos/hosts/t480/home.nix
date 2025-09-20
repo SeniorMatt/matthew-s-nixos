@@ -16,24 +16,19 @@
 
     # Applications
     steam-run # To run godot builds
-    gimp # Image editor
+    godot-mono # Yeah...
+    gamescope # Downscale games
+    krita # Image editor
     telegram-desktop # Telegram client
     vesktop # Discord client
-    zoom # Zoom
-    godot-mono # Yeah...
     aseprite # Aseprite
     github-desktop # Github client
     obsidian # Notes
-    kitty # Terminal
     obs-studio # OBS
     davinci-resolve # Davinci resolve
-    prismlauncher # The Minecraft launcher
-    batmon # TUI battery
-    htop # TUI task manager
     audacity # Audio editor
-    gamescope # Downscale games
-    mpv # Media player
     reaper # Digital audio workstation
+    prismlauncher # The Minecraft launcher
 
     # Fonts
     jetbrains-mono # System font

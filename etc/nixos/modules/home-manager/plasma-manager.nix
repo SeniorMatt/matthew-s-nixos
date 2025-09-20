@@ -20,7 +20,10 @@ in {
   imports = [inputs.plasma-manager.homeManagerModules.plasma-manager];
 
   home.packages = with pkgs.kdePackages; [
-    kcalc
+    kcalc # Calculator app
+    kclock # Clock app
+    kolourpaint # Paint
+    xdg-desktop-portal-kde # Desktop portal
   ];
 
   programs.plasma = {
@@ -68,6 +71,13 @@ in {
       iconTheme = "breeze-dark";
       #wallpaper = "${pkgs.kdePackages.plasma-workspace-wallpapers}/share/wallpapers/ScarletTree/contents/images_dark/5120x2880.png";
       wallpaper = wallpaper;
+    };
+
+    kscreenlocker = {
+      #appearance.showMediaControls = false;
+      appearance.wallpaper = wallpaper;
+      #autoLock = false;
+      #timeout = 0;
     };
 
     hotkeys.commands = {
@@ -172,7 +182,7 @@ in {
 
     panels = [
       {
-        location = "top";
+        location = "bottom";
         height = 44;
         screen = 0;
         floating = true;

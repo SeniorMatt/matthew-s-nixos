@@ -21,7 +21,7 @@
     vesktop # Discord client
     zoom # Zoom
     godot-mono # Yeah...
-    # aseprite # Aseprite
+    aseprite # Aseprite
     github-desktop # Github client
     obsidian # Notes
     kitty # Terminal

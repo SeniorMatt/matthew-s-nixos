@@ -231,9 +231,7 @@ in {
     };
   };
 
-  # Themes
-
-  ## GTK theme
+  # GTK theme
   gtk = {
     enable = true;
 
@@ -248,9 +246,10 @@ in {
     };
   };
 
-  ## Setting mouse cursor
+  # Setting mouse cursor
   home.file.".icons/default".source = "${cursor}/share/icons/${cursorName}";
 
+  # Default applications
   xdg.mimeApps = {
     enable = true;
     defaultApplications = {

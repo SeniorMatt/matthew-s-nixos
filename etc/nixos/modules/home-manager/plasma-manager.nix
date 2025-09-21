@@ -103,6 +103,7 @@ in {
       };
       kwin = {
         "Window Close" = "Meta+C";
+        "Window Fullscreen" = "Meta+F";
       };
       ksmserver = {
         "LogOut" = [
@@ -147,6 +148,33 @@ in {
         }
       ];
     };
+
+    window-rules = [
+      {
+        description = "Window settings for firefox";
+        match = {
+          window-class = {
+            value = "firefox";
+            type = "substring";
+          };
+          window-types = ["normal"];
+          title = {
+            value = "Picture-in-Picture";
+            type = "substring";
+          };
+        };
+        apply = {
+          above = {
+            value = true;
+            apply = "force";
+          };
+          desktops = {
+            value = "\\0";
+            apply = "force";
+          };
+        };
+      }
+    ];
 
     kwin = {
       effects = {

@@ -4,7 +4,8 @@
   config,
   ...
 }: let
-  wallpaper = "${config.home.homeDirectory}/Pictures/wallpapers/nix.png";
+  #wallpaper = "${config.home.homeDirectory}/Pictures/wallpapers/nix.png";
+  wallpaper = "${pkgs.kdePackages.plasma-workspace-wallpapers}/share/wallpapers/ScarletTree/contents/images_dark/5120x2880.png";
 
   cursorName = "breeze_cursors";
   cursor = pkgs.kdePackages.breeze;
@@ -17,7 +18,7 @@
   generalFontSize = 12;
   smallFontSize = 10;
 in {
-  imports = [inputs.plasma-manager.homeManagerModules.plasma-manager];
+  imports = [inputs.plasma-manager.homeModules.plasma-manager];
 
   home.packages = with pkgs; [
     haruna # Media player
@@ -69,7 +70,6 @@ in {
         size = 24;
       };
       iconTheme = "breeze-dark";
-      #wallpaper = "${pkgs.kdePackages.plasma-workspace-wallpapers}/share/wallpapers/ScarletTree/contents/images_dark/5120x2880.png";
       wallpaper = wallpaper;
     };
 
@@ -104,6 +104,12 @@ in {
       kwin = {
         "Window Close" = "Meta+C";
         "Window Fullscreen" = "Meta+F";
+        "Switch to Desktop 1" = "Meta+F1";
+        "Switch to Desktop 2" = "Meta+F2";
+        "Switch to Desktop 3" = "Meta+F3";
+        "Window to Desktop 1" = "Meta+Shift+F1";
+        "Window to Desktop 2" = "Meta+Shift+F2";
+        "Window to Desktop 3" = "Meta+Shift+F3";
       };
       ksmserver = {
         "LogOut" = [

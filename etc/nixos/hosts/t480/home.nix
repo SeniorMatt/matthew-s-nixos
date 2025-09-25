@@ -1,6 +1,7 @@
 {
   pkgs,
   user,
+  config,
   ...
 }: {
   home.username = user;
@@ -29,14 +30,10 @@
     audacity # Audio editor
     reaper # Digital audio workstation
     prismlauncher # The Minecraft launcher
-
-    # Fonts
-    jetbrains-mono # System font
-    font-awesome # Icon font
-    nerd-fonts.jetbrains-mono # Nerd font
   ];
 
   fonts.fontconfig.enable = true;
+  #home.file.".local/share/fonts".source = "/run/current-system/sw/share/X11/fonts";
 
   programs.home-manager.enable = true;
 }

@@ -110,6 +110,7 @@ in {
 
   fonts = {
     fontconfig.enable = true;
+    fontDir.enable = true;
     packages = with pkgs; [
       customFont # Custom font
       jetbrains-mono # System font

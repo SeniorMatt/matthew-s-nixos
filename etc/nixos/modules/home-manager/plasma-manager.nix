@@ -21,7 +21,7 @@ in {
   imports = [inputs.plasma-manager.homeModules.plasma-manager];
 
   home.packages = with pkgs; [
-    haruna # Media player
+    mpv # Media player
     kdePackages.kcalc # Calculator app
     kdePackages.kclock # Clock app
     kdePackages.xdg-desktop-portal-kde # Desktop portal
@@ -263,7 +263,20 @@ in {
       general.askForConfirmationOnLogout = false;
       sessionRestore.restoreOpenApplicationsOnLogin = "startWithEmptySession";
     };
+
+    configFile = {
+      "kdeglobals"."General" = {
+        TerminalApplication = "kitty";
+        TerminalService = "kitty.desktop";
+      };
+    };
   };
+
+  # Spectacle
+  home.file.".config/spectaclerc".text = ''
+    [GuiConfig]
+    quitAfterSaveCopyExport=true
+  '';
 
   # GTK theme
   gtk = {
@@ -289,9 +302,10 @@ in {
     defaultApplications = {
       "image/png" = "org.kde.gwenview.desktop";
       "image/jpeg" = "org.kde.gwenview.desktop";
-      "video/mp4" = "org.kde.haruna.desktop";
-      "audio/mp3" = "org.kde.haruna.desktop";
-      "audio/wav" = "org.kde.haruna.desktop";
+      "video/mp4" = "mpv.desktop";
+      "audio/mp3" = "mpv.desktop";
+      "audio/ogg" = "mpv.desktop";
+      "audio/wav" = "mpv.desktop";
       "application/pdf" = "org.kde.okular.desktop";
     };
   };

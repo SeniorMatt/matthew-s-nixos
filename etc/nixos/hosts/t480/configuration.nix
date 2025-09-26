@@ -5,7 +5,6 @@
   ...
 }: let
   customFont = pkgs.callPackage ../../modules/nixos/custom-font.nix {};
-  clean-backups-script = import ../../modules/nixos/scripts/clean-backups-script.nix {};
 in {
   imports = [
     inputs.home-manager.nixosModules.default

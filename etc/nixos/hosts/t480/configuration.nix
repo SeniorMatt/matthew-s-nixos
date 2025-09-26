@@ -5,6 +5,7 @@
   ...
 }: let
   customFont = pkgs.callPackage ../../modules/nixos/custom-font.nix {};
+  clean-backups-script = import ../../modules/nixos/scripts/clean-backups-script.nix {};
 in {
   imports = [
     inputs.home-manager.nixosModules.default
@@ -106,6 +107,32 @@ in {
     lm_sensors # Temperature sensors
     brightnessctl # Brightness control
     zoxide # Moving in terminal
+
+    # Bash scripts
+
+    # Deleting all .backup files
+    (pkgs.writeShellScriptBin "clean-backups" ''
+      echo "Deleting ol' backup files..."
+      find "$HOME" -type f -name '*.backup' -delete
+      echo "Done!"
+    '')
+
+    # Get all .desktop files installed
+    (pkgs.writeShellScriptBin "get-all-apps" ''
+      ls /etc/profiles/per-user/matthew/share/applications
+      ls /run/current-system/sw/share/applications
+    '')
+
+    # Copy NixOS configuration
+    (pkgs.writeShellScriptBin "copy-nixos" ''
+      echo "Copying NixOS configuration..."
+      sudo cp -r /etc/nixos/ ~/Documents/GitHub/Matthew-s-NixOS/etc/
+      sudo rm -f ~/Documents/GitHub/Matthew-s-NixOS/etc/nixos/hardware-configuration.nix
+      echo "Copying Wallpapers..."
+      sudo cp -r ~/Pictures/wallpapers/ ~/Documents/GitHub/Matthew-s-NixOS/Pictures/
+      sudo cp -r ~/Pictures/wallpapers/catppuccin/ ~/Documents/GitHub/Matthew-s-NixOS/Pictures/wallpapers/
+      sudo cp ~/Pictures/avatar.png ~/Documents/GitHub/Matthew-s-NixOS/Pictures/
+    '')
   ];
 
   fonts = {

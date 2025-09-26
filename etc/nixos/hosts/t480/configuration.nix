@@ -11,7 +11,8 @@ in {
     ./hardware-configuration.nix
     ../../modules/nixos/bluetooth.nix
     ../../modules/nixos/pipewire.nix
-    ../../modules/nixos/tlp.nix
+    ../../modules/nixos/auto-cpufreq.nix
+    #../../modules/nixos/tlp.nix
   ];
 
   # Bootloader.

@@ -65,6 +65,7 @@ in {
 
     workspace = {
       lookAndFeel = "org.kde.breezedark.desktop";
+      soundTheme = "freedesktop";
       cursor = {
         theme = "breeze_cursors";
         size = 24;
@@ -265,9 +266,11 @@ in {
     };
 
     configFile = {
-      "kdeglobals"."General" = {
-        TerminalApplication = "kitty";
-        TerminalService = "kitty.desktop";
+      "kdeglobals" = {
+        "General" = {
+          TerminalApplication = "kitty";
+          TerminalService = "kitty.desktop";
+        };
       };
     };
   };

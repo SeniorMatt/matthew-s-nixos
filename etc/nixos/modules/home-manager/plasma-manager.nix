@@ -4,7 +4,6 @@
   config,
   ...
 }: let
-  #wallpaper = "${config.home.homeDirectory}/Pictures/wallpapers/nix.png";
   wallpaper = "${pkgs.kdePackages.plasma-workspace-wallpapers}/share/wallpapers/ScarletTree/contents/images_dark/5120x2880.png";
 
   cursorName = "breeze_cursors";
@@ -27,6 +26,9 @@ in {
     kdePackages.xdg-desktop-portal-kde # Desktop portal
   ];
 
+  # Plasma Manager
+  # https://nix-community.github.io/plasma-manager/options.xhtml
+  # Check this site to find available options
   programs.plasma = {
     enable = true;
     overrideConfig = true;

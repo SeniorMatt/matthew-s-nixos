@@ -4,7 +4,8 @@
   config,
   ...
 }: let
-  wallpaper = "${pkgs.kdePackages.plasma-workspace-wallpapers}/share/wallpapers/ScarletTree/contents/images_dark/5120x2880.png";
+  #wallpaper = "${pkgs.kdePackages.plasma-workspace-wallpapers}/share/wallpapers/ScarletTree/contents/images_dark/5120x2880.png";
+  wallpaper = "${config.home.homeDirectory}/Pictures/wallpapers/catppuccin/the_creation_of_adam_catppuccin.png";
 
   cursorName = "breeze_cursors";
   cursor = pkgs.kdePackages.breeze;
@@ -83,14 +84,6 @@ in {
       #timeout = 0;
     };
 
-    hotkeys.commands = {
-      launch-copy-script = {
-        name = "Launch Copy Script";
-        key = "Meta+Alt+G";
-        command = ''kitty sh -c "bash /etc/nixos/scripts/copy.sh"'';
-      };
-    };
-
     shortcuts = {
       "services/firefox.desktop" = {
         "_launch" = "Meta+Shift+F";
@@ -107,12 +100,26 @@ in {
       kwin = {
         "Window Close" = "Meta+C";
         "Window Fullscreen" = "Meta+F";
-        "Switch to Desktop 1" = "Meta+F1";
-        "Switch to Desktop 2" = "Meta+F2";
-        "Switch to Desktop 3" = "Meta+F3";
-        "Window to Desktop 1" = "Meta+Shift+F1";
-        "Window to Desktop 2" = "Meta+Shift+F2";
-        "Window to Desktop 3" = "Meta+Shift+F3";
+        "Switch to Desktop 1" = "Meta+1";
+        "Switch to Desktop 2" = "Meta+2";
+        "Switch to Desktop 3" = "Meta+3";
+        "Switch to Desktop 4" = "Meta+4";
+        "Switch to Desktop 5" = "Meta+5";
+        "Switch to Desktop 6" = "Meta+6";
+        "Switch to Desktop 7" = "Meta+7";
+        "Switch to Desktop 8" = "Meta+8";
+        "Switch to Desktop 9" = "Meta+9";
+        "Switch to Desktop 10" = "Meta+0";
+        "Window to Desktop 1" = "Meta+Shift+1";
+        "Window to Desktop 2" = "Meta+Shift+2";
+        "Window to Desktop 3" = "Meta+Shift+3";
+        "Window to Desktop 4" = "Meta+Shift+4";
+        "Window to Desktop 5" = "Meta+Shift+5";
+        "Window to Desktop 6" = "Meta+Shift+6";
+        "Window to Desktop 7" = "Meta+Shift+7";
+        "Window to Desktop 8" = "Meta+Shift+8";
+        "Window to Desktop 9" = "Meta+Shift+9";
+        "Window to Desktop 10" = "Meta+Shift+0";
       };
       ksmserver = {
         "LogOut" = [

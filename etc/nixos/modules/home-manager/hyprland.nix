@@ -10,7 +10,6 @@ in {
     ./tofi.nix # App launcher
     ./waybar.nix # Panel
     ./dunst.nix # Notification manager
-    ./thunar.nix # File manager
   ];
 
   home.packages = with pkgs; [
@@ -21,6 +20,7 @@ in {
     xdg-desktop-portal-hyprland # Desktop portal hyprland
     swayosd # Notifications for the volume and brightness
     wl-clipboard # Clipboard manager
+    nautilus # File manager
 
     # Players
     mpv # Media player
@@ -48,6 +48,7 @@ in {
       "image/jpeg" = "org.gnome.eog.desktop";
       "video/mp4" = "mpv.desktop";
       "audio/mp3" = "xyz.parlatype.Parlatype.desktop";
+      "audio/ogg" = "mpv.desktop";
       "audio/wav" = "xyz.parlatype.Parlatype.desktop";
       "application/pdf" = "org.gnome.Papers.desktop";
     };
@@ -55,26 +56,9 @@ in {
 
   xdg.configFile = {
     "hypr/hyprland.conf".text = ''
-      source = $HOME/.config/hypr/categories/look_and_feel.conf
-      source = $HOME/.config/hypr/categories/animations.conf
-      # source = $HOME/.config/hypr/categories/windows_opacity.conf
-      # source = $HOME/.config/hypr/categories/animations/no_animations.conf
-      source = $HOME/.config/hypr/categories/monitors.conf
-      source = $HOME/.config/hypr/categories/autostart.conf
-      source = $HOME/.config/hypr/categories/keybinds.conf
-      source = $HOME/.config/hypr/categories/input.conf
-      source = $HOME/.config/hypr/categories/windows_and_workspaces.conf
-    '';
-
-    "hypr/hyprpaper.conf".text = ''
-      preload = ${wallpaper}
-      wallpaper= , ${wallpaper}
-    '';
-
-    "hypr/categories/keybinds.conf".text = ''
       # Keybinds
       $terminal = kitty
-      $fileManager = thunar
+      $fileManager = nautilus
       $dmenu = tofi-drun | xargs hyprctl dispatch exec --
       $menu = tofi-run | xargs hyprctl dispatch exec --
       $mainMod = SUPER
@@ -84,17 +68,14 @@ in {
       bind = $mainMod, M, exit,
       bind = $mainMod, E, exec, $fileManager
       bind = $mainMod, V, togglefloating,
-      bind = $mainMod, R, exec, $dmenu
-      bind = $mainMod, T, exec, $menu
+      bind = ALT, SPACE, exec, $dmenu
+      bind = $mainMod, SPACE, exec, $menu
       bind = $mainMod, F, fullscreen
       bind = $mainMod, P, pseudo, # dwindle
       bind = $mainMod, I, togglesplit, # dwindle
 
       bind = , print, exec, grim -g "$(slurp)" - | wl-copy
       bind = SHIFT, print, exec, grim - | wl-copy
-
-      bind = $mainMod + ALT, G, exec, kitty sh -c "bash /etc/nixos/scripts/copy.sh"
-      # bind = $mainMod + ALT, T, exec, /etc/nixos/scripts/add_translucent_window.sh
 
       # Applications
       bind = $mainMod + SHIFT, C, exec, $terminal
@@ -169,9 +150,7 @@ in {
       bindl = , XF86AudioPause, exec, playerctl play-pause
       bindl = , XF86AudioPlay, exec, playerctl play-pause
       bindl = , XF86AudioPrev, exec, playerctl previous
-    '';
 
-    "hypr/categories/autostart.conf".text = ''
       # Autostart
       exec-once = hyprpaper & # Wallpaper
       exec-once = waybar & # Waybar
@@ -182,8 +161,7 @@ in {
       exec-once = udiskie & # Manage removable media like flash drives
       exec-once = swayosd-server # For volume bubble
       exec-once = swayosd-libinput-backend
-    '';
-    "hypr/categories/input.conf".text = ''
+
       # Input
       input {
           kb_layout = us, ru
@@ -198,7 +176,7 @@ in {
           accel_profile = adaptive
 
           touchpad {
-              natural_scroll = false
+              natural_scroll = true
       	      disable_while_typing = false
           }
       }
@@ -220,15 +198,13 @@ in {
           accel_profile = flat
           sensitivity = 0.25
       }
-    '';
 
-    "hypr/categories/look_and_feel.conf".text = ''
       # Look and Feel
       general {
           gaps_in = 4
-          gaps_out = 4
+          gaps_out = 8
 
-          border_size = 4
+          border_size = 3
 
           # Write 45deg if u want to have animation
           col.active_border = rgb(b4befe)
@@ -255,13 +231,13 @@ in {
           }
 
           blur {
-              enabled = false
+              enabled = true
               size = 9 # Default value is 3
               passes = 3 # Default value is 1
 
               vibrancy = 0.1696
-      	new_optimizations = true
-      	ignore_opacity = true
+      	      new_optimizations = true
+      	      ignore_opacity = true
           }
       }
 
@@ -279,14 +255,11 @@ in {
           disable_hyprland_logo = true # If true disables the random hyprland logo / anime girl background. :(
       }
 
-
       # Support for scRGB
       debug {
         full_cm_proto = true;
       }
-    '';
 
-    "hypr/categories/monitors.conf".text = ''
       # Monitors
       monitor = eDP-1, 1920x1080@60, 0x0, 1.0
       monitor = HDMI-A-2, 2560x1440@75, 0x-1440, 1.0
@@ -294,19 +267,13 @@ in {
       # Workspaces for second monitor
       workspace = 4, monitor:HDMI-A-2
       workspace = 5, monitor:HDMI-A-2
-    '';
 
-    "hypr/categories/windows_and_workspaces.conf".text = ''
       # Windows and Workspaces
       # Ignore maximize requests from apps. You'll probably like this.
       windowrule = suppressevent maximize, class:.*
 
       # Fix some dragging issues with XWayland
       windowrule = nofocus,class:^$,title:^$,xwayland:1,floating:0,fullscreen:0,pinned:0
-
-      # Waybar blur
-      layerrule = blur, waybar
-      layerrule = ignorealpha, waybar
 
       # Rules
       ## Firefox Picture in Picture
@@ -331,44 +298,36 @@ in {
       windowrule = maxsize 1 1, class:^(xwaylandvideobridge)$
       windowrule = noblur, class:^(xwaylandvideobridge)$
       windowrule = nofocus, class:^(xwaylandvideobridge)$
-    '';
 
-    "hypr/categories/windows_opacity".text = ''
-      # Windows opacity
-      decoration {
-      	blur {
-      	  enabled = true
-      	}
-      }
-
-      windowrule = opacity 0.85, 0.85,class:^(org.gnome.Nautilus)$
-      windowrule = opacity 0.85, 0.85,class:^(blueberry.py)$
-      windowrule = opacity 0.85, 0.85,class:^(org.pulseaudio.pavucontrol)$
-      windowrule = opacity 0.85, 0.85,class:^(obsidian)$
-      windowrule = opacity 0.85, 0.85,class:^(org.telegram.desktop)$
-      windowrule = opacity 0.85, 0.85,class:^(steam)$
-      windowrule = opacity 0.85, 0.85,class:^(org.prismlauncher.PrismLauncher)$
-      windowrule = opacity 0.85, 0.85,class:^(nm-connection-editor)$
-      windowrule = opacity 0.85, 0.85,class:^(.blueman-manager-wrapped)$
-      windowrule = opacity 0.85, 0.85,class:^(org.gnome.Calculator)$
-    '';
-
-    "hypr/categories/animations.conf".text = ''
       # Animations
       animations {
           enabled = yes
 
           # Some default animations, see https://wiki.hyprland.org/Configuring/Animations/ for more
 
-          bezier = myBezier, 0.05, 0.9, 0.1, 1.05
+          bezier = myBezier, 0.05, 0.9, 0.1, 1.0
 
-          animation = windows, 1, 3, myBezier
-          animation = windowsOut, 1, 3, default, popin 80%
-          animation = border, 1, 10, default
-          animation = borderangle, 1, 8, default
-          animation = fade, 1, 7, default
-          animation = workspaces, 1, 3, default
+          animation = windows, 1, 2, myBezier
+          animation = windowsOut, 1, 2, default, popin 80%
+          animation = fade, 1, 5, default
+          animation = workspaces, 1, 2, default
       }
+    '';
+
+    # Hyprpaper
+    "hypr/hyprpaper.conf".text = ''
+      preload = ${wallpaper}
+      wallpaper= , ${wallpaper}
+    '';
+
+    # Bookmarks for File Manager
+    "gtk-3.0/bookmarks".text = ''
+      file:///home/matthew/Downloads Downloads
+      file:///home/matthew/Documents Documents
+      file:///home/matthew/Documents/GitHub GitHub
+      file:///home/matthew/Pictures Pictures
+      file:///home/matthew/Videos Videos
+      file:///home/matthew/.local/share/Trash Trash
     '';
   };
 }

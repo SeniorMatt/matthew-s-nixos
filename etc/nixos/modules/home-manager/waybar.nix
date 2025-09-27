@@ -11,9 +11,9 @@
           "position": "top", // Waybar position (top|bottom|left|right)
           // "height": 48, // Waybar height (to be removed for auto height)
           // "width": 1280, // Waybar width
-          "margin-left": 4,
-          "margin-right": 4,
-          "margin-top": 4,
+          "margin-left": 0,
+          "margin-right": 0,
+          "margin-top": 0,
           "spacing": 8,
           "modules-left": [
               "hyprland/workspaces",
@@ -259,7 +259,7 @@
 
       window#waybar {
           background-color: rgba(30, 30, 46, 1.0);
-          border-radius: 8px;
+          border-radius: 0px;
       }
 
       window#waybar.hidden {

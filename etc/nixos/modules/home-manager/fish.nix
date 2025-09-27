@@ -5,7 +5,8 @@
       oh-my-posh init fish | source
       zoxide init fish | source
       set -g fish_greeting
-      alias nrs="sudo nixos-rebuild switch --flake /etc/nixos/#t480"
+      alias nrp="sudo nixos-rebuild switch --flake /etc/nixos/#plasma"
+      alias nrh="sudo nixos-rebuild switch --flake /etc/nixos/#hyprland"
       alias nfu="sudo nix flake update"
       alias n="nvim"
       alias ng="nvim ~/Documents/GitHub/"

@@ -3,7 +3,7 @@ My NixOS personal setup.
 
 # To install
 ```
-git clone https://github.com/SeniorMatt/Matthew-s-NixOS.git && sudo cp -fr ~/Matthew-s-NixOS/etc/nixos/ /etc/ && sudo rm -fr ~/Matthew-s-NixOS/
+git clone https://github.com/SeniorMatt/Matthew-s-NixOS.git && sudo cp -fr ~/Matthew-s-NixOS/etc/nixos/ /etc/ && sudo rm -fr ~/Matthew-s-NixOS/ && sudo nixos-rebuild switch --flake /etc/nixos/#plasma
 ```
 While copying it will ask your nickname (u can write anything u want) and for password write this
 ```

@@ -3,7 +3,7 @@
   config,
   ...
 }: let
-  wallpaper = "${config.home.homeDirectory}/Pictures/wallpapers/catppuccin/pompeii.png";
+  wallpaper = "${config.home.homeDirectory}/Pictures/wallpapers/catppuccin/puffy-stars.jpg";
 in {
   imports = [
     ./theme-catppuccin.nix # GTK, QT and cursor themes
@@ -274,6 +274,10 @@ in {
 
       # Fix some dragging issues with XWayland
       windowrule = nofocus,class:^$,title:^$,xwayland:1,floating:0,fullscreen:0,pinned:0
+
+      # Waybar blur
+      layerrule = blur, waybar
+      layerrule = ignorealpha, waybar
 
       # Rules
       ## Firefox Picture in Picture

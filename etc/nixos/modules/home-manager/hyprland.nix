@@ -3,7 +3,7 @@
   config,
   ...
 }: let
-  wallpaper = "${config.home.homeDirectory}/Pictures/wallpapers/catppuccin/the_creation_of_adam_catppuccin.png";
+  wallpaper = "${config.home.homeDirectory}/Pictures/wallpapers/catppuccin/pompeii.png";
 in {
   imports = [
     ./theme-catppuccin.nix # GTK, QT and cursor themes
@@ -20,7 +20,7 @@ in {
     xdg-desktop-portal-hyprland # Desktop portal hyprland
     swayosd # Notifications for the volume and brightness
     wl-clipboard # Clipboard manager
-    nautilus # File manager
+    yazi # File manager
 
     # Players
     mpv # Media player
@@ -30,7 +30,7 @@ in {
 
     # Controls
     batmon # TUI battery
-    htop # TUI task manager
+    btop # TUI task manager
     blueman # Bluetooth control
     networkmanagerapplet # Network control
     pavucontrol # Audio control
@@ -58,7 +58,7 @@ in {
     "hypr/hyprland.conf".text = ''
       # Keybinds
       $terminal = kitty
-      $fileManager = nautilus
+      $fileManager = $terminal yazi
       $dmenu = tofi-drun | xargs hyprctl dispatch exec --
       $menu = tofi-run | xargs hyprctl dispatch exec --
       $mainMod = SUPER
@@ -305,12 +305,12 @@ in {
 
           # Some default animations, see https://wiki.hyprland.org/Configuring/Animations/ for more
 
-          bezier = myBezier, 0.05, 0.9, 0.1, 1.0
+          bezier = myBezier, 0.05, 0.9, 0.1, 1.05
 
-          animation = windows, 1, 2, myBezier
-          animation = windowsOut, 1, 2, default, popin 80%
+          animation = windows, 1, 3, myBezier
+          animation = windowsOut, 1, 3, myBezier, popin 80%
           animation = fade, 1, 5, default
-          animation = workspaces, 1, 2, default
+          animation = workspaces, 1, 3, default
       }
     '';
 

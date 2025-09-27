@@ -4,7 +4,6 @@
   config,
   ...
 }: let
-  #wallpaper = "${pkgs.kdePackages.plasma-workspace-wallpapers}/share/wallpapers/ScarletTree/contents/images_dark/5120x2880.png";
   wallpaper = "${config.home.homeDirectory}/Pictures/wallpapers/catppuccin/the_creation_of_adam_catppuccin.png";
 
   cursorName = "breeze_cursors";
@@ -15,8 +14,8 @@
 
   generalFont = "Noto Sans";
   fixedFont = "JetBrainsMono";
-  generalFontSize = 12;
-  smallFontSize = 10;
+  generalFontSize = 10;
+  smallFontSize = 8;
 in {
   imports = [inputs.plasma-manager.homeModules.plasma-manager];
 
@@ -110,16 +109,16 @@ in {
         "Switch to Desktop 8" = "Meta+8";
         "Switch to Desktop 9" = "Meta+9";
         "Switch to Desktop 10" = "Meta+0";
-        "Window to Desktop 1" = "Meta+Shift+!";
-        "Window to Desktop 2" = "Meta+Shift+@";
-        "Window to Desktop 3" = "Meta+Shift+#";
-        "Window to Desktop 4" = "Meta+Shift+$";
-        "Window to Desktop 5" = "Meta+Shift+%";
-        "Window to Desktop 6" = "Meta+Shift+^";
-        "Window to Desktop 7" = "Meta+Shift+&";
-        "Window to Desktop 8" = "Meta+Shift+*";
-        "Window to Desktop 9" = "Meta+Shift+(";
-        "Window to Desktop 10" = "Meta+Shift+)";
+        "Window to Desktop 1" = "Meta+!";
+        "Window to Desktop 2" = "Meta+@";
+        "Window to Desktop 3" = "Meta+#";
+        "Window to Desktop 4" = "Meta+$";
+        "Window to Desktop 5" = "Meta+%";
+        "Window to Desktop 6" = "Meta+^";
+        "Window to Desktop 7" = "Meta+&";
+        "Window to Desktop 8" = "Meta+*";
+        "Window to Desktop 9" = "Meta+(";
+        "Window to Desktop 10" = "Meta+)";
       };
       ksmserver = {
         "LogOut" = [
@@ -139,17 +138,23 @@ in {
           }
         ];
         options = ["grp:caps_toggle"];
-        #repeatDelay = 250;
-        #repeatRate = 40;
+        repeatDelay = 600;
+        repeatRate = 25;
       };
-      #mice = [
-      #{
-      #accelerationProfile = "none";
-      #name = "name";
-      #productId = "00c1";
-      #vendorId = "1532";
-      #}
-      #];
+      mice = [
+        {
+          accelerationProfile = "none";
+          name = "TPPS/2 IBM TrackPoint";
+          productId = "000a";
+          vendorId = "0002";
+        }
+        {
+          accelerationProfile = "none";
+          name = "Compx 2.4G Wireless Receiver";
+          productId = "fa7c";
+          vendorId = "25a7";
+        }
+      ];
       touchpads = [
         {
           disableWhileTyping = false;
@@ -159,8 +164,8 @@ in {
           tapToClick = true;
 
           name = "Synaptics TM3276-022";
-          productId = "0000";
           vendorId = "06cb";
+          productId = "0000";
         }
       ];
     };
@@ -194,7 +199,7 @@ in {
 
     kwin = {
       effects = {
-        blur.enable = true;
+        #blur.enable = true;
         #cube.enable = false;
         #desktopSwitching.animation = "off";
         #dimAdminMode.enable = false;
@@ -272,6 +277,18 @@ in {
     session = {
       general.askForConfirmationOnLogout = false;
       sessionRestore.restoreOpenApplicationsOnLogin = "startWithEmptySession";
+    };
+
+    powerdevil = {
+      AC = {
+        autoSuspend.action = "nothing";
+        turnOffDisplay.idleTimeout = "never";
+        powerProfile = "performance";
+      };
+      battery = {
+        autoSuspend.action = "sleep";
+        powerProfile = "balanced";
+      };
     };
 
     configFile = {

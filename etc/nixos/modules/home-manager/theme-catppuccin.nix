@@ -6,18 +6,18 @@
 }: let
   # Font
   fontSize = 12;
-  fontFamily = "JetBrains Mono";
-  fontSizeString = builtins.toString fontSize;
+  fontFamily = "NOTONOTO-Regular";
 
   # Icon
   iconName = "Adwaita";
   iconTheme = pkgs.adwaita-icon-theme;
+  #iconName = "breeze-dark";
+  #iconTheme = pkgs.kdePackages.breeze-icons;
 
   # Cursor
   cursorName = "Breeze_Catppuccin";
   cursor = inputs.breeze-cursors-catppuccin.packages.${pkgs.system}.default;
   cursorSize = 24;
-  cursorSizeString = builtins.toString cursorSize;
 
   # Theme
   catppuccinAccent = "lavender";
@@ -38,6 +38,10 @@
     variant = catppuccinVariant;
     tweaks = ["normal"];
   };
+
+  # Strings
+  fontSizeString = builtins.toString fontSize;
+  cursorSizeString = builtins.toString cursorSize;
 in {
   home.packages = with pkgs; [
     libsForQt5.qtstyleplugin-kvantum
@@ -85,9 +89,11 @@ in {
   };
 
   dconf.settings = {
-    #"org/gnome/desktop/wm/preferences" = {
-    #button-layout = ":close";
-    #};
+    "org/gnome/desktop/wm/preferences" = {
+      #button-layout = ":close";
+      button-layout = "";
+    };
+
     # Dark theme for default Apps
     "org/gnome/desktop/interface".color-scheme = "prefer-dark";
   };

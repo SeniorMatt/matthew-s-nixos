@@ -1,5 +1,8 @@
 {inputs, ...}: {
-  imports = [inputs.home-manager.nixosModules.default];
+  imports = [
+    ../../modules/nixos/power-profiles-daemon.nix
+    inputs.home-manager.nixosModules.default
+  ];
 
   services.desktopManager.plasma6.enable = true;
 

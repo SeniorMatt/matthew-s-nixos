@@ -14,7 +14,7 @@
       CPU_MIN_PERF_ON_AC = 0;
       CPU_MAX_PERF_ON_AC = 100;
       CPU_MIN_PERF_ON_BAT = 0;
-      CPU_MAX_PERF_ON_BAT = 80;
+      CPU_MAX_PERF_ON_BAT = 100;
 
       #Fix low FPS/stutter/FPS drops on Intel iGPU
       INTEL_GPU_MIN_FREQ_ON_AC = 500;

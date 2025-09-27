@@ -1,5 +1,8 @@
 {inputs, ...}: {
-  imports = [inputs.home-manager.nixosModules.default];
+  imports = [
+    ../../modules/nixos/tlp.nix
+    inputs.home-manager.nixosModules.default
+  ];
 
   programs.hyprland.enable = true;
 

@@ -11,8 +11,6 @@ in {
     ./hardware-configuration.nix
     ../../modules/nixos/bluetooth.nix
     ../../modules/nixos/pipewire.nix
-    ../../modules/nixos/auto-cpufreq.nix
-    #../../modules/nixos/tlp.nix
   ];
 
   # Bootloader.
@@ -142,6 +140,7 @@ in {
       customFont # Custom font
       jetbrains-mono # System font
       font-awesome # Icon font
+      notonoto # Noto Sans
       nerd-fonts.jetbrains-mono # Nerd font
     ];
   };

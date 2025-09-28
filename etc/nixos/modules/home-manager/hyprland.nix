@@ -3,7 +3,7 @@
   config,
   ...
 }: let
-  wallpaper = "${config.home.homeDirectory}/Pictures/wallpapers/catppuccin/puffy-stars.jpg";
+  wallpaper = "${config.home.homeDirectory}/Pictures/wallpapers/catppuccin/math.png";
 in {
   imports = [
     ./theme-catppuccin.nix # GTK, QT and cursor themes

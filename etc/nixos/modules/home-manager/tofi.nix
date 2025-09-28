@@ -5,18 +5,18 @@
 
   xdg.configFile = {
     "tofi/config".text = ''
-      width = 36%
-      height = 48px
-      border-width = 4
-      corner-radius = 8
+      width = 32%
+      height = 50%
+      border-width = 8
+      corner-radius = 4
       outline-width = 0
       result-spacing = 10
-      num-results = 12
+      num-results = 8
       font = JetBrains Mono
 
       background-color = 181825
-      border-color = #94e2d5
-      selection-color = #cba6f7
+      border-color = #89b4fa
+      selection-color = #f38ba8
       text-color = #cdd6f4
     '';
   };

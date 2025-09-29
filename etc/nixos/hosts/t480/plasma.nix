@@ -14,6 +14,13 @@
     plasma-browser-integration
   ];
 
+  xdg.portal = {
+    enable = true;
+    extraPortals = with pkgs; [
+      kdePackages.xdg-desktop-portal-kde
+    ];
+  };
+
   home-manager = {
     sharedModules = [
       ../../modules/home-manager/plasma-manager.nix

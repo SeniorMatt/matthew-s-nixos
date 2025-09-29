@@ -6,25 +6,20 @@
 }: let
   # config.home.homeDirectory - To access home directory
   wallpaper = "${pkgs.kdePackages.plasma-workspace-wallpapers}/share/wallpapers/ScarletTree/contents/images_dark/5120x2880.png";
-
-  cursorName = "breeze_cursors";
-  cursor = pkgs.kdePackages.breeze;
-
-  gtkName = "Breeze-Dark";
-  gtkTheme = pkgs.kdePackages.breeze-gtk;
-
   generalFont = "Noto Sans";
   fixedFont = "JetBrainsMono";
   generalFontSize = 12;
   smallFontSize = 10;
 in {
-  imports = [inputs.plasma-manager.homeModules.plasma-manager];
+  imports = [
+    ./theme-breeze.nix # GTK, QT and Cursor themes
+    inputs.plasma-manager.homeModules.plasma-manager
+  ];
 
   home.packages = with pkgs; [
     mpv # Media player
     kdePackages.kcalc # Calculator app
     kdePackages.kclock # Clock app
-    kdePackages.xdg-desktop-portal-kde # Desktop portal
   ];
 
   # Plasma Manager
@@ -307,24 +302,6 @@ in {
     [GuiConfig]
     quitAfterSaveCopyExport=true
   '';
-
-  # GTK theme
-  gtk = {
-    enable = true;
-
-    theme = {
-      name = gtkName;
-      package = gtkTheme;
-    };
-
-    font = {
-      name = generalFont;
-      size = generalFontSize;
-    };
-  };
-
-  # Setting mouse cursor
-  home.file.".icons/default".source = "${cursor}/share/icons/${cursorName}";
 
   # Default applications
   xdg.mimeApps = {

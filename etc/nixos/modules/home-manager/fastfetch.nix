@@ -43,12 +43,12 @@
           //"battery",
           //"poweradapter",
           //"locale",
-          //"break",
-          //"colors",
           {
             "type": "custom",
             "format": "~~~~~~~~~~~~~~~~~~~~~~~~~~",
-          }
+          },
+          "break",
+          "colors"
         ]
       }
     '';

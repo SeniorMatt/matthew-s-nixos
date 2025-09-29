@@ -207,7 +207,7 @@
                   "car": "",
                   "default": ["", "", ""]
               },
-              "on-click": "pavucontrol"
+              "on-click": "pavucontrol-qt"
           },
           "custom/media": {
               "format": "{icon} {text}",
@@ -243,7 +243,7 @@
             "format-icons": {
               "default": ""
             },
-            "on-click": "kitty --hold bash -c nitch"
+            "on-click": "kitty --hold bash -c fastfetch"
           }
       }
     '';
@@ -307,7 +307,7 @@
           margin: 4px 0px;
           padding: 0px 4px;
           color: #cdd6f4;
-          border-radius: 4px;
+          border-radius: 8px;
       }
 
       #custom-power {
@@ -372,14 +372,14 @@
           padding: 2px 2px;
           margin: 4px 0px;
           background-color: rgba(49, 50, 68, 0.0);
-          border-radius: 4px;
+          border-radius: 12px;
       }
 
       #workspaces button {
           font-weight: bold;
           padding: 0px 2px;
           margin: 0px 0px;
-          border-radius: 4px;
+          border-radius: 8px;
           color: #f5e0dc;
       }
 

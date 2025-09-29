@@ -7,8 +7,8 @@
     "tofi/config".text = ''
       width = 32%
       height = 50%
-      border-width = 8
-      corner-radius = 4
+      border-width = 4
+      corner-radius = 12
       outline-width = 0
       result-spacing = 10
       num-results = 8

@@ -6,11 +6,10 @@
   wallpaper = "${config.home.homeDirectory}/Pictures/wallpapers/catppuccin/pompeii.png";
 in {
   imports = [
-    ./theme-catppuccin.nix # GTK, QT and cursor themes
+    ./theme-catppuccin.nix # GTK, QT and Cursor themes
     ./tofi.nix # App launcher
     ./waybar.nix # Panel
     ./dunst.nix # Notification manager
-    ./nautilus.nix # File manager
   ];
 
   home.packages = with pkgs; [
@@ -18,23 +17,25 @@ in {
     wlsunset # Blue light filter
     hyprpaper # Wallpaper
     hyprpolkitagent # Authentification agent
-    xdg-desktop-portal-hyprland # Desktop portal hyprland
     swayosd # Notifications for the volume and brightness
     wl-clipboard # Clipboard manager
     yazi # TUI File manager
 
+    # KDE
+    kdePackages.dolphin
+    kdePackages.kate
+
     # Players
     mpv # Media player
-    eog # Image viewer
-    papers # Document viewer
-    parlatype # Audio player
+    kdePackages.gwenview # Image viewer
+    kdePackages.okular # Document viewer
 
     # Controls
     batmon # TUI battery
     btop # TUI task manager
     blueman # Bluetooth control
     networkmanagerapplet # Network control
-    pavucontrol # Audio control
+    lxqt.pavucontrol-qt # Audio control
 
     # Needs
     grim # Screenshot
@@ -45,13 +46,13 @@ in {
   xdg.mimeApps = {
     enable = true;
     defaultApplications = {
-      "image/png" = "org.gnome.eog.desktop";
-      "image/jpeg" = "org.gnome.eog.desktop";
+      "image/png" = "org.kde.gwenview.desktop";
+      "image/jpeg" = "org.kde.gwenview.desktop";
       "video/mp4" = "mpv.desktop";
-      "audio/mp3" = "xyz.parlatype.Parlatype.desktop";
+      "audio/mp3" = "mpv.desktop";
       "audio/ogg" = "mpv.desktop";
-      "audio/wav" = "xyz.parlatype.Parlatype.desktop";
-      "application/pdf" = "org.gnome.Papers.desktop";
+      "audio/wav" = "mpv.desktop";
+      "application/pdf" = "org.kde.okular.desktop";
     };
   };
 
@@ -59,7 +60,7 @@ in {
     "hypr/hyprland.conf".text = ''
       # Keybinds
       $terminal = kitty
-      $fileManager = $terminal yazi
+      $fileManager = dolphin
       $dmenu = tofi-drun | xargs hyprctl dispatch exec --
       $menu = tofi-run | xargs hyprctl dispatch exec --
       $mainMod = SUPER
@@ -205,9 +206,8 @@ in {
           gaps_in = 4
           gaps_out = 8
 
-          border_size = 3
+          border_size = 4
 
-          # Write 45deg if u want to have animation
           col.active_border = rgb(b4befe)
           col.inactive_border = rgb(1e1e2e)
 
@@ -219,7 +219,7 @@ in {
       }
 
       decoration {
-          rounding = 4
+          rounding = 12
 
           active_opacity = 1.0
           inactive_opacity = 1.0
@@ -232,9 +232,9 @@ in {
           }
 
           blur {
-              enabled = false
-              size = 3 # 3
-              passes = 1 # 1
+              enabled = true
+              size = 6 # 3
+              passes = 2 # Higher the value - higher the GPU usage
 
               vibrancy = 0.1696
       	      new_optimizations = true
@@ -285,9 +285,10 @@ in {
       windowrule = float,,class:^(firefox)$,title:^(Picture-in-Picture)$
       windowrule = pin,class:^(firefox)$,title:^(Picture-in-Picture)$
 
-      ## Media & Image player fullscreen
-      windowrule = fullscreen,class:^(eog)
-      windowrule = fullscreen,class:^(mpv)
+      # Opacity for windows
+      windowrule = opacity 0.85 0.85, class: org.kde.dolphin
+      windowrule = opacity 0.85 0.85, title:^(Volume Control)$
+      windowrule = opacity 0.85 0.85, class: .blueman-manager-wrapped
 
       # Workspaces
       workspace = 1, monitor:eDP-1

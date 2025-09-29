@@ -6,7 +6,8 @@
   wallpaper = "${config.home.homeDirectory}/Pictures/wallpapers/catppuccin/pompeii.png";
 in {
   imports = [
-    ./theme-catppuccin.nix # GTK, QT and Cursor themes
+    #./theme-catppuccin.nix # GTK, QT and Cursor themes
+    ./theme-breeze.nix
     ./tofi.nix # App launcher
     ./waybar.nix # Panel
     ./dunst.nix # Notification manager
@@ -304,9 +305,9 @@ in {
         "pin, class:^(firefox)$, title:^(Picture-in-Picture)$"
 
         # Opacity for specific windows
-        "opacity 0.85 0.85, class: org.kde.dolphin"
-        "opacity 0.85 0.85, title:^(Volume Control)$"
-        "opacity 0.85 0.85, class: .blueman-manager-wrapped"
+        # "opacity 0.85 0.85, class: org.kde.dolphin"
+        # "opacity 0.85 0.85, title:^(Volume Control)$"
+        # "opacity 0.85 0.85, class: .blueman-manager-wrapped"
 
         # XWayland video bridge
         "opacity 0.0 override, class:^(xwaylandvideobridge)$"

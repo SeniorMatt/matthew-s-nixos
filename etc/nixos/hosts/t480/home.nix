@@ -11,6 +11,7 @@
     ../../modules/home-manager/git.nix
     ../../modules/home-manager/nvf.nix
     ../../modules/home-manager/fastfetch.nix
+    ../../modules/home-manager/fun.nix
   ];
 
   home.username = user;

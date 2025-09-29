@@ -89,6 +89,7 @@ in {
 
       # Keybinds
       bind = [
+        # System
         "$mainMod, C, killactive"
         "$mainMod, M, exit"
         "$mainMod, E, exec, $fileManager"
@@ -99,8 +100,13 @@ in {
         "$mainMod, P, pseudo"
         "$mainMod, I, togglesplit"
 
+        # Screenshot
         ", print, exec, grim -g \"$(slurp)\" - | wl-copy"
         "SHIFT, print, exec, grim - | wl-copy"
+
+        # Animations + Blur toggle
+        "$mainMod, B, exec, hyprctl keyword animations:enabled 0 && hyprctl keyword decoration:blur:enabled 0"
+        "$mainMod + SHIFT, B, exec, hyprctl keyword animations:enabled 1 && hyprctl keyword decoration:blur:enabled 1"
 
         # Applications
         "$mainMod + SHIFT, C, exec, $terminal"

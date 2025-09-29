@@ -5,10 +5,10 @@
 
   xdg.configFile = {
     "tofi/config".text = ''
-      width = 32%
-      height = 50%
+      width = 28%
+      height = 48%
       border-width = 4
-      corner-radius = 12
+      corner-radius = 8
       outline-width = 0
       result-spacing = 10
       num-results = 8

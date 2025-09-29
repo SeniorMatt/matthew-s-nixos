@@ -232,8 +232,8 @@ in {
       # Look & Feel
       general = {
         gaps_in = 4;
-        gaps_out = 8;
-        border_size = 4;
+        gaps_out = 16;
+        border_size = 3;
         "col.active_border" = "rgb(b4befe)";
         "col.inactive_border" = "rgb(1e1e2e)";
         resize_on_border = false;
@@ -242,7 +242,7 @@ in {
       };
 
       decoration = {
-        rounding = 12;
+        rounding = 8;
         active_opacity = 1.0;
         inactive_opacity = 1.0;
 

@@ -78,7 +78,7 @@ in {
   };
 
   home-manager = {
-    extraSpecialArgs = {inherit inputs;};
+    extraSpecialArgs = {inherit inputs user;};
     useUserPackages = true;
     backupFileExtension = "backup";
     users = {
@@ -130,6 +130,7 @@ in {
       sudo cp -r ~/Pictures/wallpapers/ ~/Documents/GitHub/Matthew-s-NixOS/Pictures/
       sudo cp -r ~/Pictures/wallpapers/catppuccin/ ~/Documents/GitHub/Matthew-s-NixOS/Pictures/wallpapers/
       sudo cp ~/Pictures/avatar.png ~/Documents/GitHub/Matthew-s-NixOS/Pictures/
+      sudo cp ~/Pictures/avatar-circle.png ~/Documents/GitHub/Matthew-s-NixOS/Pictures/
     '')
   ];
 

@@ -3,13 +3,14 @@
   config,
   ...
 }: let
-  wallpaper = "${config.home.homeDirectory}/Pictures/wallpapers/catppuccin/math.png";
+  wallpaper = "${config.home.homeDirectory}/Pictures/wallpapers/catppuccin/pompeii.png";
 in {
   imports = [
     ./theme-catppuccin.nix # GTK, QT and cursor themes
     ./tofi.nix # App launcher
     ./waybar.nix # Panel
     ./dunst.nix # Notification manager
+    ./nautilus.nix # File manager
   ];
 
   home.packages = with pkgs; [
@@ -20,7 +21,7 @@ in {
     xdg-desktop-portal-hyprland # Desktop portal hyprland
     swayosd # Notifications for the volume and brightness
     wl-clipboard # Clipboard manager
-    yazi # File manager
+    yazi # TUI File manager
 
     # Players
     mpv # Media player
@@ -231,9 +232,9 @@ in {
           }
 
           blur {
-              enabled = true
-              size = 9 # Default value is 3
-              passes = 3 # Default value is 1
+              enabled = false
+              size = 3 # 3
+              passes = 1 # 1
 
               vibrancy = 0.1696
       	      new_optimizations = true

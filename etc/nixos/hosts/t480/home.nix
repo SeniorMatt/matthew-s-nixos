@@ -4,6 +4,15 @@
   config,
   ...
 }: {
+  imports = [
+    ../../modules/home-manager/fish.nix
+    ../../modules/home-manager/kitty.nix
+    ../../modules/home-manager/firefox.nix
+    ../../modules/home-manager/git.nix
+    ../../modules/home-manager/nvf.nix
+    ../../modules/home-manager/fastfetch.nix
+  ];
+
   home.username = user;
   home.homeDirectory = "/home/${user}";
   home.stateVersion = "25.05";
@@ -23,6 +32,7 @@
     telegram-desktop # Telegram client
     vesktop # Discord client
     aseprite # Aseprite
+    zoom-us # Zoom client
     github-desktop # Github client
     obsidian # Notes
     obs-studio # OBS
@@ -33,7 +43,6 @@
   ];
 
   fonts.fontconfig.enable = true;
-  #home.file.".local/share/fonts".source = "/run/current-system/sw/share/X11/fonts";
 
   programs.home-manager.enable = true;
 }

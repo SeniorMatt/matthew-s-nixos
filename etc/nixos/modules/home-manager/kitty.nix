@@ -5,7 +5,7 @@
 
   xdg.configFile = {
     "kitty/kitty.conf".text = ''
-      background_opacity 0.75
+      # background_opacity 0.85
       confirm_os_window_close 0
       font_size 14
       font_family JetBrains Mono

@@ -4,7 +4,8 @@
   config,
   ...
 }: let
-  wallpaper = "${config.home.homeDirectory}/Pictures/wallpapers/catppuccin/the_creation_of_adam_catppuccin.png";
+  # config.home.homeDirectory - To access home directory
+  wallpaper = "${pkgs.kdePackages.plasma-workspace-wallpapers}/share/wallpapers/ScarletTree/contents/images_dark/5120x2880.png";
 
   cursorName = "breeze_cursors";
   cursor = pkgs.kdePackages.breeze;
@@ -14,8 +15,8 @@
 
   generalFont = "Noto Sans";
   fixedFont = "JetBrainsMono";
-  generalFontSize = 10;
-  smallFontSize = 8;
+  generalFontSize = 12;
+  smallFontSize = 10;
 in {
   imports = [inputs.plasma-manager.homeModules.plasma-manager];
 

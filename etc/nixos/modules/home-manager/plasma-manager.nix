@@ -13,6 +13,7 @@
 in {
   imports = [
     ./theme-breeze.nix # GTK, QT and Cursor themes
+    ./tofi.nix # App launcher
     inputs.plasma-manager.homeModules.plasma-manager
   ];
 
@@ -20,6 +21,15 @@ in {
     mpv # Media player
     kdePackages.kcalc # Calculator app
     kdePackages.kclock # Clock app
+    (pkgs.writeShellScriptBin "tofi-drun-plasma" ''
+      #!/usr/bin/env bash
+      selection="$(tofi-drun)"
+
+      bash -lc "$selection &"
+      #if [[ -n "$selection" ]]; then
+      #bash -lc "$selection &"
+      #fi
+    '')
   ];
 
   # Plasma Manager
@@ -77,6 +87,14 @@ in {
       appearance.wallpaper = wallpaper;
       #autoLock = false;
       #timeout = 0;
+    };
+
+    hotkeys.commands = {
+      launch-tofi = {
+        name = "Launch Tofi";
+        key = "Meta+Space";
+        command = "tofi-drun-plasma";
+      };
     };
 
     shortcuts = {

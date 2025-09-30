@@ -4,6 +4,7 @@
   config,
   ...
 }: let
+  # Theme
   # config.home.homeDirectory - To access home directory
   wallpaper = "${pkgs.kdePackages.plasma-workspace-wallpapers}/share/wallpapers/ScarletTree/contents/images_dark/5120x2880.png";
   generalFont = "Noto Sans";
@@ -15,6 +16,9 @@ in {
     ./theme-breeze.nix # GTK, QT and Cursor themes
     inputs.plasma-manager.homeModules.plasma-manager
   ];
+
+  # Widgets
+  home.file.".local/share/plasma/plasmoids/AndromedaLauncher".source = ./plasma-widgets/AndromedaLauncher;
 
   home.packages = with pkgs; [
     mpv # Media player
@@ -93,6 +97,7 @@ in {
         "_launch" = "Meta+Shift+C";
       };
       kwin = {
+        "Activate Application Launcher" = "";
         "Window Close" = "Meta+C";
         "Window Fullscreen" = "Meta+F";
         "Switch to Desktop 1" = "Meta+1";
@@ -232,8 +237,9 @@ in {
         screen = 0;
         floating = true;
         widgets = [
-          "org.kde.plasma.kickoff" # start menu
-          "org.kde.plasma.pager" # workspace switcher
+          "org.kde.plasma.kickoff" # Default start menu
+          #"AndromedaLauncher" # Andromeda launcher
+          "org.kde.plasma.pager" # Workspace switcher
           {
             name = "org.kde.plasma.icontasks";
             config = {

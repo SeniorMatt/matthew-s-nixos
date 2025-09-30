@@ -23,6 +23,7 @@
   home.packages = with pkgs; [
     ffmpeg # Best convertor
     fish # Shell
+    unzip # Zip
     libinput # List of available devices
 
     # Applications

@@ -6,7 +6,8 @@
 }: let
   # Theme
   # config.home.homeDirectory - To access home directory
-  wallpaper = "${pkgs.kdePackages.plasma-workspace-wallpapers}/share/wallpapers/ScarletTree/contents/images_dark/5120x2880.png";
+  # wallpaper = "${pkgs.kdePackages.plasma-workspace-wallpapers}/share/wallpapers/ScarletTree/contents/images_dark/5120x2880.png";
+  wallpaper = "${config.home.homeDirectory}/Pictures/wallpapers/buildings.jpg";
   generalFont = "Noto Sans";
   fixedFont = "JetBrainsMono";
   generalFontSize = 12;
@@ -232,7 +233,7 @@ in {
 
     panels = [
       {
-        location = "bottom";
+        location = "top";
         height = 44;
         screen = 0;
         floating = true;

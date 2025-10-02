@@ -11,6 +11,7 @@
           "source": "~/Pictures/avatar-circle.png"
         },
         "modules": [
+          "break",
           "title",
           "break",
           //"separator",
@@ -83,7 +84,8 @@
             "format": "~~~~~~~~~~~~~~~~~~~~~~~~~~",
           },
           "break",
-          "colors"
+          "colors",
+          "break"
         ]
       }
     '';

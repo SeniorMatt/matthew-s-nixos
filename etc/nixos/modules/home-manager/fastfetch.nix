@@ -17,20 +17,55 @@
           {
             "type": "custom",
             "format": "~~~~~~~~~~~~~~~~~~~~~~~~~~",
+            "keyColor": "34" // = color4
           },
-          "os",
-          "host",
-          "kernel",
+          //"os",
+          {
+              "type": "os",
+              "key": "os ~ ",
+              "keyColor": "34" // = color4
+          },
+          {
+              "type": "host",
+              "key": "host ~ ",
+              "keyColor": "34"
+          },
+          {
+              "type": "kernel",
+              "key": "kernel ~ ",
+              "keyColor": "34"
+          },
           //"uptime",
-          "packages",
-          "shell",
+          {
+              "type": "packages",
+              "key": "packages ~ ",
+              "keyColor": "34"
+          },
+          {
+              "type": "shell",
+              "key": "shell ~ ",
+              "keyColor": "34",
+          },
           //"display",
-          "de",
-          "wm",
+          {
+              "type": "de",
+              "key": "desktop environment ~ ",
+              "keyColor": "34",
+          },
+          {
+              "type": "wm",
+              "key": "wm ~ ",
+              "keyColor": "34",
+          },
           //"wmtheme",
           //"theme",
           //"icons",
           //"font",
+          {
+              "type": "font",
+              "key": "font ~ ",
+              "keyColor": "34",
+          },
           //"cursor",
           //"terminal",
           //"terminalfont",

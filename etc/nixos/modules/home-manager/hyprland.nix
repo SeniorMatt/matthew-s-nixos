@@ -7,9 +7,11 @@
 in {
   imports = [
     #./theme-catppuccin.nix # GTK, QT and Cursor theme
-    ./theme-breeze.nix
+    #./theme-breeze.nix
+    ./theme-default.nix
     ./tofi.nix # App launcher
     ./waybar.nix # Panel
+    #./eww.nix # Panel
     ./dunst.nix # Notification manager
   ];
 
@@ -25,6 +27,9 @@ in {
     # KDE
     kdePackages.dolphin
     kdePackages.kate
+
+    # Gnome
+    nautilus
 
     # Players
     mpv # Media player
@@ -83,9 +88,10 @@ in {
     settings = {
       # Variables
       "$terminal" = "kitty";
-      "$fileManager" = "dolphin";
+      "$fileManager" = "nautilus";
       "$dmenu" = "tofi-drun | xargs hyprctl dispatch exec --";
-      "$menu" = "tofi-run | xargs hyprctl dispatch exec --";
+      "$menu" = "tofi-run -c ~/.config/tofi/config-run | xargs hyprctl dispatch exec --";
+      "$kmenu" = "tofi-run -c ~/.config/tofi/config-kill | xargs pkill";
       "$mainMod" = "SUPER";
 
       # Keybinds
@@ -97,6 +103,7 @@ in {
         "$mainMod, V, togglefloating"
         "ALT, SPACE, exec, $dmenu"
         "$mainMod, SPACE, exec, $menu"
+        "CTRL, SPACE, exec, $kmenu"
         "$mainMod, F, fullscreen"
         "$mainMod, P, pseudo"
         "$mainMod, I, togglesplit"
@@ -105,6 +112,8 @@ in {
         ", print, exec, grim -g \"$(slurp)\" - | wl-copy"
         "SHIFT, print, exec, grim - | wl-copy"
 
+        # Waybar reload
+        "$mainMod, R, exec, pkill waybar && waybar"
         # Animations + Blur toggle
         "$mainMod, B, exec, hyprctl keyword animations:enabled 1 && hyprctl keyword decoration:blur:enabled 1"
         "$mainMod + SHIFT, B, exec, hyprctl keyword animations:enabled 0 && hyprctl keyword decoration:blur:enabled 0"
@@ -223,7 +232,7 @@ in {
           sensitivity = -0.25;
         }
         {
-          name = "tpps/2-ibm-trackpoint";
+          name = "tpps/2-elan-trackpoint";
           accel_profile = "flat";
           sensitivity = 0.25;
         }

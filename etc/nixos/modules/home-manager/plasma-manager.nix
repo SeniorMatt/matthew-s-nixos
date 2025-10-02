@@ -145,6 +145,8 @@ in {
       };
       mice = [
         {
+          enable = true;
+          acceleration = 0.0;
           accelerationProfile = "none";
           name = "TPPS/2 Elan TrackPoint";
           productId = "000a";

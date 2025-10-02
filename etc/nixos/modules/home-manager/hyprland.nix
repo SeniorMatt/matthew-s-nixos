@@ -6,7 +6,7 @@
   wallpaper = "${config.home.homeDirectory}/Pictures/wallpapers/catppuccin/pompeii.png";
 in {
   imports = [
-    #./theme-catppuccin.nix # GTK, QT and Cursor themes
+    #./theme-catppuccin.nix # GTK, QT and Cursor theme
     ./theme-breeze.nix
     ./tofi.nix # App launcher
     ./waybar.nix # Panel

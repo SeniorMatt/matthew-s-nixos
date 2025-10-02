@@ -146,7 +146,7 @@ in {
       mice = [
         {
           accelerationProfile = "none";
-          name = "TPPS/2 IBM TrackPoint";
+          name = "TPPS/2 Elan TrackPoint";
           productId = "000a";
           vendorId = "0002";
         }

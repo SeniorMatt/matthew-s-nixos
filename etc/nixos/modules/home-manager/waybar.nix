@@ -188,6 +188,7 @@
       #cpu,
       #temperature,
       #language,
+      #custom-power,
       #memory {
           margin: 4px 0px;
           color: #cdd6f4;

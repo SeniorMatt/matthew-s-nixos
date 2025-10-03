@@ -17,8 +17,8 @@
   cursorSize = 24;
 
   # GTK theme
-  gtkName = "adw-gtk3-dark";
-  gtkTheme = pkgs.adw-gtk3;
+  gtkName = "Adwaita-dark";
+  gtkTheme = pkgs.gnome-themes-extra;
 
   # Strings
   cursorSizeString = builtins.toString cursorSize;

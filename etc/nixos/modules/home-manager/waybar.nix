@@ -24,6 +24,7 @@
           ],
           "modules-right": [
               "tray",
+              "custom/notification",
               "pulseaudio",
               "clock",
               "custom/power"
@@ -124,7 +125,7 @@
                   "car": "",
                   "default": ["", "", ""]
               },
-              "on-click": "pavucontrol-qt"
+              "on-click": "pavucontrol"
           },
           "custom/power": {
               "format" : "[⏻]",
@@ -150,7 +151,27 @@
               "default": ""
             },
             "on-click": "kitty --hold bash -c fastfetch"
-          }
+          },
+          "custom/notification": {
+              "tooltip": false,
+              "format": "{icon}",
+              "format-icons": {
+                "notification": "<span foreground='red'><sup></sup></span>",
+                "none": "",
+                "dnd-notification": "<span foreground='red'><sup></sup></span>",
+                "dnd-none": "",
+                "inhibited-notification": "<span foreground='red'><sup></sup></span>",
+                "inhibited-none": "",
+                "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
+                "dnd-inhibited-none": ""
+              },
+              "return-type": "json",
+              "exec-if": "which swaync-client",
+              "exec": "swaync-client -swb",
+              "on-click": "swaync-client -t -sw",
+              "on-click-right": "swaync-client -d -sw",
+              "escape": true
+            }
       }
     '';
 
@@ -165,7 +186,7 @@
       }
 
       window#waybar {
-          background-color: rgba(30, 30, 46, 0.5);
+          background-color: rgba(30, 30, 46, 1);
           border-radius: 0px;
       }
 

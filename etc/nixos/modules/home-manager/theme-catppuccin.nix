@@ -6,11 +6,13 @@
 }: let
   # Font
   fontSize = 12;
-  fontFamily = "NOTONOTO-Regular";
+  fontFamily = "Noto Sans";
 
   # Icon
-  iconName = "breeze-dark";
-  iconTheme = pkgs.kdePackages.breeze-icons;
+  # iconName = "breeze-dark";
+  # iconTheme = pkgs.kdePackages.breeze-icons;
+  iconName = "Adwaita";
+  iconTheme = pkgs.adwaita-icon-theme;
 
   # Cursor
   cursorName = "Breeze_Catppuccin";
@@ -42,7 +44,7 @@
   cursorSizeString = builtins.toString cursorSize;
 in {
   home.packages = with pkgs; [
-    libsForQt5.qtstyleplugin-kvantum
+    kdePackages.qtstyleplugin-kvantum
     libsForQt5.qt5ct
     qt6ct
   ];
@@ -82,15 +84,15 @@ in {
 
   qt = {
     enable = true;
-    platformTheme.name = "qt5ct";
+    platformTheme.name = "qt6ct";
     style.name = "kvantum";
   };
 
   dconf.settings = {
-    "org/gnome/desktop/wm/preferences" = {
-      #button-layout = ":close";
-      button-layout = "";
-    };
+    #"org/gnome/desktop/wm/preferences" = {
+    #button-layout = ":close";
+    #button-layout = "";
+    #};
 
     # Dark theme for default Apps
     "org/gnome/desktop/interface".color-scheme = "prefer-dark";
@@ -100,8 +102,9 @@ in {
 
   home.sessionVariables = {
     # QT variables
-    QT_QPA_PLATFORMTHEME = "qt5ct";
+    QT_QPA_PLATFORMTHEME = "qt6ct";
     QT_STYLE_OVERRIDE = "kvantum";
+    GTK_THEME = gtkName;
 
     # Cursor variables
     XCURSOR_THEME = cursorName;
@@ -116,19 +119,29 @@ in {
       [General]
       theme=${kvantumName}
       font=${fontFamily},${fontSizeString},-1,5,50,0,0,0,0,0
+
     '';
     "qt5ct/qt5ct.conf".text = ''
       [Fonts]
       general="${fontFamily},${fontSizeString},-1,5,50,0,0,0,0,0"
       [Appearance]
       icon_theme=${iconName}
+      custom_palette=false
     '';
     "qt6ct/qt6ct.conf".text = ''
       [Fonts]
       general="${fontFamily},${fontSizeString},-1,5,50,0,0,0,0,0"
       [Appearance]
       icon_theme=${iconName}
+      custom_palette=false
     '';
+
+    # Setting kvantum for kdeapps
+    "kdeglobals".text = ''
+      [UiSettings]
+      ColorScheme=kvantum
+    '';
+
     "Kvantum/${kvantumName}".source = "${kvantumTheme}/share/Kvantum/${kvantumName}";
 
     # Now symlink the `~/.config/gtk-4.0/` folder declaratively:

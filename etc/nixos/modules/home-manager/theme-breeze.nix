@@ -5,7 +5,7 @@
 }: let
   # Font
   fontSize = 12;
-  fontFamily = "NOTONOTO-Regular";
+  fontFamily = "Noto Sans";
 
   # Icon
   iconName = "breeze-dark";

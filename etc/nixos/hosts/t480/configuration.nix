@@ -140,8 +140,8 @@ in {
     packages = with pkgs; [
       customFont # Custom font
       jetbrains-mono # System font
+      noto-fonts # Noto fonts
       font-awesome # Icon font
-      notonoto # Noto Sans
       nerd-fonts.jetbrains-mono # Nerd font
     ];
   };

@@ -3,16 +3,17 @@
   config,
   ...
 }: let
-  wallpaper = "${config.home.homeDirectory}/Pictures/wallpapers/catppuccin/pompeii.png";
+  wallpaper = "${config.home.homeDirectory}/Pictures/wallpapers/catppuccin/math.png";
 in {
   imports = [
-    #./theme-catppuccin.nix # GTK, QT and Cursor theme
+    # GTK, QT and Cursor theme
+    ./theme-catppuccin.nix
     #./theme-breeze.nix
-    ./theme-default.nix
+    #./theme-default.nix
+
     ./tofi.nix # App launcher
     ./waybar.nix # Panel
-    #./eww.nix # Panel
-    ./dunst.nix # Notification manager
+    ./swaync.nix # Notification manager
   ];
 
   home.packages = with pkgs; [
@@ -24,24 +25,20 @@ in {
     wl-clipboard # Clipboard manager
     yazi # TUI File manager
 
-    # KDE
-    kdePackages.dolphin
-    kdePackages.kate
-
     # Gnome
-    nautilus
+    nautilus # File manager
+    eog # Image viewer
+    papers # Document viewer
 
     # Players
     mpv # Media player
-    kdePackages.gwenview # Image viewer
-    kdePackages.okular # Document viewer
 
     # Controls
     batmon # TUI battery
     btop # TUI task manager
     blueman # Bluetooth control
     networkmanagerapplet # Network control
-    lxqt.pavucontrol-qt # Audio control
+    pavucontrol # Audio control
 
     # Needs
     grim # Screenshot
@@ -52,13 +49,13 @@ in {
   xdg.mimeApps = {
     enable = true;
     defaultApplications = {
-      "image/png" = "org.kde.gwenview.desktop";
-      "image/jpeg" = "org.kde.gwenview.desktop";
+      "image/png" = "org.gnome.eog.desktop";
+      "image/jpeg" = "org.gnome.eog.desktop";
       "video/mp4" = "mpv.desktop";
       "audio/mp3" = "mpv.desktop";
       "audio/ogg" = "mpv.desktop";
       "audio/wav" = "mpv.desktop";
-      "application/pdf" = "org.kde.okular.desktop";
+      "application/pdf" = "org.gnome.Papers.desktop";
     };
   };
 
@@ -85,6 +82,11 @@ in {
     systemd.enable = true; # Auto-start for services
     xwayland.enable = true;
 
+    plugins = with pkgs.hyprlandPlugins; [
+      borders-plus-plus
+      # hyprbars
+    ];
+
     settings = {
       # Variables
       "$terminal" = "kitty";
@@ -101,19 +103,22 @@ in {
         "$mainMod, M, exit"
         "$mainMod, E, exec, $fileManager"
         "$mainMod, V, togglefloating"
-        "ALT, SPACE, exec, $dmenu"
-        "$mainMod, SPACE, exec, $menu"
-        "CTRL, SPACE, exec, $kmenu"
         "$mainMod, F, fullscreen"
         "$mainMod, P, pseudo"
         "$mainMod, I, togglesplit"
 
-        # Screenshot
-        ", print, exec, grim -g \"$(slurp)\" - | wl-copy"
-        "SHIFT, print, exec, grim - | wl-copy"
+        # Menu
+        "$mainMod, SPACE, exec, $dmenu"
+        "$mainMod + ALT, SPACE, exec, $menu"
+        "$mainMod + CTRL, SPACE, exec, $kmenu"
 
-        # Waybar reload
-        "$mainMod, R, exec, pkill waybar && waybar"
+        # Screenshot
+        ", print, exec, grim -g \"$(slurp)\" - | wl-copy && notify-send 'Screenshot done' 'Region copied to the clipboard'"
+        "SHIFT, print, exec, grim - | wl-copy && notify-send 'Screenshot done' 'Screen copied to the clipboard'"
+
+        # Reload bar and wallpaper
+        "$mainMod, R, exec, pkill waybar && waybar & pkill hyprpaper && hyprpaper"
+
         # Animations + Blur toggle
         "$mainMod, B, exec, hyprctl keyword animations:enabled 1 && hyprctl keyword decoration:blur:enabled 1"
         "$mainMod + SHIFT, B, exec, hyprctl keyword animations:enabled 0 && hyprctl keyword decoration:blur:enabled 0"
@@ -193,7 +198,7 @@ in {
       "exec-once" = [
         "hyprpaper"
         "waybar"
-        "dunst"
+        "swaync"
         "nm-applet"
         "blueman-applet"
         "wlsunset -l 43.2 -L 76.9"
@@ -234,7 +239,8 @@ in {
         {
           name = "tpps/2-elan-trackpoint";
           accel_profile = "flat";
-          sensitivity = 0.25;
+          sensitivity = 0.0;
+          scroll_factor = 0.25;
         }
       ];
 
@@ -242,9 +248,10 @@ in {
       general = {
         gaps_in = 4;
         gaps_out = 16;
-        border_size = 3;
+        border_size = 2;
         "col.active_border" = "rgb(b4befe)";
-        "col.inactive_border" = "rgb(1e1e2e)";
+        # "col.inactive_border" = "rgb(313244)";
+        "col.inactive_border" = "rgb(6c7086)";
         resize_on_border = false;
         allow_tearing = false;
         layout = "dwindle";
@@ -257,15 +264,18 @@ in {
 
         shadow = {
           enabled = true;
-          range = 6;
+          range = 3;
           render_power = 3;
-          color = "rgba(1e1e2eee)";
+          color = "rgba(24, 24, 37, 1)";
+          sharp = false;
+          offset = "0 0";
+          # color = "rgba(0, 0, 0, 1)";
         };
 
         blur = {
-          enabled = true;
+          enabled = false;
           size = 6; # Default - 3
-          passes = 2; # Increasing this setting will increase GPU usage, default - 1
+          passes = 2; # Will increase GPU usage, default - 1
           vibrancy = 0.1696;
           new_optimizations = true;
           ignore_opacity = true;
@@ -335,7 +345,7 @@ in {
 
       # Animations
       animations = {
-        enabled = "yes";
+        enabled = "no";
         bezier = ["myBezier, 0.05, 0.9, 0.1, 1.05"];
         animation = [
           "windows, 1, 3, myBezier"
@@ -343,6 +353,32 @@ in {
           "fade, 1, 5, default"
           "workspaces, 1, 3, default"
         ];
+      };
+
+      plugin = {
+        "borders-plus-plus" = {
+          add_borders = 1;
+          border_size_1 = -1;
+          # "col.border_1" = "rgba(17, 17, 27, 1)"; # inner ring color
+          "col.border_1" = "rgba(0, 0, 0, 1)"; # inner ring color
+          natural_rounding = true;
+        };
+        #hyprbars = {
+        # bar_height = 16;
+        # bar_color = "rgba(181825ee)";
+        # col.text = "rgb(cdd6f4)";
+        # bar_text_size = 10;
+        # bar_text_font = "JetBrainsMono Nerd Font Mono Bold";
+        # bar_button_padding = 12;
+        # bar_padding = 10;
+        # bar_precedence_over_border = true;
+
+        # "hyprbars-button" = [
+        # "rgb(f38ba8), 20, , hyprctl dispatch killactive"
+        # "rgb(a6e3a1), 20, , hyprctl dispatch fullscreen 2"
+        # "rgb(f9e2af), 20, , hyprctl dispatch togglefloating"
+        #];
+        #};
       };
     };
   };

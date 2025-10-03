@@ -9,7 +9,7 @@ in {
     "tofi/config".text = ''
       width = 32%
       height = 48%
-      border-width = 4
+      border-width = 8
       corner-radius = ${corner-radius}
       outline-width = 0
       result-spacing = 10
@@ -25,7 +25,7 @@ in {
     "tofi/config-run".text = ''
       width = 32%
       height = 48%
-      border-width = 4
+      border-width = 8
       corner-radius = ${corner-radius}
       outline-width = 0
       result-spacing = 10
@@ -41,7 +41,7 @@ in {
     "tofi/config-kill".text = ''
       width = 32%
       height = 48%
-      border-width = 4
+      border-width = 8
       corner-radius = ${corner-radius}
       outline-width = 0
       result-spacing = 10

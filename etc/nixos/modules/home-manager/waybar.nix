@@ -32,7 +32,7 @@
           // Modules configuration
           "hyprland/workspaces": {
               "all-outputs": true,
-              "format": "{name}",
+              "format": "[{name}]",
               "format-icons": {
                   // "1": "|",
                   "urgent": "[!]",
@@ -42,6 +42,9 @@
               "persistent-workspaces": {
                   "*": [ 1,2,3,4,5 ]
               }
+          },
+          "hyprland/language": {
+              "format": "[{short}]"
           },
           "tray": {
               "icon-size": 24,
@@ -110,7 +113,7 @@
           "pulseaudio": {
               "scroll-step": 2.5, // %, can be a float
               //"format": "{volume}% {icon}",
-              "format": "{icon} {volume}%",
+              "format": "[{icon} {volume}%]",
               "format-bluetooth": "{volume}% {icon} ",
               "format-bluetooth-muted": " {icon} ",
               "format-muted": " Muted",
@@ -144,7 +147,7 @@
               "on-click": "blueberry"
           },
           "custom/distrologo": {
-            "format": "{icon}",
+            "format": "[{icon}]",
             "tooltip-format": "I'm using NixOS BTW",
             "tooltip": true,
             "format-icons": {
@@ -208,7 +211,6 @@
       #language,
       #cpu,
       #temperature,
-      #language,
       #custom-power,
       #memory {
           margin: 4px 0px;
@@ -267,7 +269,7 @@
       /* WORKSPACES */
 
       #workspaces {
-          padding: 2px 2px;
+          padding: 0px 2px;
           margin: 4px 0px;
           background-color: #313244;
           border-radius: 16px;
@@ -275,7 +277,7 @@
 
       #workspaces button {
           font-weight: bold;
-          padding: 0px 0px;
+          padding: 2px 0px;
           margin: 0px 2px;
           border-radius: 8px;
           color: #f5e0dc;

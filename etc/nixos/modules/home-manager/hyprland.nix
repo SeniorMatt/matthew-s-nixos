@@ -3,7 +3,7 @@
   config,
   ...
 }: let
-  wallpaper = "${config.home.homeDirectory}/Pictures/wallpapers/catppuccin/math.png";
+  wallpaper = "${config.home.homeDirectory}/Pictures/wallpapers/catppuccin/puffy-stars.jpg";
 in {
   imports = [
     # GTK, QT and Cursor theme
@@ -32,6 +32,8 @@ in {
 
     # Players
     mpv # Media player
+
+    kdePackages.kcalc # Calculator
 
     # Controls
     batmon # TUI battery
@@ -247,7 +249,7 @@ in {
       # Look & Feel
       general = {
         gaps_in = 4;
-        gaps_out = 16;
+        gaps_out = 8;
         border_size = 2;
         "col.active_border" = "rgb(b4befe)";
         # "col.inactive_border" = "rgb(313244)";

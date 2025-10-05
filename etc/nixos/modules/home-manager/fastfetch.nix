@@ -17,45 +17,45 @@
           //"separator",
           {
             "type": "custom",
-            "format": "~~~~~~~~~~~~~~~~~~~~~~~~~~",
+            "format": "********************************",
             "keyColor": "34" // = color4
           },
           //"os",
           {
               "type": "os",
-              "key": "os ~ ",
+              "key": "~ ",
               "keyColor": "34" // = color4
           },
           {
               "type": "host",
-              "key": "host ~ ",
+              "key": "~ ",
               "keyColor": "34"
           },
           {
               "type": "kernel",
-              "key": "kernel ~ ",
+              "key": "~ ",
               "keyColor": "34"
           },
           //"uptime",
           {
               "type": "packages",
-              "key": "packages ~ ",
+              "key": "~ ",
               "keyColor": "34"
           },
           {
               "type": "shell",
-              "key": "shell ~ ",
+              "key": "~ ",
               "keyColor": "34",
           },
           //"display",
           {
               "type": "de",
-              "key": "desktop environment ~ ",
+              "key": "~ ",
               "keyColor": "34",
           },
           {
               "type": "wm",
-              "key": "wm ~ ",
+              "key": "~ ",
               "keyColor": "34",
           },
           //"wmtheme",
@@ -63,8 +63,13 @@
           //"icons",
           //"font",
           {
-              "type": "font",
-              "key": "font ~ ",
+              "type": "terminalfont",
+              "key": "~ ",
+              "keyColor": "34",
+          },
+          {
+              "type": "terminal",
+              "key": "~ ",
               "keyColor": "34",
           },
           //"cursor",
@@ -81,7 +86,7 @@
           //"locale",
           {
             "type": "custom",
-            "format": "~~~~~~~~~~~~~~~~~~~~~~~~~~",
+            "format": "********************************",
           },
           "break",
           "colors",

@@ -15,7 +15,7 @@ in {
       result-spacing = 10
       num-results = 8
       font = JetBrains Mono
-      prompt-text = "Launch: "
+      prompt-text = "[Launch]: "
 
       background-color = #1e1e2e
       border-color = #cba6f7
@@ -31,7 +31,7 @@ in {
       result-spacing = 10
       num-results = 8
       font = JetBrains Mono
-      prompt-text = "Start: "
+      prompt-text = "[Start]: "
 
       background-color = #1e1e2e
       border-color = #a6e3a1
@@ -47,7 +47,7 @@ in {
       result-spacing = 10
       num-results = 8
       font = JetBrains Mono
-      prompt-text = "Kill: "
+      prompt-text = "[Kill]: "
 
       background-color = #1e1e2e
       border-color = #f38ba8

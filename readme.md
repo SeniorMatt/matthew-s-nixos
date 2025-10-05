@@ -11,14 +11,11 @@ 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
 ```
 
 # Screenshots
-## Hyprland productivity setup
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/065a9306-8fa8-4df8-80ec-ed90eb61867e" />
+## Hyprland setup
+<img width="1920" height="1080" alt="Pasted image (2)" src="https://github.com/user-attachments/assets/5a93e6b8-98ef-4c09-b105-7aec7ad9e362" />
 
 ## KDE Plasma using Plasma Manager
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/954d9b61-7ea8-4fb1-bfa3-62f8cdc69bd7" />
-
-## Current Hyprland setup
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/f3fbdbc3-10ac-4531-ba2a-07378f7fef03" />
 
 ## My previous Hyprland rice with blur and stuff :D
 ![image_2025-07-09_22-39-49](https://github.com/user-attachments/assets/e1d60ae7-87b9-45bd-adec-3ad1cacef0fc)
@@ -27,4 +24,3 @@ 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
 ![image_2025-07-09_22-39-31](https://github.com/user-attachments/assets/4f265fc6-f89a-463b-a133-57f0f031ae74)
 ![image_2025-07-09_22-39-30](https://github.com/user-attachments/assets/3bfebee6-3370-4c8d-bf23-1ce84bfdea7e)
 ![image_2025-07-09_22-39-30 (2)](https://github.com/user-attachments/assets/d86757e6-20e4-4889-8289-1f572814da25)
-

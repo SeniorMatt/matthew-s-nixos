@@ -4,14 +4,6 @@
     libnotify # notify-send command
   ];
 
-  services.swaync = {
-    enable = true;
-    settings = {
-      # 1) Allow GTK_THEME / global theming to affect swaync again
-      # "ignore-gtk-theme" = false;
-    };
-  };
-
   xdg.configFile = {
     "swaync/style.css".text = ''
       * {

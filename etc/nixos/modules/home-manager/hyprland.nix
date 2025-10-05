@@ -113,7 +113,7 @@ in {
         "$mainMod + CTRL, SPACE, exec, $kmenu"
 
         # Screenshot
-        ", print, exec, grim -g \"$(slurp)\" - | wl-copy && notify-send 'Screenshot done' 'Region copied to the clipboard'"
+        ", print, exec, grim -g \"$(slurp)\" - | wl-copy"
         "SHIFT, print, exec, grim - | wl-copy && notify-send 'Screenshot done' 'Screen copied to the clipboard'"
 
         # Reload bar and wallpaper

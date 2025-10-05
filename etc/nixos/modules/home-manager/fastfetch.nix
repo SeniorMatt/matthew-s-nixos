@@ -17,45 +17,46 @@
           //"separator",
           {
             "type": "custom",
-            "format": "********************************",
+            "format": "12345678901234567890123456789012",
             "keyColor": "34" // = color4
           },
+          "break",
           //"os",
           {
               "type": "os",
-              "key": "~ ",
+              "key": "[os]",
               "keyColor": "34" // = color4
           },
           {
               "type": "host",
-              "key": "~ ",
+              "key": "[host]",
               "keyColor": "34"
           },
           {
               "type": "kernel",
-              "key": "~ ",
+              "key": "[kernel]",
               "keyColor": "34"
           },
           //"uptime",
           {
               "type": "packages",
-              "key": "~ ",
+              "key": "[pkgs]",
               "keyColor": "34"
           },
           {
               "type": "shell",
-              "key": "~ ",
+              "key": "[shell]",
               "keyColor": "34",
           },
           //"display",
           {
               "type": "de",
-              "key": "~ ",
+              "key": "[de]",
               "keyColor": "34",
           },
           {
               "type": "wm",
-              "key": "~ ",
+              "key": "[wm]",
               "keyColor": "34",
           },
           //"wmtheme",
@@ -64,12 +65,12 @@
           //"font",
           {
               "type": "terminalfont",
-              "key": "~ ",
+              "key": "[font]",
               "keyColor": "34",
           },
           {
               "type": "terminal",
-              "key": "~ ",
+              "key": "[terminal]",
               "keyColor": "34",
           },
           //"cursor",
@@ -84,9 +85,10 @@
           //"battery",
           //"poweradapter",
           //"locale",
+          "break",
           {
             "type": "custom",
-            "format": "********************************",
+            "format": "12345678901234567890123456789012",
           },
           "break",
           "colors",

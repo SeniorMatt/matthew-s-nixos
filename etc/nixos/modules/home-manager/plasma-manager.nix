@@ -19,7 +19,7 @@ in {
   ];
 
   # Widgets
-  home.file.".local/share/plasma/plasmoids/AndromedaLauncher".source = ./plasma-widgets/AndromedaLauncher;
+  # home.file.".local/share/plasma/plasmoids/AndromedaLauncher".source = ./plasma-widgets/AndromedaLauncher;
 
   home.packages = with pkgs; [
     mpv # Media player
@@ -241,7 +241,6 @@ in {
         floating = true;
         widgets = [
           "org.kde.plasma.kickoff" # Default start menu
-          #"AndromedaLauncher" # Andromeda launcher
           "org.kde.plasma.pager" # Workspace switcher
           {
             name = "org.kde.plasma.icontasks";

@@ -137,11 +137,17 @@ in {
         "$mainMod, K, movefocus, u"
         "$mainMod, J, movefocus, d"
 
-        # Move windows with Ctrl+vim keys
-        "$mainMod + CONTROL, H, movewindow, l"
-        "$mainMod + CONTROL, L, movewindow, r"
-        "$mainMod + CONTROL, K, movewindow, u"
-        "$mainMod + CONTROL, J, movewindow, d"
+        # Move windows with vim keys
+        "$mainMod + CTRL, H, movewindow, l"
+        "$mainMod + CTRL, L, movewindow, r"
+        "$mainMod + CTRL, K, movewindow, u"
+        "$mainMod + CTRL, J, movewindow, d"
+
+        # Resize windows with vim keys
+        "$mainMod SHIFT, l, resizeactive, 32 0"
+        "$mainMod SHIFT, h, resizeactive, -32 0"
+        "$mainMod SHIFT, k, resizeactive, 0 -32"
+        "$mainMod SHIFT, j, resizeactive, 0 32"
 
         # Switch workspaces
         "$mainMod, 1, workspace, 1"

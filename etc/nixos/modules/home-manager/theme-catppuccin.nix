@@ -137,10 +137,10 @@ in {
     '';
 
     # Setting kvantum for kdeapps
-    "kdeglobals".text = ''
-      [UiSettings]
-      ColorScheme=kvantum
-    '';
+    #"kdeglobals".text = ''
+    #[UiSettings]
+    #ColorScheme=kvantum
+    #'';
 
     "Kvantum/${kvantumName}".source = "${kvantumTheme}/share/Kvantum/${kvantumName}";
 

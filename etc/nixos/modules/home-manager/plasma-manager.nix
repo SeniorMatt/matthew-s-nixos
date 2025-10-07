@@ -145,8 +145,6 @@ in {
       };
       mice = [
         {
-          enable = true;
-          acceleration = 0.0;
           accelerationProfile = "none";
           name = "TPPS/2 Elan TrackPoint";
           productId = "000a";
@@ -290,7 +288,8 @@ in {
         powerProfile = "performance";
       };
       battery = {
-        autoSuspend.action = "sleep";
+        autoSuspend.action = "nothing";
+        turnOffDisplay.idleTimeout = "never";
         powerProfile = "balanced";
       };
     };

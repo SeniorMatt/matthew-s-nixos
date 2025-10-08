@@ -32,10 +32,10 @@ in {
   # Check this site to find available options
   programs.plasma = {
     enable = true;
-    overrideConfig = true;
+    overrideConfig = false;
 
     # Default fonts
-    # Any else: Noto Sans 10pt
+    # Anything else: Noto Sans 10pt
     # Small: Noto Sans 8pt
     # FixedWidth: Hack 10pt
 
@@ -144,13 +144,6 @@ in {
         repeatRate = 25;
       };
       mice = [
-        {
-          # Doesn't work
-          accelerationProfile = "none";
-          name = "TPPS/2 Elan TrackPoint";
-          vendorId = "0002";
-          productId = "000a";
-        }
         {
           accelerationProfile = "none";
           name = "Compx 2.4G Wireless Receiver";

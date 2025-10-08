@@ -90,7 +90,7 @@ in {
     xwayland.enable = true;
 
     plugins = with pkgs.hyprlandPlugins; [
-      borders-plus-plus
+      # Hyprland plugins
       # hyprbars
     ];
 
@@ -277,12 +277,11 @@ in {
 
         shadow = {
           enabled = true;
-          range = 3;
+          range = 2;
           render_power = 3;
-          color = "rgba(24, 24, 37, 1)";
-          sharp = false;
+          sharp = true;
+          color = "rgba(0, 0, 0, 1)";
           offset = "0 0";
-          # color = "rgba(0, 0, 0, 1)";
         };
 
         blur = {
@@ -369,13 +368,6 @@ in {
       };
 
       plugin = {
-        "borders-plus-plus" = {
-          add_borders = 1;
-          border_size_1 = -1;
-          # "col.border_1" = "rgba(17, 17, 27, 1)"; # inner ring color
-          "col.border_1" = "rgba(0, 0, 0, 1)"; # inner ring color
-          natural_rounding = true;
-        };
         #hyprbars = {
         # bar_height = 16;
         # bar_color = "rgba(181825ee)";

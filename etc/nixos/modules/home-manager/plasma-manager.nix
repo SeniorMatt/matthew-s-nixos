@@ -145,16 +145,17 @@ in {
       };
       mice = [
         {
+          # Doesn't work
           accelerationProfile = "none";
           name = "TPPS/2 Elan TrackPoint";
-          productId = "000a";
           vendorId = "0002";
+          productId = "000a";
         }
         {
           accelerationProfile = "none";
           name = "Compx 2.4G Wireless Receiver";
-          productId = "fa7c";
           vendorId = "25a7";
+          productId = "fa7c";
         }
       ];
       touchpads = [
@@ -245,7 +246,7 @@ in {
             config = {
               General = {
                 launchers = [
-                  # You can get the Applications running get-all-apps.sh script
+                  # You can get the Applications running get-all-apps in terminal
                   "applications:systemsettings.desktop"
                   "applications:firefox.desktop"
                   "applications:org.telegram.desktop.desktop"

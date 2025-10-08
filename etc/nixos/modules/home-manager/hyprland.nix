@@ -11,8 +11,7 @@ in {
     #./theme-breeze.nix
     #./theme-default.nix
 
-    ./tofi.nix # App launcher
-    ./waybar.nix # Panel
+    ./tofi.nix # App launcher ./waybar.nix # Panel
     ./swaync.nix # Notification manager
   ];
 
@@ -21,6 +20,7 @@ in {
     wlsunset # Blue light filter
     hyprpaper # Wallpaper
     hyprpolkitagent # Authentification agent
+    hyprshot # Screenshot utility
     swayosd # Notifications for the volume and brightness
     wl-clipboard # Clipboard manager
     yazi # TUI File manager
@@ -43,8 +43,6 @@ in {
     pavucontrol # Audio control
 
     # Needs
-    grim # Screenshot
-    slurp # Selector for screenshot
     unzip # Unzip
   ];
 
@@ -77,6 +75,12 @@ in {
       file:///home/matthew/Videos Videos
       file:///home/matthew/.local/share/Trash Trash
     '';
+  };
+
+  # Session variables
+  home.sessionVariables = {
+    XDG_PICTURES_DIR = "$HOME/Pictures";
+    HYPRSHOT_DIR = "$HOME/Pictures/Screenshots";
   };
 
   wayland.windowManager.hyprland = {
@@ -115,8 +119,8 @@ in {
         "$mainMod + CTRL, SPACE, exec, $kmenu"
 
         # Screenshot
-        ", print, exec, grim -g \"$(slurp)\" - | wl-copy"
-        "SHIFT, print, exec, grim - | wl-copy && notify-send 'Screenshot done' 'Screen copied to the clipboard'"
+        ", print, exec, hyprshot -m region"
+        "SHIFT, print, exec, hyprshot -m output"
 
         # Reload bar and wallpaper
         "$mainMod, R, exec, pkill waybar && waybar & pkill hyprpaper && hyprpaper"

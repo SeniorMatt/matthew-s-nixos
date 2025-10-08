@@ -123,6 +123,9 @@ in {
         ", print, exec, hyprshot -m region"
         "SHIFT, print, exec, hyprshot -m output"
 
+        # Notification manager
+        "$mainMod, A, exec, swaync-client -op"
+
         # Reload bar and wallpaper
         "$mainMod, R, exec, pkill waybar && waybar & pkill hyprpaper && hyprpaper"
 

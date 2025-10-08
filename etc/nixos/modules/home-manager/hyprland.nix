@@ -11,7 +11,8 @@ in {
     #./theme-breeze.nix
     #./theme-default.nix
 
-    ./tofi.nix # App launcher ./waybar.nix # Panel
+    ./tofi.nix # App launcher
+    ./waybar.nix # Panel
     ./swaync.nix # Notification manager
   ];
 

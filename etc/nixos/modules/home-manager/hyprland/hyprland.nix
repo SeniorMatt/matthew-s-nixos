@@ -4,7 +4,7 @@
   ...
 }: let
   wallpaper = "${config.home.homeDirectory}/Pictures/wallpapers/catppuccin/puffy-stars.jpg";
-  cornerRadius = "0";
+  cornerRadius = "4";
 in {
   imports = [
     ../theme-catppuccin.nix # GTK, QT and Cursor theme

@@ -4,17 +4,34 @@
   ...
 }: let
   wallpaper = "${config.home.homeDirectory}/Pictures/wallpapers/catppuccin/puffy-stars.jpg";
+  cornerRadius = "0";
 in {
   imports = [
-    # GTK, QT and Cursor theme
-    ./theme-catppuccin.nix
+    ../theme-catppuccin.nix # GTK, QT and Cursor theme
     #./theme-breeze.nix
     #./theme-default.nix
 
     ./tofi.nix # App launcher
     ./waybar.nix # Panel
-    ./swaync.nix # Notification manager
+    ./swayncenter.nix # Notification manager
   ];
+
+  programs = {
+    tofi = {
+      inherit cornerRadius;
+      enable = true;
+    };
+
+    waybar = {
+      inherit cornerRadius;
+      enable = true;
+    };
+
+    swayncenter = {
+      inherit cornerRadius;
+      enable = true;
+    };
+  };
 
   home.packages = with pkgs; [
     # System applications
@@ -127,7 +144,7 @@ in {
         "$mainMod, A, exec, swaync-client -op"
 
         # Reload bar and wallpaper
-        "$mainMod, R, exec, pkill waybar && waybar & pkill hyprpaper && hyprpaper"
+        "$mainMod, R, exec, pkill waybar && waybar & pkill hyprpaper && hyprpaper & pkill swaync && swaync"
 
         # Animations + Blur toggle
         "$mainMod, B, exec, hyprctl keyword animations:enabled 1 && hyprctl keyword decoration:blur:enabled 1"
@@ -274,7 +291,7 @@ in {
       };
 
       decoration = {
-        rounding = 8;
+        rounding = "${cornerRadius}";
         active_opacity = 1.0;
         inactive_opacity = 1.0;
 
@@ -288,7 +305,7 @@ in {
         };
 
         blur = {
-          enabled = false;
+          enabled = true;
           size = 6; # Default - 3
           passes = 2; # Will increase GPU usage, default - 1
           vibrancy = 0.1696;
@@ -360,7 +377,7 @@ in {
 
       # Animations
       animations = {
-        enabled = "no";
+        enabled = "yes";
         bezier = ["myBezier, 0.05, 0.9, 0.1, 1.05"];
         animation = [
           "windows, 1, 3, myBezier"

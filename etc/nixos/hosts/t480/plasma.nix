@@ -23,7 +23,7 @@
 
   home-manager = {
     sharedModules = [
-      ../../modules/home-manager/plasma-manager.nix
+      ../../modules/home-manager/plasma/plasma-manager.nix
     ];
   };
 }

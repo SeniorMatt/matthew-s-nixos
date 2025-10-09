@@ -4,9 +4,6 @@
   config,
   ...
 }: let
-  # Theme
-  # config.home.homeDirectory - To access home directory
-  # wallpaper = "${pkgs.kdePackages.plasma-workspace-wallpapers}/share/wallpapers/ScarletTree/contents/images_dark/5120x2880.png";
   wallpaper = "${config.home.homeDirectory}/Pictures/wallpapers/buildings.jpg";
   generalFont = "Noto Sans";
   fixedFont = "JetBrainsMono";
@@ -14,8 +11,8 @@
   smallFontSize = 10;
 in {
   imports = [
-    ./theme-breeze.nix # GTK, QT and Cursor themes
     inputs.plasma-manager.homeModules.plasma-manager
+    ../theme-breeze.nix # GTK, QT and Cursor themes
   ];
 
   # Widgets

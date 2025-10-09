@@ -34,7 +34,7 @@
 
   home-manager = {
     sharedModules = [
-      ../../modules/home-manager/hyprland.nix
+      ../../modules/home-manager/hyprland/hyprland.nix
     ];
   };
 }

@@ -298,26 +298,19 @@ in {
     };
 
     configFile = {
-      "kdeglobals" = {
-        "General" = {
-          TerminalApplication = "kitty";
-          TerminalService = "kitty.desktop";
-        };
+      "kdeglobals"."General" = {
+        TerminalApplication = "kitty";
+        TerminalService = "kitty.desktop";
       };
       "plasmanotifyrc"."Notifications" = {
         "PopupTimeout" = 1000;
       };
+      "spectaclerc" = {
+        "GuiConfig"."quitAfterSaveCopyExport" = true;
+        "VideoSave"."preferredVideoFormat" = 2;
+      };
     };
   };
-
-  # Spectacle
-  home.file.".config/spectaclerc".text = ''
-    [GuiConfig]
-    quitAfterSaveCopyExport=true
-
-    [VideoSave]
-    preferredVideoFormat=2
-  '';
 
   # Default applications
   xdg.mimeApps = {

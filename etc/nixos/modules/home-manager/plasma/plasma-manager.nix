@@ -309,6 +309,12 @@ in {
     preferredVideoFormat=2
   '';
 
+  home.file.".config/gtkrc-2.0".text = ''
+    # created by KDE Plasma, Fri Oct 00 00:00:00 0000
+    #
+    gtk-alternative-button-order = 1
+  '';
+
   # Default applications
   xdg.mimeApps = {
     enable = true;

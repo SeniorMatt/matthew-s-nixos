@@ -24,17 +24,24 @@ in {
     kdePackages.kclock # Clock app
   ];
 
+  # How to find needed settings
+  ## 1. Check out this site to see if there is settings that you needed -
+  ## https://nix-community.github.io/plasma-manager/options.xhtml
+  # ----------------------------------------------------------------
+  ## 2. If in the step before you couldn't managed to find what you needed run this command in your terminal and paste in what you need -
+  ## nix run github:nix-community/plasma-manager
+  ## For example in Plasma Manager there is no way to declare notifications settings, you can change them using configFile
+  # ----------------------------------------------------------------
+
   # Plasma Manager
-  # https://nix-community.github.io/plasma-manager/options.xhtml
-  # Check this site to find available options
   programs.plasma = {
     enable = true;
     overrideConfig = false;
 
     # Default fonts
-    # Anything else: Noto Sans 10pt
     # Small: Noto Sans 8pt
     # FixedWidth: Hack 10pt
+    # Anything else: Noto Sans 10pt
 
     fonts = {
       fixedWidth = {
@@ -297,6 +304,9 @@ in {
           TerminalService = "kitty.desktop";
         };
       };
+      "plasmanotifyrc"."Notifications" = {
+        "PopupTimeout" = 1000;
+      };
     };
   };
 
@@ -307,12 +317,6 @@ in {
 
     [VideoSave]
     preferredVideoFormat=2
-  '';
-
-  home.file.".config/gtkrc-2.0".text = ''
-    # created by KDE Plasma, Fri Oct 00 00:00:00 0000
-    #
-    gtk-alternative-button-order = 1
   '';
 
   # Default applications

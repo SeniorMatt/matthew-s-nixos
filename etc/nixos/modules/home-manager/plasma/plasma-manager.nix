@@ -95,7 +95,6 @@ in {
         "_launch" = "Meta+Shift+C";
       };
       kwin = {
-        "Activate Application Launcher" = "";
         "Window Close" = "Meta+C";
         "Window Fullscreen" = "Meta+F";
         "Switch to Desktop 1" = "Meta+1";
@@ -146,6 +145,12 @@ in {
           name = "Compx 2.4G Wireless Receiver";
           vendorId = "25a7";
           productId = "fa7c";
+        }
+        {
+          accelerationProfile = "none";
+          name = "TPPS\\/2 Elan TrackPoint";
+          vendorId = "0002";
+          productId = "000a";
         }
       ];
       touchpads = [
@@ -299,6 +304,9 @@ in {
   home.file.".config/spectaclerc".text = ''
     [GuiConfig]
     quitAfterSaveCopyExport=true
+
+    [VideoSave]
+    preferredVideoFormat=2
   '';
 
   # Default applications

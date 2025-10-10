@@ -23,6 +23,7 @@
     ffmpeg # Best convertor
     fish # Shell
     unzip # Zip
+    wl-clipboard # Terminal Clipboard manager
     libinput # List of available devices
 
     # Applications

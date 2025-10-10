@@ -40,7 +40,6 @@ in {
     hyprpolkitagent # Authentification agent
     hyprshot # Screenshot utility
     swayosd # Notifications for the volume and brightness
-    wl-clipboard # Clipboard manager
     yazi # TUI File manager
 
     # Gnome

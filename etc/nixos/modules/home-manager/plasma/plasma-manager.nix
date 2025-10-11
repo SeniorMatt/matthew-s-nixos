@@ -301,6 +301,7 @@ in {
       "kdeglobals"."General" = {
         TerminalApplication = "kitty";
         TerminalService = "kitty.desktop";
+        accentColorFromWallpaper = true;
       };
       "plasmanotifyrc"."Notifications" = {
         "PopupTimeout" = 1000;

@@ -153,7 +153,6 @@ in {
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   # List services that you want to enable:
-  services.gnome.gnome-keyring.enable = true;
   services.udisks2.enable = true;
 
   # Clean the old builds

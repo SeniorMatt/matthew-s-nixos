@@ -4,7 +4,7 @@
   ...
 }: let
   wallpaper = "${config.home.homeDirectory}/Pictures/wallpapers/catppuccin/puffy-stars.jpg";
-  cornerRadius = "4";
+  cornerRadius = "10";
 in {
   imports = [
     ../theme-catppuccin.nix # GTK, QT and Cursor theme
@@ -278,8 +278,8 @@ in {
 
       # Look & Feel
       general = {
-        gaps_in = 4;
-        gaps_out = 8;
+        gaps_in = 5; # 5
+        gaps_out = 20; # 20
         border_size = 2;
         "col.active_border" = "rgb(b4befe)";
         # "col.inactive_border" = "rgb(313244)";
@@ -291,22 +291,23 @@ in {
 
       decoration = {
         rounding = "${cornerRadius}";
+        rounding_power = 2;
         active_opacity = 1.0;
         inactive_opacity = 1.0;
 
         shadow = {
           enabled = true;
-          range = 2;
+          range = 3;
           render_power = 3;
-          sharp = true;
+          sharp = false;
           color = "rgba(0, 0, 0, 1)";
           offset = "0 0";
         };
 
         blur = {
           enabled = true;
-          size = 6; # Default - 3
-          passes = 2; # Will increase GPU usage, default - 1
+          size = 3; # Default - 3
+          passes = 1; # Will increase GPU usage, default - 1
           vibrancy = 0.1696;
           new_optimizations = true;
           ignore_opacity = true;
@@ -343,12 +344,25 @@ in {
         "3, monitor:eDP-1"
         "4, monitor:eDP-1"
         "5, monitor:eDP-1"
+
+        # Smart gaps
+        "w[tv1], gapsout:0, gapsin:0"
+        "f[1], gapsout:0, gapsin:0"
       ];
 
       # Rules
       windowrule = [
+        # Ignore maximize requests from apps. You'll probably like this.
         "suppressevent maximize, class:.*"
+
+        # Fix some dragging issues with XWayland
         "nofocus,class:^$,title:^$,xwayland:1,floating:0,fullscreen:0,pinned:0"
+
+        # Smart gaps
+        "bordersize 0, floating:0, onworkspace:w[tv1]"
+        "rounding 0, floating:0, onworkspace:w[tv1]"
+        "bordersize 0, floating:0, onworkspace:f[1]"
+        "rounding 0, floating:0, onworkspace:f[1]"
 
         # Firefox PiP
         "float, class:^(firefox)$, title:^(Picture-in-Picture)$"
@@ -377,12 +391,12 @@ in {
       # Animations
       animations = {
         enabled = "yes";
-        bezier = ["myBezier, 0.05, 0.9, 0.1, 1.05"];
+        bezier = ["myBezier, 0.05, 0.9, 0.1, 1.1"];
         animation = [
-          "windows, 1, 3, myBezier"
-          "windowsOut, 1, 3, myBezier, popin 80%"
-          "fade, 1, 5, default"
-          "workspaces, 1, 3, default"
+          "windows, 1, 4, myBezier"
+          "windowsOut, 1, 1.5, myBezier, popin 80%"
+          "fade, 1, 2, myBezier"
+          "workspaces, 1, 2, default"
         ];
       };
 

@@ -144,11 +144,13 @@
 
         autopairs.nvim-autopairs.enable = true;
 
-        autocomplete.nvim-cmp = {
-          enable = true;
-          sources = {
-            nvim-lsp = "nvim_lsp";
-            async-path = "async_path";
+        autocomplete = {
+          nvim-cmp = {
+            enable = true;
+            sources = {
+              nvim-lsp = "nvim_lsp";
+              async-path = "async_path";
+            };
           };
         };
         snippets.luasnip.enable = false;

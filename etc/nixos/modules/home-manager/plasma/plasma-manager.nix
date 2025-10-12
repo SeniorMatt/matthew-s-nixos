@@ -22,6 +22,7 @@ in {
     mpv # Media player
     kdePackages.kcalc # Calculator app
     kdePackages.kclock # Clock app
+    kdePackages.ktorrent # Torrent app
   ];
 
   # How to find needed settings
@@ -39,7 +40,7 @@ in {
   # Plasma Manager
   programs.plasma = {
     enable = true;
-    overrideConfig = false;
+    overrideConfig = true;
 
     # Default fonts
     # Small: Noto Sans 8pt

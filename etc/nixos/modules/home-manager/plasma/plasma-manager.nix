@@ -32,6 +32,9 @@ in {
   ## nix run github:nix-community/plasma-manager
   ## For example in Plasma Manager there is no way to declare notifications settings, you can change them using configFile
   # ----------------------------------------------------------------
+  ## 3. If you want to configure widgets, at first configure them, and at second check this file and copy it in to here -
+  ## .config/plasma-org.kde.plasma.desktop-appletsrc
+  # ----------------------------------------------------------------
 
   # Plasma Manager
   programs.plasma = {
@@ -234,6 +237,20 @@ in {
       };
     };
 
+    #desktop.widgets = [
+    #  {
+    #    name = "org.kde.plasma.mediacontroller";
+    #    position = {
+    #      horizontal = 50;
+    #      vertical = 100;
+    #    };
+    #    size = {
+    #      height = 125;
+    #      width = 125;
+    #    };
+    #  }
+    #];
+
     panels = [
       {
         location = "top";
@@ -260,6 +277,24 @@ in {
               };
             };
           }
+          {
+            name = "org.kde.plasma.weather";
+            config = {
+              Appearance = {
+                showTemperatureInCompactMode = true;
+              };
+              Units = {
+                pressureUnit = 5029;
+                speedUnit = 9001;
+                temperatureUnit = 6001;
+                visibilityUnit = 2007;
+              };
+              WeatherStation = {
+                source = "bbcukmet|weather|Almaty, Kazakhstan, KZ|1526384";
+              };
+            };
+          }
+          "org.kde.plasma.mediacontroller" # media controller
           "org.kde.plasma.marginsseparator" # spacer
           {
             # systray (net, sound, bt, battery…)
@@ -271,6 +306,7 @@ in {
                 "org.kde.plasma.battery"
               ];
               hidden = [
+                "org.kde.plasma.weather"
               ];
             };
           }

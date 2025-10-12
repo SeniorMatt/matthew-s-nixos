@@ -277,6 +277,7 @@ in {
               };
             };
           }
+          "org.kde.plasma.mediacontroller" # media controller
           {
             name = "org.kde.plasma.weather";
             config = {
@@ -294,7 +295,6 @@ in {
               };
             };
           }
-          "org.kde.plasma.mediacontroller" # media controller
           "org.kde.plasma.marginsseparator" # spacer
           {
             # systray (net, sound, bt, battery…)

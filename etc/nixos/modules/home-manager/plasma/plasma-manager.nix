@@ -4,7 +4,7 @@
   config,
   ...
 }: let
-  wallpaper = "${config.home.homeDirectory}/Pictures/wallpapers/buildings.jpg";
+  wallpaper = "${config.home.homeDirectory}/Pictures/wallpapers/Straßenszene bei Regen, Berlin (1926).jpg";
   generalFont = "Noto Sans";
   fixedFont = "JetBrainsMono";
   generalFontSize = 12;

@@ -2,6 +2,7 @@
   inputs,
   pkgs,
   config,
+  lib,
   ...
 }: let
   wallpaper = "${config.home.homeDirectory}/Pictures/wallpapers/Straßenszene bei Regen, Berlin (1926).jpg";
@@ -78,7 +79,8 @@ in {
       lookAndFeel = "org.kde.breezedark.desktop";
       soundTheme = "freedesktop";
       cursor = {
-        theme = "breeze_cursors";
+        #theme = "breeze_cursors";
+        theme = "Banana";
         size = 24;
       };
       iconTheme = "breeze-dark";

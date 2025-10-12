@@ -12,8 +12,23 @@
   iconTheme = pkgs.kdePackages.breeze-icons;
 
   # Cursor
-  cursorName = "breeze_cursors";
-  cursor = pkgs.kdePackages.breeze;
+  bananaCursor = pkgs.stdenvNoCC.mkDerivation {
+    pname = "banana-cursor";
+    version = "1.0";
+    src = pkgs.fetchzip {
+      url = "https://github.com/ful1e5/banana-cursor/releases/download/v2.0.0/Banana.tar.xz";
+      sha256 = "sha256-5RvijRfPRl9d/WqQxfu9K/omFzYm5ZBTZ5wWIJnH0V0=";
+      stripRoot = false;
+    };
+    installPhase = ''
+      mkdir -p $out/share/icons
+      cp -r "$src"/* "$out/share/icons/"
+    '';
+  };
+  cursorName = "Banana";
+  cursor = bananaCursor;
+  #cursorName = "breeze_cursors";
+  #cursor = pkgs.kdePackages.breeze;
   cursorSize = 24;
 
   # GTK theme
@@ -69,9 +84,9 @@ in {
   };
 
   dconf.settings = {
-    "org/gnome/desktop/wm/preferences" = {
-      button-layout = "";
-    };
+    #"org/gnome/desktop/wm/preferences" = {
+    #  button-layout = "";
+    #};
 
     # Dark theme for default Apps
     "org/gnome/desktop/interface".color-scheme = "prefer-dark";

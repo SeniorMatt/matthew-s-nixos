@@ -79,8 +79,7 @@ in {
       lookAndFeel = "org.kde.breezedark.desktop";
       soundTheme = "freedesktop";
       cursor = {
-        #theme = "breeze_cursors";
-        theme = "Banana";
+        theme = "breeze_cursors";
         size = 24;
       };
       iconTheme = "breeze-dark";

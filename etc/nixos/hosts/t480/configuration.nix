@@ -11,7 +11,7 @@ in {
     ./hardware-configuration.nix
     ../../modules/nixos/bluetooth.nix
     ../../modules/nixos/pipewire.nix
-    ../../modules/home-manager/virtualbox.nix
+    ../../modules/nixos/virt-manager.nix
   ];
 
   # Bootloader.

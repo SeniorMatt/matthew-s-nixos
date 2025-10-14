@@ -14,6 +14,10 @@
     defaultEditor = true;
   };
 
+  home.sessionVariables = {
+    MANPAGER = "nvim +Man!";
+  };
+
   programs.nvf = {
     enable = true;
     enableManpages = true;

@@ -2,7 +2,6 @@
   inputs,
   pkgs,
   config,
-  lib,
   ...
 }: let
   wallpaper = "${config.home.homeDirectory}/Pictures/wallpapers/Straßenszene bei Regen, Berlin (1926).jpg";
@@ -10,16 +9,28 @@
   fixedFont = "JetBrainsMono";
   generalFontSize = 12;
   smallFontSize = 10;
+  andromedaLauncher = pkgs.stdenv.mkDerivation {
+    pname = "andromedaLauncher";
+    version = "1.0";
+    src = pkgs.fetchFromGitHub {
+      owner = "EliverLara";
+      repo = "AndromedaLauncher";
+      rev = "plasma6";
+      sha256 = "sha256-k1qx3jHRFjwZSS5PQJq/ceTZ+rvseJhA0osHPRRIN34=";
+    };
+    installPhase = ''
+      mkdir -p $out/share/plasma/plasmoids/AndromedaLauncher
+      cp -r "$src"/AndromedaLauncher-plasma6/* "$out/share/plasma/plasmoids/AndromedaLauncher/"
+    '';
+  };
 in {
   imports = [
     inputs.plasma-manager.homeModules.plasma-manager
     ../theme-breeze.nix # GTK, QT and Cursor themes
   ];
 
-  # Widgets
-  # home.file.".local/share/plasma/plasmoids/AndromedaLauncher".source = ./plasma-widgets/AndromedaLauncher;
-
   home.packages = with pkgs; [
+    andromedaLauncher # Andromeda launcher
     mpv # Media player
     kdePackages.kcalc # Calculator app
     kdePackages.kclock # Clock app
@@ -260,7 +271,8 @@ in {
         screen = 0;
         floating = true;
         widgets = [
-          "org.kde.plasma.kickoff" # Default start menu
+          "AndromedaLauncher" # Andromeda launcher
+          # "org.kde.plasma.kickoff" # Default start menu
           "org.kde.plasma.pager" # Workspace switcher
           {
             name = "org.kde.plasma.icontasks";

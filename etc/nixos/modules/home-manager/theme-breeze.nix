@@ -12,7 +12,7 @@
   iconTheme = pkgs.kdePackages.breeze-icons;
 
   # Banana cursor
-  #bananaCursor = pkgs.stdenvNoCC.mkDerivation {
+  #bananaCursor = pkgs.stdenv.mkDerivation {
   #  pname = "banana-cursor";
   #  version = "1.0";
   #  src = pkgs.fetchzip {

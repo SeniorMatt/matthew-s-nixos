@@ -9,20 +9,20 @@
   fixedFont = "JetBrainsMono";
   generalFontSize = 12;
   smallFontSize = 10;
-  andromedaLauncher = pkgs.stdenv.mkDerivation {
-    pname = "andromedaLauncher";
-    version = "1.0";
-    src = pkgs.fetchFromGitHub {
-      owner = "EliverLara";
-      repo = "AndromedaLauncher";
-      rev = "plasma6";
-      sha256 = "sha256-k1qx3jHRFjwZSS5PQJq/ceTZ+rvseJhA0osHPRRIN34=";
-    };
-    installPhase = ''
-      mkdir -p $out/share/plasma/plasmoids/AndromedaLauncher
-      cp -r "$src"/AndromedaLauncher-plasma6/* "$out/share/plasma/plasmoids/AndromedaLauncher/"
-    '';
-  };
+  #andromedaLauncher = pkgs.stdenv.mkDerivation {
+  #  pname = "andromedaLauncher";
+  #  version = "1.0";
+  #  src = pkgs.fetchFromGitHub {
+  #    owner = "EliverLara";
+  #    repo = "AndromedaLauncher";
+  #    rev = "plasma6";
+  #    sha256 = "sha256-k1qx3jHRFjwZSS5PQJq/ceTZ+rvseJhA0osHPRRIN34=";
+  #  };
+  #  installPhase = ''
+  #    mkdir -p $out/share/plasma/plasmoids/AndromedaLauncher
+  #    cp -r "$src"/AndromedaLauncher-plasma6/* "$out/share/plasma/plasmoids/AndromedaLauncher/"
+  #  '';
+  #};
 in {
   imports = [
     inputs.plasma-manager.homeModules.plasma-manager
@@ -30,8 +30,8 @@ in {
   ];
 
   home.packages = with pkgs; [
-    andromedaLauncher # Andromeda launcher
-    mpv # Media player
+    # mpv # Media player
+    haruna # Media player
     kdePackages.kcalc # Calculator app
     kdePackages.kclock # Clock app
     kdePackages.ktorrent # Torrent app
@@ -271,8 +271,7 @@ in {
         screen = 0;
         floating = true;
         widgets = [
-          "AndromedaLauncher" # Andromeda launcher
-          # "org.kde.plasma.kickoff" # Default start menu
+          "org.kde.plasma.kickoff" # Default start menu
           "org.kde.plasma.pager" # Workspace switcher
           {
             name = "org.kde.plasma.icontasks";
@@ -369,10 +368,10 @@ in {
     defaultApplications = {
       "image/png" = "org.kde.gwenview.desktop";
       "image/jpeg" = "org.kde.gwenview.desktop";
-      "video/mp4" = "mpv.desktop";
-      "audio/mp3" = "mpv.desktop";
-      "audio/ogg" = "mpv.desktop";
-      "audio/wav" = "mpv.desktop";
+      "video/mp4" = "org.kde.haruna.desktop";
+      "audio/mp3" = "org.kde.haruna.desktop";
+      "audio/ogg" = "org.kde.haruna.desktop";
+      "audio/wav" = "org.kde.haruna.desktop";
       "application/pdf" = "org.kde.okular.desktop";
     };
   };

@@ -28,7 +28,7 @@
 
     # Applications
     steam-run # To run godot builds
-    godot-mono # Yeah...
+    # godot-mono # Yeah...
     unityhub # One more time
     gamescope # Downscale games
     krita # Image editor

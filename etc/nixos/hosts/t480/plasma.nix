@@ -4,7 +4,9 @@
   ...
 }: {
   imports = [
-    ../../modules/nixos/power-profiles-daemon.nix
+    #../../modules/nixos/power-profiles-daemon.nix
+    #../../modules/nixos/auto-cpufreq.nix
+    ../../modules/nixos/tlp.nix
     inputs.home-manager.nixosModules.default
   ];
 

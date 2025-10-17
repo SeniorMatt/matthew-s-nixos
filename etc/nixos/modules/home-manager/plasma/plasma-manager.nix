@@ -266,7 +266,7 @@ in {
 
     panels = [
       {
-        location = "top";
+        location = "bottom";
         height = 44;
         screen = 0;
         floating = true;

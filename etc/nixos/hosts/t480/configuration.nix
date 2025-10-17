@@ -156,6 +156,15 @@ in {
   # List services that you want to enable:
   services.udisks2.enable = true;
 
+  # VPN service
+  services.tailscale = {
+    enable = true;
+    useRoutingFeatures = "client";
+  };
+
+  # GUI for Hamachi
+  programs.haguichi.enable = true;
+
   # Clean the old builds
   nix = {
     settings.auto-optimise-store = true;

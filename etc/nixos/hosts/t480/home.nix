@@ -28,7 +28,8 @@
 
     # Applications
     steam-run # To run godot builds
-    # godot-mono # Yeah...
+    dotnetCorePackages.dotnet_8.sdk # Dotnet
+    godot-mono # Yeah...
     unityhub # One more time
     gamescope # Downscale games
     krita # Image editor

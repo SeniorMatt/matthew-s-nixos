@@ -30,8 +30,8 @@ in {
   ];
 
   home.packages = with pkgs; [
-    # mpv # Media player
     haruna # Media player
+    kdePackages.kamoso # Camera app
     kdePackages.kcalc # Calculator app
     kdePackages.kclock # Clock app
     kdePackages.ktorrent # Torrent app

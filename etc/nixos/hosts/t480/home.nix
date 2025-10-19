@@ -31,6 +31,7 @@
     dotnetCorePackages.dotnet_8.sdk # Dotnet
     godot-mono # Yeah...
     unityhub # One more time
+    vscode # VSCode
     gamescope # Downscale games
     krita # Image editor
     telegram-desktop # Telegram client

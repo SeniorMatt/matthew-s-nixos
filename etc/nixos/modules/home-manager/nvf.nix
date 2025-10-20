@@ -40,6 +40,7 @@
           vim.opt.smartindent = false
           vim.opt.smarttab = true
           vim.opt.scrolloff = 20;
+          vim.opt.colorcolumn = "80"
         '';
 
         spellcheck = {
@@ -48,7 +49,7 @@
 
         lsp = {
           enable = true;
-          formatOnSave = true;
+          formatOnSave = false;
           #inlayHints.enable = true; this does not show errors and warnings - only types?
           lspkind.enable = true;
           lspconfig.enable = true;
@@ -76,7 +77,7 @@
         };
 
         languages = {
-          enableFormat = true;
+          enableFormat = false;
           enableTreesitter = true;
           enableExtraDiagnostics = true;
 
@@ -85,21 +86,15 @@
 
           bash.enable = true;
           clang.enable = true;
+          ts.enable = true;
           css.enable = false;
           html.enable = false;
           sql.enable = false;
           java.enable = false;
           kotlin.enable = false;
-          ts.enable = true;
           lua.enable = false;
           python.enable = false;
-          rust = {
-            enable = true;
-            lsp.enable = true;
-            dap.enable = true;
-            format.enable = true;
-            crates.enable = true;
-          };
+          rust.enable = false;
 
           csharp = {
             enable = true;

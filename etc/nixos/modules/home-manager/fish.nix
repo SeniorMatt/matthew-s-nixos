@@ -22,6 +22,7 @@
   programs.oh-my-posh = {
     enable = true;
     enableFishIntegration = true;
-    useTheme = "montys";
+    useTheme = "multiverse-neon";
+    # montys - my beloved one
   };
 }

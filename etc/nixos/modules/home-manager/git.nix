@@ -6,5 +6,6 @@
     extraConfig = {
       credential.helper = "store";
     };
+    # pull rebase false
   };
 }

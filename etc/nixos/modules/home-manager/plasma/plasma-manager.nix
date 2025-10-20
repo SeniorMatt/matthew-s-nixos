@@ -98,10 +98,7 @@ in {
     };
 
     kscreenlocker = {
-      #appearance.showMediaControls = false;
       appearance.wallpaper = wallpaper;
-      #autoLock = false;
-      #timeout = 0;
     };
 
     shortcuts = {
@@ -290,7 +287,7 @@ in {
               };
             };
           }
-          "org.kde.plasma.mediacontroller" # media controller
+          # "org.kde.plasma.mediacontroller" # media controller
           {
             name = "org.kde.plasma.weather";
             config = {

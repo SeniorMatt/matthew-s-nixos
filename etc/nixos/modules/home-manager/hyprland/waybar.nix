@@ -3,18 +3,17 @@
   config,
   lib,
   ...
-}: let
-  cfg = config.programs.waybar;
-in {
-  options.programs.waybar = {
-    cornerRadius = lib.mkOption {
-      type = lib.types.str;
+}: 
+{
+  options.waybar = with lib;{
+    enable = mkEnableOption "Enable waybar";
+    cornerRadius = mkOption {
+      type = types.str;
       default = "8";
-      description = "Corner radius";
     };
   };
 
-  config = lib.mkIf cfg.enable {
+  config = with config.waybar; lib.mkIf enable {
     home.packages = with pkgs; [waybar];
     xdg.configFile = {
       "waybar/config.jsonc".text = ''
@@ -60,7 +59,7 @@ in {
                 "format": "[{short}]"
             },
             "tray": {
-                "icon-size": 24,
+                "icon-size": 16,
                 "spacing": 2
             },
             "clock": {
@@ -197,8 +196,10 @@ in {
             font-size: 12pt;
             transition-duration: .5s;
             transition-property: background-color;
-            padding: 0px 4px;
-            border-radius: ${cfg.cornerRadius};
+            /* padding: 2px 0px; */
+            padding: 0;
+            margin: 0;
+            border-radius: ${cornerRadius};
         }
 
         window#waybar {
@@ -212,8 +213,8 @@ in {
             /* Avoid rounded borders under each button name */
             /* border: none;*/
 
-            margin: 4px 0px;
-            padding: 0px 4px;
+            margin: 2px 0px;
+            padding: 2px 0px;
             color: #cdd6f4;
         }
 
@@ -229,7 +230,7 @@ in {
             margin: 4px 0px;
             color: #cdd6f4;
             background-color: rgba(49, 50, 68, 1);
-            border-radius: ${cfg.cornerRadius};
+            border-radius: ${cornerRadius};
         }
 
         #custom-power {
@@ -282,17 +283,17 @@ in {
         /* WORKSPACES */
 
         #workspaces {
-            padding: 0px 2px;
+            padding: 2px 0px;
             margin: 4px 0px;
             background-color: #313244;
-            border-radius: ${cfg.cornerRadius};
+            border-radius: ${cornerRadius};
         }
 
         #workspaces button {
             font-weight: bold;
             padding: 2px 0px;
-            margin: 0px 2px;
-            border-radius: ${cfg.cornerRadius};
+            margin: 2px 0px;
+            border-radius: ${cornerRadius};
             color: #f5e0dc;
         }
 

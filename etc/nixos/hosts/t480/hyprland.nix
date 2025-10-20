@@ -29,12 +29,14 @@
     enable = true;
     extraPortals = with pkgs; [
       xdg-desktop-portal-hyprland
+      xdg-desktop-portal-gtk
     ];
   };
 
   home-manager = {
     sharedModules = [
-      ../../modules/home-manager/hyprland/hyprland.nix
+      #../../modules/home-manager/hyprland/hyprland-rice.nix
+      ../../modules/home-manager/hyprland/hyprland-minimal.nix
     ];
   };
 }

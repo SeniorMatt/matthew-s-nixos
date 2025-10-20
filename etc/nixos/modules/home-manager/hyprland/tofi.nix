@@ -5,15 +5,15 @@
   ...
 }: 
 {
-  options.tofi = {
-    cornerRadius = lib.mkOption {
-      type = lib.types.str;
+  options.tofi = with lib; {
+    enable = mkEnableOption "Enable tofi";
+    cornerRadius = mkOption {
+      type = types.str;
       default = "8";
     };
   };
 
-  #config = lib.mkIf config.tofi.enable {
-  config = {
+  config = with config.tofi; lib.mkIf enable {
     home.packages = with pkgs; [tofi];
     xdg.configFile = {
       "tofi/config".text = ''
@@ -21,7 +21,7 @@
         width = 32%
         height = 48%
         border-width = 8
-        corner-radius = ${config.tofi.cornerRadius}
+        corner-radius = ${cornerRadius}
         outline-width = 0
         result-spacing = 0
         num-results = 11
@@ -38,7 +38,7 @@
         width = 32%
         height = 64%
         border-width = 8
-        corner-radius = ${config.tofi.cornerRadius}
+        corner-radius = ${cornerRadius}
         outline-width = 0
         result-spacing = 0
         num-results = 16
@@ -55,7 +55,7 @@
         width = 32%
         height = 32%
         border-width = 8
-        corner-radius = ${config.tofi.cornerRadius}
+        corner-radius = ${cornerRadius}
         outline-width = 0
         result-spacing = 0
         num-results = 7

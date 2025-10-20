@@ -3,20 +3,18 @@
   config,
   lib,
   ...
-}: let
-  cfg = config.programs.swayncenter;
-in {
-  options.programs.swayncenter = {
-    enable = lib.mkEnableOption "Enable swayncenter";
+}:
+{
+  options.swayncenter = with lib;{
+    enable = mkEnableOption "Enable swayncenter";
 
-    cornerRadius = lib.mkOption {
-      type = lib.types.str;
+    cornerRadius = mkOption {
+      type = types.str;
       default = "8";
-      description = "Corner radius";
     };
   };
 
-  config = lib.mkIf cfg.enable {
+  config = with config.swayncenter; lib.mkIf enable {
     home.packages = with pkgs; [swaynotificationcenter];
     xdg.configFile = {
       "swaync/style.css".text = ''
@@ -39,12 +37,12 @@ in {
           margin: 0rem 1rem;
           min-height: 8px;
           min-width: 70px;
-          border-radius: ${cfg.cornerRadius}px;
+          border-radius: ${cornerRadius}px;
         }
 
         trough slider {
           margin: -10px;
-          border-radius: ${cfg.cornerRadius}px;
+          border-radius: ${cornerRadius}px;
           box-shadow: 0 0 2px rgba(0, 0, 0, 0.8);
           transition: all 0.2s ease;
           background-color: #89b4fa;
@@ -61,7 +59,7 @@ in {
         /* notifications */
         .notification-background {
           box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.8), inset 0 0 0 1px #45475a;
-          border-radius: ${cfg.cornerRadius}px;
+          border-radius: ${cornerRadius}px;
           margin: 18px;
           background: #181825;
           color: #cdd6f4;
@@ -70,7 +68,7 @@ in {
 
         .notification-background .notification {
           padding: 7px;
-          border-radius: ${cfg.cornerRadius}px;
+          border-radius: ${cornerRadius}px;
         }
 
         .notification-background .notification.critical {
@@ -105,7 +103,7 @@ in {
         .notification-background .close-button {
           margin: 7px;
           padding: 2px;
-          border-radius: ${cfg.cornerRadius}px;
+          border-radius: ${cornerRadius}px;
           color: #1e1e2e;
           background-color: #f38ba8;
         }
@@ -119,7 +117,7 @@ in {
         }
 
         .notification .notification-action {
-          border-radius: ${cfg.cornerRadius}px;
+          border-radius: ${cornerRadius}px;
           color: #cdd6f4;
           box-shadow: inset 0 0 0 1px #45475a;
           margin: 4px;
@@ -151,27 +149,27 @@ in {
         .notification progress,
         .notification trough,
         .notification progressbar {
-          border-radius: ${cfg.cornerRadius}px;
+          border-radius: ${cornerRadius}px;
           padding: 3px 0;
         }
 
         /* control center */
         .control-center {
           box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.8), inset 0 0 0 1px #313244;
-          border-radius: ${cfg.cornerRadius}px;
+          border-radius: ${cornerRadius}px;
           background-color: #1e1e2e;
           color: #cdd6f4;
           padding: 14px;
         }
 
         .control-center .notification-background {
-          border-radius: ${cfg.cornerRadius}px;
+          border-radius: ${cornerRadius}px;
           box-shadow: inset 0 0 0 1px #45475a;
           margin: 4px 10px;
         }
 
         .control-center .notification-background .notification {
-          border-radius: ${cfg.cornerRadius}px;
+          border-radius: ${cornerRadius}px;
         }
 
         .control-center .notification-background .notification.low {
@@ -184,7 +182,7 @@ in {
         }
 
         .control-center .widget-title button {
-          border-radius: ${cfg.cornerRadius}px;
+          border-radius: ${cornerRadius}px;
           color: #cdd6f4;
           background-color: #313244;
           box-shadow: inset 0 0 0 1px #45475a;
@@ -219,13 +217,13 @@ in {
         /* dnd */
         .widget-dnd {
           margin-top: 5px;
-          border-radius: ${cfg.cornerRadius}px;
+          border-radius: ${cornerRadius}px;
           font-size: 1.1rem;
         }
 
         .widget-dnd > switch {
           font-size: initial;
-          border-radius: ${cfg.cornerRadius}px;
+          border-radius: ${cornerRadius}px;
           background: #313244;
           box-shadow: none;
         }
@@ -236,13 +234,13 @@ in {
 
         .widget-dnd > switch slider {
           background: #45475a;
-          border-radius: ${cfg.cornerRadius}px;
+          border-radius: ${cornerRadius}px;
         }
 
         /* mpris */
         .widget-mpris-player {
           background: #313244;
-          border-radius: ${cfg.cornerRadius}px;
+          border-radius: ${cornerRadius}px;
           color: #cdd6f4;
         }
 
@@ -254,7 +252,7 @@ in {
 
         .widget-mpris-album-art {
           -gtk-icon-size: 100px;
-          border-radius: ${cfg.cornerRadius}px;
+          border-radius: ${cornerRadius}px;
           margin: 0 10px;
         }
 
@@ -269,7 +267,7 @@ in {
         }
 
         .widget-mpris button {
-          border-radius: ${cfg.cornerRadius}px;
+          border-radius: ${cornerRadius}px;
           color: #cdd6f4;
           margin: 0 5px;
           padding: 2px;

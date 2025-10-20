@@ -48,11 +48,11 @@ in {
     };
     gtkName = mkOption {
       type = types.str;
-      default = "Breeze-Dark";
+      default = "adw-gtk3-dark";
     };
     gtkTheme = mkOption {
       type = types.package;
-      default = pkgs.kdePackages.breeze-gtk;
+      default = pkgs.adw-gtk3;
     };
 
     # Kvantum
@@ -74,10 +74,9 @@ in {
   config = with config.theme; lib.mkIf enable {
     home = {
       packages = with pkgs; [
-        kdePackages.qtstyleplugin-kvantum
-        libsForQt5.qt5ct
-        qt6ct
-      ];
+          libsForQt5.qt5ct
+          qt6ct
+      ] ++ lib.optional kvantumEnable kdePackages.qtstyleplugin-kvantum;
 
       file.".icons/default".source = "${cursorTheme}/share/icons/${cursorName}";
 
@@ -115,6 +114,15 @@ in {
         package = cursorTheme;
         size = cursorSize;
       };
+    };
+
+    dconf.settings = {
+      "org/gnome/desktop/wm/preferences" = {
+        button-layout = "";
+      };
+
+      # Dark theme for default Apps
+      # "org/gnome/desktop/interface".color-scheme = "prefer-dark";
     };
 
     xdg.configFile = lib.mkMerge [

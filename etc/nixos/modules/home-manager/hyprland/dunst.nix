@@ -6,7 +6,7 @@
 
   xdg.configFile = {
     "dunst/dunstrc".text = ''
-            [global]
+          [global]
           ### Display ###
           # Display notifications on monitor with mouse focus
           follow = mouse

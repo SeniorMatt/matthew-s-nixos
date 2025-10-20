@@ -26,8 +26,12 @@
 in {
   imports = [
     inputs.plasma-manager.homeModules.plasma-manager
-    ../theme-breeze.nix # GTK, QT and Cursor themes
+    ../theme.nix
   ];
+
+  theme = {
+    enable = true;
+  };
 
   home.packages = with pkgs; [
     haruna # Media player

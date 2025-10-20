@@ -7,18 +7,51 @@
   cornerRadius = "10";
 in {
   imports = [
-    ../theme-catppuccin.nix # GTK, QT and Cursor theme
-    #./theme-breeze.nix
-    #./theme-default.nix
+    ../theme.nix
 
     ./tofi.nix # App launcher
     ./waybar.nix # Panel
     ./swayncenter.nix # Notification manager
   ];
 
+  theme = {
+    enable = true;
+
+    # Font
+    fontSize = 12;
+    fontFamily = "Noto Sans";
+    
+    # Icons
+    iconName = "Adwaita";
+    iconTheme = pkgs.adwaita-icon-theme;
+
+    # Cursor
+    cursorName = "breeze_cursors";
+    cursorTheme = pkgs.kdePackages.breeze;
+    cursorSize = 24;
+
+    # GTK
+    gtkEnable = true;
+    gtkName = "catppuccin-mocha-lavender-standard+normal";
+    gtkTheme = pkgs.catppuccin-gtk.override {
+      accents = ["lavender"];
+      size = "standard";
+      variant = "mocha";
+      tweaks = ["normal"];
+    };
+
+    # Kvantum
+    kvantumEnable = true;
+    kvantumName = "catppuccin-mocha-lavender";
+    kvantumTheme = pkgs.catppuccin-kvantum.override {
+      accent = "lavender";
+      variant = "mocha";
+    };
+  };
+
   programs = {
     tofi = {
-      inherit cornerRadius;
+      #inherit cornerRadius;
       enable = true;
     };
 

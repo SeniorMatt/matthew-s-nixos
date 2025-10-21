@@ -4,15 +4,12 @@
   ...
 }: {
   imports = [
-    #../../modules/nixos/power-profiles-daemon.nix
-    #../../modules/nixos/auto-cpufreq.nix
-    ../../modules/nixos/tlp.nix
     inputs.home-manager.nixosModules.default
+    ../../modules/nixos/tlp.nix
   ];
 
   services.desktopManager.plasma6.enable = true;
   environment.plasma6.excludePackages = with pkgs.kdePackages; [
-    # kdepim-runtime # Akonadi agents and resources
     plasma-browser-integration
   ];
 

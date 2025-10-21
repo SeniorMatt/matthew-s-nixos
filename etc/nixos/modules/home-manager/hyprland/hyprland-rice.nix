@@ -9,6 +9,9 @@ in {
   imports = [
     ../theme.nix
 
+    ../fastfetch.nix # Fastfetch
+    ../fun.nix # Fun terminal
+    ../kitty.nix # Terminal
     ./tofi.nix # App launcher
     ./waybar.nix # Panel
     ./swayncenter.nix # Notification manager

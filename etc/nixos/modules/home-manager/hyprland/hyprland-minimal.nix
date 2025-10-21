@@ -1,53 +1,45 @@
 {
   pkgs,
-  config,
   ...
-}: let
-  wallpaper = "${config.home.homeDirectory}/Pictures/wallpapers/Straßenszene bei Regen, Berlin (1926).jpg";
-  cornerRadius = "0";
-in {
+}: 
+{
   imports = [
     ../theme.nix
 
-    ./tofi.nix # App launcher
-    ./waybar.nix # Panel
+    ../kitty-minimal.nix # Terminal
+    ./tofi-minimal.nix # App launcher
+    ./waybar-minimal.nix # Panel
     ./dunst.nix # Notification manager
   ];
 
   theme = {
     enable = true;
-
     fontFamily = "JetBrains Mono";
   };
 
   tofi = {
     enable = true;
-    cornerRadius = cornerRadius;
+    cornerRadius = "0";
   };
 
   waybar = {
     enable = true;
-    cornerRadius = cornerRadius;
+    cornerRadius = "0";
   };
 
   home.packages = with pkgs; [
     # System applications
     wlsunset # Blue light filter
-    hyprpaper # Wallpaper
     hyprpolkitagent # Authentification agent
     hyprshot # Screenshot utility
-    swayosd # Notifications for the volume and brightness
     yazi # TUI File manager
 
     # Gnome
-    nautilus # File manager
-    eog # Image viewer
-    papers # Document viewer
-
-    # Players
-    mpv # Media player
-
+    kdePackages.dolphin # File manager
+    kdePackages.gwenview # Image viewer
+    kdePackages.okular # Document viewer
     kdePackages.kcalc # Calculator
+    haruna # Media player
 
     # Controls
     batmon # TUI battery
@@ -63,32 +55,14 @@ in {
   xdg.mimeApps = {
     enable = true;
     defaultApplications = {
-      "image/png" = "org.gnome.eog.desktop";
-      "image/jpeg" = "org.gnome.eog.desktop";
-      "video/mp4" = "mpv.desktop";
-      "audio/mp3" = "mpv.desktop";
-      "audio/ogg" = "mpv.desktop";
-      "audio/wav" = "mpv.desktop";
-      "application/pdf" = "org.gnome.Papers.desktop";
+      "image/png" = "org.kde.gwenview.desktop";
+      "image/jpeg" = "org.kde.gwenview.desktop";
+      "video/mp4" = "org.kde.haruna.desktop";
+      "audio/mp3" = "org.kde.haruna.desktop";
+      "audio/ogg" = "org.kde.haruna.desktop";
+      "audio/wav" = "org.kde.haruna.desktop";
+      "application/pdf" = "org.kde.okular.desktop";
     };
-  };
-
-  xdg.configFile = {
-    # Hyprpaper
-    "hypr/hyprpaper.conf".text = ''
-      preload = ${wallpaper}
-      wallpaper = , ${wallpaper}
-    '';
-
-    # Bookmarks for File Manager
-    "gtk-3.0/bookmarks".text = ''
-      file:///home/matthew/Downloads Downloads
-      file:///home/matthew/Documents Documents
-      file:///home/matthew/Documents/GitHub GitHub
-      file:///home/matthew/Pictures Pictures
-      file:///home/matthew/Videos Videos
-      file:///home/matthew/.local/share/Trash Trash
-    '';
   };
 
   # Session variables
@@ -105,7 +79,7 @@ in {
     settings = {
       # Variables
       "$terminal" = "kitty";
-      "$fileManager" = "nautilus";
+      "$fileManager" = "dolphin";
       "$dmenu" = "tofi-drun | xargs hyprctl dispatch exec --";
       "$menu" = "tofi-run -c ~/.config/tofi/config-run | xargs hyprctl dispatch exec --";
       "$kmenu" = "tofi-run -c ~/.config/tofi/config-kill | xargs pkill";
@@ -131,11 +105,8 @@ in {
         ", print, exec, hyprshot -m region"
         "SHIFT, print, exec, hyprshot -m output"
 
-        # Notification manager
-        "$mainMod, A, exec, swaync-client -op"
-
         # Reload bar and wallpaper
-        "$mainMod, R, exec, pkill waybar && waybar & pkill hyprpaper && hyprpaper & pkill swaync && swaync"
+        "$mainMod, R, exec, pkill waybar && waybar "
 
         # Animations + Blur toggle
         "$mainMod, B, exec, hyprctl keyword animations:enabled 1 && hyprctl keyword decoration:blur:enabled 1"
@@ -196,12 +167,14 @@ in {
         # Scroll through workspaces
         "$mainMod, mouse_down, workspace, e+1"
         "$mainMod, mouse_up, workspace, e-1"
-        ",XF86AudioRaiseVolume, exec, swayosd-client --output-volume raise"
-        ",XF86AudioLowerVolume, exec, swayosd-client --output-volume lower"
-        ",XF86AudioMute, exec, swayosd-client --output-volume mute-toggle"
-        ",XF86AudioMicMute, exec, swayosd-client --input-volume mute-toggle"
-        ",XF86MonBrightnessUp, exec, swayosd-client --brightness raise"
-        ",XF86MonBrightnessDown, exec, swayosd-client --brightness lower"
+
+        # Media buttons
+        ",XF86AudioRaiseVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"
+        ",XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+        ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+        ",XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+        ",XF86MonBrightnessUp, exec, brightnessctl -e4 -n2 set 5%+"
+        ",XF86MonBrightnessDown, exec, brightnessctl -e4 -n2 set 5%-"
       ];
 
       # Move/resize windows with mouse
@@ -220,15 +193,11 @@ in {
 
       # Autostart
       "exec-once" = [
-        "hyprpaper"
         "waybar"
-        "swaync"
         "nm-applet"
         "blueman-applet"
         "wlsunset -l 43.2 -L 76.9"
         "udiskie"
-        "swayosd-server"
-        "swayosd-libinput-backend"
       ];
 
       # Input
@@ -270,19 +239,18 @@ in {
 
       # Look & Feel
       general = {
-        gaps_in = 2; # 5
-        gaps_out = 4; # 20
+        gaps_in = 0;
+        gaps_out = 0;
         border_size = 2;
-        "col.active_border" = "rgb(b4befe)";
-        # "col.inactive_border" = "rgb(313244)";
-        "col.inactive_border" = "rgb(6c7086)";
+        "col.active_border" = "rgba(404040ee)";
+        "col.inactive_border" = "rgba(000000ee)";
         resize_on_border = false;
         allow_tearing = false;
         layout = "dwindle";
       };
 
       decoration = {
-        rounding = "${cornerRadius}";
+        rounding = "0";
         rounding_power = 2;
         active_opacity = 1.0;
         inactive_opacity = 1.0;

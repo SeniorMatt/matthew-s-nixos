@@ -33,6 +33,15 @@
           ./hosts/t480/hyprland.nix
         ];
       };
+
+      minimal = nixpkgs.lib.nixosSystem {
+        inherit system;
+        specialArgs = {inherit inputs user;};
+        modules = [
+          ./hosts/t480/configuration.nix
+          ./hosts/t480/minimal.nix
+        ];
+      };
     };
   };
 }

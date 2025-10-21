@@ -1,8 +1,10 @@
 {
   pkgs,
+  config,
   ...
-}: 
-{
+}: let
+  wallpaper = "${config.home.homeDirectory}/Pictures/wallpapers/the_creation_of_adam.jpg";
+in {
   imports = [
     ../theme.nix
 
@@ -30,6 +32,7 @@
   home.packages = with pkgs; [
     # System applications
     wlsunset # Blue light filter
+    hyprpaper # Wallpaper
     hyprpolkitagent # Authentification agent
     hyprshot # Screenshot utility
     yazi # TUI File manager
@@ -51,6 +54,14 @@
     # Needs
     unzip # Unzip
   ];
+
+  # Hyprpaper
+  xdg.configFile = {
+    "hypr/hyprpaper.conf".text = ''
+      preload = ${wallpaper}
+      wallpaper= , ${wallpaper}
+    '';
+  };
 
   xdg.mimeApps = {
     enable = true;
@@ -106,7 +117,7 @@
         "SHIFT, print, exec, hyprshot -m output"
 
         # Reload bar and wallpaper
-        "$mainMod, R, exec, pkill waybar && waybar "
+        "$mainMod, R, exec, pkill waybar && waybar & pkill hyprpaper && hyprpaper"
 
         # Animations + Blur toggle
         "$mainMod, B, exec, hyprctl keyword animations:enabled 1 && hyprctl keyword decoration:blur:enabled 1"
@@ -193,6 +204,7 @@
 
       # Autostart
       "exec-once" = [
+        "hyprpaper"
         "waybar"
         "nm-applet"
         "blueman-applet"

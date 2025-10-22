@@ -16,7 +16,6 @@ in {
 
   theme = {
     enable = true;
-    fontFamily = "JetBrains Mono";
   };
 
   tofi = {

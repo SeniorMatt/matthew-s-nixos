@@ -8,7 +8,7 @@
       alias nrp="sudo nixos-rebuild switch --flake /etc/nixos/#plasma"
       alias nrh="sudo nixos-rebuild switch --flake /etc/nixos/#hyprland"
       alias nrm="sudo nixos-rebuild switch --flake /etc/nixos/#minimal"
-      alias nfu="sudo nix flake update --flake /etc/nixos/flake.nix"
+      alias nfu="sudo nix flake update --flake /etc/nixos/"
       alias n="nvim"
       alias ng="nvim ~/Documents/GitHub/"
       alias nx="sudo nvim /etc/nixos/"

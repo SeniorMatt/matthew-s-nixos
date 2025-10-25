@@ -163,7 +163,7 @@ in {
   };
 
   # GUI for Hamachi
-  programs.haguichi.enable = true;
+  # programs.haguichi.enable = true;
 
   # Clean the old builds
   nix = {

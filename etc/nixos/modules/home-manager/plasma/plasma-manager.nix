@@ -4,7 +4,7 @@
   config,
   ...
 }: let
-  wallpaper = "${config.home.homeDirectory}/Pictures/wallpapers/Straßenszene bei Regen, Berlin (1926).jpg";
+  wallpaper = "${config.home.homeDirectory}/Pictures/wallpapers/kanistra-studio-8-unicorn.jpg";
   generalFont = "Noto Sans";
   fixedFont = "JetBrainsMono";
   generalFontSize = 12;
@@ -32,6 +32,9 @@ in {
 
   theme = {
     enable = true;
+
+    gtkName = "Breeze-Dark";
+    gtkTheme = pkgs.kdePackages.breeze-gtk;
   };
 
   home.packages = with pkgs; [
@@ -307,6 +310,14 @@ in {
               };
               WeatherStation = {
                 source = "bbcukmet|weather|Almaty, Kazakhstan, KZ|1526384";
+              };
+            };
+          }
+          {
+            name = "org.kde.plasma.notes";
+            config = {
+              General = {
+                color = "translucent";
               };
             };
           }

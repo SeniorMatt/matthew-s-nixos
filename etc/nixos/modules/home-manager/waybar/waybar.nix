@@ -59,7 +59,7 @@
                 "format": "[{short}]"
             },
             "tray": {
-                "icon-size": 16,
+                "icon-size": 20,
                 "spacing": 2
             },
             "clock": {

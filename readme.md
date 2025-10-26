@@ -1,4 +1,4 @@
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/677e7380-4984-40de-b757-a586ef7194f9" /><img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/905e3b1b-c0ad-491f-91b9-261a0ae3e0ec" /># About
+# About
 My NixOS personal setup.
 
 # To install
@@ -11,14 +11,11 @@ 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
 ```
 
 # Screenshots
-## Hyprland minimal
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/0f0a9cdf-0624-4e57-b7cf-837afdaaade9" />
-
 ## KDE Plasma using Plasma Manager
 <img width="1920" height="1080" alt="Screenshot_20251021_125320" src="https://github.com/user-attachments/assets/3f480c7e-e5f5-4b6b-8478-2c0ffca0c67e" />
 
 ## Hyprland rice
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/e0fece24-d34b-46a9-aece-bfcbf2d7c90c" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/807561a5-4a5d-40f9-8b89-3ffca872bffc" />
 
 ### My previous Hyprland rice with blur and stuff :D
 ![image_2025-07-09_22-39-49](https://github.com/user-attachments/assets/e1d60ae7-87b9-45bd-adec-3ad1cacef0fc)

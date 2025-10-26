@@ -40,7 +40,6 @@
     obs-studio # OBS
     davinci-resolve # Davinci resolve
     audacity # Audio editor
-    reaper # Digital audio workstation
     prismlauncher # The Minecraft launcher
     kdePackages.isoimagewriter # Iso Image Writer
   ];

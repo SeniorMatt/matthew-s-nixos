@@ -12,7 +12,7 @@ in {
     ../fastfetch.nix # Fastfetch
     ../fun.nix # Fun terminal
     ../kitty.nix # Terminal
-    ../tofi/tofi.nix # App launcher
+    ../rofi.nix # App launcher
     ../waybar/waybar.nix # Panel
     # ../swayncenter.nix # Notification manager
     ../dunst.nix # Notification manager
@@ -63,20 +63,14 @@ in {
     };
   };
 
-  tofi = {
-    enable = true;
-    cornerRadius = cornerRadius;
+  rofi = {
+    inherit cornerRadius;
   };
 
   waybar = {
     enable = true;
-    cornerRadius = cornerRadius;
+    inherit cornerRadius;
   };
-
-    #swayncenter = {
-    #enable = true;
-    #cornerRadius = cornerRadius;
-  #};
 
   home.packages = with pkgs; [
     # System applications

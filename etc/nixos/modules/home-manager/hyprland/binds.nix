@@ -3,9 +3,10 @@
     # Variables
     "$terminal" = "kitty";
     "$fileManager" = "nautilus";
-    "$dmenu" = "tofi-drun | xargs hyprctl dispatch exec --";
-    "$menu" = "tofi-run -c ~/.config/tofi/config-run | xargs hyprctl dispatch exec --";
-    "$kmenu" = "tofi-run -c ~/.config/tofi/config-kill | xargs pkill";
+    # "$dmenu" = "tofi-drun | xargs hyprctl dispatch exec --";
+    #"$rmenu" = "tofi-run -c ~/.config/tofi/config-run | xargs hyprctl dispatch exec --";
+    #"$kmenu" = "tofi-run -c ~/.config/tofi/config-kill | xargs pkill";
+    "$menu" = "rofi -modi drun,calc,emoji,run -show drun -no-persist-history";
     "$mainMod" = "SUPER";
 
     bind = [
@@ -19,9 +20,9 @@
       "$mainMod, I, togglesplit"
 
       # Menu
-      "$mainMod, SPACE, exec, $dmenu"
-      "$mainMod + ALT, SPACE, exec, $menu"
-      "$mainMod + CTRL, SPACE, exec, $kmenu"
+      "$mainMod, SPACE, exec, $menu"
+      # "$mainMod + ALT, SPACE, exec, $rmenu"
+      # "$mainMod + CTRL, SPACE, exec, $kmenu"
 
       # Screenshot
       ", print, exec, hyprshot -m region"

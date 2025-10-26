@@ -19,7 +19,7 @@
       "waybar/config.jsonc".text = ''
         {
             "layer": "top",
-            "position": "top", // top, bottom, left, right
+            "position": "bottom", // top, bottom, left, right
             "margin-left": 0,
             "margin-right": 0,
             "margin-top": 0,
@@ -194,9 +194,8 @@
         * {
             font-family: JetBrainsMono Nerd Font Propo;
             font-size: 12pt;
-            transition-duration: .5s;
+            transition-duration: .25s;
             transition-property: background-color;
-            /* padding: 2px 0px; */
             padding: 0;
             margin: 0;
             border-radius: ${cornerRadius};
@@ -213,21 +212,8 @@
             /* Avoid rounded borders under each button name */
             /* border: none;*/
 
-            margin: 2px 0px;
-            padding: 2px 0px;
-            color: #cdd6f4;
-        }
-
-        #pulseaudio,
-        #clock,
-        #battery,
-        #tray,
-        #language,
-        #cpu,
-        #temperature,
-        #custom-power,
-        #memory {
-            margin: 4px 0px;
+            margin: 0px 2px;
+            padding: 0px 2px;
             color: #cdd6f4;
             background-color: rgba(49, 50, 68, 1);
             border-radius: ${cornerRadius};
@@ -245,6 +231,7 @@
             background-color: #cba6f7;
             color: #11111b;
         }
+        #pulseaudio.muted:hover,
         #pulseaudio:hover {
             background-color: #f5c2e7;
         }
@@ -265,7 +252,7 @@
 
         #custom-distrologo {
             color: #cba6f7;
-            margin: 4px 0px;
+            margin: 0px 0px;
         }
 
         #battery {
@@ -277,22 +264,19 @@
             color: #11111b;
         }
 
-        #window {
-        }
-
         /* WORKSPACES */
 
         #workspaces {
-            padding: 2px 0px;
-            margin: 4px 0px;
+            padding: 0px 0px;
+            margin: 0px 0px;
             background-color: #313244;
             border-radius: ${cornerRadius};
         }
 
         #workspaces button {
             font-weight: bold;
-            padding: 2px 0px;
-            margin: 2px 2px;
+            padding: 0px 0px;
+            margin: 0px 2px;
             border-radius: ${cornerRadius};
             color: #f5e0dc;
         }
@@ -309,7 +293,6 @@
         #workspaces button.active {
             background-color: rgba(180, 190, 254, 1);
             color: #11111b;
-            padding: 2px 8px;
         }
 
         #workspaces button.urgent {

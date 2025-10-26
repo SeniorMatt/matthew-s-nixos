@@ -1,4 +1,4 @@
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/905e3b1b-c0ad-491f-91b9-261a0ae3e0ec" /># About
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/677e7380-4984-40de-b757-a586ef7194f9" /><img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/905e3b1b-c0ad-491f-91b9-261a0ae3e0ec" /># About
 My NixOS personal setup.
 
 # To install
@@ -12,7 +12,7 @@ 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
 
 # Screenshots
 ## Hyprland minimal
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/88e3bf0a-2c99-4094-b130-9e06fd3480f1" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/0f0a9cdf-0624-4e57-b7cf-837afdaaade9" />
 
 ## KDE Plasma using Plasma Manager
 <img width="1920" height="1080" alt="Screenshot_20251021_125320" src="https://github.com/user-attachments/assets/3f480c7e-e5f5-4b6b-8478-2c0ffca0c67e" />

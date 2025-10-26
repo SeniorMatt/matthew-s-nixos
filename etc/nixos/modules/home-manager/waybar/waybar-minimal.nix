@@ -5,7 +5,7 @@
   ...
 }: 
 {
-  options.waybar = with lib;{
+  options.waybar = with lib; {
     enable = mkEnableOption "Enable waybar";
     cornerRadius = mkOption {
       type = types.str;

@@ -3,11 +3,9 @@
     # Variables
     "$terminal" = "kitty";
     "$fileManager" = "nautilus";
-    # "$dmenu" = "tofi-drun | xargs hyprctl dispatch exec --";
-    #"$rmenu" = "tofi-run -c ~/.config/tofi/config-run | xargs hyprctl dispatch exec --";
-    #"$kmenu" = "tofi-run -c ~/.config/tofi/config-kill | xargs pkill";
     "$menu" = "rofi -modi drun,calc,emoji,run -show drun -no-persist-history";
     "$mainMod" = "SUPER";
+    # "$tofi" = "tofi-drun | xargs hyprctl dispatch exec --";
 
     bind = [
       # System
@@ -28,14 +26,8 @@
       ", print, exec, hyprshot -m region"
       "SHIFT, print, exec, hyprshot -m output"
 
-      # Notification manager
-      # "$mainMod, A, exec, swaync-client -op"
-
       # Reload bar, wallpaper and notification manager
-      # "$mainMod, R, exec, pkill waybar && waybar & pkill hyprpaper && hyprpaper & pkill swaync && swaync"
-
-      # Reload bar and wallpaper 
-      "$mainMod, R, exec, pkill waybar && waybar & pkill hyprpaper && hyprpaper"
+      "$mainMod, R, exec, pkill waybar && waybar & pkill hyprpaper && hyprpaper & pkill dunst && dunst"
 
       # Animations + Blur toggle
       "$mainMod, B, exec, hyprctl keyword animations:enabled 1 && hyprctl keyword decoration:blur:enabled 1"

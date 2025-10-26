@@ -14,7 +14,6 @@ in {
     ../kitty.nix # Terminal
     ../rofi.nix # App launcher
     ../waybar/waybar.nix # Panel
-    # ../swayncenter.nix # Notification manager
     ../dunst.nix # Notification manager
 
     # Hyprland
@@ -33,15 +32,15 @@ in {
 
     # Font
     fontSize = 12;
-    fontFamily = "Noto Sans";
+    fontFamily = "JetBrains Mono";
     
     # Icons
     iconName = "Adwaita";
     iconTheme = pkgs.adwaita-icon-theme;
 
     # Cursor
-    cursorName = "breeze_cursors";
-    cursorTheme = pkgs.kdePackages.breeze;
+    cursorName = "Bibata-Modern-Classic";
+    cursorTheme = pkgs.bibata-cursors;
     cursorSize = 24;
 
     # GTK
@@ -64,6 +63,10 @@ in {
   };
 
   rofi = {
+    inherit cornerRadius;
+  };
+
+  dunst = {
     inherit cornerRadius;
   };
 

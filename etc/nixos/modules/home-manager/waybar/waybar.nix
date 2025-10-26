@@ -14,7 +14,7 @@
   };
 
   config = with config.waybar; lib.mkIf enable {
-    home.packages = with pkgs; [waybar];
+    home.packages = with pkgs; [ waybar ];
     xdg.configFile = {
       "waybar/config.jsonc".text = ''
         {
@@ -276,7 +276,7 @@
         #workspaces button {
             font-weight: bold;
             padding: 0px 0px;
-            margin: 0px 2px;
+            padding: 0 4;
             border-radius: ${cornerRadius};
             color: #f5e0dc;
         }
@@ -291,8 +291,9 @@
         }
 
         #workspaces button.active {
-            background-color: rgba(180, 190, 254, 1);
-            color: #11111b;
+            background-color: #1e1e2e;
+            color: #b4befe;
+            border-bottom: 2px solid #b4befe;
         }
 
         #workspaces button.urgent {

@@ -3,7 +3,6 @@
       "exec-once" = [
         "hyprpaper"
         "waybar"
-        "dunst"
         "nm-applet"
         "blueman-applet"
         "wlsunset -l 43.2 -L 76.9"

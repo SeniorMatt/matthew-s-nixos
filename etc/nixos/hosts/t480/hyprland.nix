@@ -20,7 +20,7 @@
 
   home-manager = {
     sharedModules = [
-      ../../modules/home-manager/hyprland/hyprland-rice.nix
+      ../../modules/home-manager/hyprland/hyprland.nix
     ];
   };
 }

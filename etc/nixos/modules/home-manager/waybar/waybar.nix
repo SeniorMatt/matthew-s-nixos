@@ -292,7 +292,7 @@
         #workspaces button {
             font-weight: bold;
             padding: 2px 0px;
-            margin: 2px 0px;
+            margin: 2px 2px;
             border-radius: ${cornerRadius};
             color: #f5e0dc;
         }
@@ -309,6 +309,7 @@
         #workspaces button.active {
             background-color: rgba(180, 190, 254, 1);
             color: #11111b;
+            padding: 2px 8px;
         }
 
         #workspaces button.urgent {

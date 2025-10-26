@@ -9,9 +9,9 @@ in {
     ../theme.nix
 
     ../kitty-minimal.nix # Terminal
-    ./tofi-minimal.nix # App launcher
-    ./waybar-minimal.nix # Panel
-    ./dunst.nix # Notification manager
+    ../tofi/tofi-minimal.nix # App launcher
+    ../waybar/waybar-minimal.nix # Panel
+    ../dunst.nix # Notification manager
   ];
 
   theme = {
@@ -135,16 +135,21 @@ in {
         "$mainMod, J, movefocus, d"
 
         # Move windows with vim keys
-        "$mainMod + CTRL, H, movewindow, l"
-        "$mainMod + CTRL, L, movewindow, r"
-        "$mainMod + CTRL, K, movewindow, u"
-        "$mainMod + CTRL, J, movewindow, d"
+        "$mainMod + SHIFT, H, movewindow, l"
+        "$mainMod + SHIFT, L, movewindow, r"
+        "$mainMod + SHIFT, K, movewindow, u"
+        "$mainMod + SHIFT, J, movewindow, d"
 
         # Resize windows with vim keys
-        "$mainMod SHIFT, l, resizeactive, 32 0"
-        "$mainMod SHIFT, h, resizeactive, -32 0"
-        "$mainMod SHIFT, k, resizeactive, 0 -32"
-        "$mainMod SHIFT, j, resizeactive, 0 32"
+        #"$mainMod + CTRL, l, resizeactive, -32 0"
+        "$mainMod + CTRL, h, resizeactive, -32 0"
+        "$mainMod + CTRL, k, resizeactive, 0 -32"
+        #"$mainMod + CTRL, j, resizeactive, 0 -32"
+
+        "$mainMod + CTRL, l, resizeactive, 32 0"
+        #"$mainMod + CTRL, h, resizeactive, 32 0"
+        #"$mainMod + CTRL, k, resizeactive, 0 32"
+        "$mainMod + CTRL, j, resizeactive, 0 32"
 
         # Switch workspaces
         "$mainMod, 1, workspace, 1"
@@ -324,6 +329,12 @@ in {
 
         # Fix some dragging issues with XWayland
         "nofocus,class:^$,title:^$,xwayland:1,floating:0,fullscreen:0,pinned:0"
+
+        # Smart gaps
+        "bordersize 0, floating:0, onworkspace:w[tv1]"
+        "rounding 0, floating:0, onworkspace:w[tv1]"
+        "bordersize 0, floating:0, onworkspace:f[1]"
+        "rounding 0, floating:0, onworkspace:f[1]"
 
         # Firefox PiP
         "float, class:^(firefox)$, title:^(Picture-in-Picture)$"

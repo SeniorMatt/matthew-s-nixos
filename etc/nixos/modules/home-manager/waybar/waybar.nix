@@ -6,14 +6,13 @@
 }: 
 {
   options.waybar = with lib;{
-    enable = mkEnableOption "Enable waybar";
     cornerRadius = mkOption {
       type = types.str;
       default = "8";
     };
   };
 
-  config = with config.waybar; lib.mkIf enable {
+  config = with config.waybar; {
     home.packages = with pkgs; [ waybar ];
     xdg.configFile = {
       "waybar/config.jsonc".text = ''
@@ -193,7 +192,7 @@
       "waybar/style.css".text = ''
         * {
             font-family: JetBrainsMono Nerd Font Propo;
-            font-size: 12pt;
+            font-size: 13px;
             transition-duration: .25s;
             transition-property: background-color;
             padding: 0;

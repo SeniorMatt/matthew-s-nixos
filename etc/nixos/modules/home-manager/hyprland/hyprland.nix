@@ -11,7 +11,7 @@ in {
 
     ../fastfetch.nix # Fastfetch
     ../fun.nix # Fun terminal
-    ../kitty.nix # Terminal
+    ../kitty/kitty-catppuccin.nix # Terminal
     ../rofi.nix # App launcher
     ../waybar/waybar.nix # Panel
     ../dunst.nix # Notification manager
@@ -31,7 +31,7 @@ in {
     enable = true;
 
     # Font
-    fontSize = 12;
+    fontSize = 13;
     fontFamily = "JetBrains Mono";
     
     # Icons
@@ -71,7 +71,6 @@ in {
   };
 
   waybar = {
-    enable = true;
     inherit cornerRadius;
   };
 
@@ -127,12 +126,12 @@ in {
 
     # Bookmarks for File Manager
     "gtk-3.0/bookmarks".text = ''
-      file:///home/matthew/Downloads Downloads
-      file:///home/matthew/Documents Documents
-      file:///home/matthew/Documents/GitHub GitHub
-      file:///home/matthew/Pictures Pictures
-      file:///home/matthew/Videos Videos
-      file:///home/matthew/.local/share/Trash Trash
+      file:///~/Downloads Downloads
+      file:///~/Documents Documents
+      file:///~/Documents/GitHub GitHub
+      file:///~/Pictures Pictures
+      file:///~/Videos Videos
+      file:///~/.local/share/Trash Trash
     '';
   };
 

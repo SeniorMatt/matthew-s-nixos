@@ -7,6 +7,7 @@
     };
     nvf.url = "github:notashelf/nvf";
 
+    niri-flake.url = "github:sodiboo/niri-flake";
     plasma-manager.url = "github:AlexNabokikh/plasma-manager";
     breeze-cursors-catppuccin.url = "github:noaccOS/breeze-cursors-catppuccin";
   };
@@ -40,6 +41,15 @@
         modules = [
           ./hosts/t480/configuration.nix
           ./hosts/t480/cosmic.nix
+        ];
+      };
+
+      niri = nixpkgs.lib.nixosSystem {
+        inherit system;
+        specialArgs = {inherit inputs user;};
+        modules = [
+          ./hosts/t480/configuration.nix
+          ./hosts/t480/niri.nix
         ];
       };
     };

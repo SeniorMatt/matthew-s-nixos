@@ -6,14 +6,13 @@
 }: 
 {
   options.waybar = with lib; {
-    enable = mkEnableOption "Enable waybar";
     cornerRadius = mkOption {
       type = types.str;
-      default = "8";
+      default = "0";
     };
   };
 
-  config = with config.waybar; lib.mkIf enable {
+  config = with config.waybar; {
     home.packages = with pkgs; [waybar];
     xdg.configFile = {
       "waybar/config.jsonc".text = ''
@@ -25,38 +24,23 @@
             "margin-top": 0,
             "spacing": 8,
             "modules-left": [
-                "hyprland/workspaces",
-                "battery",
-                "battery#bat1",
-                "cpu",
-                "memory",
-                "temperature"
+                "custom/distrologo",
+                "niri/workspaces",
             ],
             "modules-center": [
-                "custom/distrologo",
+                "niri/window",
             ],
             "modules-right": [
-                "hyprland/language",
+                "niri/language",
                 "tray",
+                "battery",
+                "battery#bat1",
                 "pulseaudio",
                 "clock",
-                "custom/power"
+                "custom/power",
             ],
             // Modules configuration
-            "hyprland/workspaces": {
-                "all-outputs": true,
-                "format": "{name}",
-                "format-icons": {
-                    // "1": "|",
-                    "urgent": "[!]",
-                    "focused": "[]",
-                    "default": "[]"
-                },
-                "persistent-workspaces": {
-                    "*": [ 1,2,3,4,5 ]
-                }
-            },
-            "hyprland/language": {
+            "niri/language": {
                 "format": "{short}"
             },
             "tray": {
@@ -65,22 +49,7 @@
             },
             "clock": {
                 "format": "{:%H:%M}",
-                "format-alt": "{:%Y-%m-%d}",
                 "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
-            },
-            "cpu": {
-                "format":  " {usage}%",
-                "tooltip": false
-            },
-            "memory": {
-                "format": " {}%"
-            },
-            "temperature": {
-                "thermal-zone": 5,
-                "critical-threshold": 80,
-                "format-critical": "{temperatureC}°C {hot}",
-                "format":  "{icon} {temperatureC}°C",
-                "format-icons": [""]
             },
             "battery": {
                 "bat": "BAT0",
@@ -93,7 +62,6 @@
                 "format-full": "{capacity}% {icon}",
                 "format-charging": "{capacity}% ",
                 "format-plugged": "{capacity}% ",
-                "format-alt": "{time} {icon}", 
                 // "format-good": "", // An empty format will hide the module
                 // "format-full": "",
                 "format-icons": ["", "", "", "", ""]
@@ -109,7 +77,6 @@
                 "format-full": "{capacity}% {icon}",
                 "format-charging": "{capacity}% ",
                 "format-plugged": "{capacity}% ",
-                "format-alt": "{time} {icon}", 
                 "format-icons": ["", "", "", "", ""]
             },
             "pulseaudio": {
@@ -161,23 +128,23 @@
       "waybar/style.css".text = ''
         * {
             font-family: JetBrainsMono Nerd Font Propo;
-            font-size: 10pt;
+            font-size: 13pt;
             transition-duration: 0s;
             transition-property: background-color;
             padding: 0 4;
             margin: 0;
-            border-radius: ${cornerRadius};
+            border-radius: ${cornerRadius}px;
         }
 
         window#waybar {
-            background-color: rgba(0, 0, 0, 1);
+            background-color: black;
             border-radius: 0px;
         }
 
         button {
             /* Use box-shadow instead of border so the text isn't offset */
             box-shadow: inset 0 -3px transparent;
-            color: rgba(224, 224, 224, 1);
+            color: white;
             background-color: rgba(32, 32, 32, 1);
         }
 
@@ -193,15 +160,7 @@
             padding: 0px 0px;
             margin: 0px 0px;
             background-color: #313244;
-            border-radius: ${cornerRadius};
-        }
-
-        #workspaces button {
-            font-weight: bold;
-            padding: 0px 0px;
-            margin: 0px 0px;
-            border-radius: ${cornerRadius};
-            color: #f5e0dc;
+            border-radius: ${cornerRadius}px;
         }
 
         #workspaces button:hover {
@@ -210,11 +169,7 @@
 
         #workspaces button.active {
             background-color: rgba(64, 64, 64, 1);
-        }
-
-        #mode {
-            background-color: #64727D;
-            box-shadow: inset 0 -3px #ffffff;
+            border-bottom: 2px solid #b4befe;
         }
 
         /* If workspaces is the leftmost module, omit left margin */
@@ -225,22 +180,6 @@
         /* If workspaces is the rightmost module, omit right margin */
         .modules-right > widget:last-child > #workspaces {
             margin-right: 0;
-        }
-
-        @keyframes blink {
-            to {
-                background-color: @color15;
-                color: @color13;
-            }
-        }
-
-        #tray > .passive {
-            -gtk-icon-effect: dim;
-        }
-
-        #tray > .needs-attention {
-            -gtk-icon-effect: highlight;
-            background-color: @background;
         }
       '';
     };

@@ -1,11 +1,13 @@
 {
   programs.git = {
     enable = true;
-    userName = "SeniorMatt";
-    userEmail = "matthew.prakhov@gmail.com";
-    extraConfig = {
+    settings = {
+      user = {
+        name = "SeniorMatt";
+        email = "matthew.prakhov@gmail.com";
+      };
+      # pull rebase false
       credential.helper = "store";
     };
-    # pull rebase false
   };
 }

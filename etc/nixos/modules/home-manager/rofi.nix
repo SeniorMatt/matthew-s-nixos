@@ -3,7 +3,7 @@
   options.rofi = with lib; {
     cornerRadius = mkOption {
       type = types.str;
-      default = "8";
+      default = "0";
     };
   };
 
@@ -40,9 +40,6 @@
       theme = "~/.config/rofi/theme.rasi";
     };
 
-    xdg.configFile."qalculate/theme.rasi".text = ''
-
-    '';
     xdg.configFile."rofi/theme.rasi".text = ''
       * {
         /* mocha */

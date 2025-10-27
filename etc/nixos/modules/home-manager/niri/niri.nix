@@ -8,6 +8,7 @@ in {
     ../kitty/kitty.nix
     ../waybar/waybar-minimal.nix
     ../default-apps.nix
+    ../rofi.nix
   ];
 
   theme = {
@@ -15,15 +16,8 @@ in {
 
     fontFamily = "JetBrains Mono";
     fontSize = 13;
-
-    #gtkName = "Breeze-Dark";
-    #gtkTheme = pkgs.kdePackages.breeze-gtk;
-
-    #iconName = "breeze-dark";
-    #iconTheme = pkgs.kdePackages.breeze-icons;
   };
 
-  programs.fuzzel.enable = true; # Super+D in the default setting (app launcher)
   programs.swaylock.enable = true; # Super+Alt+L in the default setting (screen locker)
   services.mako.enable = true; # Notification daemon
   services.swayidle.enable = true; # Idle management daemon
@@ -49,6 +43,15 @@ in {
       hotkey-overlay.skip-at-startup = true;
       input = {
         focus-follows-mouse.enable = true;
+        keyboard = {
+          xkb = {
+            layout = "us, ru";
+            options = "grp:caps_toggle";
+          };
+        };
+        trackpoint = {
+          accel-profile = "flat";
+        };
       };
       window-rules = [
         {
@@ -63,7 +66,9 @@ in {
       binds = {
         "Mod+Shift+C".action.spawn = "kitty";
         "Mod+Shift+F".action.spawn = "firefox";
-        "Mod+D".action.spawn = "fuzzel";
+        "Mod+Shift+T".action.spawn = "Telegram";
+        "Mod+Shift+O".action.spawn = "obsidian";
+        "Mod+D".action.spawn = [ "rofi" "-modes" "drun,calc,emoji,run" "-show" "drun" "-no-persist-history" ];
         "Mod+E".action.spawn = "nautilus";
         "Mod+Alt+L".action.spawn = "swaylock";
         "Mod+Shift+Slash".action.show-hotkey-overlay = [];
@@ -122,8 +127,8 @@ in {
         "Mod+R".action.switch-preset-column-width = [];
         "Mod+Shift+R".action.switch-preset-window-height = [];
         "Mod+Ctrl+R".action.reset-window-height = [];
-        "Mod+M".action.maximize-column = [];
-        "Mod+F".action.fullscreen-window = [];
+        "Mod+F".action.maximize-column = [];
+        "Mod+M".action.fullscreen-window = [];
 
         "Mod+Ctrl+F".action.expand-column-to-available-width = [];
 

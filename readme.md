@@ -14,6 +14,9 @@ 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
 ## KDE Plasma using Plasma Manager
 <img width="1920" height="1080" alt="Screenshot_20251021_125320" src="https://github.com/user-attachments/assets/3f480c7e-e5f5-4b6b-8478-2c0ffca0c67e" />
 
+## Niri
+<img width="642" height="527" alt="image" src="https://github.com/user-attachments/assets/235b2456-aa3c-411a-a647-a9b0760e1047" />
+
 ## Hyprland rice
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/807561a5-4a5d-40f9-8b89-3ffca872bffc" />
 

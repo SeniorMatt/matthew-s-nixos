@@ -7,6 +7,7 @@ in {
     ../theme.nix
     ../kitty/kitty.nix
     ../waybar/waybar-minimal.nix
+    ../default-apps.nix
   ];
 
   theme = {
@@ -23,7 +24,6 @@ in {
   services.polkit-gnome.enable = true; # Polkit
   home.packages = with pkgs; [
     swaybg # Wallpaper
-    nautilus # File manager
     pavucontrol # Audio control
     blueman # Bluetooth control
     networkmanagerapplet # Network control

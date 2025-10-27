@@ -15,6 +15,7 @@ in {
     ../rofi.nix # App launcher
     ../waybar/waybar.nix # Panel
     ../dunst.nix # Notification manager
+    ../default-apps.nix # Default apps
 
     # Hyprland
     ./animations.nix
@@ -82,15 +83,6 @@ in {
     hyprshot # Screenshot utility
     swayosd # Notifications for the volume and brightness
     yazi # TUI File manager
-
-    # Gnome
-    nautilus # File manager
-    eog # Image viewer
-    papers # Document viewer
-
-    # Players
-    mpv # Media player
-
     kdePackages.kcalc # Calculator
 
     # Controls
@@ -103,19 +95,6 @@ in {
     # Needs
     unzip # Unzip
   ];
-
-  xdg.mimeApps = {
-    enable = true;
-    defaultApplications = {
-      "image/png" = "org.gnome.eog.desktop";
-      "image/jpeg" = "org.gnome.eog.desktop";
-      "video/mp4" = "mpv.desktop";
-      "audio/mp3" = "mpv.desktop";
-      "audio/ogg" = "mpv.desktop";
-      "audio/wav" = "mpv.desktop";
-      "application/pdf" = "org.gnome.Papers.desktop";
-    };
-  };
 
   xdg.configFile = {
     # Hyprpaper

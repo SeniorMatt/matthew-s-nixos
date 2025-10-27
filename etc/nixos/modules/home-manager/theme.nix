@@ -41,7 +41,6 @@ in {
     };
 
     # GTK
-    #gtkEnable = mkEnableOption "Enable GTK theming";
     gtkEnable = mkOption {
       type = types.bool;
       default = true;
@@ -56,7 +55,6 @@ in {
     };
 
     # Kvantum
-    #kvantumEnable = mkEnableOption "Enable Kvantum theming";
     kvantumEnable = mkOption {
       type = types.bool;
       default = false;
@@ -86,11 +84,6 @@ in {
         XCURSOR_SIZE = cursorSizeString;
         HYPRCURSOR_THEME = cursorName;
         HYPRCURSOR_SIZE = cursorSizeString;
-
-        # QT variables
-        #QT_QPA_PLATFORMTHEME = "qt6ct";
-        #QT_STYLE_OVERRIDE = "kvantum";
-        #GTK_THEME = gtkName;
       };
     };
 
@@ -120,9 +113,6 @@ in {
       "org/gnome/desktop/wm/preferences" = {
         button-layout = "";
       };
-
-      # Dark theme for default Apps
-      # "org/gnome/desktop/interface".color-scheme = "prefer-dark";
     };
 
     xdg.configFile = lib.mkMerge [
@@ -160,9 +150,8 @@ in {
 
     qt = {
       enable = true;
-      #platformTheme.name = if kvantumEnable then "qt6ct" else "kde";
-      platformTheme = { name = if kvantumEnable then "qt6ct" else "kde"; };
-      style =  { name = if kvantumEnable then "kvantum" else "breeze"; };
+      platformTheme.name = if kvantumEnable then "qt6ct" else "kde";
+      style.name = if kvantumEnable then "kvantum" else "breeze";
     };
   };
 }

@@ -1,0 +1,58 @@
+{ pkgs, lib, config, ... }:
+{
+  options.default-apps = with lib; {
+    fileManagerPackage = mkOption {
+      type = types.package;
+      default = pkgs.nautilus;
+    };
+
+    imageViewerPackage = mkOption {
+      type = types.package;
+      default = pkgs.eog;
+    };
+    imageViewer = mkOption {
+      type = types.str;
+      default = "org.gnome.eog.desktop";
+    };
+
+    documentViewerPackage = mkOption {
+      type = types.package;
+      default = pkgs.papers;
+    };
+    documentViewer = mkOption {
+      type = types.str;
+      default = "org.gnome.Papers.desktop";
+    };
+
+    mediaPlayerPackage = mkOption {
+      type = types.package;
+      default = pkgs.mpv;
+    };
+    mediaPlayer = mkOption {
+      type = types.str;
+      default = "mpv.desktop";
+    };
+  };
+
+  config = with config.default-apps; {
+    home.packages = with pkgs; [
+      fileManagerPackage
+      imageViewerPackage
+      documentViewerPackage
+      mediaPlayerPackage
+    ];
+
+    xdg.mimeApps = with config.default-apps; {
+      enable = true;
+      defaultApplications = {
+        "image/png" = "${imageViewer}";
+        "image/jpeg" = "${imageViewer}";
+        "video/mp4" = "${mediaPlayer}";
+        "audio/mp3" = "${mediaPlayer}";
+        "audio/ogg" = "${mediaPlayer}";
+        "audio/wav" = "${mediaPlayer}";
+        "application/pdf" = "${documentViewer}";
+      };
+    };
+  };
+}

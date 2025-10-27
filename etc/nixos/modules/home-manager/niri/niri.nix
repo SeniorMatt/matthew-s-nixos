@@ -26,7 +26,6 @@ in {
     swaybg # Wallpaper
     pavucontrol # Audio control
     blueman # Bluetooth control
-    networkmanagerapplet # Network control
     xwayland-satellite # Xwayland
   ];
 

@@ -150,7 +150,7 @@ in {
 
     qt = {
       enable = true;
-      platformTheme.name = if kvantumEnable then "qt6ct" else "kde";
+      platformTheme.name = if kvantumEnable then "qt6ct" else "qt5ct";
       style.name = if kvantumEnable then "kvantum" else "breeze";
     };
   };

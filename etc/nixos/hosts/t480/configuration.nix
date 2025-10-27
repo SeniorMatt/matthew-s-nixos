@@ -145,9 +145,6 @@ in {
   # Ly
   services.displayManager.ly.enable = true;
 
-  # Optional, hint electron apps to use wayland:
-  environment.sessionVariables.NIXOS_OZONE_WL = "1";
-
   # List services that you want to enable:
   services.udisks2.enable = true;
 

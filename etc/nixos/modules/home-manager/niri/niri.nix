@@ -27,6 +27,7 @@ in {
     pavucontrol # Audio control
     blueman # Bluetooth control
     networkmanagerapplet # Network control
+    xwayland-satellite # Xwayland
   ];
 
   programs.niri = {
@@ -37,6 +38,7 @@ in {
         { argv = ["swaybg" "--image" "${wallpaper}"]; }
         { argv = ["waybar"]; }
       ];
+      xwayland-satellite.enable = true;
       hotkey-overlay.skip-at-startup = true;
       input = {
         focus-follows-mouse.enable = true;

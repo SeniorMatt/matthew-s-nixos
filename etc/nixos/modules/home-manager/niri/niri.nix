@@ -15,6 +15,12 @@ in {
 
     fontFamily = "JetBrains Mono";
     fontSize = 13;
+
+    #gtkName = "Breeze-Dark";
+    #gtkTheme = pkgs.kdePackages.breeze-gtk;
+
+    #iconName = "breeze-dark";
+    #iconTheme = pkgs.kdePackages.breeze-icons;
   };
 
   programs.fuzzel.enable = true; # Super+D in the default setting (app launcher)
@@ -34,6 +40,7 @@ in {
     enable = true;
     settings = {
       outputs."eDP-1".scale = 1.0;
+      prefer-no-csd = true;
       spawn-at-startup = [
         { argv = ["swaybg" "--image" "${wallpaper}"]; }
         { argv = ["waybar"]; }

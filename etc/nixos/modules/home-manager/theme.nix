@@ -54,6 +54,10 @@ in {
       default = pkgs.adw-gtk3;
     };
 
+    qtEnable = mkOption {
+      type = types.bool;
+      default = true;
+    };
     # Kvantum
     kvantumEnable = mkOption {
       type = types.bool;
@@ -111,11 +115,28 @@ in {
 
     dconf.settings = {
       "org/gnome/desktop/wm/preferences" = {
-        button-layout = "";
+        button-layout = ":minimize,maximize,close";
       };
     };
 
     xdg.configFile = lib.mkMerge [
+      (lib.mkIf qtEnable {
+        "qt5ct/qt5ct.conf".text = ''
+          [Fonts]
+          general="${fontFamily},${fontSizeString},-1,5,50,0,0,0,0,0"
+          [Appearance]
+          icon_theme=${iconName}
+          custom_palette=false
+        '';
+        "qt6ct/qt6ct.conf".text = ''
+          [Fonts]
+          general="${fontFamily},${fontSizeString},-1,5,50,0,0,0,0,0"
+          [Appearance]
+          icon_theme=${iconName}
+          custom_palette=false
+        '';
+      })
+
       (lib.mkIf gtkEnable {
         # Now symlink the `~/.config/gtk-4.0/` folder declaratively:
         "gtk-4.0/assets".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/assets";
@@ -124,27 +145,12 @@ in {
       })
 
       (lib.mkIf kvantumEnable {
-      "Kvantum/kvantum.kvconfig".text = ''
-        [General]
-        theme=${kvantumName}
-        font=${fontFamily},${fontSizeString},-1,5,50,0,0,0,0,0
-      '';
-      "qt5ct/qt5ct.conf".text = ''
-        [Fonts]
-        general="${fontFamily},${fontSizeString},-1,5,50,0,0,0,0,0"
-        [Appearance]
-        icon_theme=${iconName}
-        custom_palette=false
-      '';
-      "qt6ct/qt6ct.conf".text = ''
-        [Fonts]
-        general="${fontFamily},${fontSizeString},-1,5,50,0,0,0,0,0"
-        [Appearance]
-        icon_theme=${iconName}
-        custom_palette=false
-      '';
-
-      "Kvantum/${kvantumName}".source = "${kvantumTheme}/share/Kvantum/${kvantumName}";
+        "Kvantum/kvantum.kvconfig".text = ''
+          [General]
+          theme=${kvantumName}
+          font=${fontFamily},${fontSizeString},-1,5,50,0,0,0,0,0
+        '';
+        "Kvantum/${kvantumName}".source = "${kvantumTheme}/share/Kvantum/${kvantumName}";
       })
     ];
 

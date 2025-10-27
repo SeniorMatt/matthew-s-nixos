@@ -53,6 +53,7 @@ in {
       ];
       binds = {
         "Mod+Shift+C".action.spawn = "kitty";
+        "Mod+Shift+F".action.spawn = "firefox";
         "Mod+D".action.spawn = "fuzzel";
         "Mod+E".action.spawn = "nautilus";
         "Mod+Alt+L".action.spawn = "swaylock";
@@ -112,8 +113,8 @@ in {
         "Mod+R".action.switch-preset-column-width = [];
         "Mod+Shift+R".action.switch-preset-window-height = [];
         "Mod+Ctrl+R".action.reset-window-height = [];
-        "Mod+F".action.maximize-column = [];
-        "Mod+Shift+F".action.fullscreen-window = [];
+        "Mod+M".action.maximize-column = [];
+        "Mod+F".action.fullscreen-window = [];
 
         "Mod+Ctrl+F".action.expand-column-to-available-width = [];
 

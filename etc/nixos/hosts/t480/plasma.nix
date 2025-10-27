@@ -1,10 +1,5 @@
-{
-  inputs,
-  pkgs,
-  ...
-}: {
+{ pkgs, ... }: {
   imports = [
-    inputs.home-manager.nixosModules.default
     ../../modules/nixos/tlp.nix
   ];
 

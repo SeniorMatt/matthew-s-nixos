@@ -33,13 +33,14 @@ in {
     enable = true;
     settings = {
       outputs."eDP-1".scale = 1.0;
-      prefer-no-csd = true;
+
       spawn-at-startup = [
         { argv = ["swaybg" "--image" "${wallpaper}"]; }
         { argv = ["waybar"]; }
       ];
-      xwayland-satellite.enable = true;
+
       hotkey-overlay.skip-at-startup = true;
+
       input = {
         focus-follows-mouse.enable = true;
         keyboard = {
@@ -52,6 +53,15 @@ in {
           accel-profile = "flat";
         };
       };
+
+      prefer-no-csd = true;
+      layout = {
+        gaps = 8;
+        focus-ring = {
+          width = 2;
+        };
+      };
+
       window-rules = [
         {
           matches = [{

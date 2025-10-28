@@ -40,8 +40,8 @@
         background:                  @base;
         selected-active-background:  @blue;
         active-background:           @background;
-        selected-normal-background:  @text;
-        alternate-normal-background: @text;
+        selected-normal-background:  @lightfg;
+        alternate-normal-background: @lightbg;
         foreground:                  @text;
         selected-urgent-foreground:  @background;
         normal-foreground:           @foreground;

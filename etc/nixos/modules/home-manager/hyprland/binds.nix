@@ -18,7 +18,7 @@
       "$mainMod, I, togglesplit"
 
       # Menu
-      "$mainMod, SPACE, exec, $menu"
+      "$mainMod, D, exec, $menu"
       # "$mainMod + ALT, SPACE, exec, $rmenu"
       # "$mainMod + CTRL, SPACE, exec, $kmenu"
 

@@ -1,4 +1,4 @@
-{pkgs, lib, config, ...}:
+{lib, config, ...}:
 {
   options.rofi = with lib; {
     cornerRadius = mkOption {
@@ -8,59 +8,23 @@
   };
 
   config = with config.rofi; {
-    programs.rofi = {
-      enable = true;
-      font = "JetBrains Mono 20";
-      modes = [
-        "emoji"
-        "calc"
-      ];
-      plugins = with pkgs; [
-        rofi-calc
-        rofi-emoji
-      ];
-      extraConfig = {
-        # Keybinds
-        kb-remove-char-back = "Alt+h,BackSpace,Shift+BackSpace";
-        kb-mode-complete = "Alt+l";
-        kb-row-up = "Up,Control+k,Shift+Tab,Shift+ISO_Left_Tab";
-        kb-row-down = "Down,Control+j";
-        kb-accept-entry = "Control+m,Return,KP_Enter";
-        kb-remove-to-eol = "Control+Shift+e";
-        kb-mode-next = "Control+l";
-        kb-mode-previous = "Control+h";
-
-        display-drun = "[Apps]";
-        display-run = "[Packages]";
-        display-emoji = "[Emoji]";
-        display-calc = "[Calculator]";
-        drun-display-format = "{name} {icon}";
-        show-icons = true;
-      };
-      theme = "~/.config/rofi/theme.rasi";
-    };
-
     xdg.configFile."rofi/theme.rasi".text = ''
       * {
-        /* mocha */
-        base:     #1e1e2e;
-        mantle:   #181825;
+        base:     #202020;
+        lightbase:#303030;
         text:     #cdd6f4;
-        red:      #f38ba8;
-        blue:     #89b4fa;
-        lavender: #b4befe;
+        red:      #ff0000;
+        blue:     #0000ff;
 
         foreground: @text;
         background: @base;
-        lightbg:    @mantle;
+        lightbg:    @lightbase;
         lightfg:    @text;
 
         selected-active-foreground:  @background;
-        lightfg:                     @text;
         separatorcolor:              @foreground;
         urgent-foreground:           @red;
         alternate-urgent-background: @lightbg;
-        lightbg:                     @mantle;
         background-color:            transparent;
         border-color:                @foreground;
         normal-background:           @background;

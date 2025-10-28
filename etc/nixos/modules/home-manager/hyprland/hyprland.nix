@@ -12,7 +12,8 @@ in {
     ../fastfetch.nix # Fastfetch
     ../fun.nix # Fun terminal
     ../kitty/kitty-catppuccin.nix # Terminal
-    ../rofi.nix # App launcher
+    ../rofi/rofi.nix # App launcher
+    ../rofi/rofi-catppuccin-theme.nix # App launcher
     ../waybar/waybar.nix # Panel
     ../dunst.nix # Notification manager
     ../default-apps.nix # Default apps

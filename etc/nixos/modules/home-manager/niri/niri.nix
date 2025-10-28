@@ -7,8 +7,9 @@ in {
     ../theme.nix
     ../kitty/kitty.nix
     ../waybar/waybar-minimal.nix
+    ../rofi/rofi.nix
+    ../rofi/rofi-minimal-theme.nix
     ../default-apps.nix
-    ../rofi.nix
   ];
 
   theme = {
@@ -32,12 +33,11 @@ in {
   programs.niri = {
     enable = true;
     settings = {
-      outputs."eDP-1".scale = 1.0;
-
-      spawn-at-startup = [
-        { argv = ["swaybg" "--image" "${wallpaper}"]; }
-        { argv = ["waybar"]; }
-      ];
+      outputs = {
+        "eDP-1" = {
+          scale = 1.0;
+        };
+      };
 
       hotkey-overlay.skip-at-startup = true;
 
@@ -53,6 +53,11 @@ in {
           accel-profile = "flat";
         };
       };
+
+      spawn-at-startup = [
+        { argv = ["swaybg" "--image" "${wallpaper}"]; }
+        { argv = ["waybar"]; }
+      ];
 
       prefer-no-csd = true;
       layout = {

@@ -19,10 +19,16 @@ in {
     fontSize = 13;
   };
 
-  programs.swaylock.enable = true; # Super+Alt+L in the default setting (screen locker)
-  services.mako.enable = true; # Notification daemon
-  services.swayidle.enable = true; # Idle management daemon
   services.polkit-gnome.enable = true; # Polkit
+  services.mako = {
+    enable = true; # Notification daemon
+    settings = {
+      font = "JetBrains Mono 13";
+      default-timeout = 2500;
+    };
+  };
+  programs.swaylock.enable = true; # Super+Alt+L in the default setting (screen locker)
+  services.swayidle.enable = true; # Idle management daemon
   home.packages = with pkgs; [
     swaybg # Wallpaper
     pavucontrol # Audio control

@@ -27,7 +27,7 @@ in {
     swaybg # Wallpaper
     pavucontrol # Audio control
     blueman # Bluetooth control
-    xwayland-satellite # Xwayland
+    xwayland-satellite # Xwayland support
   ];
 
   programs.niri = {

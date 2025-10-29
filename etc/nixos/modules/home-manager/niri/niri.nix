@@ -43,6 +43,7 @@ in {
 
       input = {
         focus-follows-mouse.enable = true;
+        warp-mouse-to-focus.enable = true;
         keyboard = {
           xkb = {
             layout = "us, ru";
@@ -82,7 +83,7 @@ in {
         "Mod+Shift+F".action.spawn = "firefox";
         "Mod+Shift+T".action.spawn = "Telegram";
         "Mod+Shift+O".action.spawn = "obsidian";
-        "Mod+D".action.spawn = [ "rofi" "-modes" "drun,calc,emoji,run" "-show" "drun" "-no-persist-history" ];
+        "Mod+D".action.spawn-sh = "rofi modes drun,calc,emoji,run -show drun -no-persist-history";
         "Mod+E".action.spawn = "nautilus";
         "Mod+Alt+L".action.spawn = "swaylock";
         "Mod+Shift+Slash".action.show-hotkey-overlay = [];
@@ -173,6 +174,11 @@ in {
 
         "XF86AudioRaiseVolume".action.spawn-sh = "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+";
         "XF86AudioLowerVolume".action.spawn-sh = "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-";
+        "XF86AudioMute".action.spawn-sh = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
+        "XF86AudioMicMute".action.spawn-sh = "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle";
+
+        "XF86MonBrightnessUp".action.spawn-sh = "brightnessctl --class=backlight set 10%+";
+        "XF86MonBrightnessDown".action.spawn-sh = "brightnessctl --class=backlight set 10%-";
       };
     };
   };

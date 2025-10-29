@@ -1,6 +1,7 @@
 { pkgs, ... }: {
   imports = [
     ../../modules/nixos/tlp.nix
+    ../../modules/nixos/fish.nix
   ];
 
   programs.hyprland.enable = true;

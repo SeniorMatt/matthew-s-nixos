@@ -5,7 +5,6 @@
 
   xdg.configFile = {
     "kitty/kitty.conf".text = ''
-      background_opacity 0.9
       confirm_os_window_close 0
       remember_window_size no
       initial_window_width 94 c

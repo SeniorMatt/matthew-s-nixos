@@ -4,7 +4,7 @@
   ...
 }: {
   imports = [
-    ../../modules/home-manager/fish.nix
+    ../../modules/home-manager/bash.nix
     ../../modules/home-manager/firefox.nix
     ../../modules/home-manager/git.nix
     ../../modules/home-manager/nvf.nix
@@ -18,7 +18,6 @@
 
   home.packages = with pkgs; [
     ffmpeg # Best convertor
-    fish # Shell
     unzip # Zip
     wl-clipboard # Terminal Clipboard manager
     libinput # List of available devices

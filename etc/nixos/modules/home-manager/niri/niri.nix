@@ -68,7 +68,7 @@ in {
 
       prefer-no-csd = true;
       layout = {
-        gaps = 8;
+        gaps = 4;
         focus-ring = {
           width = 2;
         };

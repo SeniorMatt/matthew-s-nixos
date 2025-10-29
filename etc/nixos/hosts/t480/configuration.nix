@@ -68,7 +68,6 @@ in {
     isNormalUser = true;
     description = "Default user";
     extraGroups = ["networkmanager" "wheel"];
-    shell = pkgs.fish;
     packages = with pkgs; [
     ];
   };
@@ -81,9 +80,6 @@ in {
       ${user} = import ./home.nix;
     };
   };
-
-  # Enable Fish shell
-  programs.fish.enable = true;
 
   # Install Steam
   programs.steam = {

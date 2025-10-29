@@ -9,6 +9,7 @@ in {
   imports = [
     ../theme.nix
 
+    ../oh-my-posh.nix # Fish theme
     ../fastfetch.nix # Fastfetch
     ../fun.nix # Fun terminal
     ../kitty/kitty-catppuccin.nix # Terminal

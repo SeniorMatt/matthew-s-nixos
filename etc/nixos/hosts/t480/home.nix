@@ -34,7 +34,6 @@
     vesktop # Discord client
     aseprite # Aseprite
     zoom-us # Zoom client
-    github-desktop # Github client
     obsidian # Notes
     obs-studio # OBS
     davinci-resolve # Davinci resolve

@@ -9,7 +9,6 @@
 
     niri-flake.url = "github:sodiboo/niri-flake";
     plasma-manager.url = "github:AlexNabokikh/plasma-manager";
-    breeze-cursors-catppuccin.url = "github:noaccOS/breeze-cursors-catppuccin";
   };
 
   outputs = {nixpkgs, ...} @ inputs: let

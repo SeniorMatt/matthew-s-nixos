@@ -59,6 +59,10 @@ in {
         trackpoint = {
           accel-profile = "flat";
         };
+        mouse = {
+          accel-profile = "flat";
+          accel-speed = 0.0;
+        };
       };
 
       spawn-at-startup = [

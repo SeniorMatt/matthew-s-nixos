@@ -41,6 +41,8 @@
     audacity # Audio editor
     prismlauncher # The Minecraft launcher
     kdePackages.isoimagewriter # Iso Image Writer
+    batmon # TUI battery
+    btop # TUI task manager
   ];
 
   fonts.fontconfig.enable = true;

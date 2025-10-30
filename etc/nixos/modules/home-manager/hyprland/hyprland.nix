@@ -84,18 +84,12 @@ in {
     hyprpolkitagent # Authentification agent
     hyprshot # Screenshot utility
     swayosd # Notifications for the volume and brightness
-    yazi # TUI File manager
     kdePackages.kcalc # Calculator
 
     # Controls
-    batmon # TUI battery
-    btop # TUI task manager
     blueman # Bluetooth control
     networkmanagerapplet # Network control
     pavucontrol # Audio control
-
-    # Needs
-    unzip # Unzip
   ];
 
   xdg.configFile = {

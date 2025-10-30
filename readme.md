@@ -10,6 +10,12 @@ It works this way because my repo is private (for now)
 ```
 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
 ```
+
+# Usage
+You can use this commands to switch between different DE's / WM's
+```
+sudo nixos-rebuild switch --flake /etc/nixos/#niri
+```
 # Screenshots
 ## KDE Plasma using Plasma Manager
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/ff2d11b9-f9d6-4ed4-ae35-17b874d223fe" />

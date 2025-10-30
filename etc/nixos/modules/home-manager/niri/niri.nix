@@ -33,6 +33,7 @@ in {
     swaybg # Wallpaper
     pavucontrol # Audio control
     blueman # Bluetooth control
+    wlsunset # Blue light filter
     xwayland-satellite # Xwayland support
   ];
 
@@ -67,6 +68,7 @@ in {
 
       spawn-at-startup = [
         { argv = ["swaybg" "--image" "${wallpaper}"]; }
+        { argv = ["wlsunset -l 43.2 -L 76.9"]; }
         { argv = ["waybar"]; }
       ];
 

@@ -17,6 +17,11 @@ in {
 
     fontFamily = "JetBrains Mono";
     fontSize = 13;
+
+    # Cursor
+    cursorName = "Bibata-Modern-Classic";
+    cursorTheme = pkgs.bibata-cursors;
+    cursorSize = 24;
   };
 
   services.polkit-gnome.enable = true; # Polkit
@@ -39,6 +44,7 @@ in {
 
   programs.niri = {
     enable = true;
+    package = pkgs.niri;
     settings = {
       outputs = {
         "eDP-1" = {
@@ -77,6 +83,7 @@ in {
         gaps = 4;
         focus-ring = {
           width = 2;
+          # active.color = "#b3b163";
         };
       };
 

@@ -77,7 +77,7 @@ in {
     home = {
       packages = with pkgs; [
           libsForQt5.qt5ct
-          qt6ct
+          qt6Packages.qt6ct
       ] ++ lib.optional kvantumEnable kdePackages.qtstyleplugin-kvantum;
 
       file.".icons/default".source = "${cursorTheme}/share/icons/${cursorName}";

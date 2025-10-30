@@ -104,13 +104,6 @@
             };
             treesitter.enable = true;
           };
-          dart = {
-            enable = true;
-            dap.enable = true;
-            lsp.enable = true;
-            treesitter.enable = true;
-            flutter-tools.enable = true;
-          };
         };
 
         visuals = {

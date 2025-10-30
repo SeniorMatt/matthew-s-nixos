@@ -32,7 +32,7 @@
     krita # Image editor
     telegram-desktop # Telegram client
     vesktop # Discord client
-    aseprite # Aseprite
+    # aseprite # Aseprite
     zoom-us # Zoom client
     obsidian # Notes
     obs-studio # OBS

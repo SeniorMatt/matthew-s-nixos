@@ -12,7 +12,7 @@ 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
 
 # Screenshots
 ## KDE Plasma using Plasma Manager
-<img width="1920" height="1080" alt="Screenshot_20251021_125320" src="https://github.com/user-attachments/assets/3f480c7e-e5f5-4b6b-8478-2c0ffca0c67e" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/ff2d11b9-f9d6-4ed4-ae35-17b874d223fe" />
 
 ## Niri
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/dc559f1c-3802-40f8-a336-577160638010" />

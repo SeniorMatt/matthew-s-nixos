@@ -12,9 +12,11 @@ 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
 ```
 
 # Usage
-You can use this commands to switch between different DE's / WM's
+You can use different attributes to switch between different DE's / WM's
 ```
-sudo nixos-rebuild switch --flake /etc/nixos/#niri
+# For example
+sudo nixos-rebuild switch --flake /etc/nixos/#plasma
+# Available options are: #plasma #hyprland #cosmic #niri
 ```
 # Screenshots
 ## KDE Plasma using Plasma Manager

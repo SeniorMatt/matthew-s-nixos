@@ -258,20 +258,8 @@
           fastaction.enable = true;
         };
 
-        session = {
-          nvim-session-manager.enable = false;
-        };
-
-        gestures = {
-          gesture-nvim.enable = false;
-        };
-
         comments = {
           comment-nvim.enable = true;
-        };
-
-        presence = {
-          neocord.enable = false;
         };
 
         keymaps = [

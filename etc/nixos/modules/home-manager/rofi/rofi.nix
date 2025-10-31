@@ -4,8 +4,10 @@
     enable = true;
     font = "JetBrains Mono 20";
     modes = [
-      "emoji"
+      "drun"
       "calc"
+      "emoji"
+      "run"
     ];
     plugins = with pkgs; [
       rofi-calc

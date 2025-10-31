@@ -27,12 +27,12 @@
       };
 
       blur = {
-        enabled = true;
-        size = 5; # Default - 3
+        enabled = false;
+        size = 6; # Default - 3
         passes = 2; # Will increase GPU usage, default - 1
         xray = true;
         noise = 0.08;
-        contrast = 2;
+        contrast = 1;
         vibrancy = 0.1696;
         new_optimizations = true;
         ignore_opacity = true;

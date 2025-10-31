@@ -6,9 +6,8 @@
       size = 13;
     };
     settings = {
-      background_opacity = 0.9;
-      background_blur = 2;
-      config_os_window_close = false;
+      background_opacity = 1;
+      confirm_os_window_close = 0;
       remember_window_size = "no";
       initial_window_width = "94 c";
       initial_window_height = "22 c";

@@ -168,8 +168,8 @@
         }
 
         #workspaces button.active {
-            background-color: rgba(64, 64, 64, 1);
-            border-bottom: 2px solid #b4befe;
+            background-color: #303030;
+            border-bottom: 4px solid #404040;
         }
 
         /* If workspaces is the leftmost module, omit left margin */

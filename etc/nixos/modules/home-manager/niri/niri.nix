@@ -14,11 +14,8 @@ in {
 
   theme = {
     enable = true;
-
     fontFamily = "JetBrains Mono";
     fontSize = 13;
-
-    # Cursor
     cursorName = "Bibata-Modern-Classic";
     cursorTheme = pkgs.bibata-cursors;
     cursorSize = 24;
@@ -83,7 +80,7 @@ in {
         gaps = 4;
         focus-ring = {
           width = 2;
-          # active.color = "#b3b163";
+          active.color = "#ffbb51";
         };
       };
 

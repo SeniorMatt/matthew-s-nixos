@@ -1,8 +1,8 @@
 {
   wayland.windowManager.hyprland.settings = {
     workspace = [
-      "4, monitor:HDMI-A-2"
-      "5, monitor:HDMI-A-2"
+      #"4, monitor:HDMI-A-2"
+      #"5, monitor:HDMI-A-2"
 
       "1, monitor:eDP-1"
       "2, monitor:eDP-1"

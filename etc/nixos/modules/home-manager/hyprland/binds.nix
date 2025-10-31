@@ -5,7 +5,6 @@
     "$fileManager" = "nautilus";
     "$menu" = "rofi -modi drun,calc,emoji,run -show drun -no-persist-history";
     "$mainMod" = "SUPER";
-    # "$tofi" = "tofi-drun | xargs hyprctl dispatch exec --";
 
     bind = [
       # System
@@ -19,8 +18,6 @@
 
       # Menu
       "$mainMod, D, exec, $menu"
-      # "$mainMod + ALT, SPACE, exec, $rmenu"
-      # "$mainMod + CTRL, SPACE, exec, $kmenu"
 
       # Screenshot
       ", print, exec, hyprshot -m region"
@@ -29,9 +26,13 @@
       # Reload bar, wallpaper and notification manager
       "$mainMod, R, exec, pkill waybar && waybar & pkill hyprpaper && hyprpaper & pkill dunst && dunst"
 
-      # Animations + Blur toggle
-      "$mainMod, B, exec, hyprctl keyword animations:enabled 1 && hyprctl keyword decoration:blur:enabled 1"
-      "$mainMod + SHIFT, B, exec, hyprctl keyword animations:enabled 0 && hyprctl keyword decoration:blur:enabled 0"
+      # Toggle blur 
+      "$mainMod, B, exec, hyprctl hyprctl keyword decoration:blur:enabled 1"
+      "$mainMod + SHIFT, B, exec, hyprctl keyword decoration:blur:enabled 0"
+
+      # Toggle animations
+      "$mainMod, A, exec, hyprctl keyword animations:enabled 1"
+      "$mainMod + SHIFT, A, exec, hyprctl keyword animations:enabled 0"
 
       # Applications
       "$mainMod + SHIFT, C, exec, $terminal"

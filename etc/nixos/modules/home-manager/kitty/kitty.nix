@@ -7,11 +7,11 @@
     };
     settings = {
       background_opacity = 1;
-      config_os_window_close = false;
+      confirm_os_window_close = 0;
       remember_window_size = "no";
       initial_window_width = "94 c";
       initial_window_height = "22 c";
     };
-    themeFile = "default";
+    themeFile = "Medallion";
   };
 }

@@ -20,8 +20,8 @@
       "$mainMod, D, exec, $menu"
 
       # Screenshot
-      ", print, exec, hyprshot -m region"
-      "SHIFT, print, exec, hyprshot -m output"
+      ", print, exec, hyprshot -z -m region"
+      "SHIFT, print, exec, hyprshot -z -m output"
 
       # Reload bar, wallpaper and notification manager
       "$mainMod, R, exec, pkill waybar && waybar & pkill hyprpaper && hyprpaper & pkill dunst && dunst"

@@ -1,6 +1,6 @@
 {pkgs, inputs, config, ...}:
 let
-  wallpaper = "${config.home.homeDirectory}/Pictures/wallpapers/Straßenszene\ bei\ Regen,\ Berlin\ \(1926\).jpg";
+  wallpaper = "${config.home.homeDirectory}/Pictures/wallpapers/autumn.jpeg";
 in {
   imports = [
     inputs.niri-flake.homeModules.niri

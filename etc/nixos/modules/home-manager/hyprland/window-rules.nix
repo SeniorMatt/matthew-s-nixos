@@ -31,10 +31,12 @@
       "nofocus, class:^(xwaylandvideobridge)$"
     ];
 
-    # Waybar blur rules
     layerrule = [
+      # "animation styleOfAnimation, name"
       "blur, waybar"
       "ignorealpha, waybar"
+      "noanim, hyprpicker"
+      "noanim, selection"
     ];
   };
 }

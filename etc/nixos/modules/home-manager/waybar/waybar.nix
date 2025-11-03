@@ -25,20 +25,19 @@
             "spacing": 8,
             "modules-left": [
                 "custom/distrologo",
-                "hyprland/workspaces",
                 "battery",
-                "battery#bat1"
+                "battery#bat1",
+                "tray",
             ],
             "modules-center": [
+                "hyprland/workspaces",
                 "keyboard-state",
-                "hyprland/language"
             ],
             "modules-right": [
-                "tray",
-                "custom/notification",
-                "pulseaudio",
+                "hyprland/language",
                 "clock",
-                "custom/power"
+                "pulseaudio",
+                "custom/power",
             ],
             // Modules configuration
             "hyprland/workspaces": {
@@ -91,7 +90,6 @@
                 "format-full": "[{capacity}% {icon}]",
                 "format-charging": "[{capacity}% ]",
                 "format-plugged": "[{capacity}% ]",
-                "format-alt": "[{time}]",
                 // "format-good": "", // An empty format will hide the module
                 // "format-full": "",
                 "format-icons": ["", "", "", "", ""]
@@ -107,7 +105,6 @@
                 "format-full": "[{capacity}% {icon}]",
                 "format-charging": "[{capacity}% ]",
                 "format-plugged": "[{capacity}% ]",
-                "format-alt": "[{time}]",
                 "format-icons": ["", "", "", "", ""]
             },
             "power-profiles-daemon": {
@@ -166,26 +163,6 @@
               },
               "on-click": "rofi -modi drun,calc,emoji,run -show drun -no-persist-history"
             },
-            "custom/notification": {
-                "tooltip": false,
-                "format": "{icon}",
-                "format-icons": {
-                  "notification": "<span foreground='red'><sup></sup></span>",
-                  "none": "",
-                  "dnd-notification": "<span foreground='red'><sup></sup></span>",
-                  "dnd-none": "",
-                  "inhibited-notification": "<span foreground='red'><sup></sup></span>",
-                  "inhibited-none": "",
-                  "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
-                  "dnd-inhibited-none": ""
-                },
-                "return-type": "json",
-                "exec-if": "which swaync-client",
-                "exec": "swaync-client -swb",
-                "on-click": "swaync-client -t -sw",
-                "on-click-right": "swaync-client -d -sw",
-                "escape": true
-              }
         }
       '';
 
@@ -195,7 +172,7 @@
             font-size: 13px;
             /* transition-duration: .25s;
             transition-property: background-color; */
-            transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 200ms cubic-bezier(0.4, 0, 1, 1);
             padding: 0;
             margin: 0;
             border-radius: ${cornerRadius};
@@ -225,6 +202,7 @@
         }
         #custom-power:hover {
             background-color: #eba0ac;
+            padding: 0 8;
         }
 
         #pulseaudio {
@@ -260,24 +238,18 @@
             background-color: rgb(166, 227, 161);
             color: #11111b;
         }
-        #battery:hover {
-            background-color: #89dceb;
-            color: #11111b;
-        }
 
         /* WORKSPACES */
 
         #workspaces {
-            padding: 0px 0px;
-            margin: 0px 0px;
+            margin: 0px 4px;
             background-color: #313244;
             border-radius: ${cornerRadius};
         }
 
         #workspaces button {
+            /* border-bottom: 2px solid transparent; */
             font-weight: bold;
-            padding: 0px 0px;
-            padding: 0 4;
             border-radius: ${cornerRadius};
             color: #f5e0dc;
         }
@@ -285,6 +257,7 @@
         #workspaces button:hover {
             background-color: #1e1e2e;
             color: #f5e0dc;
+            padding: 0 8;
         }
 
         #workspaces button.focused {
@@ -292,10 +265,11 @@
         }
 
         #workspaces button.active {
+            /* border-bottom: 2px solid #b4befe; */
             background-color: #1e1e2e;
             color: #b4befe;
-            border-bottom: 2px solid #b4befe;
-            padding: 0 6;
+            box-shadow: inset 0 -2px 0 #b4befe;
+            padding: 0 12;
         }
 
         #workspaces button.urgent {

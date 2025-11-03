@@ -23,7 +23,7 @@
 
       element {
         orientation: horizontal;
-        children: [ element-icon, element-text ];
+        children: [ element-text ];
         spacing: 0px;
         cursor: pointer;
         margin: 2 16;

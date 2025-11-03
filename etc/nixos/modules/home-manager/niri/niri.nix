@@ -100,7 +100,7 @@ in {
         "Mod+Shift+F".action.spawn = "firefox";
         "Mod+Shift+T".action.spawn = "Telegram";
         "Mod+Shift+O".action.spawn = "obsidian";
-        "Mod+D".action.spawn-sh = "rofi modes drun,calc,emoji,run -show drun -no-persist-history";
+        "Mod+D".action.spawn-sh = "rofi -show";
         "Mod+E".action.spawn = "nautilus";
         "Mod+Alt+L".action.spawn = "swaylock";
         "Mod+Shift+Slash".action.show-hotkey-overlay = [];

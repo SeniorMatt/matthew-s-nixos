@@ -14,6 +14,8 @@
       rofi-emoji
     ];
     extraConfig = {
+      modi = "drun,calc,emoji,run";
+
       kb-remove-char-back = "Alt+h,BackSpace,Shift+BackSpace";
       kb-mode-complete = "Alt+l";
       kb-row-up = "Up,Control+k,Shift+Tab,Shift+ISO_Left_Tab";

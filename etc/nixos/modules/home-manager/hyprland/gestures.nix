@@ -7,8 +7,9 @@
       "3, left, scale: 3.0, dispatcher, workspace, e+1"
       "3, right, scale: 4.0, dispatcher, workspace, e-1"
       "3, vertical, dispatcher, togglespecialworkspace, magic"
-      "3, pinch, fullscreen"
-      "4, pinchout, close"
+      "3, pinch, dispatcher, fullscreen"
+      "4, pinchout, dispatcher, killactive"
+      "4, pinchin, dispatcher, execr, rofi -show"
     ];
   };
 }

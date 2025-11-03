@@ -3,7 +3,7 @@
     # Variables
     "$terminal" = "kitty";
     "$fileManager" = "nautilus";
-    "$menu" = "rofi -modi drun,calc,emoji,run -show drun -no-persist-history";
+    "$menu" = "rofi -show";
     "$mainMod" = "SUPER";
 
     bind = [
@@ -14,7 +14,7 @@
       "$mainMod, V, togglefloating"
       "$mainMod, F, fullscreen"
       "$mainMod, P, pseudo"
-      "$mainMod, I, togglesplit"
+      "$mainMod, comma, togglesplit"
 
       # Menu
       "$mainMod, D, exec, $menu"

@@ -1,9 +1,8 @@
 { pkgs, lib, config, ... }:
 let
-  frame    = "#89b4fa";
-  bg       = "#1e1e2e";
-  fg       = "#cdd6f4";
-  critical = "#fab387";
+  frame = "#89b4fa";
+  bg = "#1e1e2e";
+  fg = "#cdd6f4";
 in {
   options.dunst = with lib; {
     cornerRadius = mkOption {
@@ -13,29 +12,23 @@ in {
   };
 
   config = with config.dunst; {
-    home.packages = with pkgs; [ libnotify dunst ];
-    xdg.configFile."dunst/dunstrc" = {
-      text = ''
-        [global]
-        frame_color = "${frame}"
-        separator_color = frame
-        highlight = "${frame}"
-        corner_radius = "${cornerRadius}"
-        font = "JetBrains Mono 12"
-
-        [urgency_low]
-        background = "${bg}"
-        foreground = "${fg}"
-
-        [urgency_normal]
-        background = "${bg}"
-        foreground = "${fg}"
-
-        [urgency_critical]
-        background = "${bg}"
-        foreground = "${fg}"
-        frame_color = "${critical}"
-      '';
+    home.packages = with pkgs; [ libnotify ];
+    services.dunst = {
+      enable = true;
+      settings = {
+        global = {
+          frame_color = "${frame}";
+          separator_color = "frame";
+          highlight = "${frame}";
+          corner_radius = "${cornerRadius}";
+          font = "JetBrains Mono 13";
+        };
+        urgency_normal = {
+          background = "${bg}";
+          foreground = "${fg}";
+          timeout = 3;
+        };
+      };
     };
   };
 }

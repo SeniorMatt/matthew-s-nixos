@@ -16,7 +16,8 @@ in {
     ../kitty/kitty-catppuccin.nix # Terminal
     ../rofi/rofi.nix # App launcher
     ../rofi/rofi-catppuccin-theme.nix # App launcher
-    ../waybar/waybar.nix # Panel
+    ../waybar/waybar-hyprland.nix # Panel
+    ../waybar/waybar-catppuccin-theme.nix # Catppuccin theme for panel
     ../dunst.nix # Notification manager
     ../default-apps.nix # Default apps
 
@@ -24,6 +25,7 @@ in {
     ./animations.nix
     ./autostart.nix
     ./binds.nix
+    ./gestures.nix
     ./input.nix
     ./look-and-feel.nix
     ./monitors.nix
@@ -106,6 +108,7 @@ in {
       file:///home/${user}/Documents Documents
       file:///home/${user}/Documents/GitHub GitHub
       file:///home/${user}/Pictures Pictures
+      file:///home/${user}/Pictures/Screenshots Screenshots
       file:///home/${user}/Videos Videos
     '';
   };

@@ -164,7 +164,7 @@
               "format-icons": {
                 "default": ""
               },
-              "on-click": "kitty --hold bash -c fastfetch"
+              "on-click": "rofi -modi drun,calc,emoji,run -show drun -no-persist-history"
             },
             "custom/notification": {
                 "tooltip": false,
@@ -193,8 +193,9 @@
         * {
             font-family: JetBrainsMono Nerd Font Propo;
             font-size: 13px;
-            transition-duration: .25s;
-            transition-property: background-color;
+            /* transition-duration: .25s;
+            transition-property: background-color; */
+            transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
             padding: 0;
             margin: 0;
             border-radius: ${cornerRadius};
@@ -233,6 +234,7 @@
         #pulseaudio.muted:hover,
         #pulseaudio:hover {
             background-color: #f5c2e7;
+            padding: 0 8;
         }
         #pulseaudio.muted {
             font-weight: bold;
@@ -293,6 +295,7 @@
             background-color: #1e1e2e;
             color: #b4befe;
             border-bottom: 2px solid #b4befe;
+            padding: 0 6;
         }
 
         #workspaces button.urgent {

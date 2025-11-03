@@ -31,6 +31,7 @@
     gamescope # Downscale games
     krita # Image editor
     telegram-desktop # Telegram client
+    github-desktop # GitHub desktop
     vesktop # Discord client
     # aseprite # Aseprite
     zoom-us # Zoom client

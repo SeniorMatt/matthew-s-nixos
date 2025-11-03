@@ -6,9 +6,9 @@
       animation = [
         "windows, 1, 5, myBezier, slide"
         "windowsOut, 1, 5, myBezier, gnomed"
-        "layers, 1, 2.5, myBezier, fade"
-        "layersIn, 1, 2.5, myBezier, slide top"
-        "layersOut, 1, 2.5, myBezier, slide bottom"
+        "layers, 1, 5, myBezier, fade"
+        "layersIn, 1, 5, myBezier, slide top"
+        "layersOut, 1, 5, myBezier, slide bottom"
         "fade, 1, 5, myBezier"
         "workspaces, 1, 5, myBezier, slide"
         "specialWorkspaceIn, 1, 5, myBezier, slide bottom"

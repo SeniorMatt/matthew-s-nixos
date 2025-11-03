@@ -5,7 +5,6 @@
       logo = {
         source = "~/Pictures/avatar-circle.png";
       };
-
       modules = [
         "break"
         "title"

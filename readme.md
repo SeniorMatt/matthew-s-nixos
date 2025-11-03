@@ -21,7 +21,7 @@ sudo nixos-rebuild switch --flake /etc/nixos/#plasma
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/dc559f1c-3802-40f8-a336-577160638010" />
 
 ## Hyprland rice
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/807561a5-4a5d-40f9-8b89-3ffca872bffc" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/2cef4d07-46ff-460c-82f5-4aaaacd9af83" />
 
 ### My previous Hyprland rice with blur and stuff :D
 ![image_2025-07-09_22-39-49](https://github.com/user-attachments/assets/e1d60ae7-87b9-45bd-adec-3ad1cacef0fc)

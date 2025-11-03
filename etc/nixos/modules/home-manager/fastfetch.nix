@@ -1,100 +1,81 @@
-{pkgs, ...}: {
-  home.packages = with pkgs; [
-    fastfetch
-  ];
+{
+  programs.fastfetch = {
+    enable = true;
+    settings = {
+      logo = {
+        source = "~/Pictures/avatar-circle.png";
+      };
 
-  xdg.configFile = {
-    "fastfetch/config.jsonc".text = ''
-      {
-        "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/master/doc/json_schema.json",
-        "logo": {
-          "source": "~/Pictures/avatar-circle.png"
-        },
-        "modules": [
-          "break",
-          "title",
-          "break",
-          //"separator",
-          {
-            "type": "custom",
-            "format": "12345678901234567890123456789012",
-            "keyColor": "34" // = color4
-          },
-          "break",
-          //"os",
-          {
-              "type": "os",
-              "key": "[os]",
-              "keyColor": "34" // = color4
-          },
-          {
-              "type": "host",
-              "key": "[host]",
-              "keyColor": "34"
-          },
-          {
-              "type": "kernel",
-              "key": "[kernel]",
-              "keyColor": "34"
-          },
-          //"uptime",
-          {
-              "type": "packages",
-              "key": "[pkgs]",
-              "keyColor": "34"
-          },
-          {
-              "type": "shell",
-              "key": "[shell]",
-              "keyColor": "34",
-          },
-          //"display",
-          {
-              "type": "de",
-              "key": "[de]",
-              "keyColor": "34",
-          },
-          {
-              "type": "wm",
-              "key": "[wm]",
-              "keyColor": "34",
-          },
-          //"wmtheme",
-          //"theme",
-          //"icons",
-          //"font",
-          {
-              "type": "terminalfont",
-              "key": "[font]",
-              "keyColor": "34",
-          },
-          {
-              "type": "terminal",
-              "key": "[terminal]",
-              "keyColor": "34",
-          },
-          //"cursor",
-          //"terminal",
-          //"terminalfont",
-          //"cpu",
-          //"gpu",
-          //"memory",
-          //"swap",
-          //"disk",
-          //"localip",
-          //"battery",
-          //"poweradapter",
-          //"locale",
-          "break",
-          {
-            "type": "custom",
-            "format": "12345678901234567890123456789012",
-          },
-          "break",
-          "colors",
-          "break"
-        ]
-      }
-    '';
+      modules = [
+        "break"
+        "title"
+        "break"
+
+        {
+          type = "custom";
+          format = "12345678901234567890123456789012";
+          keyColor = "34";
+        }
+
+        "break"
+
+        {
+          type = "os";
+          key = "[os]";
+          keyColor = "34";
+        }
+        {
+          type = "host";
+          key = "[host]";
+          keyColor = "34";
+        }
+        {
+          type = "kernel";
+          key = "[kernel]";
+          keyColor = "34";
+        }
+        {
+          type = "packages";
+          key = "[pkgs]";
+          keyColor = "34";
+        }
+        {
+          type = "shell";
+          key = "[shell]";
+          keyColor = "34";
+        }
+        {
+          type = "de";
+          key = "[de]";
+          keyColor = "34";
+        }
+        {
+          type = "wm";
+          key = "[wm]";
+          keyColor = "34";
+        }
+        {
+          type = "terminalfont";
+          key = "[font]";
+          keyColor = "34";
+        }
+        {
+          type = "terminal";
+          key = "[terminal]";
+          keyColor = "34";
+        }
+
+        "break"
+
+        {
+          type = "custom";
+          format = "12345678901234567890123456789012";
+        }
+
+        "break"
+        "colors"
+        "break"
+      ];
+    };
   };
 }

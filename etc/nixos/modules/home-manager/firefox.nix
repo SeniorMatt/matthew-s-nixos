@@ -10,24 +10,14 @@
     policies = {
       SearchEngines = {
         Default = "DuckDuckGo";
-        PreventInstalls = false; # allow user to add more if they want
         Remove = ["Bing" "Google" "DuckDuckGo"];
-
         Add = [
-          {
-            Name = "Bastards";
-            Alias = "g";
-            URLTemplate = "https://www.google.com/search?q={searchTerms}";
-            IconURL = "https://www.google.com/favicon.ico";
-          }
-
           {
             Name = "YouTube";
             Alias = "yt";
             URLTemplate = "https://www.youtube.com/results?search_query={searchTerms}";
             IconURL = "https://www.youtube.com/favicon.ico";
           }
-
           {
             Name = "NixOS packages";
             Alias = "nx";

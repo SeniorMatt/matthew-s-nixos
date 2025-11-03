@@ -1,6 +1,7 @@
 {
   pkgs,
   config,
+  user,
   ...
 }: let
   wallpaper = "${config.home.homeDirectory}/Pictures/wallpapers/catppuccin/pompeii.png";
@@ -101,12 +102,11 @@ in {
 
     # Bookmarks for File Manager
     "gtk-3.0/bookmarks".text = ''
-      file:///~/Downloads Downloads
-      file:///~/Documents Documents
-      file:///~/Documents/GitHub GitHub
-      file:///~/Pictures Pictures
-      file:///~/Videos Videos
-      file:///~/.local/share/Trash Trash
+      file:///home/${user}/Downloads Downloads
+      file:///home/${user}/Documents Documents
+      file:///home/${user}/Documents/GitHub GitHub
+      file:///home/${user}/Pictures Pictures
+      file:///home/${user}/Videos Videos
     '';
   };
 

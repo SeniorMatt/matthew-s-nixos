@@ -1,4 +1,4 @@
-{lib, config, ...}:
+{lib, config, pkgs, ...}:
 {
   options.rofi = with lib; {
     cornerRadius = mkOption {
@@ -8,7 +8,7 @@
   };
 
   config = with config.rofi; {
-    xdg.configFile."rofi/theme.rasi".text = ''
+    programs.rofi.theme = "${pkgs.writeText "config.rasi" ''
       * {
         base: #181825; 
         text: #cdd6f4;
@@ -54,6 +54,6 @@
       element-icon {
         size:1em;
       }
-    '';
+    ''}";
   };
 }

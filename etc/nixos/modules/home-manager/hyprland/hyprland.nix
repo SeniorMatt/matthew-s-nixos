@@ -1,10 +1,9 @@
 {
   pkgs,
-  config,
   user,
   ...
 }: let
-  wallpaper = "${config.home.homeDirectory}/Pictures/wallpapers/catppuccin/pompeii.png";
+  wallpaper = "/home/${user}/Pictures/wallpapers/catppuccin/pompeii.png";
   cornerRadius = "4";
 in {
   imports = [
@@ -80,10 +79,18 @@ in {
     inherit cornerRadius;
   };
 
+  # Wallpapers
+  services.hyprpaper = {
+    enable = true;
+    settings = {
+      preload = [ "${wallpaper}" ];
+      wallpaper = [ ",${wallpaper}" ];
+    };
+  };
+
   home.packages = with pkgs; [
     # System applications
     wlsunset # Blue light filter
-    hyprpaper # Wallpaper
     hyprpolkitagent # Authentification agent
     hyprshot # Screenshot utility
     swayosd # Notifications for the volume and brightness
@@ -96,12 +103,6 @@ in {
   ];
 
   xdg.configFile = {
-    # Hyprpaper
-    "hypr/hyprpaper.conf".text = ''
-      preload = ${wallpaper}
-      wallpaper= , ${wallpaper}
-    '';
-
     # Bookmarks for File Manager
     "gtk-3.0/bookmarks".text = ''
       file:///home/${user}/Downloads Downloads

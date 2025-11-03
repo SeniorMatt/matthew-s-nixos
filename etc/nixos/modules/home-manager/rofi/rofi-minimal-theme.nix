@@ -8,7 +8,7 @@
   };
 
   config = with config.rofi; {
-    xdg.configFile."rofi/theme.rasi".text = ''
+    programs.rofi.theme = "${pkgs.writeText "config.rasi" ''
       * {
         base: #202020;
         text: #f0f0f0;
@@ -23,7 +23,7 @@
 
       element {
         orientation: horizontal;
-        children: [ element-icon, element-text ];
+        children: [ element-text ];
         spacing: 0px;
         cursor: pointer;
       }
@@ -52,6 +52,6 @@
       element-icon {
         size:1em;
       }
-    '';
+    ''}";
   };
 }

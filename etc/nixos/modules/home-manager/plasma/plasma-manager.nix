@@ -28,6 +28,7 @@ in {
     inputs.plasma-manager.homeModules.plasma-manager
     ../theme.nix
     ../kitty/kitty-catppuccin.nix
+    ../default-apps.nix
     ../oh-my-posh.nix
   ];
 
@@ -38,8 +39,17 @@ in {
     gtkTheme = pkgs.kdePackages.breeze-gtk;
   };
 
+  default-apps = {
+    fileManagerPackage = pkgs.kdePackages.dolphin;
+    imageViewerPackage = pkgs.kdePackages.gwenview;
+    imageViewer = "org.kde.gwenview.desktop";
+    documentViewerPackage = pkgs.kdePackages.okular;
+    documentViewer = "org.kde.okular.desktop";
+    mediaPlayerPackage = pkgs.haruna;
+    mediaPlayer = "org.kde.haruna.desktop";
+  };
+
   home.packages = with pkgs; [
-    haruna # Media player
     kdePackages.kamoso # Camera app
     kdePackages.kcalc # Calculator app
     kdePackages.kclock # Clock app
@@ -373,20 +383,6 @@ in {
         "GuiConfig"."quitAfterSaveCopyExport" = true;
         "VideoSave"."preferredVideoFormat" = 2;
       };
-    };
-  };
-
-  # Default applications
-  xdg.mimeApps = {
-    enable = true;
-    defaultApplications = {
-      "image/png" = "org.kde.gwenview.desktop";
-      "image/jpeg" = "org.kde.gwenview.desktop";
-      "video/mp4" = "org.kde.haruna.desktop";
-      "audio/mp3" = "org.kde.haruna.desktop";
-      "audio/ogg" = "org.kde.haruna.desktop";
-      "audio/wav" = "org.kde.haruna.desktop";
-      "application/pdf" = "org.kde.okular.desktop";
     };
   };
 }

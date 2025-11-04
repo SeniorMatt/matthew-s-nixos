@@ -94,7 +94,6 @@ in {
     hyprpolkitagent # Authentification agent
     hyprshot # Screenshot utility
     swayosd # Notifications for the volume and brightness
-    kdePackages.kcalc # Calculator
 
     # Controls
     blueman # Bluetooth control

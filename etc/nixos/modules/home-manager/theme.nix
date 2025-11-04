@@ -1,4 +1,4 @@
-{config, pkgs, lib, ...}: 
+{config, lib, pkgs, user, ...}: 
 let
   fontSizeString = builtins.toString config.theme.fontSize;
   cursorSizeString = builtins.toString config.theme.cursorSize;
@@ -78,6 +78,7 @@ in {
       packages = with pkgs; [
           libsForQt5.qt5ct
           qt6Packages.qt6ct
+          kdePackages.plasma-integration
       ] ++ lib.optional kvantumEnable kdePackages.qtstyleplugin-kvantum;
 
       file.".icons/default".source = "${cursorTheme}/share/icons/${cursorName}";
@@ -124,16 +125,29 @@ in {
         "qt5ct/qt5ct.conf".text = ''
           [Fonts]
           general="${fontFamily},${fontSizeString},-1,5,50,0,0,0,0,0"
+          fixed="${fontFamily},${fontSizeString},-1,5,50,0,0,0,0,0"
           [Appearance]
           icon_theme=${iconName}
-          custom_palette=false
+          custom_palette=true
+          color_scheme_path=/home/${user}/.config/qt5ct/style-colors.conf
         '';
         "qt6ct/qt6ct.conf".text = ''
           [Fonts]
-          general="${fontFamily},${fontSizeString},-1,5,50,0,0,0,0,0"
+          general=${fontFamily},${fontSizeString},-1,5,50,0,0,0,0,0
+          fixed=${fontFamily},${fontSizeString},-1,5,50,0,0,0,0,0
           [Appearance]
           icon_theme=${iconName}
-          custom_palette=false
+          custom_palette=true
+          color_scheme_path=/home/${user}/.config/qt6ct/style-colors.conf
+        '';
+        "kdeglobals".text = ''
+          [General]
+          font=${fontFamily},${fontSizeString},-1,5,50,0,0,0,0,0
+          menuFont=${fontFamily},${fontSizeString},-1,5,50,0,0,0,0,0
+          toolBarFont=${fontFamily},${fontSizeString},-1,5,50,0,0,0,0,0
+          windowTitleFont=${fontFamily},${fontSizeString},-1,5,50,0,0,0,0,0
+          smallestReadableFont=${fontFamily},${fontSizeString},-1,5,50,0,0,0,0,0
+          fixed=${fontFamily},${fontSizeString},-1,5,50,0,0,0,0,0
         '';
       })
 
@@ -156,7 +170,7 @@ in {
 
     qt = {
       enable = true;
-      platformTheme.name = if kvantumEnable then "qt6ct" else "kde";
+      platformTheme.name = "kde";
       style.name = if kvantumEnable then "kvantum" else "breeze";
     };
   };

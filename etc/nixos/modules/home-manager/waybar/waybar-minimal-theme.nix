@@ -3,7 +3,7 @@
   options.waybar = with lib;{
     cornerRadius = mkOption {
       type = types.str;
-      default = "8";
+      default = "0";
     };
   };
   config = with config.waybar; {

@@ -1,4 +1,4 @@
-{lib, config, ...}:
+{lib, config, pkgs, ...}:
 {
   options.rofi = with lib; {
     cornerRadius = mkOption {

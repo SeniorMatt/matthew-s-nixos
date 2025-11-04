@@ -83,7 +83,6 @@ in {
       file.".icons/default".source = "${cursorTheme}/share/icons/${cursorName}";
 
       sessionVariables = {
-        # Cursor variables
         XCURSOR_THEME = cursorName;
         XCURSOR_SIZE = cursorSizeString;
         HYPRCURSOR_THEME = cursorName;
@@ -139,15 +138,6 @@ in {
           custom_palette=true
           color_scheme_path=/home/${user}/.config/qt6ct/style-colors.conf
         '';
-        "kdeglobals".text = ''
-          [General]
-          font=${fontFamily},${fontSizeString},-1,5,50,0,0,0,0,0
-          menuFont=${fontFamily},${fontSizeString},-1,5,50,0,0,0,0,0
-          toolBarFont=${fontFamily},${fontSizeString},-1,5,50,0,0,0,0,0
-          windowTitleFont=${fontFamily},${fontSizeString},-1,5,50,0,0,0,0,0
-          smallestReadableFont=${fontFamily},${fontSizeString},-1,5,50,0,0,0,0,0
-          fixed=${fontFamily},${fontSizeString},-1,5,50,0,0,0,0,0
-        '';
       })
 
       (lib.mkIf gtkEnable {
@@ -158,6 +148,15 @@ in {
       })
 
       (lib.mkIf kvantumEnable {
+        "kdeglobals".text = ''
+          [General]
+          font=${fontFamily},${fontSizeString},-1,5,50,0,0,0,0,0
+          menuFont=${fontFamily},${fontSizeString},-1,5,50,0,0,0,0,0
+          toolBarFont=${fontFamily},${fontSizeString},-1,5,50,0,0,0,0,0
+          windowTitleFont=${fontFamily},${fontSizeString},-1,5,50,0,0,0,0,0
+          smallestReadableFont=${fontFamily},${fontSizeString},-1,5,50,0,0,0,0,0
+          fixed=${fontFamily},${fontSizeString},-1,5,50,0,0,0,0,0
+        '';
         "Kvantum/kvantum.kvconfig".text = ''
           [General]
           theme=${kvantumName}
@@ -169,7 +168,7 @@ in {
 
     qt = {
       enable = true;
-      platformTheme.name = "kde";
+      platformTheme.name = if kvantumEnable then "kde" else "qt6ct";
       style.name = if kvantumEnable then "kvantum" else "breeze";
     };
   };

@@ -1,6 +1,8 @@
 {pkgs, inputs, config, ...}:
 let
   wallpaper = "${config.home.homeDirectory}/Pictures/wallpapers/Straßenszene\ bei\ Regen,\ Berlin\ (1926).jpg";
+  cornerRadiusFloat = 8.0;
+  cornerRadius = "8";
 in {
   imports = [
     inputs.niri-flake.homeModules.niri
@@ -20,6 +22,14 @@ in {
     cursorName = "Bibata-Modern-Classic";
     cursorTheme = pkgs.bibata-cursors;
     cursorSize = 24;
+  };
+
+  waybar = {
+    inherit cornerRadius;
+  };
+
+  rofi = {
+    inherit cornerRadius;
   };
 
   services.polkit-gnome.enable = true; # Polkit
@@ -44,12 +54,7 @@ in {
     enable = true;
     package = pkgs.niri;
     settings = {
-      outputs = {
-        "eDP-1" = {
-          scale = 1.0;
-        };
-      };
-
+      outputs."eDP-1".scale = 1.0;
       hotkey-overlay.skip-at-startup = true;
 
       input = {
@@ -78,7 +83,7 @@ in {
 
       prefer-no-csd = true;
       layout = {
-        gaps = 4;
+        gaps = 8;
         focus-ring = {
           width = 2;
           active.color = "#ffbb51";
@@ -86,6 +91,15 @@ in {
       };
 
       window-rules = [
+        {
+          geometry-corner-radius = {
+            bottom-left = cornerRadiusFloat;
+            bottom-right = cornerRadiusFloat;
+            top-left = cornerRadiusFloat;
+            top-right = cornerRadiusFloat;
+          };
+          clip-to-geometry = true;
+        }
         {
           matches = [{
             app-id = "firefox$"; 

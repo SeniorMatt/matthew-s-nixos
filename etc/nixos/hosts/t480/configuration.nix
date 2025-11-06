@@ -60,6 +60,9 @@ in {
   # Disable the X11 windowing system.
   services.xserver.enable = false;
 
+  # For network support in file manager
+  services.gvfs.enable = true;
+
   # Enable CUPS to print documents.
   services.printing.enable = true;
 

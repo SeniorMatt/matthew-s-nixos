@@ -12,6 +12,7 @@ in {
     ../rofi/rofi.nix
     ../rofi/rofi-minimal-theme.nix
     ../default-apps.nix
+    ../nautilus.nix
   ];
 
   theme = {

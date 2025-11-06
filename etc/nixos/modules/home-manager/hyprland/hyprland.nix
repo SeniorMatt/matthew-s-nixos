@@ -1,8 +1,5 @@
-{
-  pkgs,
-  user,
-  ...
-}: let
+{ pkgs, user, ... }: 
+let
   wallpaper = "/home/${user}/Pictures/wallpapers/catppuccin/pompeii.png";
   cornerRadius = "4";
 in {
@@ -15,6 +12,7 @@ in {
     ../kitty/kitty-catppuccin.nix # Terminal
     ../rofi/rofi.nix # App launcher
     ../rofi/rofi-catppuccin-theme.nix # App launcher
+    ../nautilus.nix
     ../waybar/waybar-hyprland.nix # Panel
     ../waybar/waybar-catppuccin-theme.nix # Catppuccin theme for panel
     ../dunst.nix # Notification manager
@@ -100,18 +98,6 @@ in {
     networkmanagerapplet # Network control
     pavucontrol # Audio control
   ];
-
-  xdg.configFile = {
-    # Bookmarks for File Manager
-    "gtk-3.0/bookmarks".text = ''
-      file:///home/${user}/Downloads Downloads
-      file:///home/${user}/Documents Documents
-      file:///home/${user}/Documents/GitHub GitHub
-      file:///home/${user}/Pictures Pictures
-      file:///home/${user}/Pictures/Screenshots Screenshots
-      file:///home/${user}/Videos Videos
-    '';
-  };
 
   # Session variables
   home.sessionVariables = {

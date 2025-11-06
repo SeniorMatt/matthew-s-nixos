@@ -1,11 +1,6 @@
 { pkgs, lib, config, ... }:
 {
   options.default-apps = with lib; {
-    fileManagerPackage = mkOption {
-      type = types.package;
-      default = pkgs.nautilus;
-    };
-
     imageViewerPackage = mkOption {
       type = types.package;
       default = pkgs.eog;
@@ -36,7 +31,6 @@
 
   config = with config.default-apps; {
     home.packages = with pkgs; [
-      fileManagerPackage
       imageViewerPackage
       documentViewerPackage
       mediaPlayerPackage

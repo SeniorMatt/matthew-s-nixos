@@ -11,9 +11,8 @@
       * {
           font-family: JetBrainsMono Nerd Font Propo;
           font-size: 13px;
-          transition: all 200ms cubic-bezier(0.4, 0, 1, 1);
-          padding: 0;
-          margin: 0;
+          /*transition: all 200ms cubic-bezier(0.4, 0, 1, 1);*/
+          transition: all 250ms ease;
           border-radius: ${cornerRadius};
       }
 
@@ -39,7 +38,7 @@
       }
       #custom-power:hover {
           background-color: #eba0ac;
-          padding: 0 8;
+          min-width: 48px;
       }
 
       #pulseaudio {
@@ -49,7 +48,7 @@
       #pulseaudio.muted:hover,
       #pulseaudio:hover {
           background-color: #f5c2e7;
-          padding: 0 8;
+          min-width: 80px;
       }
       #pulseaudio.muted {
           font-weight: bold;
@@ -93,7 +92,7 @@
       #workspaces button:hover {
           background-color: #1e1e2e;
           color: #f5e0dc;
-          padding: 0 8;
+          min-width: 32px;
       }
 
       #workspaces button.focused {
@@ -104,7 +103,7 @@
           background-color: #1e1e2e;
           color: #b4befe;
           box-shadow: inset 0 -2px 0 #b4befe;
-          padding: 0 12;
+          min-width: 48px;
       }
 
       #workspaces button.urgent {

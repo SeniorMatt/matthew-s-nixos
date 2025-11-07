@@ -7,6 +7,7 @@ in {
     inputs.niri-flake.homeModules.niri
     ../theme.nix
     ../kitty/kitty.nix
+    ../kitty/kitty-niri.nix
     ../waybar/waybar-niri.nix
     ../waybar/waybar-minimal-theme.nix
     ../rofi/rofi.nix

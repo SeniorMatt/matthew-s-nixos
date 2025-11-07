@@ -5,7 +5,7 @@
       bezier = ["myBezier, 0.05, 0.9, 0.1, 1.05"];
       animation = [
         "windows, 1, 5, myBezier, slide"
-        "windowsOut, 1, 5, myBezier, gnomed"
+        "windowsOut, 1, 5, myBezier, slide"
         "layers, 1, 5, myBezier, fade"
         "layersIn, 1, 5, myBezier, slide top"
         "layersOut, 1, 5, myBezier, slide bottom"

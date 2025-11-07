@@ -7,12 +7,6 @@
       # Fix some dragging issues with XWayland
       "nofocus,class:^$,title:^$,xwayland:1,floating:0,fullscreen:0,pinned:0"
 
-      # Smart gaps
-      # "bordersize 0, floating:0, onworkspace:w[tv1]"
-      # "rounding 0, floating:0, onworkspace:w[tv1]"
-      # "bordersize 0, floating:0, onworkspace:f[1]"
-      # "rounding 0, floating:0, onworkspace:f[1]"
-
       # Firefox PiP
       "float, class:^(firefox)$, title:^(Picture-in-Picture)$"
       "pin, class:^(firefox)$, title:^(Picture-in-Picture)$"

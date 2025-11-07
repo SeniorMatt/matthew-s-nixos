@@ -12,6 +12,5 @@
       initial_window_width = "94 c";
       initial_window_height = "22 c";
     };
-    themeFile = "Medallion";
   };
 }

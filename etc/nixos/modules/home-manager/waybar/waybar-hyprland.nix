@@ -7,9 +7,9 @@
         position = "bottom";
         spacing = 8;
 
-        modules-left = [ "custom/distrologo" "battery" "battery#bat1" ];
-        modules-center = [ "hyprland/workspaces" "keyboard-state" ];
-        modules-right = [ "hyprland/language" "tray" "clock" "pulseaudio" "custom/power" ];
+        modules-left = [ "custom/distrologo" "hyprland/workspaces" "hyprland/language" ];
+        modules-center = [ "hyprland/window" ];
+        modules-right = [ "tray" "battery" "battery#bat1" "pulseaudio" "clock" "custom/power" ];
 
         "hyprland/workspaces" = {
           format = "[{name}]";

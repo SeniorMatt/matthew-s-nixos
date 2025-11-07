@@ -1,6 +1,7 @@
 {
   inputs,
   pkgs,
+  user,
   ...
 }: {
   imports = [inputs.nvf.homeManagerModules.default];
@@ -50,30 +51,10 @@
         lsp = {
           enable = true;
           formatOnSave = false;
-          #inlayHints.enable = true; this does not show errors and warnings - only types?
           lspkind.enable = true;
           lspconfig.enable = true;
-          lightbulb.enable = false;
-          lspsaga.enable = false;
-          trouble.enable = false;
           lspSignature.enable = true;
-          otter-nvim.enable = false;
-          nvim-docs-view.enable = false;
-        };
-
-        diagnostics = {
-          enable = true;
-          config = {
-            underline = true;
-            virtual_lines = true;
-          };
-        };
-
-        debugger = {
-          nvim-dap = {
-            enable = true;
-            ui.enable = true;
-          };
+          mappings.format = "<C-F>";
         };
 
         languages = {
@@ -86,51 +67,45 @@
 
           bash.enable = true;
           clang.enable = true;
-          ts.enable = true;
-          css.enable = false;
-          html.enable = false;
-          sql.enable = false;
-          java.enable = false;
-          kotlin.enable = false;
-          lua.enable = false;
-          python.enable = false;
-          rust.enable = false;
+          css.enable = true;
+          html.enable = true;
 
           csharp = {
             enable = true;
             lsp = {
               enable = true;
-              server = "omnisharp";
+              servers = "omnisharp";
             };
             treesitter.enable = true;
           };
         };
 
         visuals = {
-          nvim-scrollbar.enable = false;
           nvim-web-devicons.enable = true;
           nvim-cursorline.enable = true;
           cinnamon-nvim.enable = true;
-          fidget-nvim.enable = false;
 
           highlight-undo.enable = true;
           indent-blankline.enable = true;
 
           # Fun
-          cellular-automaton.enable = false;
+          cellular-automaton.enable = true;
         };
 
         statusline = {
           lualine = {
             enable = true;
-            theme = "catppuccin";
+            # theme = "catppuccin";
+            theme = "onedark";
           };
         };
 
         theme = {
           enable = true;
-          name = "catppuccin";
-          style = "mocha";
+          name = "onedark";
+          style = "dark";
+          # name = "catppuccin";
+          # style = "mocha";
           transparent = true;
         };
 
@@ -145,7 +120,6 @@
             };
           };
         };
-        snippets.luasnip.enable = false;
 
         filetree = {
           neo-tree = {
@@ -158,8 +132,8 @@
           nvimBufferline.enable = true;
           nvimBufferline.mappings = {
             closeCurrent = "<leader>x";
-            cycleNext = "<tab>";
-            cyclePrevious = "<S-tab>";
+            cycleNext = "<S-l>";
+            cyclePrevious = "<S-h>";
             moveNext = null;
             movePrevious = null;
             sortByDirectory = null;
@@ -185,76 +159,32 @@
         git = {
           enable = true;
           gitsigns.enable = true;
-          gitsigns.codeActions.enable = false; # throws an annoying debug message
           git-conflict.enable = true;
         };
 
-        minimap = {
-          minimap-vim.enable = false;
-          codewindow.enable = false; # lighter, faster, and uses lua for configuration
-        };
-
-        dashboard = {
-          dashboard-nvim.enable = false;
-          alpha.enable = false;
-        };
-
-        notify = {
-          nvim-notify.enable = false;
-        };
-
-        projects = {
-          project-nvim.enable = false;
-        };
-
         utility = {
-          ccc.enable = false;
-          vim-wakatime.enable = false;
-          icon-picker.enable = false;
-          surround.enable = false;
           diffview-nvim.enable = true;
           motion = {
             hop.enable = true;
-            leap = {
-              enable = true;
-              mappings = {
-                leapBackwardTo = "S";
-                leapForwardTo = "s";
-              };
-            };
-            precognition.enable = false;
-          };
-
-          images = {
-            image-nvim.enable = false;
           };
         };
 
         notes = {
-          obsidian.enable = false;
-          neorg.enable = false;
-          orgmode.enable = false;
-          mind-nvim.enable = false;
+          obsidian = {
+            enable = false;
+            setupOpts = {
+              workspaces = [
+                {
+                  name = "personal";
+                  path = "/home/${user}/Documents/Obsidian Vault";
+                }
+              ];
+            };
+          };
           todo-comments.enable = true;
         };
 
-        terminal = {
-          toggleterm = {
-            enable = true;
-            lazygit.enable = true;
-          };
-        };
-
         ui = {
-          borders.enable = false;
-          noice.enable = false;
-          colorizer.enable = true;
-          modes-nvim.enable = false; # the theme looks terrible with catppuccin
-          illuminate.enable = true;
-          breadcrumbs = {
-            enable = false;
-            navbuddy.enable = false;
-          };
           fastaction.enable = true;
         };
 
@@ -272,16 +202,6 @@
             mode = ["n"];
             key = "<M-r>";
             action = "<cmd>:lua vim.lsp.buf.rename()<CR>";
-          }
-          {
-            mode = ["n"];
-            key = "<S-l>";
-            action = "<cmd>BufferLineCycleNext<CR>";
-          }
-          {
-            mode = ["n"];
-            key = "<S-h>";
-            action = "<cmd>BufferLineCyclePrev<CR>";
           }
           {
             mode = "i";

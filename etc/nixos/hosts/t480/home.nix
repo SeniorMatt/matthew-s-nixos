@@ -8,6 +8,7 @@
     ../../modules/home-manager/firefox.nix
     ../../modules/home-manager/git.nix
     ../../modules/home-manager/nvf.nix
+    #../../modules/home-manager/nixvim.nix
   ];
 
   home.username = user;

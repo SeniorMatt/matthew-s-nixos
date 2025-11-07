@@ -6,7 +6,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nvf = {
-      url = "github:notashelf/nvf";
+      url = "github:notashelf/nvf?ref=v0.8";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nixvim = {
+      url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -40,15 +44,17 @@
         modules = [
           ./hosts/t480/configuration.nix
           ./hosts/t480/hyprland.nix
+          { home-manager.sharedModules = [ ./modules/home-manager/hyprland/hyprland-rice.nix ]; }
         ];
       };
 
-      cosmic = nixpkgs.lib.nixosSystem {
+      minimal = nixpkgs.lib.nixosSystem {
         inherit system;
         specialArgs = {inherit inputs user;};
         modules = [
           ./hosts/t480/configuration.nix
-          ./hosts/t480/cosmic.nix
+          ./hosts/t480/hyprland.nix
+          { home-manager.sharedModules = [ ./modules/home-manager/hyprland/hyprland-minimal.nix ]; }
         ];
       };
 
@@ -58,6 +64,15 @@
         modules = [
           ./hosts/t480/configuration.nix
           ./hosts/t480/niri.nix
+        ];
+      };
+
+      cosmic = nixpkgs.lib.nixosSystem {
+        inherit system;
+        specialArgs = {inherit inputs user;};
+        modules = [
+          ./hosts/t480/configuration.nix
+          ./hosts/t480/cosmic.nix
         ];
       };
     };

@@ -7,9 +7,9 @@
         position = "bottom";
         spacing = 8;
 
-        modules-left = [ "custom/distrologo" "niri/workspaces" ];
+        modules-left = [ "custom/distrologo" "niri/workspaces" "niri/language" ];
         modules-center = [ "niri/window" ];
-        modules-right = [ "niri/language" "tray" "battery" "battery#bat1" "pulseaudio" "clock" "custom/power" ];
+        modules-right = [ "tray" "battery" "battery#bat1" "pulseaudio" "clock" "custom/power" ];
 
         "niri/workspaces" = {
           format = "[{name}]";

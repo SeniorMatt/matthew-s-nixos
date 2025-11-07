@@ -4,7 +4,7 @@
   programs.fish = {
     enable = true;
     shellInit = ''
-      oh-my-posh init fish | source
+      # oh-my-posh init fish | source
       zoxide init fish | source
       set -g fish_greeting
       alias n="nvim"

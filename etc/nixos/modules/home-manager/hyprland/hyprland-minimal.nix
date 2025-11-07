@@ -1,68 +1,38 @@
 { pkgs, user, ... }: 
 let
-  wallpaper = "/home/${user}/Pictures/wallpapers/catppuccin/pompeii.png";
-  cornerRadius = "4";
+  wallpaper = "/home/${user}/Pictures/wallpapers/the_creation_of_adam.jpg";
+  cornerRadius = "0";
 in {
   imports = [
     ../theme.nix
 
-    ../oh-my-posh.nix # Fish theme
     ../fastfetch.nix # Fastfetch
     ../fun.nix # Fun terminal
-    ../kitty/kitty-catppuccin.nix # Terminal
+    ../kitty/kitty.nix # Terminal
     ../rofi/rofi.nix # App launcher
-    ../rofi/rofi-catppuccin-theme.nix # App launcher
+    ../rofi/rofi-minimal-theme.nix # App launcher
     ../nautilus.nix
     ../waybar/waybar-hyprland.nix # Panel
-    ../waybar/waybar-catppuccin-theme.nix # Catppuccin theme for panel
+    ../waybar/waybar-minimal-theme.nix # Catppuccin theme for panel
     ../dunst.nix # Notification manager
     ../default-apps.nix # Default apps
 
     # Hyprland
-    ./animations.nix
     ./autostart.nix
     ./binds.nix
     ./gestures.nix
     ./input.nix
-    ./look-and-feel.nix
+    ./look-and-feel-minimal.nix
     ./monitors.nix
+    ./smart-gaps.nix
     ./window-rules.nix
     ./workspaces.nix
   ];
 
   theme = {
     enable = true;
-
-    # Font
     fontSize = 13;
     fontFamily = "JetBrains Mono";
-    
-    # Icons
-    iconName = "Adwaita";
-    iconTheme = pkgs.adwaita-icon-theme;
-
-    # Cursor
-    cursorName = "Bibata-Modern-Classic";
-    cursorTheme = pkgs.bibata-cursors;
-    cursorSize = 24;
-
-    # GTK
-    gtkEnable = true;
-    gtkName = "catppuccin-mocha-lavender-standard+normal";
-    gtkTheme = pkgs.catppuccin-gtk.override {
-      accents = ["lavender"];
-      size = "standard";
-      variant = "mocha";
-      tweaks = ["normal"];
-    };
-
-    # Kvantum
-    kvantumEnable = true;
-    kvantumName = "catppuccin-mocha-lavender";
-    kvantumTheme = pkgs.catppuccin-kvantum.override {
-      accent = "lavender";
-      variant = "mocha";
-    };
   };
 
   rofi = {
@@ -109,6 +79,7 @@ in {
     enable = true;
     systemd.enable = true; # Auto-start for services
     xwayland.enable = true;
+    settings.animations.enabled = "no";
 
     # scRGB support
     settings.debug.full_cm_proto = true;

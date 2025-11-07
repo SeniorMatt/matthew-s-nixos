@@ -11,7 +11,7 @@ You can use different attributes to switch between different DE's / WM's
 ```
 # For example
 sudo nixos-rebuild switch --flake /etc/nixos/#plasma
-# Available options are: #plasma #hyprland #cosmic #niri
+# Available options are: #plasma #hyprland #minimal #cosmic #niri
 ```
 # Screenshots
 ## KDE Plasma using Plasma Manager
@@ -22,6 +22,9 @@ sudo nixos-rebuild switch --flake /etc/nixos/#plasma
 
 ## Hyprland rice
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/2cef4d07-46ff-460c-82f5-4aaaacd9af83" />
+
+## Hyprland minimal
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/da1c82bd-2971-46c8-8da1-b7661159ed0c" />
 
 ### My previous Hyprland rice with blur and stuff :D
 ![image_2025-07-09_22-39-49](https://github.com/user-attachments/assets/e1d60ae7-87b9-45bd-adec-3ad1cacef0fc)

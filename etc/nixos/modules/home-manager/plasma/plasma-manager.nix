@@ -27,6 +27,7 @@ in {
   imports = [
     inputs.plasma-manager.homeModules.plasma-manager
     ../theme.nix
+    ../kitty/kitty.nix
     ../kitty/kitty-catppuccin.nix
     ../default-apps.nix
     ../oh-my-posh.nix
@@ -37,10 +38,10 @@ in {
 
     gtkName = "Breeze-Dark";
     gtkTheme = pkgs.kdePackages.breeze-gtk;
+    qtEnable = false;
   };
 
   default-apps = {
-    fileManagerPackage = pkgs.kdePackages.dolphin;
     imageViewerPackage = pkgs.kdePackages.gwenview;
     imageViewer = "org.kde.gwenview.desktop";
     documentViewerPackage = pkgs.kdePackages.okular;
@@ -50,6 +51,7 @@ in {
   };
 
   home.packages = with pkgs; [
+    kdePackages.dolphin # File manager
     kdePackages.kamoso # Camera app
     kdePackages.kcalc # Calculator app
     kdePackages.kclock # Clock app

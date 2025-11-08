@@ -1,6 +1,7 @@
 { pkgs, ... }: {
   imports = [
     ../../modules/nixos/tlp.nix
+    ../../modules/nixos/fish.nix
   ];
 
   services.desktopManager.plasma6.enable = true;

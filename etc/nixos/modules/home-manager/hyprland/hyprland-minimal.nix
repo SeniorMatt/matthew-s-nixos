@@ -62,6 +62,7 @@ in {
     hyprpolkitagent # Authentification agent
     hyprshot # Screenshot utility
     swayosd # Notifications for the volume and brightness
+    kdePackages.dolphin # 
 
     # Controls
     blueman # Bluetooth control

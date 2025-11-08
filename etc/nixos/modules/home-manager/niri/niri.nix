@@ -49,6 +49,8 @@ in {
     blueman # Bluetooth control
     wlsunset # Blue light filter
     xwayland-satellite # Xwayland support
+    kdePackages.dolphin
+    kdePackages.okular
   ];
 
   programs.niri = {

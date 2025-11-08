@@ -17,7 +17,7 @@
     };
     cursor = {
       no_warps = false;
-      warp_on_change_workspace = 1;
+      warp_on_change_workspace = 0;
       warp_on_toggle_special = 0;
     };
     device = [

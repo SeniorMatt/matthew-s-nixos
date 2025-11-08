@@ -12,10 +12,9 @@
           font-family: JetBrainsMono Nerd Font Propo;
           font-size: 13pt;
           transition-duration: 0s;
-          transition-property: background-color;
-          padding: 0 4;
-          margin: 0;
           border-radius: ${cornerRadius}px;
+          margin: 0;
+          padding: 0;
       }
 
       window#waybar {
@@ -27,6 +26,7 @@
           /* Use box-shadow instead of border so the text isn't offset */
           box-shadow: inset 0 -3px transparent;
           color: white;
+          margin: 0 2;
           background-color: rgba(32, 32, 32, 1);
       }
 
@@ -37,10 +37,12 @@
       }
 
       #workspaces {
-          padding: 0px 0px;
-          margin: 0px 0px;
-          background-color: #313244;
+          background-color: #000000;
           border-radius: ${cornerRadius}px;
+      }
+
+      #workspaces button {
+          margin: 0;
       }
 
       #workspaces button:hover {

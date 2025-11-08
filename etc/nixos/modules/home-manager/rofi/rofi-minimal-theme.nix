@@ -10,10 +10,10 @@
   config = with config.rofi; {
     programs.rofi.theme = "${pkgs.writeText "config.rasi" ''
       * {
-        base: #202020;
+        base: #000000;
         text: #f0f0f0;
-        lightbase: #303030;
-        accent: #404040;
+        lightbase: #202020;
+        accent: #999999;
         border-radius: ${cornerRadius};
         background-color: @base;
         text-color: @text;
@@ -24,7 +24,7 @@
       element {
         orientation: horizontal;
         children: [ element-text ];
-        spacing: 0px;
+        spacing: 4px;
         cursor: pointer;
       }
 
@@ -34,7 +34,9 @@
       }
 
       entry{ 
-        background-color: @accent;
+        expand: true;
+        background-color: @lightbase;
+        placeholder: "...";
       }
 
       element-text {

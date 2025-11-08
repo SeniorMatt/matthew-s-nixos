@@ -13,7 +13,7 @@ in {
     ../rofi/rofi-minimal-theme.nix # App launcher
     ../nautilus.nix
     ../waybar/waybar-hyprland.nix # Panel
-    ../waybar/waybar-minimal-theme.nix # Catppuccin theme for panel
+    ../waybar/waybar-minimal-theme.nix # Minimal theme for panel
     ../dunst.nix # Notification manager
     ../default-apps.nix # Default apps
 

@@ -78,7 +78,6 @@
       /* WORKSPACES */
 
       #workspaces {
-          margin: 0px 4px;
           background-color: #313244;
           border-radius: ${cornerRadius};
       }

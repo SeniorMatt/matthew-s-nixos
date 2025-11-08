@@ -95,7 +95,6 @@
         statusline = {
           lualine = {
             enable = true;
-            # theme = "catppuccin";
             theme = "onedark";
           };
         };
@@ -104,8 +103,6 @@
           enable = true;
           name = "onedark";
           style = "dark";
-          # name = "catppuccin";
-          # style = "mocha";
           transparent = true;
         };
 

@@ -78,7 +78,7 @@ in {
     inherit cornerRadius;
   };
 
-  # Wallpapers
+  # Wallpaper
   services.hyprpaper = {
     enable = true;
     settings = {

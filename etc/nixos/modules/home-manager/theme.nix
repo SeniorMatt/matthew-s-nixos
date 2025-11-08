@@ -125,6 +125,7 @@ in
         };
       };
 
+
       xdg.configFile = lib.mkMerge [
         (lib.mkIf qtEnable {
           "kdeglobals".text = ''

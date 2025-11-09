@@ -64,7 +64,6 @@ in {
     wlsunset # Blue light filter
     hyprpolkitagent # Authentification agent
     hyprshot # Screenshot utility
-    kdePackages.dolphin # 
 
     # Controls
     blueman # Bluetooth control

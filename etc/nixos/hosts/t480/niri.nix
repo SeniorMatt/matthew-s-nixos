@@ -15,7 +15,7 @@
   };
   home-manager = {
     sharedModules = [
-      ../../modules/home-manager/niri/niri.nix
+      ../../modules/home-manager/niri/niri-flake.nix
     ];
   };
 }

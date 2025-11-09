@@ -8,7 +8,6 @@
         "wlsunset -l 43.2 -L 76.9"
         "udiskie"
         "swayosd-server"
-        "swayosd-libinput-backend"
       ];
   };
 }

@@ -43,6 +43,7 @@ in {
   };
   programs.swaylock.enable = true; # Super+Alt+L in the default setting (screen locker)
   services.swayidle.enable = true; # Idle management daemon
+  services.swayosd.enable = true; # OSD
   home.packages = with pkgs; [
     swaybg # Wallpaper
     pavucontrol # Audio control
@@ -100,6 +101,7 @@ in {
       spawn-at-startup = [
         { argv = ["swaybg" "--image" "${wallpaper}"]; }
         { argv = ["wlsunset" "-l" "43.2" "-L" "76.9"]; }
+        { argv = ["swayosd-server"]; }
         { argv = ["waybar"]; }
       ];
 
@@ -225,13 +227,19 @@ in {
 
         "Mod+Shift+P".action.power-off-monitors = [];
 
-        "XF86AudioRaiseVolume".action.spawn-sh = "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+";
-        "XF86AudioLowerVolume".action.spawn-sh = "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-";
-        "XF86AudioMute".action.spawn-sh = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
-        "XF86AudioMicMute".action.spawn-sh = "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle";
+        "XF86AudioRaiseVolume".action.spawn-sh = "swayosd-client --output-volume raise";
+        "XF86AudioLowerVolume".action.spawn-sh = "swayosd-client --output-volume lower";
+        "XF86AudioMute".action.spawn-sh = "swayosd-client --output-volume mute-toggle";
+        "XF86AudioMicMute".action.spawn-sh = "swayosd-client --input-volume mute-toggle";
+        "XF86MonBrightnessUp".action.spawn-sh = "swayosd-client --brightness raise";
+        "XF86MonBrightnessDown".action.spawn-sh = "swayosd-client --brightness lower";
 
-        "XF86MonBrightnessUp".action.spawn-sh = "brightnessctl --class=backlight set 10%+";
-        "XF86MonBrightnessDown".action.spawn-sh = "brightnessctl --class=backlight set 10%-";
+        # "XF86AudioRaiseVolume".action.spawn-sh = "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+";
+        # "XF86AudioLowerVolume".action.spawn-sh = "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-";
+        # "XF86AudioMute".action.spawn-sh = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
+        # "XF86AudioMicMute".action.spawn-sh = "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle";
+        # "XF86MonBrightnessUp".action.spawn-sh = "brightnessctl --class=backlight set 10%+";
+        # "XF86MonBrightnessDown".action.spawn-sh = "brightnessctl --class=backlight set 10%-";
       };
     };
   };

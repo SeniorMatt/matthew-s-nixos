@@ -56,12 +56,14 @@ in {
     };
   };
 
+  # OSD
+  services.swayosd.enable = true; 
+
   home.packages = with pkgs; [
     # System applications
     wlsunset # Blue light filter
     hyprpolkitagent # Authentification agent
     hyprshot # Screenshot utility
-    swayosd # Notifications for the volume and brightness
     kdePackages.dolphin # 
 
     # Controls

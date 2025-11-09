@@ -4,7 +4,7 @@
   config,
   ...
 }: let
-  wallpaper = "${config.home.homeDirectory}/Pictures/wallpapers/bellwoar-autumn-cabins.jpg";
+  wallpaper = "${config.home.homeDirectory}/Pictures/wallpapers/madeleine-bellwoar-autumn-cabin-s.jpg";
   generalFont = "Noto Sans";
   fixedFont = "JetBrainsMono";
   generalFontSize = 12;

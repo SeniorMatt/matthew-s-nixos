@@ -217,7 +217,7 @@ in {
 
         "Mod+W".action.toggle-column-tabbed-display = [];
 
-        "Print".action.screenshot = [];
+        "Print".action.screenshot = { show-pointer = false; };
         "Ctrl+Print".action.screenshot-screen = [];
         "Alt+Print".action.screenshot-window = [];
 

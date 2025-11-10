@@ -106,6 +106,7 @@ in {
       prefer-no-csd = true;
       layout = {
         gaps = 8;
+        default-column-width.proportion = 0.5;
         focus-ring = {
           width = 2;
           active.color = "#ffbb51";

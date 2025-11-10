@@ -92,18 +92,19 @@
           cellular-automaton.enable = true;
         };
 
-        statusline = {
-          lualine = {
-            enable = true;
-            theme = "onedark";
-          };
-        };
+        statusline.lualine.enable = true;
 
         theme = {
           enable = true;
-          name = "onedark";
-          style = "dark";
-          transparent = true;
+
+          # Catppuccin theme
+          name = "catppuccin";
+          style = "mocha";
+
+          # Onedark theme
+          # name = "onedark";
+          # style = "dark";
+          # transparent = true;
         };
 
         autopairs.nvim-autopairs.enable = true;

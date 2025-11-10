@@ -6,6 +6,7 @@ in {
   imports = [
     inputs.niri-flake.homeModules.niri
     ../theme.nix
+    ../fun.nix
     ../kitty/kitty.nix
     ../kitty/kitty-niri.nix
     ../waybar/waybar-niri.nix

@@ -47,6 +47,12 @@ in
       default = 24;
     };
 
+    # Matugen
+    matugenEnable = mkOption {
+      type = types.bool;
+      default = false;
+    };
+
     # GTK
     gtkEnable = mkOption {
       type = types.bool;
@@ -84,7 +90,9 @@ in
     with config.theme;
     lib.mkIf enable {
       home = {
-        packages = with pkgs; lib.mkIf kvantumEnable [ kdePackages.qtstyleplugin-kvantum ];
+        packages = with pkgs; [ ]
+        ++ lib.optional  kvantumEnable kdePackages.qtstyleplugin-kvantum
+        ++ lib.optional  matugenEnable  matugen;
 
         file.".icons/default".source = "${cursorTheme}/share/icons/${cursorName}";
 
@@ -141,14 +149,25 @@ in
           '';
         })
 
-        (lib.mkIf gtkEnable {
+        (lib.mkIf (gtkEnable && !matugenEnable) {
           # Now symlink the `~/.config/gtk-4.0/` folder declaratively:
-          "gtk-4.0/assets".source =
-            "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/assets";
-          "gtk-4.0/gtk.css".source =
-            "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk.css";
-          "gtk-4.0/gtk-dark.css".source =
-            "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk-dark.css";
+          "gtk-4.0/assets".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/assets";
+          "gtk-4.0/gtk.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk.css";
+          "gtk-4.0/gtk-dark.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk-dark.css";
+        })
+
+        (lib.mkIf matugenEnable {
+          "matugen/config.toml".text = ''
+            [config]
+            [templates.gtk]
+            input_path = '/etc/nixos/modules/home-manager/matugen/templates/gtk.css'
+            output_path = '~/.config/gtk-4.0/gtk.css'
+            [templates.waybar]
+            input_path = '/etc/nixos/modules/home-manager/matugen/templates/colors.css'
+            output_path = '~/.config/waybar/colors.css'
+          '';
+
+          # You might will need to manually rm -f .config/gtk-4.0/gtk.css
         })
 
         (lib.mkIf kvantumEnable {

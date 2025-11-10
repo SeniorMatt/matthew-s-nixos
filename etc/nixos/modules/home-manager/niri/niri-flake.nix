@@ -1,7 +1,7 @@
 {pkgs, inputs, config, ...}:
 let
-  # wallpaper = "${config.home.homeDirectory}/Pictures/wallpapers/Straßenszene\ bei\ Regen,\ Berlin\ (1926).jpg";
-  wallpaper = "${config.home.homeDirectory}/Pictures/wallpapers/kitty-kate.png";
+  wallpaper = "${config.home.homeDirectory}/Pictures/wallpapers/Straßenszene\ bei\ Regen,\ Berlin\ (1926).jpg";
+  # wallpaper = "${config.home.homeDirectory}/Pictures/wallpapers/kitty-kate.png";
   cornerRadius = "6";
 in {
   imports = [
@@ -11,7 +11,7 @@ in {
     ../kitty/kitty.nix
     ../kitty/kitty-niri.nix
     ../waybar/waybar-niri.nix
-    ../waybar/waybar-minimal-theme.nix
+    ../waybar/waybar-matugen-theme.nix
     ../rofi/rofi.nix
     ../rofi/rofi-minimal-theme.nix
     ../default-apps.nix
@@ -25,6 +25,7 @@ in {
     cursorName = "Bibata-Modern-Classic";
     cursorTheme = pkgs.bibata-cursors;
     cursorSize = 24;
+    matugenEnable = true;
   };
 
   waybar = {
@@ -102,6 +103,7 @@ in {
         { argv = ["swaybg" "--image" "${wallpaper}"]; }
         { argv = ["wlsunset" "-l" "43.2" "-L" "76.9"]; }
         { argv = ["swayosd-server"]; }
+        { argv = ["matugen" "image" "${wallpaper}"]; }
         { argv = ["waybar"]; }
       ];
 

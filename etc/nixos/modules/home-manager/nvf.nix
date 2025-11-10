@@ -165,6 +165,7 @@
           motion = {
             hop.enable = true;
           };
+          ccc.enable = true;
         };
 
         notes = {

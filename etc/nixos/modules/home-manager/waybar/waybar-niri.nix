@@ -12,7 +12,7 @@
         modules-right = [ "tray" "battery" "battery#bat1" "pulseaudio" "clock" "custom/power" ];
 
         "niri/workspaces" = {
-          format = "[{name}]";
+          format = "{value}";
           format-icons = {
             urgent = "[!]";
             focused = "[]";
@@ -23,30 +23,30 @@
           };
         };
         "niri/language" = {
-          format = "[{short}]";
+          format = "{short}";
         };
         tray = {
           icon-size = 20;
           spacing = 2;
         };
         clock = {
-          format = "[{:%H:%M}]";
-          format-alt = "[{:%Y-%m-%d}]";
+          format = "{:%H:%M}";
+          format-alt = "{:%Y-%m-%d}";
           tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
         };
         cpu = {
-          format = "[ {usage}%]";
+          format = " {usage}%";
           tooltip = false;
         };
         memory = {
-          format = "[ {}%]";
+          format = " {}%";
         };
         temperature = {
           thermal-zone = 5;
           critical-threshold = 80;
           format-critical = "{temperatureC}°C {hot}";
           format-icons = [ "" ];
-          format = "[{icon} {temperatureC}°C]";
+          format = "{icon} {temperatureC}°C";
         };
         battery = {
           bat = "BAT0";
@@ -55,10 +55,10 @@
             warning = 30;
             critical = 15;
           };
-          format = "[{capacity}% {icon}]";
-          format-full = "[{capacity}% {icon}]";
-          format-charging = "[{capacity}% ]";
-          format-plugged = "[{capacity}% ]";
+          format = "{capacity}% {icon}";
+          format-full = "{capacity}% {icon}";
+          format-charging = "{capacity}% ";
+          format-plugged = "{capacity}% ";
           format-icons = [ "" "" "" "" "" ];
         };
         "battery#bat1" = {
@@ -68,10 +68,10 @@
             warning = 30;
             critical = 15;
           };
-          format = "[{capacity}% {icon}]";
-          format-full = "[{capacity}% {icon}]";
-          format-charging = "[{capacity}% ]";
-          format-plugged = "[{capacity}% ]";
+          format = "{capacity}% {icon}";
+          format-full = "{capacity}% {icon}";
+          format-charging = "{capacity}% ";
+          format-plugged = "{capacity}% ";
           format-icons = [ "" "" "" "" "" ];
         };
         "power-profiles-daemon" = {
@@ -87,7 +87,7 @@
         };
         pulseaudio = {
           scroll-step = 2.5;
-          format = "[{icon} {volume}%]";
+          format = "{icon} {volume}%";
           format-bluetooth = "{volume}% {icon} ";
           format-bluetooth-muted = " {icon} ";
           format-muted = " Muted";
@@ -105,7 +105,7 @@
           on-click = "pavucontrol";
         };
         "custom/power" = {
-          format = "[⏻]";
+          format = "⏻";
           tooltip = true;
           tooltip-format = "Suspend system";
           on-click = "systemctl suspend";
@@ -121,7 +121,7 @@
           on-click = "blueberry";
         };
         "custom/distrologo" = {
-          format = "[{icon}]";
+          format = "{icon}";
           tooltip-format = "I'm using NixOS BTW";
           tooltip = true;
           format-icons = {

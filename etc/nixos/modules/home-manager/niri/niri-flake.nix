@@ -1,7 +1,8 @@
 {pkgs, inputs, config, ...}:
 let
-  wallpaper = "${config.home.homeDirectory}/Pictures/wallpapers/Straßenszene\ bei\ Regen,\ Berlin\ (1926).jpg";
-  cornerRadius = "0";
+  # wallpaper = "${config.home.homeDirectory}/Pictures/wallpapers/Straßenszene\ bei\ Regen,\ Berlin\ (1926).jpg";
+  wallpaper = "${config.home.homeDirectory}/Pictures/wallpapers/kitty-kate.png";
+  cornerRadius = "6";
 in {
   imports = [
     inputs.niri-flake.homeModules.niri
@@ -117,10 +118,10 @@ in {
       window-rules = [
         {
           geometry-corner-radius = {
-            bottom-left = 0.0;
-            bottom-right = 0.0;
-            top-left = 0.0;
-            top-right = 0.0;
+            bottom-left = 8.0;
+            bottom-right = 8.0;
+            top-left = 8.0;
+            top-right = 8.0;
           };
           clip-to-geometry = true;
         }

@@ -1,32 +1,38 @@
 {pkgs, inputs, config, ...}:
 let
-  wallpaper = "${config.home.homeDirectory}/Pictures/wallpapers/Straßenszene\ bei\ Regen,\ Berlin\ (1926).jpg";
-  # wallpaper = "${config.home.homeDirectory}/Pictures/wallpapers/kitty-kate.png";
-  # wallpaper = "${config.home.homeDirectory}/Pictures/wallpapers/mountains.png";
-  # wallpaper = "${config.home.homeDirectory}/Pictures/wallpapers/Fall\ view\ from\ Konsei\ Pass,\ Japan.jpeg";
+  wallpaper = "${config.home.homeDirectory}/Pictures/wallpapers/'Straßenszene bei Regen, Berlin (1926).jpg'";
   cornerRadius = "6";
 in {
   imports = [
     inputs.niri-flake.homeModules.niri
     ../theme.nix
+    ../matugen/matugen.nix
     ../fun.nix
     ../kitty/kitty.nix
-    ../kitty/kitty-catppuccin-theme.nix
+    ../kitty/kitty-matugen-theme.nix
+    # ../kitty/kitty-medallion-theme.nix
     ../waybar/waybar-niri.nix
-    ../waybar/waybar-catppuccin-theme.nix
+    ../waybar/waybar-matugen-theme.nix
+    # ../waybar/waybar-minimal-theme.nix
     ../rofi/rofi.nix
-    ../rofi/rofi-catppuccin-theme.nix
+    ../rofi/rofi-matugen-theme.nix
+    # ../rofi/rofi-minimal-theme.nix
     ../default-apps.nix
     ../nautilus.nix
   ];
 
   theme = {
     enable = true;
-    fontFamily = "JetBrains Mono";
-    fontSize = 13;
-    cursorName = "Bibata-Modern-Classic";
-    cursorTheme = pkgs.bibata-cursors;
-    cursorSize = 24;
+    matugenEnable = true;
+    font = {
+      family = "JetBrains Mono";
+      size = 13;
+    };
+    cursor = {
+      name = "Bibata-Modern-Classic";
+      package = pkgs.bibata-cursors;
+      size = 24;
+    };
   };
 
   waybar = {
@@ -35,6 +41,10 @@ in {
 
   rofi = {
     inherit cornerRadius;
+  };
+
+  matugen = {
+    inherit wallpaper;
   };
 
   services.polkit-gnome.enable = true; # Polkit
@@ -103,7 +113,6 @@ in {
       spawn-at-startup = [
         { argv = ["swayosd-server"]; }
         { argv = ["swaybg" "--image" "${wallpaper}"]; }
-        { argv = ["matugen" "image" "${wallpaper}"]; }
         { argv = ["wlsunset" "-l" "43.2" "-L" "76.9"]; }
         { argv = ["waybar"]; }
       ];

@@ -1,6 +1,6 @@
 { config, lib, ...}: 
 {
-  options.waybar = with lib;{
+  options.waybar = with lib; {
     cornerRadius = mkOption {
       type = types.str;
       default = "0";
@@ -12,14 +12,14 @@
       * {
           font-family: JetBrainsMono Nerd Font Propo;
           font-size: 13pt;
-          transition: all 250ms ease;
-          border-radius: 6px;
+          transition: min-width 250ms ease;
+          border-radius: ${cornerRadius};
           margin: 0;
           padding: 0;
       }
 
       window#waybar {
-          background-color: @surface;
+          background-color: @surface-alpha;
           border-radius: 0px;
       }
 
@@ -57,27 +57,26 @@
       }
 
       #workspaces {
-          background-color: @on_primary;
+          background-color: @surface;
           padding: 0 8;
-          border-radius: 6px;
+          border-radius: ${cornerRadius};
+          color: @on_surface;
       }
 
       #workspaces button {
           padding: 0 8;
-          color: @on_primary_container;
-          background-color: @on_primary;
+          color: @primary;
+          background-color: @surface_container_highest;
       }
 
       #workspaces button:hover {
-          color: @on_primary_container;
           min-width: 24px;
       }
 
       #workspaces button.active {
-          background-color: @on_primary_fixed_variant;
-          box-shadow: inset 0px -4px @surface_tint;
+          background-color: @primary;
+          color: @surface_container_highest;
           min-width: 32px;
-          /* border-bottom: 4px solid @source_color; */
       }
 
       /* If workspaces is the leftmost module, omit left margin */

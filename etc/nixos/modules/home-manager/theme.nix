@@ -1,76 +1,89 @@
 { config, lib, pkgs, user, ... }:
 let
-  fontSizeString = builtins.toString config.theme.fontSize;
-  cursorSizeString = builtins.toString config.theme.cursorSize;
+  fontSizeString = builtins.toString config.theme.font.size;
+  cursorSizeString = builtins.toString config.theme.cursor.size;
 in
 {
   options.theme = with lib; {
     enable = mkEnableOption "Enable theming";
 
-    # Font
-    fontFamily = mkOption {
-      type = types.str;
-      default = "Noto Sans";
-    };
-    fontSize = mkOption {
-      type = types.int;
-      default = 12;
-    };
-
-    # Icons
-    iconName = mkOption {
-      type = types.str;
-      default = "Adwaita";
-    };
-    iconTheme = mkOption {
-      type = types.package;
-      default = pkgs.adwaita-icon-theme;
+    font = {
+      family = mkOption {
+        type = types.str;
+        default = "Noto Sans";
+      };
+      size = mkOption {
+        type = types.int;
+        default = 12;
+      };
     };
 
-    # Cursor
-    cursorName = mkOption {
-      type = types.str;
-      default = "breeze_cursors";
-    };
-    cursorTheme = mkOption {
-      type = types.package;
-      default = pkgs.kdePackages.breeze;
-    };
-    cursorSize = mkOption {
-      type = types.int;
-      default = 24;
+    icon = {
+      name = mkOption {
+        type = types.str;
+        default = "Adwaita";
+      };
+      package = mkOption {
+        type = types.package;
+        default = pkgs.adwaita-icon-theme;
+      };
     };
 
-    # GTK
-    gtkEnable = mkOption {
-      type = types.bool;
-      default = true;
-    };
-    gtkName = mkOption {
-      type = types.str;
-      default = "adw-gtk3-dark";
-    };
-    gtkTheme = mkOption {
-      type = types.package;
-      default = pkgs.adw-gtk3;
+    cursor = {
+      name = mkOption {
+        type = types.str;
+        default = "breeze_cursors";
+      };
+      package = mkOption {
+        type = types.package;
+        default = pkgs.kdePackages.breeze;
+      };
+      size = mkOption {
+        type = types.int;
+        default = 24;
+      };
     };
 
-    qtEnable = mkOption {
-      type = types.bool;
-      default = true;
-    };
-    # Kvantum
-    kvantumEnable = mkOption {
+    matugenEnable = mkOption {
       type = types.bool;
       default = false;
     };
-    kvantumName = mkOption {
-      type = types.str;
-      default = "catppuccin-frappe-blue";
+
+    gtk = {
+      enable = mkOption {
+        type = types.bool;
+        default = true;
+      };
+      name = mkOption {
+        type = types.str;
+        default = "adw-gtk3-dark";
+      };
+      package = mkOption {
+        type = types.package;
+        default = pkgs.adw-gtk3;
+      };
     };
-    kvantumTheme = mkOption {
-      type = types.package;
-      default = pkgs.catppuccin-kvantum;
+
+    qt = {
+      enable = mkOption {
+        type = types.bool;
+        default = true;
+      };
+    };
+
+    kvantum = {
+      enable = mkOption {
+        type = types.bool;
+        default = false;
+      };
+      name = mkOption {
+        type = types.str;
+        default = "catppuccin-frappe-blue";
+      };
+      package = mkOption {
+        type = types.package;
+        default = pkgs.catppuccin-kvantum;
+      };
     };
   };
 
@@ -79,37 +92,37 @@ in
     lib.mkIf enable {
       home = {
         packages = with pkgs; [ ]
-        ++ lib.optional  kvantumEnable kdePackages.qtstyleplugin-kvantum;
+        ++ lib.optional  kvantum.enable kdePackages.qtstyleplugin-kvantum;
 
-        file.".icons/default".source = "${cursorTheme}/share/icons/${cursorName}";
+        file.".icons/default".source = "${cursor.package}/share/icons/${cursor.name}";
 
         sessionVariables = {
-          XCURSOR_THEME = cursorName;
+          XCURSOR_THEME = cursor.name;
           XCURSOR_SIZE = cursorSizeString;
-          HYPRCURSOR_THEME = cursorName;
+          HYPRCURSOR_THEME = cursor.name;
           HYPRCURSOR_SIZE = cursorSizeString;
         };
       };
 
-      gtk = lib.mkIf gtkEnable {
+      gtk = lib.mkIf gtk.enable {
         enable = true;
 
         font = {
-          name = fontFamily;
-          size = fontSize;
+          name = font.family;
+          size = font.size;
         };
         theme = {
-          name = gtkName;
-          package = gtkTheme;
+          name = gtk.name;
+          package = gtk.package;
         };
         iconTheme = {
-          name = iconName;
-          package = iconTheme;
+          name = icon.name;
+          package = icon.package;
         };
         cursorTheme = {
-          name = cursorName;
-          package = cursorTheme;
-          size = cursorSize;
+          name = cursor.name;
+          package = cursor.package;
+          size = cursor.size;
         };
       };
 
@@ -122,68 +135,68 @@ in
 
 
       xdg.configFile = lib.mkMerge [
-        (lib.mkIf qtEnable {
+        (lib.mkIf qt.enable {
           "kdeglobals".text = ''
             [General]
-            font=${fontFamily},${fontSizeString},-1,5,50,0,0,0,0,0
-            menuFont=${fontFamily},${fontSizeString},-1,5,50,0,0,0,0,0
-            toolBarFont=${fontFamily},${fontSizeString},-1,5,50,0,0,0,0,0
-            windowTitleFont=${fontFamily},${fontSizeString},-1,5,50,0,0,0,0,0
-            smallestReadableFont=${fontFamily},${fontSizeString},-1,5,50,0,0,0,0,0
-            fixed=${fontFamily},${fontSizeString},-1,5,50,0,0,0,0,0
+            font=${font.family},${fontSizeString},-1,5,50,0,0,0,0,0
+            menuFont=${font.family},${fontSizeString},-1,5,50,0,0,0,0,0
+            toolBarFont=${font.family},${fontSizeString},-1,5,50,0,0,0,0,0
+            windowTitleFont=${font.family},${fontSizeString},-1,5,50,0,0,0,0,0
+            smallestReadableFont=${font.family},${fontSizeString},-1,5,50,0,0,0,0,0
+            fixed=${font.family},${fontSizeString},-1,5,50,0,0,0,0,0
 
             ${builtins.readFile "${pkgs.kdePackages.breeze}/share/color-schemes/BreezeDark.colors"}
           '';
         })
 
-        (lib.mkIf gtkEnable {
+        (lib.mkIf (gtk.enable && !matugenEnable) {
           # Now symlink the `~/.config/gtk-4.0/` folder declaratively:
           "gtk-4.0/assets".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/assets";
           "gtk-4.0/gtk.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk.css";
           "gtk-4.0/gtk-dark.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk-dark.css";
         })
 
-        (lib.mkIf kvantumEnable {
+        (lib.mkIf kvantum.enable {
           "kdeglobals".text = ''
             [General]
-            font=${fontFamily},${fontSizeString},-1,5,50,0,0,0,0,0
-            menuFont=${fontFamily},${fontSizeString},-1,5,50,0,0,0,0,0
-            toolBarFont=${fontFamily},${fontSizeString},-1,5,50,0,0,0,0,0
-            windowTitleFont=${fontFamily},${fontSizeString},-1,5,50,0,0,0,0,0
-            smallestReadableFont=${fontFamily},${fontSizeString},-1,5,50,0,0,0,0,0
-            fixed=${fontFamily},${fontSizeString},-1,5,50,0,0,0,0,0
+            font=${font.family},${fontSizeString},-1,5,50,0,0,0,0,0
+            menuFont=${font.family},${fontSizeString},-1,5,50,0,0,0,0,0
+            toolBarFont=${font.family},${fontSizeString},-1,5,50,0,0,0,0,0
+            windowTitleFont=${font.family},${fontSizeString},-1,5,50,0,0,0,0,0
+            smallestReadableFont=${font.family},${fontSizeString},-1,5,50,0,0,0,0,0
+            fixed=${font.family},${fontSizeString},-1,5,50,0,0,0,0,0
           '';
           "qt5ct/qt5ct.conf".text = lib.mkForce ''
             [Fonts]
-            general="${fontFamily},${fontSizeString},-1,5,50,0,0,0,0,0"
-            fixed="${fontFamily},${fontSizeString},-1,5,50,0,0,0,0,0"
+            general="${font.family},${fontSizeString},-1,5,50,0,0,0,0,0"
+            fixed="${font.family},${fontSizeString},-1,5,50,0,0,0,0,0"
             [Appearance]
-            icon_theme=${iconName}
+            icon_theme=${icon.name}
             custom_palette=true
             color_scheme_path=/home/${user}/.config/qt5ct/style-colors.conf
           '';
           "qt6ct/qt6ct.conf".text = lib.mkForce ''
             [Fonts]
-            general="${fontFamily},${fontSizeString},-1,5,50,0,0,0,0,0"
-            fixed="${fontFamily},${fontSizeString},-1,5,50,0,0,0,0,0"
+            general="${font.family},${fontSizeString},-1,5,50,0,0,0,0,0"
+            fixed="${font.family},${fontSizeString},-1,5,50,0,0,0,0,0"
             [Appearance]
-            icon_theme=${iconName}
+            icon_theme=${icon.name}
             custom_palette=true
             color_scheme_path=/home/${user}/.config/qt6ct/style-colors.conf
           '';
           "Kvantum/kvantum.kvconfig".text = ''
             [General]
-            theme=${kvantumName}
-            font=${fontFamily},${fontSizeString},-1,5,50,0,0,0,0,0
+            theme=${kvantum.name}
+            font=${font.family},${fontSizeString},-1,5,50,0,0,0,0,0
           '';
-          "Kvantum/${kvantumName}".source = "${kvantumTheme}/share/Kvantum/${kvantumName}";
+          "Kvantum/${kvantum.name}".source = "${kvantum.package}/share/Kvantum/${kvantum.name}";
         })
       ];
 
       qt = {
         enable = true;
         platformTheme.name = "kde";
-        style.name = if kvantumEnable then "kvantum" else "breeze";
+        style.name = if kvantum.enable then "kvantum" else "breeze";
       };
     };
 }

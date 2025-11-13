@@ -11,7 +11,6 @@
       * {
           font-family: JetBrainsMono Nerd Font Propo;
           font-size: 13pt;
-          /*transition: all 200ms cubic-bezier(0.4, 0, 1, 1);*/
           transition: all 250ms ease;
           border-radius: ${cornerRadius};
       }

@@ -1,10 +1,6 @@
+{ inputs, pkgs, user, ... }:
 {
-  inputs,
-  pkgs,
-  user,
-  ...
-}: {
-  imports = [inputs.nvf.homeManagerModules.default];
+  imports = [ inputs.nvf.homeManagerModules.default ];
 
   home.packages = with pkgs; [
     neovim-remote
@@ -24,6 +20,12 @@
     enableManpages = true;
     settings = {
       vim = {
+        options.clipboard = "unnamedplus";
+        clipboard = {
+          providers = {
+            wl-copy.enable = true;
+          };
+        };
         viAlias = true;
         vimAlias = true;
         debugMode = {
@@ -119,12 +121,6 @@
           };
         };
 
-        clipboard = {
-          providers = {
-            wl-copy.enable = true;
-          };
-        };
-
         filetree = {
           neo-tree = {
             enable = true;
@@ -199,12 +195,16 @@
 
         keymaps = [
           {
-            mode = ["n" "v" "i"];
+            mode = [
+              "n"
+              "v"
+              "i"
+            ];
             key = "<C-n>";
             action = "<cmd>Neotree toggle left<CR>";
           }
           {
-            mode = ["n"];
+            mode = [ "n" ];
             key = "<M-r>";
             action = "<cmd>:lua vim.lsp.buf.rename()<CR>";
           }
@@ -255,7 +255,7 @@
             action = "<Right>";
           }
           {
-            mode = ["n"];
+            mode = [ "n" ];
             key = "<ESC>";
             action = "<cmd>noh<CR>";
             noremap = false;

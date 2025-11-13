@@ -10,7 +10,7 @@ in {
     ../fastfetch.nix # Fastfetch
     ../fun.nix # Fun terminal
     ../kitty/kitty.nix # Terminal
-    ../kitty/kitty-catppuccin.nix # Terminal theme
+    ../kitty/kitty-catppuccin-theme.nix # Terminal theme
     ../rofi/rofi.nix # App launcher
     ../rofi/rofi-catppuccin-theme.nix # App launcher
     ../nautilus.nix

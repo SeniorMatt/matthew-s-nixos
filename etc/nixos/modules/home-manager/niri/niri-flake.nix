@@ -2,6 +2,8 @@
 let
   wallpaper = "${config.home.homeDirectory}/Pictures/wallpapers/Straßenszene\ bei\ Regen,\ Berlin\ (1926).jpg";
   # wallpaper = "${config.home.homeDirectory}/Pictures/wallpapers/kitty-kate.png";
+  # wallpaper = "${config.home.homeDirectory}/Pictures/wallpapers/mountains.png";
+  # wallpaper = "${config.home.homeDirectory}/Pictures/wallpapers/Fall\ view\ from\ Konsei\ Pass,\ Japan.jpeg";
   cornerRadius = "6";
 in {
   imports = [
@@ -9,11 +11,11 @@ in {
     ../theme.nix
     ../fun.nix
     ../kitty/kitty.nix
-    ../kitty/kitty-niri.nix
+    ../kitty/kitty-catppuccin-theme.nix
     ../waybar/waybar-niri.nix
-    ../waybar/waybar-matugen-theme.nix
+    ../waybar/waybar-catppuccin-theme.nix
     ../rofi/rofi.nix
-    ../rofi/rofi-minimal-theme.nix
+    ../rofi/rofi-catppuccin-theme.nix
     ../default-apps.nix
     ../nautilus.nix
   ];
@@ -25,7 +27,6 @@ in {
     cursorName = "Bibata-Modern-Classic";
     cursorTheme = pkgs.bibata-cursors;
     cursorSize = 24;
-    matugenEnable = true;
   };
 
   waybar = {
@@ -100,10 +101,10 @@ in {
       };
 
       spawn-at-startup = [
-        { argv = ["swaybg" "--image" "${wallpaper}"]; }
-        { argv = ["wlsunset" "-l" "43.2" "-L" "76.9"]; }
         { argv = ["swayosd-server"]; }
+        { argv = ["swaybg" "--image" "${wallpaper}"]; }
         { argv = ["matugen" "image" "${wallpaper}"]; }
+        { argv = ["wlsunset" "-l" "43.2" "-L" "76.9"]; }
         { argv = ["waybar"]; }
       ];
 
@@ -113,7 +114,7 @@ in {
         default-column-width.proportion = 0.5;
         focus-ring = {
           width = 2;
-          active.color = "#ffbb51";
+          active.color = "#969696";
         };
       };
 

@@ -57,27 +57,25 @@
       }
 
       #workspaces {
-          /* background-color: #000000; */
-          background-color: @inverse_on_surface;
+          background-color: @on_primary;
           padding: 0 8;
           border-radius: 6px;
       }
 
       #workspaces button {
           padding: 0 8;
-          color: @on_primary_fixed_variant;
+          color: @on_primary_container;
           background-color: @on_primary;
       }
 
       #workspaces button:hover {
-          background-color: @on_primary_fixed_variant;
+          color: @on_primary_container;
           min-width: 24px;
       }
 
       #workspaces button.active {
           background-color: @on_primary_fixed_variant;
-          box-shadow: inset 0px -4px @source_color;
-          color: @on_primary_container;
+          box-shadow: inset 0px -4px @surface_tint;
           min-width: 32px;
           /* border-bottom: 4px solid @source_color; */
       }

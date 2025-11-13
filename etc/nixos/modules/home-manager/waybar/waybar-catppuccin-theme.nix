@@ -10,7 +10,7 @@
     programs.waybar.style = ''
       * {
           font-family: JetBrainsMono Nerd Font Propo;
-          font-size: 13px;
+          font-size: 13pt;
           /*transition: all 200ms cubic-bezier(0.4, 0, 1, 1);*/
           transition: all 250ms ease;
           border-radius: ${cornerRadius};
@@ -35,6 +35,7 @@
       #custom-power {
           background-color: #f38ba8;
           color: #11111b;
+          padding: 0px 8px;
       }
       #custom-power:hover {
           background-color: #eba0ac;
@@ -42,6 +43,7 @@
       }
 
       #pulseaudio {
+          padding: 0px 8px;
           background-color: #cba6f7;
           color: #11111b;
       }
@@ -57,6 +59,7 @@
       }
 
       #clock {
+          padding: 0px 8px;
           font-weight: bold;
           background-color: #f9e2af;
           color: #11111b;
@@ -66,11 +69,13 @@
       }
 
       #custom-distrologo {
+          padding: 0px 8px;
           color: #cba6f7;
           margin: 0px 0px;
       }
 
       #battery {
+          padding: 0px 8px;
           background-color: rgb(166, 227, 161);
           color: #11111b;
       }

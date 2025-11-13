@@ -119,6 +119,12 @@
           };
         };
 
+        clipboard = {
+          providers = {
+            wl-copy.enable = true;
+          };
+        };
+
         filetree = {
           neo-tree = {
             enable = true;

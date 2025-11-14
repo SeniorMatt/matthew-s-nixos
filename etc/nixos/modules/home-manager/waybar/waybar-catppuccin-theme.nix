@@ -11,7 +11,7 @@
       * {
           font-family: JetBrainsMono Nerd Font Propo;
           font-size: 13pt;
-          transition: all 250ms ease;
+          transition: min-width 250ms ease;
           border-radius: ${cornerRadius};
       }
 

@@ -35,34 +35,43 @@ in {
     enable = true;
 
     # Font
-    fontSize = 13;
-    fontFamily = "JetBrains Mono";
+    font = { 
+      size = 13;
+      family = "JetBrains Mono";
+    };
     
     # Icons
-    iconName = "Adwaita";
-    iconTheme = pkgs.adwaita-icon-theme;
-
-    # Cursor
-    cursorName = "Bibata-Modern-Classic";
-    cursorTheme = pkgs.bibata-cursors;
-    cursorSize = 24;
-
-    # GTK
-    gtkEnable = true;
-    gtkName = "catppuccin-mocha-lavender-standard+normal";
-    gtkTheme = pkgs.catppuccin-gtk.override {
-      accents = ["lavender"];
-      size = "standard";
-      variant = "mocha";
-      tweaks = ["normal"];
+    icon = {
+      name = "Adwaita";
+      package = pkgs.adwaita-icon-theme;
     };
 
-    # Kvantum
-    kvantumEnable = true;
-    kvantumName = "catppuccin-mocha-lavender";
-    kvantumTheme = pkgs.catppuccin-kvantum.override {
-      accent = "lavender";
-      variant = "mocha";
+    # Cursor
+    cursor = {
+      name = "Bibata-Modern-Classic";
+      package = pkgs.bibata-cursors;
+      size = 24;
+    };
+
+    # GTK
+    gtk = {
+      enable = true;
+      name = "catppuccin-mocha-lavender-standard+normal";
+      package = pkgs.catppuccin-gtk.override { 
+        accents = ["lavender"];
+        size = "standard";
+        variant = "mocha";
+        tweaks = ["normal"];
+      };
+    };
+
+    kvantum = {
+      enable = true;
+      name = "catppuccin-mocha-lavender";
+      package = pkgs.catppuccin-kvantum.override {
+        accent = "lavender";
+        variant = "mocha";
+      };
     };
   };
 

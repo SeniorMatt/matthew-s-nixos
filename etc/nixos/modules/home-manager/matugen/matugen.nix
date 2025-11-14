@@ -40,24 +40,37 @@ in {
 
     home.packages = with pkgs; [ matugen ];
 
+        # post_hook = 'gsettings set org.gnome.desktop.interface gtk-theme ""; gsettings set org.gnome.desktop.interface gtk-theme adw-gtk3-{{mode}}'
+
     xdg.configFile = {
       "matugen/config.toml".text = ''
         [config]
-        [templates.gtk]
+        [templates.gtk3]
         input_path = '${templateFolder}/gtk.css'
-        output_path = '~/.config/gtk-4.0/gtk-colors.css'
+        output_path = '~/.config/gtk-3.0/colors.css'
+
+        [templates.gtk4]
+        input_path = '${templateFolder}/gtk.css'
+        output_path = '~/.config/gtk-4.0/colors.css'
+
         [templates.kitty]
         input_path = '${templateFolder}/kitty-colors.conf'
         output_path = '~/.config/kitty/kitty-colors.conf'
+
         [templates.rofi]
         input_path = '${templateFolder}/rofi-colors.rasi'
         output_path = '~/.config/rofi/rofi-colors.rasi'
+
         [templates.waybar]
         input_path = '${templateFolder}/colors.css'
         output_path = '~/.config/waybar/colors.css'
       '';
+      "gtk-3.0/gtk.css" = {
+        text = ''@import 'colors.css';'';
+        force = true;
+      };
       "gtk-4.0/gtk.css" = {
-        text = ''@import url("file:///home/${user}/.config/gtk-4.0/gtk-colors.css"); '';
+        text = ''@import 'colors.css';'';
         force = true;
       };
 

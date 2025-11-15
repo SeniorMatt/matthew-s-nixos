@@ -141,6 +141,11 @@ in {
       kwin = {
         "Window Close" = "Meta+C";
         "Window Fullscreen" = "Meta+F";
+        "Window Maximize" = [ "Meta+PgUp" "Meta+M" ];
+        "Window Quick Tile Bottom" = [ "Meta+J" "Meta+Down" ];
+        "Window Quick Tile Left" = [ "Meta+H" "Meta+Left" ];
+        "Window Quick Tile Right" = [ "Meta+L" "Meta+Right" ];
+        "Window Quick Tile Top" = [ "Meta+K" "Meta+Up" ];
         "Switch to Desktop 1" = "Meta+1";
         "Switch to Desktop 2" = "Meta+2";
         "Switch to Desktop 3" = "Meta+3";
@@ -160,12 +165,10 @@ in {
         "Window to Desktop 7" = "Meta+&";
         "Window to Desktop 8" = "Meta+*";
         "Window to Desktop 9" = "Meta+(";
-        "Window to Desktop 10" = "Meta+)";
+        "Winow to Desktop 10" = "Meta+)";
       };
       ksmserver = {
-        "LogOut" = [
-          "Meta+M"
-        ];
+        "Lock Session" = "Meta+Alt+L";
       };
     };
 

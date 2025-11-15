@@ -36,9 +36,12 @@ in {
   theme = {
     enable = true;
 
-    gtkName = "Breeze-Dark";
-    gtkTheme = pkgs.kdePackages.breeze-gtk;
-    qtEnable = false;
+    gtk = {
+      enable = true;
+      name = "Breeze-Dark";
+      package = pkgs.kdePackages.breeze-gtk;
+    };
+    qt.enable = false;
   };
 
   default-apps = {

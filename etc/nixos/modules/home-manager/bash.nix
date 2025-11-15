@@ -1,9 +1,10 @@
+{ pkgs, ... }:
 {
   programs.bash = {
     enable = true;
     bashrcExtra = ''
       eval "$(zoxide init bash)"
-      fortune | cowsay -f stegosaurus
+      ${pkgs.fortune}/bin/fortune | ${pkgs.cowsay}/bin/cowsay -f stegosaurus
     '';
     shellAliases = {
       nrp = "sudo nixos-rebuild switch --flake /etc/nixos/#plasma";

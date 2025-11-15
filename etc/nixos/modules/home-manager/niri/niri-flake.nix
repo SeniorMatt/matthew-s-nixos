@@ -1,9 +1,6 @@
 {pkgs, inputs, config, ...}:
 let
-  # wallpaper = "${config.home.homeDirectory}/Pictures/wallpapers/Straßenszene-bei-Regen,-Berlin-1926.jpg";
-  # wallpaper = "${config.home.homeDirectory}/Pictures/wallpapers/kanistra-studio-8-unicorn.jpg";
-  # wallpaper = "${config.home.homeDirectory}/Pictures/wallpapers/madeleine-bellwoar-autumn-cabin-s.jpg";
-  wallpaper = "${config.home.homeDirectory}/Pictures/wallpapers/feel-gut.png";
+  wallpaper = "${config.home.homeDirectory}/Pictures/wallpapers/kanistra-studio-20-workplace.jpg";
   cornerRadius = "6";
 in {
   imports = [
@@ -45,6 +42,12 @@ in {
 
   matugen = {
     inherit wallpaper;
+  };
+
+  home.activation = {
+    remove-kde-globals = ''
+      rm -f ~/.config/kdeglobals
+    '';
   };
 
   services = {

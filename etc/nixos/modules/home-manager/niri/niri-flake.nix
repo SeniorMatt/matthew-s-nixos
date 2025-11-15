@@ -175,6 +175,9 @@ in {
         "Mod+K".action.focus-window-up = [];
         "Mod+L".action.focus-column-right = [];
 
+        "Mod+WheelScrollUp".action.focus-column-right = [];
+        "Mod+WheelScrollDown".action.focus-column-left = [];
+
         "Mod+Shift+H".action.move-column-left = [];
         "Mod+Shift+J".action.move-window-down = [];
         "Mod+Shift+K".action.move-window-up = [];

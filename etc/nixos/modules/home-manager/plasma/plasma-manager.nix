@@ -4,7 +4,8 @@
   config,
   ...
 }: let
-  wallpaper = "${config.home.homeDirectory}/Pictures/wallpapers/madeleine-bellwoar-autumn-cabin-s.jpg";
+  wallpaperFolder = "${config.home.homeDirectory}/Pictures/wallpapers";
+  wallpaper = "${wallpaperFolder}/feel-gut.png";
   generalFont = "Noto Sans";
   fixedFont = "JetBrainsMono";
   generalFontSize = 12;
@@ -142,10 +143,16 @@ in {
         "Window Close" = "Meta+C";
         "Window Fullscreen" = "Meta+F";
         "Window Maximize" = [ "Meta+PgUp" "Meta+M" ];
-        "Window Quick Tile Bottom" = [ "Meta+J" "Meta+Down" ];
-        "Window Quick Tile Left" = [ "Meta+H" "Meta+Left" ];
-        "Window Quick Tile Right" = [ "Meta+L" "Meta+Right" ];
-        "Window Quick Tile Top" = [ "Meta+K" "Meta+Up" ];
+        "Window Quick Tile Bottom" = [ "Meta+Shift+J" "Meta+Down" ];
+        "Window Quick Tile Left" = [ "Meta+Shift+H" "Meta+Left" ];
+        "Window Quick Tile Right" = [ "Meta+Shift+L" "Meta+Right" ];
+        "Window Quick Tile Top" = [ "Meta+Shift+K" "Meta+Up" ];
+        "Switch Window Down" = "Meta+J";
+        "Switch Window Left" = "Meta+H";
+        "Switch Window Right" = "Meta+L";
+        "Switch Window Up" = "Meta+K";
+        "Switch to Next Desktop" = "Ctrl+Alt+L";
+        "Switch to Previous Desktop" = "Ctrl+Alt+H";
         "Switch to Desktop 1" = "Meta+1";
         "Switch to Desktop 2" = "Meta+2";
         "Switch to Desktop 3" = "Meta+3";
@@ -244,7 +251,7 @@ in {
 
     kwin = {
       effects = {
-        blur.enable = false;
+        blur.enable = true;
         #cube.enable = false;
         #desktopSwitching.animation = "off";
         #dimAdminMode.enable = false;
@@ -294,7 +301,7 @@ in {
         height = 44;
         screen = 0;
         floating = true;
-        opacity = "opaque"; # one of “adaptive”, “opaque”, “translucent”
+        # opacity = "translucent"; # one of “adaptive”, “opaque”, “translucent” # and it doesn't work
         widgets = [
           "org.kde.plasma.kickoff" # Default start menu
           "org.kde.plasma.pager" # Workspace switcher

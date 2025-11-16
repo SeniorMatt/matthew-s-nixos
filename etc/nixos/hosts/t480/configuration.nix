@@ -23,6 +23,7 @@ in {
       # For newer
       # intel-compute-runtime
       # For older Intel CPU's
+      intel-media-driver
       intel-compute-runtime-legacy1
     ];
   };

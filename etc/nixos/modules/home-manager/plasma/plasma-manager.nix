@@ -244,7 +244,7 @@ in {
 
     kwin = {
       effects = {
-        #blur.enable = true;
+        blur.enable = false;
         #cube.enable = false;
         #desktopSwitching.animation = "off";
         #dimAdminMode.enable = false;
@@ -294,6 +294,7 @@ in {
         height = 44;
         screen = 0;
         floating = true;
+        opacity = "opaque"; # one of “adaptive”, “opaque”, “translucent”
         widgets = [
           "org.kde.plasma.kickoff" # Default start menu
           "org.kde.plasma.pager" # Workspace switcher

@@ -77,7 +77,7 @@ in {
   # Plasma Manager
   programs.plasma = {
     enable = true;
-    overrideConfig = true;
+    overrideConfig = false;
 
     # Default fonts
     # Small: Noto Sans 8pt
@@ -251,7 +251,7 @@ in {
 
     kwin = {
       effects = {
-        blur.enable = true;
+        blur.enable = false;
         #cube.enable = false;
         #desktopSwitching.animation = "off";
         #dimAdminMode.enable = false;
@@ -300,7 +300,7 @@ in {
         location = "bottom";
         height = 44;
         screen = 0;
-        floating = true;
+        floating = false;
         # opacity = "translucent"; # one of “adaptive”, “opaque”, “translucent” # and it doesn't work
         widgets = [
           "org.kde.plasma.kickoff" # Default start menu

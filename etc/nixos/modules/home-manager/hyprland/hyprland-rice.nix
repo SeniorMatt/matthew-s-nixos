@@ -98,11 +98,11 @@ in {
 
   # OSD
   services.swayosd.enable = true; 
+  services.hyprpolkitagent.enable = true; # Authentification agent
 
   home.packages = with pkgs; [
     # System applications
     wlsunset # Blue light filter
-    hyprpolkitagent # Authentification agent
     hyprshot # Screenshot utility
 
     # Controls

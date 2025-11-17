@@ -1,4 +1,4 @@
-{pkgs, ...}:
+{ pkgs, ... }:
 {
   imports = [
     ../../modules/nixos/tlp.nix

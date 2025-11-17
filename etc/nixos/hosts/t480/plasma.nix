@@ -1,6 +1,7 @@
 { pkgs, ... }: {
   imports = [
-    ../../modules/nixos/power-profiles-daemon.nix
+    # ../../modules/nixos/power-profiles-daemon.nix
+    ../../modules/nixos/tlp.nix
     ../../modules/nixos/fish.nix
   ];
 

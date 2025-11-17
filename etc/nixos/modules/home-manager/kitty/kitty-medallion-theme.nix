@@ -1,5 +1,0 @@
-{
-  programs.kitty = {
-    themeFile = "Medallion";
-  };
-}

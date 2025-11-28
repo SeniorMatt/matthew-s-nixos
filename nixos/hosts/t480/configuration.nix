@@ -116,18 +116,6 @@ in {
       ls /etc/profiles/per-user/matthew/share/applications
       ls /run/current-system/sw/share/applications
     '')
-
-    # Copy NixOS configuration
-    (pkgs.writeShellScriptBin "copy-nixos" ''
-      echo "Copying NixOS configuration..."
-      sudo cp -r /etc/nixos/ ~/Documents/GitHub/Matthew-s-NixOS/etc/
-      sudo rm -f ~/Documents/GitHub/Matthew-s-NixOS/etc/nixos/hardware-configuration.nix
-      echo "Copying Wallpapers..."
-      sudo cp -r ~/Pictures/wallpapers ~/Documents/GitHub/Matthew-s-NixOS/Pictures/
-      sudo cp -r ~/Pictures/wallpapers/catppuccin ~/Documents/GitHub/Matthew-s-NixOS/Pictures/wallpapers/
-      sudo cp ~/Pictures/avatar.png ~/Documents/GitHub/Matthew-s-NixOS/Pictures/
-      sudo cp ~/Pictures/avatar-circle.png ~/Documents/GitHub/Matthew-s-NixOS/Pictures/
-    '')
   ];
 
   fonts = {

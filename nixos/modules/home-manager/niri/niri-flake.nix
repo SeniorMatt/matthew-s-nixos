@@ -63,13 +63,13 @@ in {
       };
     };
 
-    hyprpaper = { # Wallpaper daemon
-      enable = true;
-      settings = {
-        preload = [ "${wallpaper}" ];
-        wallpaper = [ ",${wallpaper}" ];
-      };
-    };
+    # hyprpaper = { # Wallpaper daemon
+    #   enable = true;
+    #   settings = {
+    #     preload = [ "${wallpaper}" ];
+    #     wallpaper = [ ",${wallpaper}" ];
+    #   };
+    # };
   };
   programs.swaylock.enable = true; # Super+Alt+L in the default setting (screen locker)
 
@@ -77,6 +77,7 @@ in {
     pavucontrol # Audio control
     blueman # Bluetooth control
     wlsunset # Blue light filter
+    swaybg # Wallpaper tool
     xwayland-satellite # Xwayland support
   ];
 
@@ -127,6 +128,7 @@ in {
       spawn-at-startup = [
         { argv = ["swayosd-server"]; }
         { argv = ["wlsunset" "-l" "43.2" "-L" "76.9"]; }
+        { argv = ["swaybg" "-i" "${wallpaper}" ]; }
         { argv = ["waybar"]; }
       ];
 

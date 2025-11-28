@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   imports = [
-    ../../modules/nixos/tlp.nix
+    ../tlp.nix
   ];
 
   programs.niri.enable = true;
@@ -15,7 +15,7 @@
   };
   home-manager = {
     sharedModules = [
-      ../../modules/home-manager/niri/niri-flake.nix
+      ../../home-manager/niri/niri-flake.nix
     ];
   };
 }

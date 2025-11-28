@@ -1,7 +1,7 @@
 { pkgs, ... }: {
   imports = [
-    ../../modules/nixos/tlp.nix
-    ../../modules/nixos/fish.nix
+    ../tlp.nix
+    ../fish.nix
   ];
 
   services.desktopManager.plasma6.enable = true;
@@ -19,7 +19,7 @@
 
   home-manager = {
     sharedModules = [
-      ../../modules/home-manager/plasma/plasma-manager.nix
+      ../../home-manager/plasma/plasma-manager.nix
     ];
   };
 }

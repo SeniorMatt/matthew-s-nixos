@@ -23,8 +23,8 @@ in {
     home.activation = {
       run-matugen-once = ''
         ${pkgs.matugen}/bin/matugen image ${wallpaper}
-        ${pkgs.systemd}/bin/systemctl --user restart hyprpaper.service || true
-        ${pkgs.systemd}/bin/systemctl --user restart waybar.service || true
+        # ${pkgs.systemd}/bin/systemctl --user restart hyprpaper.service || true
+        # ${pkgs.systemd}/bin/systemctl --user restart waybar.service || true
       '';
     };
 

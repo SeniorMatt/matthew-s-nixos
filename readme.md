@@ -5,6 +5,7 @@ My NixOS personal setup.
 ```
 git clone https://github.com/SeniorMatt/Matthew-s-NixOS.git && sudo chown -R user:users ~/matthew-s-nixos && sudo ln -s ~/matthew-s-nixos /etc/nixos
 ```
+Replace `user` to default username `matthew`
 
 ## Deprecated
 ```

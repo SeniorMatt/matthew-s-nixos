@@ -3,7 +3,7 @@ My NixOS personal setup.
 
 # To install
 ```
-git clone https://github.com/SeniorMatt/Matthew-s-NixOS.git && sudo chown -R user:users ~/matthew-s-nixos && sudo ln -s ~/matthew-s-nixos /etc/nixos
+git clone https://github.com/SeniorMatt/matthew-s-nixos.git && sudo chown -R matthew:users ~/matthew-s-nixos && sudo ln -s ~/matthew-s-nixos /etc/nixos
 ```
 Replace `user` to default username `matthew`
 

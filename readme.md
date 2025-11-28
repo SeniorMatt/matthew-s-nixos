@@ -12,6 +12,9 @@ sudo chown -R matthew:users ~/Matthew-s-NixOS/nixos/
 ```
 sudo ln -s ~/Matthew-s-NixOS/nixos /etc/nixos
 ```
+```
+cp -f /etc/nixos-back/hardware-configuration.nix ~/Matthew-s-NixOS/nixos/hosts/t480/
+```
 Replace `user` to default username (in my case to `matthew`).
 
 ## Deprecated

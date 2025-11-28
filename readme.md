@@ -2,18 +2,28 @@
 My NixOS personal setup.
 
 # To install
+
 ```
-git clone https://github.com/SeniorMatt/Matthew-s-NixOS.git && mv ~/Matthew-s-NixOS/* ./ && mv Matthew-s-NixOS/.git ./ && rm -fr ~/Matthew-s-NixOS/ && sudo chown -R matthew:users ~/matthew-s-nixos/ && sudo ln -s ~/matthew-s-nixos /etc/nixos
+git clone https://github.com/SeniorMatt/Matthew-s-NixOS.git 
 ```
-Replace `user` to default username `matthew`
+```
+sudo chown -R matthew:users ~/Matthew-s-NixOS/nixos/ 
+```
+```
+sudo ln -s ~/Matthew-s-NixOS/nixos /etc/nixos
+```
+Replace `user` to default username (in my case to `matthew`).
 
 ## Deprecated
 ```
 git clone https://github.com/SeniorMatt/Matthew-s-NixOS.git && sudo cp -fr ~/Matthew-s-NixOS/etc/nixos/ /etc/ && sudo rm -fr ~/Matthew-s-NixOS/ && sudo nixos-rebuild switch --flake /etc/nixos/#plasma
 ```
+```
+git clone https://github.com/SeniorMatt/Matthew-s-NixOS.git && mv ~/Matthew-s-NixOS/* ./ && mv Matthew-s-NixOS/.git ./ && rm -fr ~/Matthew-s-NixOS/ && sudo chown -R matthew:users ~/matthew-s-nixos/ && sudo ln -s ~/matthew-s-nixos /etc/nixos
+```
 
 # Usage
-You can use different attributes to switch between different DE's / WM's
+You can use different attributes to switch between different DE's / WM's:
 ```
 # For example
 sudo nixos-rebuild switch --flake /etc/nixos/#plasma

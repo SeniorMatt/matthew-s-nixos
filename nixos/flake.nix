@@ -38,7 +38,7 @@
         specialArgs = {inherit inputs user;};
         modules = [
           ./hosts/t480/configuration.nix
-          ./hosts/t480/plasma.nix
+          ./modules/nixos/sessions/plasma.nix
         ];
       };
 
@@ -47,7 +47,7 @@
         specialArgs = {inherit inputs user;};
         modules = [
           ./hosts/t480/configuration.nix
-          ./hosts/t480/hyprland.nix
+          ./modules/nixos/sessions/hyprland.nix
           { home-manager.sharedModules = [ ./modules/home-manager/hyprland/hyprland-rice.nix ]; }
         ];
       };
@@ -57,7 +57,7 @@
         specialArgs = {inherit inputs user;};
         modules = [
           ./hosts/t480/configuration.nix
-          ./hosts/t480/hyprland.nix
+          ./modules/nixos/sessions/hyprland.nix
           { home-manager.sharedModules = [ ./modules/home-manager/hyprland/hyprland-minimal.nix ]; }
         ];
       };
@@ -67,7 +67,7 @@
         specialArgs = {inherit inputs user;};
         modules = [
           ./hosts/t480/configuration.nix
-          ./hosts/t480/niri.nix
+          ./modules/nixos/sessions/niri.nix
         ];
       };
 
@@ -76,7 +76,7 @@
         specialArgs = {inherit inputs user;};
         modules = [
           ./hosts/t480/configuration.nix
-          ./hosts/t480/cinnamon.nix
+          ./modules/nixos/sessions/cinnamon.nix
         ];
       };
 
@@ -85,7 +85,7 @@
         specialArgs = {inherit inputs user;};
         modules = [
           ./hosts/t480/configuration.nix
-          ./hosts/t480/cosmic.nix
+          ./modules/nixos/sessions/cosmic.nix
         ];
       };
     };

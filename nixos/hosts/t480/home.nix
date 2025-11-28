@@ -40,8 +40,8 @@
     batmon # TUI battery
     btop # TUI task manager
     gparted # Graphical disk partitioning tool
-    stress # CPU, Memory and I/O stress test
-    unigine-heaven # GPU stress test
+    # stress # CPU, Memory and I/O stress test
+    # unigine-heaven # GPU stress test
   ];
 
   fonts.fontconfig.enable = true;

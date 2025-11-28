@@ -6,7 +6,7 @@ in {
     ./hardware-configuration.nix
     ../../modules/nixos/bluetooth.nix
     ../../modules/nixos/pipewire.nix
-    ../../modules/nixos/undervolt.nix
+    # ../../modules/nixos/undervolt.nix
     ../../modules/nixos/virt-manager.nix
   ];
 
@@ -15,7 +15,7 @@ in {
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Latest kernel
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  # boot.kernelPackages = pkgs.linuxPackages_latest;
 
   # CLI driver
   hardware.graphics = {

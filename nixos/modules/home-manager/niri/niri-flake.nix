@@ -1,6 +1,6 @@
 {pkgs, inputs, config, ...}:
 let
-  wallpaper = "${config.home.homeDirectory}/Pictures/wallpapers/kanistra-studio-20-workplace.jpg";
+  wallpaper = "${config.home.homeDirectory}/Matthew-s-NixOS/pictures/wallpapers/kanistra-studio-20-workplace.jpg";
   cornerRadius = "6";
 in {
   imports = [
@@ -45,9 +45,9 @@ in {
   };
 
   home.activation = {
-    remove-kde-globals = ''
-      rm -f ~/.config/kdeglobals
-    '';
+    # remove-kde-globals = ''
+    #   rm -f ~/.config/kdeglobals
+    # '';
   };
 
   services = {

@@ -135,8 +135,8 @@
             closeCurrent = "<leader>x";
             cycleNext = "<S-l>";
             cyclePrevious = "<S-h>";
-            moveNext = null;
-            movePrevious = null;
+            moveNext = "<A-L>";
+            movePrevious = "<A-h>";
             sortByDirectory = null;
             sortByExtension = null;
             sortById = null;

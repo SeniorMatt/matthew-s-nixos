@@ -11,7 +11,7 @@
       nrm = "sudo nixos-rebuild switch --flake /etc/nixos/#minimal";
       nrh = "sudo nixos-rebuild switch --flake /etc/nixos/#hyprland";
       nrn = "sudo nixos-rebuild switch --flake /etc/nixos/#niri";
-      nx = "sudo nvim /etc/nixos/";
+      nx = "nvim /etc/nixos/";
       ng = "nvim ~/Documents/GitHub/";
       nu = "nvim --listen /tmp/nvimsocket";
       p = "ping google.com";

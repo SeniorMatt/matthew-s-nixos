@@ -6,7 +6,6 @@ in {
   imports = [
     ../theme.nix
 
-    ../kitty/kitty.nix # Terminal
     ../rofi/rofi.nix # App launcher
     ../rofi/rofi-minimal-theme.nix # App launcher
     ../nautilus.nix

@@ -28,7 +28,6 @@ in {
   imports = [
     inputs.plasma-manager.homeModules.plasma-manager
     ../theme.nix
-    ../kitty/kitty.nix
     ../kitty/kitty-catppuccin-theme.nix
     ../default-apps.nix
     ../oh-my-posh.nix

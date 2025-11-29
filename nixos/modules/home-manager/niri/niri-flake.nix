@@ -8,7 +8,6 @@ in {
     ../theme.nix
     ../matugen/matugen.nix
     ../fun.nix
-    ../kitty/kitty.nix
     ../kitty/kitty-matugen-theme.nix
     ../waybar/waybar-niri.nix
     ../waybar/waybar-matugen-theme.nix

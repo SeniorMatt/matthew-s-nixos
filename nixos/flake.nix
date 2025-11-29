@@ -1,6 +1,7 @@
 {
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.05";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -44,6 +45,9 @@
 
           # Plasma
           # ./modules/nixos/sessions/plasma.nix
+
+          # Gnome
+          # ./modules/nixos/sessions/gnome.nix
 
           # Hyprland
           # ./modules/nixos/sessions/hyprland.nix

@@ -7,6 +7,7 @@
   
   home.packages = with pkgs; [
     eog # Image viewer
+    cosmic-ext-tweaks # Tweaking tool for COSMIC
   ];
 
   theme = {

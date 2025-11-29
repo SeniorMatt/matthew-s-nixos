@@ -1,6 +1,10 @@
 { pkgs, user, inputs, options, lib, ... }: let
   customFont = pkgs.callPackage ../../modules/nixos/custom-font.nix {};
 in {
+  options.configuration = with lib; {
+    cosmic = mkEnableOption "Enable Cosmic";
+  };
+
   imports = [
     inputs.home-manager.nixosModules.default
     ./hardware-configuration.nix

@@ -33,7 +33,7 @@
     user = "matthew";
   in {
     nixosConfigurations = {
-      system = nixpkgs.lib.nixosSystem {
+      nixos = nixpkgs.lib.nixosSystem {
         inherit system;
         specialArgs = {inherit inputs user;};
         modules = [
@@ -47,8 +47,8 @@
 
           # Hyprland
           # ./modules/nixos/sessions/hyprland.nix
-          # { home-manager.sharedModules = [ ./modules/home-manager/hyprland/hyprland-rice.nix ]; }
-          # { home-manager.sharedModules = [ ./modules/home-manager/hyprland/hyprland-minimal.nix ]; }
+          # { home-manager.sharedModules = [ ./modules/home-manager/hyprland/hyprland-rice.nix ]; } # Rice
+          # { home-manager.sharedModules = [ ./modules/home-manager/hyprland/hyprland-minimal.nix ]; } # Minimal
 
           # Niri
           # ./modules/nixos/sessions/niri.nix

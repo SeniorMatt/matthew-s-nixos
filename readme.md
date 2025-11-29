@@ -16,7 +16,7 @@ sudo ln -s ~/Matthew-s-NixOS/nixos /etc/nixos
 cp -f /etc/nixos-back/hardware-configuration.nix ~/Matthew-s-NixOS/nixos/hosts/t480/
 ```
 Replace `matthew` to the username you chose at the installtion (in my case to `matthew` obviously).
-Also, don't forget to remove `hardware-configuration.nix`.
+Also, don't forget to remove `hardware-configuration.nix` and replace it with your own.
 
 ## Deprecated
 ```

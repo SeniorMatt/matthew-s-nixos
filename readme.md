@@ -16,7 +16,6 @@ sudo ln -s ~/Matthew-s-NixOS/nixos /etc/nixos
 cp -f /etc/nixos-back/hardware-configuration.nix ~/Matthew-s-NixOS/nixos/hosts/t480/
 ```
 Replace `matthew` to the username you chose at the installtion (in my case to `matthew` obviously).
-Also, don't forget to remove `hardware-configuration.nix` and replace it with your own.
 
 ## Deprecated
 ```
@@ -25,6 +24,8 @@ git clone https://github.com/SeniorMatt/Matthew-s-NixOS.git && sudo cp -fr ~/Mat
 ```
 git clone https://github.com/SeniorMatt/Matthew-s-NixOS.git && mv ~/Matthew-s-NixOS/* ./ && mv Matthew-s-NixOS/.git ./ && rm -fr ~/Matthew-s-NixOS/ && sudo chown -R matthew:users ~/matthew-s-nixos/ && sudo ln -s ~/matthew-s-nixos /etc/nixos
 ```
+    Also, don't forget to remove `hardware-configuration.nix` and replace it with your own.
+Now I have command to do that inside installation guide.
 
 # Usage
 You can use different attributes to switch between different DE's / WM's:

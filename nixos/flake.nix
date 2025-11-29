@@ -32,33 +32,21 @@
   outputs = {nixpkgs, ...} @ inputs: let
     system = "x86_64-linux";
     user = "matthew";
+    repoPath = "/home/${user}/Matthew-s-NixOS";
   in {
     nixosConfigurations = {
       nixos = nixpkgs.lib.nixosSystem {
         inherit system;
-        specialArgs = {inherit inputs user;};
+        specialArgs = {inherit inputs user repoPath;};
         modules = [
           ./hosts/t480/configuration.nix
-
-          # Cosmic
-          ./modules/nixos/sessions/cosmic.nix
-
-          # Plasma
-          # ./modules/nixos/sessions/plasma.nix
-
-          # Gnome
-          # ./modules/nixos/sessions/gnome.nix
-
-          # Hyprland
-          # ./modules/nixos/sessions/hyprland.nix
-          # { home-manager.sharedModules = [ ./modules/home-manager/hyprland/hyprland-rice.nix ]; } # Rice
-          # { home-manager.sharedModules = [ ./modules/home-manager/hyprland/hyprland-minimal.nix ]; } # Minimal
-
-          # Niri
-          # ./modules/nixos/sessions/niri.nix
-
-          # Cinnamon
-          # ./modules/nixos/sessions/cinnamon.nix
+          ./modules/nixos/sessions/session.nix
+          { 
+            session = {
+             desktop = "cosmic"; 
+             flavour = "none"; 
+            };
+          }
         ];
       };
     };

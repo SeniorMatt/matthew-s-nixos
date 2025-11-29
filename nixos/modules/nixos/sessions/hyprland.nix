@@ -1,24 +1,29 @@
-{ pkgs, ... }: {
+{ config, lib, pkgs, ... }:
+{
   imports = [
-    ../fish.nix
+    ../fish.nix # Fish shell
   ];
 
-  programs.hyprland.enable = true;
+  config = lib.mkIf (config.session.desktop == "hyprland") {
 
-  # Polkit
-  security.polkit.enable = true;
+    programs.hyprland.enable = true; # Hyprland wayland compositor
 
-  # Login manager
-  services.displayManager.ly.enable = true;
+    security.polkit.enable = true; # Polkit
 
-  # Optional, hint electron apps to use wayland:
-  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+    services.displayManager.ly.enable = true; # Login manager
 
-  xdg.portal = {
-    enable = true;
-    extraPortals = with pkgs; [
-      xdg-desktop-portal-hyprland
-      xdg-desktop-portal-gtk
-    ];
+    environment.sessionVariables.NIXOS_OZONE_WL = "1"; # Optional, hint electron apps to use wayland:
+
+    xdg.portal = {
+      enable = true;
+      extraPortals = with pkgs; [
+        xdg-desktop-portal-hyprland # Hyprland's portal
+        xdg-desktop-portal-gtk # GTK's portal
+      ];
+    };
+
+    home-manager.sharedModules = [ ]
+      ++ lib.optional (config.session.flavour == "none") ../../home-manager/hyprland/hyprland-rice.nix 
+      ++ lib.optional (config.session.flavour == "minimal") ../../home-manager/hyprland/hyprland-minimal.nix;
   };
 }

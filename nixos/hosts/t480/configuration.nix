@@ -1,10 +1,6 @@
-{ pkgs, user, inputs, options, lib, ... }: let
+{ pkgs, user, repoPath, inputs, ... }: let
   customFont = pkgs.callPackage ../../modules/nixos/custom-font.nix {};
 in {
-  options.configuration = with lib; {
-    cosmic = mkEnableOption "Enable Cosmic";
-  };
-
   imports = [
     inputs.home-manager.nixosModules.default
     ./hardware-configuration.nix
@@ -12,8 +8,7 @@ in {
     ../../modules/nixos/pipewire.nix
     # ../../modules/nixos/undervolt.nix
     ../../modules/nixos/tlp.nix
-    ../../modules/nixos/virt-manager.nix
-  ];
+  ] ;
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -80,7 +75,7 @@ in {
   };
 
   home-manager = {
-    extraSpecialArgs = {inherit inputs user;};
+    extraSpecialArgs = {inherit inputs user repoPath;};
     useUserPackages = true;
     backupFileExtension = "backup";
     backupCommand = "rm";

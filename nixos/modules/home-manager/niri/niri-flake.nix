@@ -1,6 +1,6 @@
-{pkgs, inputs, config, ...}:
+{pkgs, inputs, repoPath, ...}:
 let
-  wallpaper = "${config.home.homeDirectory}/Matthew-s-NixOS/pictures/wallpapers/kanistra-studio-20-workplace.jpg";
+  wallpaper = "${repoPath}/pictures/wallpapers/kanistra-studio-20-workplace.jpg";
   cornerRadius = "6";
 in {
   imports = [

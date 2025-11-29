@@ -1,6 +1,6 @@
-{ pkgs, user, ... }: 
+{ pkgs, repoPath, ... }: 
 let
-  wallpaper = "/home/${user}/Pictures/wallpapers/the_creation_of_adam.jpg";
+  wallpaper = "${repoPath}/pictures/wallpapers/the_creation_of_adam.jpg";
   cornerRadius = "0";
 in {
   imports = [
@@ -8,7 +8,7 @@ in {
 
     ../rofi/rofi.nix # App launcher
     ../rofi/rofi-minimal-theme.nix # App launcher
-    ../nautilus.nix
+    ../nautilus.nix # File manager
     ../waybar/waybar-hyprland.nix # Panel
     ../waybar/waybar-minimal-theme.nix # Minimal theme for panel
     ../dunst.nix # Notification manager
@@ -28,8 +28,10 @@ in {
 
   theme = {
     enable = true;
-    fontSize = 13;
-    fontFamily = "JetBrains Mono";
+    font = {
+      size = 13;
+      family = "JetBrains Mono";
+    };
   };
 
   rofi = {
@@ -44,25 +46,20 @@ in {
     inherit cornerRadius;
   };
 
-  # Wallpapers
   services.hyprpaper = {
-    enable = true;
+    enable = true; # Wallpaper utility
     settings = {
       preload = [ "${wallpaper}" ];
       wallpaper = [ ",${wallpaper}" ];
     };
   };
 
-  # OSD
-  services.swayosd.enable = true; 
+  services.swayosd.enable = true; # OSD
 
   home.packages = with pkgs; [
-    # System applications
     wlsunset # Blue light filter
     hyprpolkitagent # Authentification agent
     hyprshot # Screenshot utility
-
-    # Controls
     blueman # Bluetooth control
     networkmanagerapplet # Network control
     pavucontrol # Audio control
@@ -80,7 +77,6 @@ in {
     xwayland.enable = true;
     settings.animations.enabled = "no";
 
-    # scRGB support
-    settings.debug.full_cm_proto = true;
+    settings.debug.full_cm_proto = true; # scRGB support
   };
 }

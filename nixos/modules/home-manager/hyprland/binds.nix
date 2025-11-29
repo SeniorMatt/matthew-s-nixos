@@ -14,7 +14,7 @@
       "$mainMod, V, togglefloating"
       "$mainMod, F, fullscreen"
       "$mainMod, P, pseudo"
-      "$mainMod, comma, togglesplit"
+      "$mainMod, O, togglesplit"
 
       # Menu
       "$mainMod, D, exec, $menu"

@@ -2,10 +2,7 @@
   programs.fastfetch = {
     enable = true;
     settings = {
-      logo = {
-        # Repo path
-        source = "~/Matthew-s-NixOS/pictures/avatar-circle.png";
-      };
+      # logo.source = "~/Matthew-s-NixOS/pictures/avatar-circle.png";
       modules = [
         "break"
         "title"

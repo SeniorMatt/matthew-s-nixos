@@ -8,13 +8,13 @@ in
     enable = mkEnableOption "Enable theming";
 
     font = {
-      family = mkOption {
-        type = types.str;
-        default = "Noto Sans";
-      };
       size = mkOption {
         type = types.int;
         default = 10;
+      };
+      family = mkOption {
+        type = types.str;
+        default = "Noto Sans";
       };
     };
 
@@ -89,9 +89,7 @@ in
     };
   };
 
-  config =
-    with config.theme;
-    lib.mkIf enable {
+  config = with config.theme; lib.mkIf enable {
       home = {
         packages = with pkgs; [ ]
         ++ lib.optional  kvantum.enable kdePackages.qtstyleplugin-kvantum;

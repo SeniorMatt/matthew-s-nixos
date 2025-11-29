@@ -20,23 +20,7 @@ Replace `matthew` to the username you chose at the installtion (in my case to `m
 # Usage
 You can switch between different setups by configuring `~/Matthew-s-NixOS/nixos/flake.nix`and removing / adding different preconfigured WMs/DEs. 
 
-> [!warning] Doesn't recommend to use multiple at one build, because some of them are using different intersecting modules and it might broke everything.
-
-## Deprecated
-```
-git clone https://github.com/SeniorMatt/Matthew-s-NixOS.git && sudo cp -fr ~/Matthew-s-NixOS/etc/nixos/ /etc/ && sudo rm -fr ~/Matthew-s-NixOS/ && sudo nixos-rebuild switch --flake /etc/nixos/#plasma
-```
-```
-git clone https://github.com/SeniorMatt/Matthew-s-NixOS.git && mv ~/Matthew-s-NixOS/* ./ && mv Matthew-s-NixOS/.git ./ && rm -fr ~/Matthew-s-NixOS/ && sudo chown -R matthew:users ~/matthew-s-nixos/ && sudo ln -s ~/matthew-s-nixos /etc/nixos
-```
-    Also, don't forget to remove `hardware-configuration.nix` and replace it with your own.
-Now I have command to do that inside installation guide.
-You can use different attributes to switch between different DE's / WM's:
-```
-# For example
-sudo nixos-rebuild switch --flake /etc/nixos/#plasma
-# Available options are: #plasma #hyprland #minimal #cosmic #niri
-```
+> It's not recommended to use multiple configurations at ones, because some of them are using different intersecting modules and it might broke everything.
 
 # Screenshots
 ## KDE Plasma using Plasma Manager

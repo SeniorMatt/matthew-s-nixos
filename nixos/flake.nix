@@ -33,59 +33,28 @@
     user = "matthew";
   in {
     nixosConfigurations = {
-      plasma = nixpkgs.lib.nixosSystem {
+      system = nixpkgs.lib.nixosSystem {
         inherit system;
         specialArgs = {inherit inputs user;};
         modules = [
           ./hosts/t480/configuration.nix
-          ./modules/nixos/sessions/plasma.nix
-        ];
-      };
 
-      hyprland = nixpkgs.lib.nixosSystem {
-        inherit system;
-        specialArgs = {inherit inputs user;};
-        modules = [
-          ./hosts/t480/configuration.nix
-          ./modules/nixos/sessions/hyprland.nix
-          { home-manager.sharedModules = [ ./modules/home-manager/hyprland/hyprland-rice.nix ]; }
-        ];
-      };
-
-      minimal = nixpkgs.lib.nixosSystem {
-        inherit system;
-        specialArgs = {inherit inputs user;};
-        modules = [
-          ./hosts/t480/configuration.nix
-          ./modules/nixos/sessions/hyprland.nix
-          { home-manager.sharedModules = [ ./modules/home-manager/hyprland/hyprland-minimal.nix ]; }
-        ];
-      };
-
-      niri = nixpkgs.lib.nixosSystem {
-        inherit system;
-        specialArgs = {inherit inputs user;};
-        modules = [
-          ./hosts/t480/configuration.nix
-          ./modules/nixos/sessions/niri.nix
-        ];
-      };
-
-      cinnamon = nixpkgs.lib.nixosSystem {
-        inherit system;
-        specialArgs = {inherit inputs user;};
-        modules = [
-          ./hosts/t480/configuration.nix
-          ./modules/nixos/sessions/cinnamon.nix
-        ];
-      };
-
-      cosmic = nixpkgs.lib.nixosSystem {
-        inherit system;
-        specialArgs = {inherit inputs user;};
-        modules = [
-          ./hosts/t480/configuration.nix
+          # Cosmic
           ./modules/nixos/sessions/cosmic.nix
+
+          # Plasma
+          # ./modules/nixos/sessions/plasma.nix
+
+          # Hyprland
+          # ./modules/nixos/sessions/hyprland.nix
+          # { home-manager.sharedModules = [ ./modules/home-manager/hyprland/hyprland-rice.nix ]; }
+          # { home-manager.sharedModules = [ ./modules/home-manager/hyprland/hyprland-minimal.nix ]; }
+
+          # Niri
+          # ./modules/nixos/sessions/niri.nix
+
+          # Cinnamon
+          # ./modules/nixos/sessions/cinnamon.nix
         ];
       };
     };

@@ -26,14 +26,13 @@ git clone https://github.com/SeniorMatt/Matthew-s-NixOS.git && mv ~/Matthew-s-Ni
 ```
     Also, don't forget to remove `hardware-configuration.nix` and replace it with your own.
 Now I have command to do that inside installation guide.
-
-# Usage
 You can use different attributes to switch between different DE's / WM's:
 ```
 # For example
 sudo nixos-rebuild switch --flake /etc/nixos/#plasma
 # Available options are: #plasma #hyprland #minimal #cosmic #niri
 ```
+
 # Screenshots
 ## KDE Plasma using Plasma Manager
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/ff2d11b9-f9d6-4ed4-ae35-17b874d223fe" />

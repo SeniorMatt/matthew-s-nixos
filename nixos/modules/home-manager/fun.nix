@@ -1,6 +1,7 @@
 {pkgs, ...}: {
+  # Fun stuff :D
   home.packages = with pkgs; [
-    # Fun stuff :D
+    neofetch # Fetcher
     pipes # Pipes
     cmatrix # Matrix effect
     cbonsai # Bonsai tree

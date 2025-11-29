@@ -15,7 +15,7 @@ sudo ln -s ~/Matthew-s-NixOS/nixos /etc/nixos
 ```
 cp -f /etc/nixos-back/hardware-configuration.nix ~/Matthew-s-NixOS/nixos/hosts/t480/
 ```
-Replace `matthew` to the username you chose at the installtion (in my case to `matthew` obviously).
+Replace `matthew` to the username you chose at the NixOS installation.
 
 # Usage
 You can switch between different setups by configuring `~/Matthew-s-NixOS/nixos/flake.nix`and removing / adding different preconfigured WMs/DEs. 

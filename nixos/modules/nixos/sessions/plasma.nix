@@ -1,9 +1,5 @@
 { config, lib, pkgs, ... }:
 {
-  imports = [
-    ../fish.nix # Fish shell
-  ];
-
   config = lib.mkIf (config.session.desktop == "plasma") {
 
     services.desktopManager.plasma6.enable = true; # KDE Plasma desktop

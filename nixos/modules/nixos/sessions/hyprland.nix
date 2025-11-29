@@ -1,9 +1,5 @@
 { config, lib, pkgs, ... }:
 {
-  imports = [
-    ../fish.nix # Fish shell
-  ];
-
   config = lib.mkIf (config.session.desktop == "hyprland") {
 
     programs.hyprland.enable = true; # Hyprland wayland compositor

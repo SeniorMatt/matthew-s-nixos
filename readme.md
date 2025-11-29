@@ -17,6 +17,11 @@ cp -f /etc/nixos-back/hardware-configuration.nix ~/Matthew-s-NixOS/nixos/hosts/t
 ```
 Replace `matthew` to the username you chose at the installtion (in my case to `matthew` obviously).
 
+# Usage
+You can switch between different setups by configuring `~/Matthew-s-NixOS/nixos/flake.nix`and removing / adding different preconfigured WMs/DEs. 
+
+> [!warning] Doesn't recommend to use multiple at one build, because some of them are using different intersecting modules and it might broke everything.
+
 ## Deprecated
 ```
 git clone https://github.com/SeniorMatt/Matthew-s-NixOS.git && sudo cp -fr ~/Matthew-s-NixOS/etc/nixos/ /etc/ && sudo rm -fr ~/Matthew-s-NixOS/ && sudo nixos-rebuild switch --flake /etc/nixos/#plasma

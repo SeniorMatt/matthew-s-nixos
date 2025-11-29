@@ -10,7 +10,7 @@
     policies = {
       SearchEngines = {
         Default = "DuckDuckGo";
-        Remove = ["Bing" "Google" "DuckDuckGo"];
+        Remove = ["Google"];
         Add = [
           {
             Name = "YouTube";

@@ -44,9 +44,11 @@ in
       };
     };
 
-    matugenEnable = mkOption {
-      type = types.bool;
-      default = false;
+    matugen = {
+      enable = mkOption {
+        type = types.bool;
+        default = false;
+      };
     };
 
     gtk = {

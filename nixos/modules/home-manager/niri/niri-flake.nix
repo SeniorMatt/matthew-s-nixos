@@ -20,7 +20,7 @@ in {
 
   theme = {
     enable = true;
-    matugenEnable = true;
+    matugen.enable = true;
     font = {
       family = "JetBrains Mono";
       size = 13;

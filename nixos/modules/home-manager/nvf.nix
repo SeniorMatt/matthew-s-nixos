@@ -26,6 +26,7 @@
             wl-copy.enable = true;
           };
         };
+        startPlugins = [ null ];
         viAlias = true;
         vimAlias = true;
         debugMode = {
@@ -76,7 +77,7 @@
             enable = true;
             lsp = {
               enable = true;
-              servers = "omnisharp";
+              servers = [ "omnisharp" ];
             };
             treesitter.enable = true;
           };
@@ -164,9 +165,6 @@
 
         utility = {
           diffview-nvim.enable = true;
-          motion = {
-            hop.enable = true;
-          };
           ccc.enable = true;
         };
 

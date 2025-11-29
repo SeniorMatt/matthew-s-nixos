@@ -1,4 +1,4 @@
-{ pkgs, user, inputs, ... }: let
+{ pkgs, user, inputs, options, lib, ... }: let
   customFont = pkgs.callPackage ../../modules/nixos/custom-font.nix {};
 in {
   imports = [

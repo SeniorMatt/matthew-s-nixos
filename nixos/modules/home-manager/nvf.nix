@@ -136,7 +136,7 @@
             cycleNext = "<S-l>";
             cyclePrevious = "<S-h>";
             moveNext = "<A-L>";
-            movePrevious = "<A-h>";
+            movePrevious = "<A-H>";
             sortByDirectory = null;
             sortByExtension = null;
             sortById = null;

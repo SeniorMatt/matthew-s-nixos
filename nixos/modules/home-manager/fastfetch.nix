@@ -3,7 +3,8 @@
     enable = true;
     settings = {
       logo = {
-        source = "~/Pictures/avatar-circle.png";
+        # Repo path
+        source = "~/Matthew-s-NixOS/pictures/avatar-circle.png";
       };
       modules = [
         "break"

@@ -1,6 +1,6 @@
-{ pkgs, ... }: {
+{ pkgs, ... }: 
+{
   imports = [
-    ../tlp.nix
     ../fish.nix
   ];
 

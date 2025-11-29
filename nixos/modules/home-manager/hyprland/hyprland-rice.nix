@@ -7,8 +7,6 @@ in {
     ../theme.nix
 
     ../oh-my-posh.nix # Fish theme
-    ../fastfetch.nix # Fastfetch
-    ../fun.nix # Fun terminal
     ../kitty/kitty.nix # Terminal
     ../kitty/kitty-catppuccin-theme.nix # Terminal theme
     ../rofi/rofi.nix # App launcher

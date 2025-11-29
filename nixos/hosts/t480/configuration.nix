@@ -6,7 +6,8 @@ in {
     ./hardware-configuration.nix
     ../../modules/nixos/bluetooth.nix
     ../../modules/nixos/pipewire.nix
-    # ../../modules/nixos/undervolt.nix
+    ../../modules/nixos/undervolt.nix
+    ../../modules/nixos/tlp.nix
     ../../modules/nixos/virt-manager.nix
   ];
 

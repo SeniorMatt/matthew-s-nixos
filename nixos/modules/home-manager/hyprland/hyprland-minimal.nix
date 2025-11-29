@@ -6,8 +6,6 @@ in {
   imports = [
     ../theme.nix
 
-    ../fastfetch.nix # Fastfetch
-    ../fun.nix # Fun terminal
     ../kitty/kitty.nix # Terminal
     ../rofi/rofi.nix # App launcher
     ../rofi/rofi-minimal-theme.nix # App launcher

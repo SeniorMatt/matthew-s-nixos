@@ -8,6 +8,9 @@
   # Polkit
   security.polkit.enable = true;
 
+  # Login manager
+  services.displayManager.ly.enable = true;
+
   # Optional, hint electron apps to use wayland:
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 

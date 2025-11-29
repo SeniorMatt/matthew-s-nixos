@@ -38,6 +38,7 @@
     davinci-resolve # Davinci resolve
     audacity # Audio editor
     prismlauncher # The Minecraft launcher
+    gnome-mines # Minesweeper
     kdePackages.isoimagewriter # Iso Image Writer
     batmon # TUI battery
     btop # TUI task manager

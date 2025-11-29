@@ -131,9 +131,6 @@ in {
     ];
   };
 
-  # Ly
-  services.displayManager.ly.enable = true;
-
   # List services that you want to enable:
   services.udisks2.enable = true;
 

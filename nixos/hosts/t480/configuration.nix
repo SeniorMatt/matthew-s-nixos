@@ -156,6 +156,11 @@ in {
       options = "--delete-older-than 7d";
     };
   };
+  system.autoUpgrade = {
+    enable = true;
+    flake = "/etc/nixos/";
+    dates = "daily";
+  };
 
   # Never change that
   system.stateVersion = "25.05";

@@ -388,7 +388,8 @@
         "nixpkgs-stable": "nixpkgs-stable_2",
         "nixvim": "nixvim",
         "nvf": "nvf",
-        "plasma-manager": "plasma-manager"
+        "plasma-manager": "plasma-manager",
+        "zen-browser": "zen-browser"
       }
     },
     "systems": {
@@ -481,6 +482,26 @@
       "original": {
         "owner": "Supreeeme",
         "repo": "xwayland-satellite",
+        "type": "github"
+      }
+    },
+    "zen-browser": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1764476124,
+        "narHash": "sha256-QHvDAJdc7Sx8rIUpEjZYtn9n334F0Rg/8C/NcUWv7M4=",
+        "owner": "youwen5",
+        "repo": "zen-browser-flake",
+        "rev": "0f07eb42107d2b82d8a2e94d3c01aa3d7f500733",
+        "type": "github"
+      },
+      "original": {
+        "owner": "youwen5",
+        "repo": "zen-browser-flake",
         "type": "github"
       }
     }

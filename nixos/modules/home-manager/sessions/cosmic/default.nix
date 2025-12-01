@@ -10,7 +10,7 @@
   ];
 
   theme = {
-    enable = true; # Enabling default GTK and QT theming
+    enable = false; # Enabling default GTK and QT theming
     gtk = {
       enable = false;
     };

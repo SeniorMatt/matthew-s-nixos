@@ -44,7 +44,7 @@
     kdePackages.isoimagewriter # Iso Image Writer
     batmon # TUI battery
     btop # TUI task manager
-    gparted # Graphical disk partitioning tool
+    gnome-system-monitor # GUI task manager
     # stress # CPU, Memory and I/O stress test
     # unigine-heaven # GPU stress test
   ];

@@ -41,7 +41,7 @@
         modules = [
           ./hosts/t480/configuration.nix
           ./modules/nixos/sessions
-          { session.desktop = "niri"; }
+          { session.desktop = "cosmic"; }
         ];
       };
     };

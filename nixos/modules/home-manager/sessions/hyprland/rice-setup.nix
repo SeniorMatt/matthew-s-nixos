@@ -1,20 +1,19 @@
-{ pkgs, user, ... }: 
+{ config, pkgs, user, ... }: 
 let
   wallpaper = "/home/${user}/Pictures/wallpapers/catppuccin/pompeii.png";
-  cornerRadius = "4";
+  cornerRadius = builtins.toString config.hyprland.cornerRadius;
 in {
   imports = [
     ../theme.nix
 
-    ../oh-my-posh.nix # Bash theme
-    ../kitty/kitty-catppuccin-theme.nix # Terminal theme
-    ../rofi/rofi.nix # App launcher
-    ../rofi/rofi-catppuccin-theme.nix # App launcher
-    ../nautilus.nix
-    ../waybar/waybar-hyprland.nix # Panel
-    ../waybar/waybar-catppuccin-theme.nix # Catppuccin theme for panel
-    ../dunst.nix # Notification manager
-    ../default-apps.nix # Default apps
+    ../../oh-my-posh.nix # Bash theme
+    ../../rofi/rofi.nix # App launcher
+    ../../rofi/rofi-catppuccin-theme.nix # App launcher
+    ../../nautilus.nix
+    ../../waybar/waybar-hyprland.nix # Panel
+    ../../waybar/waybar-catppuccin-theme.nix # Catppuccin theme for panel
+    ../../dunst.nix # Notification manager
+    ../../default-apps.nix # Default apps
 
     # Hyprland
     ./animations.nix
@@ -28,6 +27,7 @@ in {
     ./workspaces.nix
   ];
 
+  kitty.theme = "catppuccin";
   theme = {
     enable = true;
 

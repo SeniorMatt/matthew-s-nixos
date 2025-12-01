@@ -1,19 +1,15 @@
-{lib, config, pkgs, ...}:
+{ lib, config, pkgs, ... }:
+let
+  cornerRadius = builtins.toString config.rofi.cornerRadius;
+in
 {
-  options.rofi = with lib; {
-    cornerRadius = mkOption {
-      type = types.str;
-      default = "0";
-    };
-  };
-
-  config = with config.rofi; {
+  config = lib.mkIf (config.rofi.theme == "minimal") {
     programs.rofi.theme = "${pkgs.writeText "config.rasi" ''
       * {
-        base: #181825; 
-        text: #cdd6f4;
-        lightbase: #1e1e2e;
-        accent: #b4befe;
+        base: #000000;
+        text: #f0f0f0;
+        lightbase: #202020;
+        accent: #999999;
         border-radius: ${cornerRadius};
         background-color: @base;
         text-color: @text;
@@ -24,9 +20,8 @@
       element {
         orientation: horizontal;
         children: [ element-text ];
-        spacing: 0px;
+        spacing: 4px;
         cursor: pointer;
-        margin: 2 16;
       }
 
       window {
@@ -35,7 +30,9 @@
       }
 
       entry{ 
+        expand: true;
         background-color: @lightbase;
+        placeholder: "...";
       }
 
       element-text {
@@ -46,8 +43,7 @@
         horizontal-align: 0;
       }
       element-text selected, element-icon selected {
-        background-color: @accent;
-        text-color: @base;
+        background-color: @lightbase;
         border-radius: 0;
       }
 

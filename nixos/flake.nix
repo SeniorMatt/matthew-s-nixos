@@ -40,7 +40,7 @@
         specialArgs = {inherit inputs user repoPath;};
         modules = [
           ./hosts/t480/configuration.nix
-          ./modules/nixos/sessions/session.nix
+          ./modules/nixos/sessions
           { 
             session = {
              desktop = "cosmic"; 

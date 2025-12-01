@@ -1,19 +1,9 @@
+{ lib, config, ... }:
+let
+  cornerRadius = builtins.toString config.rofi.cornerRadius;
+in
 {
-  lib,
-  config,
-  pkgs,
-  inputs,
-  ...
-}:
-{
-  options.rofi = with lib; {
-    cornerRadius = mkOption {
-      type = types.str;
-      default = "0";
-    };
-  };
-
-  config = with config.rofi; {
+  config = lib.mkIf (config.rofi.theme == "matugen") {
     programs.rofi.theme = "${config.home.homeDirectory}/.config/rofi/setup.rasi";
     xdg.configFile."rofi/setup.rasi".text = ''
       @import "rofi-colors"

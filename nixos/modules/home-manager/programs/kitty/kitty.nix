@@ -1,5 +1,14 @@
+{ lib, ... }:
 {
-  programs.kitty = {
+  options.kitty = with lib; {
+    theme = mkOption {
+      type = types.enum [ "none" "catppuccin" "matugen" "medallion" ];
+      default = "none";
+      description = "Choose kitty's theme";
+    };
+  };
+  
+  config.programs.kitty = {
     enable = true;
     font = {
       name = "JetBrains Mono";

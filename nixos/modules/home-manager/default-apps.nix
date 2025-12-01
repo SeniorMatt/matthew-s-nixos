@@ -1,6 +1,6 @@
 { pkgs, lib, config, ... }:
 {
-  options.default-apps = with lib; {
+  options.defaultApps = with lib; {
     imageViewerPackage = mkOption {
       type = types.package;
       default = pkgs.eog;

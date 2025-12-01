@@ -2,11 +2,12 @@
   imports = [
     ../../modules/home-manager/bash.nix
     ../../modules/home-manager/firefox.nix
-    ../../modules/home-manager/kitty/kitty.nix
     ../../modules/home-manager/git.nix
     ../../modules/home-manager/nvf.nix
     ../../modules/home-manager/fastfetch.nix
     ../../modules/home-manager/fun.nix
+
+    ../../modules/home-manager/programs/kitty
   ];
 
   home.username = user;

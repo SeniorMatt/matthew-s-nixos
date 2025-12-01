@@ -1,12 +1,9 @@
-{ config, lib, ...}: 
+{ lib, config, ...}: 
+let
+  cornerRadius = builtins.toString config.waybar.cornerRadius;
+in
 {
-  options.waybar = with lib; {
-    cornerRadius = mkOption {
-      type = types.str;
-      default = "0";
-    };
-  };
-  config = with config.waybar; {
+  config = lib.mkIf (config.waybar.theme == "matugen") {
     programs.waybar.style = ''
       @import "colors.css";
       * {

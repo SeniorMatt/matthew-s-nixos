@@ -1,6 +1,17 @@
-{pkgs, ...}:
+{ lib, pkgs, ... }:
 {
-  programs.rofi = {
+  options.rofi = with lib; {
+    theme = mkOption {
+      type = types.enum [ "catppuccin" "matugen" "minimal" ];
+      default = "minimal";
+    };
+    cornerRadius = mkOption {
+      type = types.int;
+      default = 0;
+    };
+  };
+
+  config.programs.rofi = {
     enable = true;
     font = "JetBrains Mono 20";
     modes = [

@@ -7,7 +7,7 @@
 
     home-manager = {
       sharedModules = [
-        ../../home-manager/cosmic/cosmic.nix
+        ../../home-manager/sessions/cosmic
       ];
     };
   };

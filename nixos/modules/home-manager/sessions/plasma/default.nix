@@ -1,41 +1,21 @@
-{
-  inputs,
-  pkgs,
-  config,
-  ...
-}: let
-  wallpaperFolder = "${config.home.homeDirectory}/Pictures/wallpapers";
+{ inputs, pkgs, repoPath, ... }: 
+let
+  wallpaperFolder = "${repoPath}/pictures/wallpapers";
   wallpaper = "${wallpaperFolder}/feel-gut.png";
   generalFont = "Noto Sans";
   fixedFont = "JetBrainsMono";
   generalFontSize = 12;
   smallFontSize = 10;
-  #andromedaLauncher = pkgs.stdenv.mkDerivation {
-  #  pname = "andromedaLauncher";
-  #  version = "1.0";
-  #  src = pkgs.fetchFromGitHub {
-  #    owner = "EliverLara";
-  #    repo = "AndromedaLauncher";
-  #    rev = "plasma6";
-  #    sha256 = "sha256-k1qx3jHRFjwZSS5PQJq/ceTZ+rvseJhA0osHPRRIN34=";
-  #  };
-  #  installPhase = ''
-  #    mkdir -p $out/share/plasma/plasmoids/AndromedaLauncher
-  #    cp -r "$src"/AndromedaLauncher-plasma6/* "$out/share/plasma/plasmoids/AndromedaLauncher/"
-  #  '';
-  #};
 in {
   imports = [
     inputs.plasma-manager.homeModules.plasma-manager
     ../theme.nix
-    ../kitty/kitty-catppuccin-theme.nix
     ../default-apps.nix
     ../oh-my-posh.nix
   ];
 
   theme = {
     enable = true;
-
     gtk = {
       enable = true;
       name = "Breeze-Dark";
@@ -44,7 +24,7 @@ in {
     qt.enable = false;
   };
 
-  default-apps = {
+  defaultApps = {
     imageViewerPackage = pkgs.kdePackages.gwenview;
     imageViewer = "org.kde.gwenview.desktop";
     documentViewerPackage = pkgs.kdePackages.okular;
@@ -52,6 +32,8 @@ in {
     mediaPlayerPackage = pkgs.haruna;
     mediaPlayer = "org.kde.haruna.desktop";
   };
+
+  kitty.theme = "catppuccin";
 
   home.packages = with pkgs; [
     kdePackages.dolphin # File manager

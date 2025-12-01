@@ -1,8 +1,7 @@
 { pkgs, ... }:
 {
   imports = [ 
-    ../theme.nix
-    ../kitty/kitty.nix
+    ../../theme.nix
   ];
   
   home.packages = with pkgs; [

@@ -1,7 +1,7 @@
-{ pkgs, repoPath, ... }: 
+{ config, pkgs, repoPath, ... }: 
 let
   wallpaper = "${repoPath}/pictures/wallpapers/the_creation_of_adam.jpg";
-  cornerRadius = "0";
+  cornerRadius = builtins.toString config.hyprland.cornerRadius;
 in {
   imports = [
     ../theme.nix

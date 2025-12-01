@@ -1,20 +1,19 @@
-{pkgs, inputs, repoPath, ...}:
+{ pkgs, inputs, repoPath, ... }:
 let
   wallpaper = "${repoPath}/pictures/wallpapers/kanistra-studio-20-workplace.jpg";
   cornerRadius = "6";
 in {
   imports = [
     inputs.niri-flake.homeModules.niri
-    ../theme.nix
-    ../matugen/matugen.nix
-    ../fun.nix
-    ../kitty/kitty-matugen-theme.nix
-    ../waybar/waybar-niri.nix
-    ../waybar/waybar-matugen-theme.nix
-    ../rofi/rofi.nix
-    ../rofi/rofi-matugen-theme.nix
-    ../default-apps.nix
-    ../nautilus.nix
+    ../../theme.nix
+    ../../waybar
+    ../../rofi
+
+    ../../matugen/matugen.nix
+    ../../fun.nix
+
+    ../../default-apps.nix
+    ../../nautilus.nix
   ];
 
   theme = {
@@ -33,11 +32,15 @@ in {
 
   waybar = {
     inherit cornerRadius;
+    theme = "matugen";
   };
 
   rofi = {
     inherit cornerRadius;
+    theme = "matugen";
   };
+
+  kitty.theme = "matugen";
 
   matugen = {
     inherit wallpaper;

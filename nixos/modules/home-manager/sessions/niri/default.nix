@@ -1,20 +1,18 @@
 { pkgs, inputs, repoPath, ... }:
 let
   wallpaper = "${repoPath}/pictures/wallpapers/kanistra-studio-20-workplace.jpg";
-  cornerRadius = "6";
+  cornerRadius = 6;
 in {
   imports = [
     inputs.niri-flake.homeModules.niri
     ../../theming
 
+    ../../programs/default-apps
     ../../programs/waybar
     ../../programs/rofi
     ../../programs/nautilus
 
     ../../theming/matugen
-
-    ../../fun.nix
-    ../../default-apps.nix
   ];
 
   theme = {

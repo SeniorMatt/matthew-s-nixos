@@ -24,17 +24,15 @@
       {
         name = "compx-2.4g-dual-mode-mouse";
         accel_profile = "flat";
-        #sensitivity = -0.25;
         sensitivity = 0.0;
       }
       {
         name = "compx-2.4g-wireless-receiver";
         accel_profile = "flat";
-        #sensitivity = -0.25;
         sensitivity = 0.0;
       }
       {
-        name = "tpps/2-elan-trackpoint";
+        name = "tpps/2-ibm-trackpoint";
         accel_profile = "flat";
         sensitivity = 0.0;
         scroll_factor = 0.25;

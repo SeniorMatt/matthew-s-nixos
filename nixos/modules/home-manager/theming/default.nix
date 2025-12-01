@@ -58,11 +58,13 @@ in
       };
       name = mkOption {
         type = types.str;
-        default = "adw-gtk3-dark";
+        # default = "adw-gtk3-dark";
+        default = "Adwaita-dark";
       };
       package = mkOption {
         type = types.package;
-        default = pkgs.adw-gtk3;
+        # default = pkgs.adw-gtk3;
+        default = pkgs.gnome-themes-extra;
       };
     };
 
@@ -92,7 +94,7 @@ in
   config = with config.theme; lib.mkIf enable {
       home = {
         packages = with pkgs; [ ]
-        ++ lib.optional  kvantum.enable kdePackages.qtstyleplugin-kvantum;
+        ++ lib.optional kvantum.enable kdePackages.qtstyleplugin-kvantum;
 
         file.".icons/default".source = "${cursor.package}/share/icons/${cursor.name}";
 
@@ -101,6 +103,7 @@ in
           XCURSOR_SIZE = cursorSizeString;
           HYPRCURSOR_THEME = cursor.name;
           HYPRCURSOR_SIZE = cursorSizeString;
+          ADW_DEBUG_COLOR_SCHEME="prefer-dark";
         };
       };
 
@@ -124,12 +127,21 @@ in
           package = cursor.package;
           size = cursor.size;
         };
+
+        # gtk3.extraConfig."gtk-application-prefer-dark-theme" = 1;
+        # gtk4.extraConfig."gtk-application-prefer-dark-theme" = 1;
       };
 
-      dconf.settings = {
-        "org/gnome/desktop/wm/preferences" = {
-          #button-layout = ":minimize,maximize,close";
-          button-layout = ":close";
+      dconf = {
+        enable = true;
+        settings = {
+          "org/gnome/desktop/wm/preferences" = {
+            #button-layout = ":minimize,maximize,close";
+            button-layout = ":close";
+          };
+          "org/gnome/desktop/interface" = {
+            color-scheme = "prefer-dark";
+          };
         };
       };
 
@@ -154,6 +166,8 @@ in
           "gtk-4.0/assets".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/assets";
           "gtk-4.0/gtk.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk.css";
           "gtk-4.0/gtk-dark.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk-dark.css";
+          "gtk-4.0/libadwaita.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/libadwaita.css";
+          "gtk-4.0/libadwaita-tweaks.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/libadwaita-tweaks.css";
         })
 
         (lib.mkIf kvantum.enable {

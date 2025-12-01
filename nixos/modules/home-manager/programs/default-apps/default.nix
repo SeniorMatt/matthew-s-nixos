@@ -29,14 +29,14 @@
     };
   };
 
-  config = with config.default-apps; {
+  config = with config.defaultApps; {
     home.packages = with pkgs; [
       imageViewerPackage
       documentViewerPackage
       mediaPlayerPackage
     ];
 
-    xdg.mimeApps = with config.default-apps; {
+    xdg.mimeApps = with config.defaultApps; {
       enable = true;
       defaultApplications = {
         "image/png" = "${imageViewer}";

@@ -3,15 +3,16 @@ let
   frame = "#89b4fa";
   bg = "#1e1e2e";
   fg = "#cdd6f4";
+  cornerRadius = builtins.toString config.dunst.cornerRadius;
 in {
   options.dunst = with lib; {
     cornerRadius = mkOption {
-      type = types.str;
-      default = "8";
+      type = types.int;
+      default = 8;
     };
   };
 
-  config = with config.dunst; {
+  config = {
     home.packages = with pkgs; [ libnotify ];
     services.dunst = {
       enable = true;

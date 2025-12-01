@@ -1,7 +1,6 @@
 { lib, ... }:
 {
   imports = [
-    ./waybar.nix
     ./hyprland-settings.nix
     ./niri-settings.nix
     ./catppuccin-theme.nix

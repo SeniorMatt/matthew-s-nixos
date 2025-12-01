@@ -8,7 +8,6 @@ in
       * {
           font-family: JetBrainsMono Nerd Font Propo;
           font-size: 13pt;
-          transition: all 250ms ease;
           border-radius: ${cornerRadius}px;
           margin: 0;
           padding: 0;

@@ -9,13 +9,18 @@ git clone https://github.com/SeniorMatt/Matthew-s-NixOS.git
 ```
 sudo chown -R matthew:users ~/Matthew-s-NixOS/nixos/ 
 ```
-```
-sudo ln -s ~/Matthew-s-NixOS/nixos /etc/nixos
-```
+Replace `matthew` to the username you chose at the NixOS installation.
 ```
 cp -f /etc/nixos-back/hardware-configuration.nix ~/Matthew-s-NixOS/nixos/hosts/t480/
 ```
-Replace `matthew` to the username you chose at the NixOS installation.
+You can either symlink the configuration to `/etc/nixos`.
+```
+sudo ln -s ~/Matthew-s-NixOS/nixos /etc/nixos
+``` 
+so it will work by writing `sudo nixos-rebuild switch`, or you can rebuild using this command.
+```
+sudo nixos-rebuild switch --flake ~/Matthew-s-NixOS/nixos/
+```
 
 # Usage
 You can switch between different setups by configuring `~/Matthew-s-NixOS/nixos/flake.nix`and removing / adding different preconfigured WMs/DEs. 

@@ -3,7 +3,7 @@
   config = lib.mkIf (config.session.desktop == "cosmic") {
     services.desktopManager.cosmic.enable = true;
     services.displayManager.cosmic-greeter.enable = true;
-    services.displayManager.ly.enable = false;
+    services.system76-scheduler.enable = true;
 
     home-manager = {
       sharedModules = [

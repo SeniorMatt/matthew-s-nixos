@@ -6,7 +6,8 @@ in {
     ./hardware-configuration.nix
     ../../modules/nixos/system/bluetooth
     ../../modules/nixos/system/audio
-    ../../modules/nixos/power/tlp
+    ../../modules/nixos/power/power-profiles-daemon
+    # ../../modules/nixos/power/tlp
     # ../../modules/nixos/power/undervolt
   ] ;
 
@@ -21,7 +22,7 @@ in {
       # For newer
       # intel-compute-runtime
       # For older Intel CPU's
-      intel-media-driver
+      # intel-media-driver
       intel-compute-runtime-legacy1
     ];
   };

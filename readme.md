@@ -11,9 +11,12 @@ git clone https://github.com/SeniorMatt/Matthew-s-NixOS.git
 sudo chown -R matthew:users ~/Matthew-s-NixOS/nixos/ 
 ```
 ```
-cp -f /etc/nixos-back/hardware-configuration.nix ~/Matthew-s-NixOS/nixos/hosts/t480/
+cp -f /etc/nixos/hardware-configuration.nix ~/Matthew-s-NixOS/nixos/hosts/t480/
 ```
 You can either symlink the configuration to `/etc/nixos`.
+```
+sudo mv /etc/nixos /etc/nixos-back
+```
 ```
 sudo ln -s ~/Matthew-s-NixOS/nixos /etc/nixos
 ``` 

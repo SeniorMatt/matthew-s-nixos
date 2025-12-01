@@ -7,8 +7,7 @@
     # '';
     shellAliases = {
       nrs = "sudo nixos-rebuild switch --flake ~/Matthew-s-NixOS/nixos/";
-      nx = "nvim /etc/nixos/";
-      ng = "nvim ~/Documents/GitHub/";
+      nx = "nvim ~/Matthew-s-NixOS";
       nu = "nvim --listen /tmp/nvimsocket";
       p = "ping google.com";
       c = "ffmpeg -i video.mp4 -c:v dnxhd -profile:v dnxhr_hq -c:a pcm_s16le -pix_fmt yuv422p output.mov";

@@ -171,7 +171,7 @@ in {
           }
         ];
         options = ["grp:caps_toggle"];
-        repeatDelay = 600;
+        repeatDelay = 250;
         repeatRate = 25;
       };
       mice = [
@@ -183,7 +183,7 @@ in {
         }
         {
           accelerationProfile = "none";
-          name = "TPPS\\/2 Elan TrackPoint";
+          name = "TPPS\\/2 IBM TrackPoint";
           vendorId = "0002";
           productId = "000a";
         }

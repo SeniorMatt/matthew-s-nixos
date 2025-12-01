@@ -17,7 +17,7 @@ You can either symlink the configuration to `/etc/nixos`.
 ```
 sudo ln -s ~/Matthew-s-NixOS/nixos /etc/nixos
 ``` 
-so it will work by writing `sudo nixos-rebuild switch`, or you can rebuild using this command (check if flakes are enabled at your previous NixOS configuration)
+so it will work by writing `sudo nixos-rebuild switch`, or you can rebuild using this command (make sure that flakes are enable on your previous NixOS build)
 ```
 sudo nixos-rebuild switch --flake ~/Matthew-s-NixOS/nixos/
 ```

@@ -9,9 +9,9 @@ let
 in {
   imports = [
     inputs.plasma-manager.homeModules.plasma-manager
-    ../theme.nix
-    ../default-apps.nix
-    ../oh-my-posh.nix
+    ../../theming
+    ../../programs/default-apps
+    ../../theming/oh-my-posh
   ];
 
   theme = {
@@ -232,7 +232,7 @@ in {
 
     kwin = {
       effects = {
-        blur.enable = false;
+        blur.enable = true;
         #cube.enable = false;
         #desktopSwitching.animation = "off";
         #dimAdminMode.enable = false;

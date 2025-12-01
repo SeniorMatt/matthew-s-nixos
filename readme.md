@@ -7,9 +7,9 @@ My NixOS personal setup.
 git clone https://github.com/SeniorMatt/Matthew-s-NixOS.git 
 ```
 ```
+# Replace `matthew` with the username you chose at the NixOS installation.
 sudo chown -R matthew:users ~/Matthew-s-NixOS/nixos/ 
 ```
-Replace `matthew` with the username you chose at the NixOS installation.
 ```
 cp -f /etc/nixos-back/hardware-configuration.nix ~/Matthew-s-NixOS/nixos/hosts/t480/
 ```

@@ -9,7 +9,7 @@ git clone https://github.com/SeniorMatt/Matthew-s-NixOS.git
 ```
 sudo chown -R matthew:users ~/Matthew-s-NixOS/nixos/ 
 ```
-Replace `matthew` to the username you chose at the NixOS installation.
+Replace `matthew` with the username you chose at the NixOS installation.
 ```
 cp -f /etc/nixos-back/hardware-configuration.nix ~/Matthew-s-NixOS/nixos/hosts/t480/
 ```

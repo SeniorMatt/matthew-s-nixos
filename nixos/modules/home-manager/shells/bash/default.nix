@@ -6,6 +6,7 @@
     #   ${pkgs.fortune}/bin/fortune | ${pkgs.cowsay}/bin/cowsay -f stegosaurus
     # '';
     shellAliases = {
+      nrs = "sudo nixos-rebuild switch --flake ~/Matthew-s-NixOS/nixos/";
       nx = "nvim /etc/nixos/";
       ng = "nvim ~/Documents/GitHub/";
       nu = "nvim --listen /tmp/nvimsocket";

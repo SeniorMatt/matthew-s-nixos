@@ -5,7 +5,6 @@
     "gtk-3.0/bookmarks".text = ''
       file:///home/${user}/Downloads Downloads
       file:///home/${user}/Documents Documents
-      file:///home/${user}/Documents/GitHub GitHub
       file:///home/${user}/Pictures Pictures
       file:///home/${user}/Pictures/Screenshots Screenshots
       file:///home/${user}/Videos Videos

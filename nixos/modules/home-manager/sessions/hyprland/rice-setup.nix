@@ -80,6 +80,7 @@ in {
     # Wallpaper
     services.hyprpaper = {
       enable = true;
+      package = pkgs.hyprpaper;
       settings = {
         preload = [ "${wallpaper}" ];
         wallpaper = [ ",${wallpaper}" ];

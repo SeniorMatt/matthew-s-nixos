@@ -39,6 +39,7 @@ in {
 
     services.hyprpaper = {
       enable = true; # Wallpaper utility
+      package = pkgs.hyprpaper;
       settings = {
         preload = [ "${wallpaper}" ];
         wallpaper = [ ",${wallpaper}" ];

@@ -4,30 +4,27 @@ let
   cornerRadius = builtins.toString config.hyprland.cornerRadius;
 in {
   imports = [
-    ../theme.nix
+    ../../theming
 
     ../../oh-my-posh.nix # Bash theme
-    ../../rofi/rofi.nix # App launcher
-    ../../rofi/rofi-catppuccin-theme.nix # App launcher
-    ../../nautilus.nix
-    ../../waybar/waybar-hyprland.nix # Panel
-    ../../waybar/waybar-catppuccin-theme.nix # Catppuccin theme for panel
-    ../../dunst.nix # Notification manager
+    ../../programs/rofi
+    ../../programs/nautilus
+    ../../programs/waybar
+    ../../programs/dunst
     ../../default-apps.nix # Default apps
 
     # Hyprland
-    ./animations.nix
-    ./autostart.nix
-    ./binds.nix
-    ./gestures.nix
-    ./input.nix
-    ./look-and-feel.nix
-    ./monitors.nix
-    ./window-rules.nix
-    ./workspaces.nix
+    ./configuration/animations.nix
+    ./configuration/autostart.nix
+    ./configuration/binds.nix
+    ./configuration/gestures.nix
+    ./configuration/input.nix
+    ./configuration/look-and-feel.nix
+    ./configuration/monitors.nix
+    ./configuration/window-rules.nix
+    ./configuration/workspaces.nix
   ];
 
-  kitty.theme = "catppuccin";
   theme = {
     enable = true;
 
@@ -74,14 +71,21 @@ in {
 
   rofi = {
     inherit cornerRadius;
+    theme = "catppuccin";
+  };
+
+  waybar = {
+    inherit cornerRadius;
+    theme = "catppuccin";
+    settings = "hyprland";
   };
 
   dunst = {
     inherit cornerRadius;
   };
 
-  waybar = {
-    inherit cornerRadius;
+  kitty = {
+    theme = "catppuccin";
   };
 
   # Wallpaper

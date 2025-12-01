@@ -18,7 +18,7 @@
 
     home-manager = {
       sharedModules = [
-        ../../home-manager/sessions/plasma # Home manager module
+        ../../../home-manager/sessions/plasma # Home manager module
       ];
     };
   };

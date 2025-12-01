@@ -5,15 +5,16 @@ let
 in {
   imports = [
     inputs.niri-flake.homeModules.niri
-    ../../theme.nix
-    ../../waybar
-    ../../rofi
+    ../../theming
 
-    ../../matugen/matugen.nix
+    ../../programs/waybar
+    ../../programs/rofi
+    ../../programs/nautilus
+
+    ../../theming/matugen
+
     ../../fun.nix
-
     ../../default-apps.nix
-    ../../nautilus.nix
   ];
 
   theme = {
@@ -33,6 +34,7 @@ in {
   waybar = {
     inherit cornerRadius;
     theme = "matugen";
+    settings = "niri";
   };
 
   rofi = {
@@ -40,7 +42,9 @@ in {
     theme = "matugen";
   };
 
-  kitty.theme = "matugen";
+  kitty = {
+    theme = "matugen";
+  };
 
   matugen = {
     inherit wallpaper;

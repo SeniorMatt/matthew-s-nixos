@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   imports = [ 
-    ../../theme.nix
+    ../../theming
   ];
   
   home.packages = with pkgs; [

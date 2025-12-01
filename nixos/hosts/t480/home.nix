@@ -1,11 +1,11 @@
 { pkgs, user, ... }: {
   imports = [
-    ../../modules/home-manager/bash.nix
-    ../../modules/home-manager/firefox.nix
-    ../../modules/home-manager/git.nix
-    ../../modules/home-manager/nvf.nix
-    ../../modules/home-manager/fastfetch.nix
-    ../../modules/home-manager/fun.nix
+    ../../modules/home-manager/shells/bash
+    ../../modules/home-manager/programs/firefox
+    ../../modules/home-manager/programs/git
+    ../../modules/home-manager/programs/nvim
+    ../../modules/home-manager/programs/fastfetch
+    ../../modules/home-manager/programs/fun
 
     ../../modules/home-manager/programs/kitty
   ];

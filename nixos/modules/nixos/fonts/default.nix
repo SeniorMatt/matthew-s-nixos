@@ -5,7 +5,7 @@
 stdenvNoCC.mkDerivation {
   pname = "m6x11";
   version = "0.1";
-  src = ./fonts;
+  src = ../fonts;
 
   installPhase = ''
     mkdir -p $out/share/fonts/truetype/

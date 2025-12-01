@@ -18,8 +18,11 @@
       ];
     };
 
-    home-manager.sharedModules = [ ]
-      ++ lib.optional (config.session.flavour == "none") ../../home-manager/hyprland/hyprland-rice.nix 
-      ++ lib.optional (config.session.flavour == "minimal") ../../home-manager/hyprland/hyprland-minimal.nix;
+    home-manager = {
+      sharedModules = [ 
+        ../../../home-manager/sessions/hyprland
+      ];
+      # hyprland.theme = "rice";
+    };
   };
 }

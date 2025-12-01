@@ -41,12 +41,7 @@
         modules = [
           ./hosts/t480/configuration.nix
           ./modules/nixos/sessions
-          { 
-            session = {
-             desktop = "cosmic"; 
-             flavour = "none"; 
-            };
-          }
+          { session.desktop = "cosmic"; }
         ];
       };
     };

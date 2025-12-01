@@ -4,26 +4,25 @@ let
   cornerRadius = builtins.toString config.hyprland.cornerRadius;
 in {
   imports = [
-    ../theme.nix
+    ../../theming
 
-    ../rofi/rofi.nix # App launcher
-    ../rofi/rofi-minimal-theme.nix # App launcher
-    ../nautilus.nix # File manager
-    ../waybar/waybar-hyprland.nix # Panel
-    ../waybar/waybar-minimal-theme.nix # Minimal theme for panel
-    ../dunst.nix # Notification manager
-    ../default-apps.nix # Default apps
+    ../../programs/rofi
+    ../../programs/nautilus
+    ../../programs/waybar
+    ../../programs/dunst
+
+    ../../default-apps.nix # Default apps
 
     # Hyprland
-    ./autostart.nix
-    ./binds.nix
-    ./gestures.nix
-    ./input.nix
-    ./look-and-feel-minimal.nix
-    ./monitors.nix
-    ./smart-gaps.nix
-    ./window-rules.nix
-    ./workspaces.nix
+    ./configuration/autostart.nix
+    ./configuration/binds.nix
+    ./configuration/gestures.nix
+    ./configuration/input.nix
+    ./configuration/look-and-feel-minimal.nix
+    ./configuration/monitors.nix
+    ./configuration/smart-gaps.nix
+    ./configuration/window-rules.nix
+    ./configuration/workspaces.nix
   ];
 
   theme = {
@@ -36,13 +35,16 @@ in {
 
   rofi = {
     inherit cornerRadius;
-  };
-
-  dunst = {
-    inherit cornerRadius;
+    theme = "minimal";
   };
 
   waybar = {
+    inherit cornerRadius;
+    theme = "minimal";
+    settings = "hyprland";
+  };
+
+  dunst = {
     inherit cornerRadius;
   };
 

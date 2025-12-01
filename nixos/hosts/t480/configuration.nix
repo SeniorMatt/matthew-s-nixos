@@ -1,13 +1,13 @@
 { pkgs, user, repoPath, inputs, ... }: let
-  customFont = pkgs.callPackage ../../modules/nixos/custom-font.nix {};
+  customFont = pkgs.callPackage ../../modules/nixos/fonts {};
 in {
   imports = [
     inputs.home-manager.nixosModules.default
     ./hardware-configuration.nix
-    ../../modules/nixos/bluetooth.nix
-    ../../modules/nixos/pipewire.nix
-    # ../../modules/nixos/undervolt.nix
-    ../../modules/nixos/tlp.nix
+    ../../modules/nixos/system/bluetooth
+    ../../modules/nixos/system/audio
+    ../../modules/nixos/power/tlp
+    # ../../modules/nixos/power/undervolt
   ] ;
 
   # Bootloader.

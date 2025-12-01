@@ -13,7 +13,7 @@
     };
     home-manager = {
       sharedModules = [
-        ../../home-manager/sessions/niri
+        ../../../home-manager/sessions/niri
       ];
     };
   };

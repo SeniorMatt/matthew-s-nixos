@@ -10,6 +10,8 @@
 
     environment.sessionVariables.NIXOS_OZONE_WL = "1"; # Optional, hint electron apps to use wayland:
 
+    services.udisks2.enable = true; # Disks
+
     xdg.portal = {
       enable = true;
       extraPortals = with pkgs; [

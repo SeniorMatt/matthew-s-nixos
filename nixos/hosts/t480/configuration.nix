@@ -71,8 +71,6 @@ in {
     isNormalUser = true;
     description = "Default user";
     extraGroups = ["networkmanager" "wheel"];
-    packages = with pkgs; [
-    ];
   };
 
   home-manager = {
@@ -97,11 +95,6 @@ in {
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
-    udiskie # Disk manager
-    lm_sensors # Temperature sensors
-    brightnessctl # Brightness control
-    zoxide # Moving in terminal
-
     # Deleting all .backup files
     (pkgs.writeShellScriptBin "clean-backups" ''
       echo "Deleting ol' backup files..."
@@ -128,17 +121,11 @@ in {
     ];
   };
 
-  # List services that you want to enable:
-  services.udisks2.enable = true;
-
   # VPN service
   services.tailscale = {
     enable = true;
     useRoutingFeatures = "client";
   };
-
-  # GUI for Hamachi
-  # programs.haguichi.enable = true;
 
   # Clean the old builds
   nix = {

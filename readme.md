@@ -17,15 +17,14 @@ You can either symlink the configuration to `/etc/nixos`.
 ```
 sudo ln -s ~/Matthew-s-NixOS/nixos /etc/nixos
 ``` 
-so it will work by writing `sudo nixos-rebuild switch`, or you can rebuild using this command.
+so it will work by writing `sudo nixos-rebuild switch`, or you can rebuild using this command (check if flakes are enabled at your previous NixOS configuration)
 ```
 sudo nixos-rebuild switch --flake ~/Matthew-s-NixOS/nixos/
 ```
+And there is an alias for that, after you did your initial setup `nrs`.
 
 # Usage
-You can switch between different setups by configuring `~/Matthew-s-NixOS/nixos/flake.nix`and removing / adding different preconfigured WMs/DEs. 
-
-> It's not recommended to use multiple configurations at ones, because some of them are using different intersecting modules and it might broke everything.
+You can switch between different setups by configuring `~/Matthew-s-NixOS/nixos/flake.nix` and changing the `session.desktop` variable.
 
 # Screenshots
 ## KDE Plasma using Plasma Manager

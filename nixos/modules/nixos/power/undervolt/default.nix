@@ -1,7 +1,7 @@
 {
   services.undervolt = {
     enable = true;
-    turbo = 0; # 1
+    turbo = 1; # 1
 
     # All values are in millivolts (mV), negative = undervolt.
     coreOffset = -125;

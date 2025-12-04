@@ -47,7 +47,7 @@ in {
   ## 1. Check out this site to see if there is settings that you needed -
   ## https://nix-community.github.io/plasma-manager/options.xhtml
   # ----------------------------------------------------------------
-  ## 2. If in the step before you couldn't managed to find what you needed run this command in your terminal and paste in what you need -
+  ## 2. If in the step before you couldn't managed to find what you needed, run this command in your terminal and paste in what you need -
   ## nix run github:nix-community/plasma-manager
   ## For example in Plasma Manager there is no way to declare notifications settings, you can change them using configFile
   # ----------------------------------------------------------------
@@ -108,7 +108,7 @@ in {
     };
 
     shortcuts = {
-      "services/firefox.desktop" = {
+      "services/zen.desktop" = {
         "_launch" = "Meta+Shift+F";
       };
       "services/org.telegram.desktop.desktop" = {
@@ -132,8 +132,10 @@ in {
         "Switch Window Left" = "Meta+H";
         "Switch Window Right" = "Meta+L";
         "Switch Window Up" = "Meta+K";
-        "Switch to Next Desktop" = "Ctrl+Alt+L";
-        "Switch to Previous Desktop" = "Ctrl+Alt+H";
+        "Switch to Next Desktop" = "Meta+Alt+L";
+        "Switch to Previous Desktop" = "Meta+Alt+H";
+        "Window to Next Desktop" = "Meta+Shift+Alt+L";
+        "Window to Previous Desktop" = "Meta+Shift+Alt+H";
         "Switch to Desktop 1" = "Meta+1";
         "Switch to Desktop 2" = "Meta+2";
         "Switch to Desktop 3" = "Meta+3";
@@ -143,7 +145,6 @@ in {
         "Switch to Desktop 7" = "Meta+7";
         "Switch to Desktop 8" = "Meta+8";
         "Switch to Desktop 9" = "Meta+9";
-        "Switch to Desktop 10" = "Meta+0";
         "Window to Desktop 1" = "Meta+!";
         "Window to Desktop 2" = "Meta+@";
         "Window to Desktop 3" = "Meta+#";
@@ -153,10 +154,9 @@ in {
         "Window to Desktop 7" = "Meta+&";
         "Window to Desktop 8" = "Meta+*";
         "Window to Desktop 9" = "Meta+(";
-        "Winow to Desktop 10" = "Meta+)";
       };
       ksmserver = {
-        "Lock Session" = "Meta+Alt+L";
+        "Lock Session" = "Ctrl+Alt+L";
       };
     };
 
@@ -232,7 +232,7 @@ in {
 
     kwin = {
       effects = {
-        blur.enable = true;
+        blur.enable = false;
         #cube.enable = false;
         #desktopSwitching.animation = "off";
         #dimAdminMode.enable = false;
@@ -293,9 +293,9 @@ in {
                 launchers = [
                   # You can get the Applications running get-all-apps in terminal
                   "applications:systemsettings.desktop"
-                  "applications:firefox.desktop"
+                  "applications:zen.desktop"
                   "applications:org.telegram.desktop.desktop"
-                  "applications:vesktop.desktop"
+                  "applications:discord.desktop"
                   "applications:obsidian.desktop"
                   "applications:org.kde.dolphin.desktop"
                   "applications:kitty.desktop"

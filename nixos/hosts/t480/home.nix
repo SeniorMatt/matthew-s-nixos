@@ -32,12 +32,13 @@
     krita # Image editor
     telegram-desktop # Telegram client
     github-desktop # GitHub desktop
-    vesktop # Discord client
+    discord # Discord client
     # aseprite # Aseprite
     zoom-us # Zoom client
     obsidian # Notes
     obs-studio # OBS
     davinci-resolve # Davinci resolve
+    kdePackages.kdenlive # Shotcut
     audacity # Audio editor
     prismlauncher # The Minecraft launcher
     gnome-mines # Minesweeper
@@ -45,7 +46,7 @@
     batmon # TUI battery
     btop # TUI task manager
     gnome-system-monitor # GUI task manager
-    # stress # CPU, Memory and I/O stress test
+    stress # CPU, Memory and I/O stress test
     # unigine-heaven # GPU stress test
   ];
 

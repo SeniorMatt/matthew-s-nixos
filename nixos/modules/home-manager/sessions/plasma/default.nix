@@ -232,7 +232,7 @@ in {
 
     kwin = {
       effects = {
-        blur.enable = false;
+        blur.enable = true;
         #cube.enable = false;
         #desktopSwitching.animation = "off";
         #dimAdminMode.enable = false;

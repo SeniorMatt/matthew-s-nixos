@@ -369,6 +369,14 @@ in {
       };
     };
 
+    startup = {
+      startupScript = {
+        krunner = {
+          text = "krunner -d";
+        };
+      };
+    };
+
     configFile = {
       "kdeglobals"."General" = {
         TerminalApplication = "kitty";

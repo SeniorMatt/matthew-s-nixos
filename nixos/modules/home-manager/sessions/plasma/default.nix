@@ -132,10 +132,10 @@ in {
         "Switch Window Left" = "Meta+H";
         "Switch Window Right" = "Meta+L";
         "Switch Window Up" = "Meta+K";
-        "Switch to Next Desktop" = "Meta+Alt+L";
-        "Switch to Previous Desktop" = "Meta+Alt+H";
-        "Window to Next Desktop" = "Meta+Shift+Alt+L";
-        "Window to Previous Desktop" = "Meta+Shift+Alt+H";
+        "Switch to Next Desktop" = "Meta+Ctrl+L";
+        "Switch to Previous Desktop" = "Meta+Ctrl+H";
+        "Window to Next Desktop" = "Meta+Shift+Ctrl+L";
+        "Window to Previous Desktop" = "Meta+Shift+Ctrl+H";
         "Switch to Desktop 1" = "Meta+1";
         "Switch to Desktop 2" = "Meta+2";
         "Switch to Desktop 3" = "Meta+3";
@@ -357,12 +357,14 @@ in {
     powerdevil = {
       AC = {
         autoSuspend.action = "nothing";
+        dimDisplay.idleTimeout = null;
         turnOffDisplay.idleTimeout = "never";
         powerProfile = "performance";
       };
       battery = {
         autoSuspend.action = "nothing";
-        turnOffDisplay.idleTimeout = "never";
+        dimDisplay.idleTimeout = 300;
+        turnOffDisplay.idleTimeout = 600;
         powerProfile = "balanced";
       };
     };

@@ -26,7 +26,6 @@ in {
       # For newer
       # intel-compute-runtime
       # For older Intel CPU's
-      # intel-media-driver
       intel-compute-runtime-legacy1
     ];
   };
@@ -143,7 +142,7 @@ in {
   };
   system.autoUpgrade = {
     enable = true;
-    flake = "/etc/nixos/";
+    flake = "/home/${user}/Matthew-s-NixOS/nixos/";
     dates = "daily";
   };
 

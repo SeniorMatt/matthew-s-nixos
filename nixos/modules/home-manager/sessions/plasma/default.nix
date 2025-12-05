@@ -390,6 +390,9 @@ in {
         "GuiConfig"."quitAfterSaveCopyExport" = true;
         "VideoSave"."preferredVideoFormat" = 2;
       };
+      "kwinrc" = {
+        "TabBox"."LayoutName" = "big_icons";
+      };
     };
   };
 }

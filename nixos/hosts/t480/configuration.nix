@@ -22,11 +22,12 @@ in {
   # OpenCL driver
   hardware.graphics = {
     enable = true;
+    enable32Bit = true;
     extraPackages = with pkgs; [
       # For newer
       # intel-compute-runtime
       # For older Intel CPU's
-      intel-compute-runtime-legacy1
+      # intel-compute-runtime-legacy1
     ];
   };
 

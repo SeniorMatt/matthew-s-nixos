@@ -6,6 +6,19 @@ let
   fixedFont = "JetBrainsMono";
   generalFontSize = 12;
   smallFontSize = 10;
+  geometryChange = pkgs.stdenv.mkDerivation {
+    pname = "Effect geometry change";
+    version = "1.0";
+    src = pkgs.fetchzip {
+      url = "https://github.com/peterfajdiga/kwin4_effect_geometry_change/releases/download/v1.5/kwin4_effect_geometry_change_1_5.tar.gz";
+      sha256 = "sha256-1xjG6tIaUj97T2yHq+W7MLcODS0BN/yOzKgpql1/q1k=";
+      stripRoot = false;
+    };
+    installPhase = ''
+      mkdir -p $out/share/kwin/effects
+      cp -r "$src"/* "$out/share/kwin/effects/"
+    '';
+  };
 in {
   imports = [
     inputs.plasma-manager.homeModules.plasma-manager
@@ -41,6 +54,7 @@ in {
     kdePackages.kcalc # Calculator app
     kdePackages.kclock # Clock app
     kdePackages.ktorrent # Torrent app
+    geometryChange
   ];
 
   # How to find needed settings
@@ -391,6 +405,7 @@ in {
         "VideoSave"."preferredVideoFormat" = 2;
       };
       "kwinrc" = {
+        "Plugins"."kwin4_effect_geometry_changeEnabled" = true;
         "TabBox"."LayoutName" = "big_icons";
       };
     };

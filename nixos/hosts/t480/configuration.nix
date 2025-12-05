@@ -19,7 +19,7 @@ in {
   # Kernel
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  # CLI driver
+  # OpenCL driver
   hardware.graphics = {
     enable = true;
     extraPackages = with pkgs; [

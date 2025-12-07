@@ -4,10 +4,8 @@
     settings = {
       # logo.source = "~/Matthew-s-NixOS/pictures/avatar-circle.png";
       logo = {
-        source = "~/Matthew-s-NixOS/pictures/nix.txt";
-        padding = {
-          right = 8;
-        };
+        source = "~/Matthew-s-NixOS/pictures/nixos-logo.png";
+        padding.bottom = 8;
       };
       modules = [
         "break"
@@ -16,7 +14,7 @@
 
         {
           type = "custom";
-          format = "12345678901234567890123456789012";
+          format = "123456789012345678901234567890123456789123456789";
           keyColor = "34";
         }
 
@@ -72,7 +70,7 @@
 
         {
           type = "custom";
-          format = "12345678901234567890123456789012";
+          format = "123456789012345678901234567890123456789123456789";
         }
 
         "break"

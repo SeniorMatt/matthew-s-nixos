@@ -148,7 +148,6 @@ in
         };
       };
 
-
       xdg.configFile = lib.mkMerge [
         (lib.mkIf qt.enable {
           "kdeglobals".text = ''
@@ -162,6 +161,7 @@ in
 
             ${builtins.readFile "${pkgs.kdePackages.breeze}/share/color-schemes/BreezeDark.colors"}
           '';
+          # "kdeglobals".source = config.lib.file.mkOutOfStoreSymlink "/home/matthew/.config/kdeglobals-dark";
         })
 
         (lib.mkIf (gtk.enable && !matugen.enable) {

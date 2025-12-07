@@ -136,7 +136,6 @@ in {
       "services/obsidian.desktop" = {
         "_launch" = "Meta+Shift+O";
       };
-      # "services/kitty.desktop" = {
       "org.kde.konsole.desktop" = {
         "_launch" = "Meta+Shift+C";
       };
@@ -318,7 +317,7 @@ in {
                   "applications:discord.desktop"
                   "applications:obsidian.desktop"
                   "applications:org.kde.dolphin.desktop"
-                  "applications:kitty.desktop"
+                  "applications:org.kde.konsole.desktop"
                 ];
               };
             };

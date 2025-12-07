@@ -3,7 +3,9 @@ My NixOS personal setup.
 
 # Requirements
 - You will need to install `git` on your current NixOS system to clone the repository.
-- *Optionally* you might install it using flakes, so you will need to have them enabled as well.
+    Otherwise, you can use this command `nix-shell -p git` and copy the repo from here.
+- *Optionally* you might install it using flakes, so you will need to have them enabled.
+    https://wiki.nixos.org/wiki/Flakes#:~:text=permanently-,NixOS,flakes%22%20%5D%3B
 
 # To install
 Run this commands inside of your home directory
@@ -31,7 +33,7 @@ so it will work by writing `sudo nixos-rebuild switch`.
 ## With flakes
 Or you can rebuild using this command
 ```
-sudo nixos-rebuild switch --flake ~/Matthew-s-NixOS/nixos/
+sudo nixos-rebuild switch --experimental-features 'nix-command flakes' --flake ~/Matthew-s-NixOS/nixos/
 ```
 And there is an alias for that, after you did your initial setup `nrs`.
 

@@ -2,7 +2,7 @@
 let
   fontSizeString = builtins.toString config.theme.font.size;
   cursorSizeString = builtins.toString config.theme.cursor.size;
-  needsPath = "/home/matthew/.needs";
+  needsPath = "/home/${user}/.needs";
 in
 {
   options.theme = with lib; {

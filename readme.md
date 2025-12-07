@@ -1,8 +1,12 @@
 # About
 My NixOS personal setup.
 
-# To install
+# Requirements
+- You will need to install `git` on your current NixOS system to clone the repository.
+- *Optionally* you might install it using flakes, so you will need to have them enabled as well.
 
+# To install
+Run this commands inside of your home directory
 ```
 git clone https://github.com/SeniorMatt/Matthew-s-NixOS.git 
 ```
@@ -13,6 +17,8 @@ sudo chown -R matthew:users ~/Matthew-s-NixOS/nixos/
 ```
 cp -f /etc/nixos/hardware-configuration.nix ~/Matthew-s-NixOS/nixos/hosts/t480/
 ```
+
+## Without flakes
 You can either symlink the configuration to `/etc/nixos`.
 ```
 sudo mv /etc/nixos /etc/nixos-back
@@ -20,7 +26,10 @@ sudo mv /etc/nixos /etc/nixos-back
 ```
 sudo ln -s ~/Matthew-s-NixOS/nixos /etc/nixos
 ``` 
-so it will work by writing `sudo nixos-rebuild switch`, or you can rebuild using this command (make sure that flakes are enable on your previous NixOS build)
+so it will work by writing `sudo nixos-rebuild switch`. 
+
+## With flakes
+Or you can rebuild using this command
 ```
 sudo nixos-rebuild switch --flake ~/Matthew-s-NixOS/nixos/
 ```

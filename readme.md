@@ -28,12 +28,12 @@ sudo mv /etc/nixos /etc/nixos-back
 ```
 sudo ln -s ~/Matthew-s-NixOS/nixos /etc/nixos
 ``` 
-so it will work by writing `sudo nixos-rebuild switch`. 
+So it will work by writing `sudo nixos-rebuild switch`. 
 
 ## With flakes
-Or you can rebuild using this command
+Or you can rebuild using this command.
 ```
-sudo nixos-rebuild switch --experimental-features 'nix-command flakes' --flake ~/Matthew-s-NixOS/nixos/
+sudo nixos-rebuild switch --flake ~/Matthew-s-NixOS/nixos/
 ```
 And there is an alias for that, after you did your initial setup `nrs`.
 

@@ -94,11 +94,11 @@
         statusline.lualine.enable = true;
 
         theme = {
-          # enable = true;
+          enable = true;
 
           # Catppuccin theme
-          # name = "catppuccin";
-          # style = "mocha";
+          name = "catppuccin";
+          style = "mocha";
 
           # Onedark theme
           # name = "onedark";

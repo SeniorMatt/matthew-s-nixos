@@ -2,6 +2,7 @@
 {
   imports = [
     ./plasma-workspace-overlay.nix
+    ./avatar.nix
   ];
 
   config = lib.mkIf (config.session.desktop == "plasma") {

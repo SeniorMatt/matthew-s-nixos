@@ -1,4 +1,4 @@
-{ pkgs, user, inputs, lib, ... }: {
+{ pkgs, user, ... }: {
   imports = [
     ../../modules/home-manager/shells/bash
     ../../modules/home-manager/programs/firefox
@@ -38,10 +38,6 @@
     obsidian # Notes
     obs-studio # OBS
     davinci-resolve # Davinci resolve
-    # (import inputs.nixpkgs-stable {
-    #   system = "x86_64-linux";
-    #   config = { allowUnfree = true; };
-    # }).davinci-resolve
     kdePackages.kdenlive # Shotcut
     audacity # Audio editor
     prismlauncher # The Minecraft launcher

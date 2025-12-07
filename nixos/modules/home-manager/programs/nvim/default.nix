@@ -29,12 +29,12 @@
         startPlugins = [ null ];
         viAlias = true;
         vimAlias = true;
-        debugMode = {
-          enable = false;
-          level = 16;
-          logFile = "/tmp/nvim.log";
-        };
-        preventJunkFiles = true;
+        # debugMode = {
+        #   enable = false;
+        #   level = 16;
+        #   logFile = "/tmp/nvim.log";
+        # };
+        # preventJunkFiles = true;
         luaConfigPost = ''
           vim.opt.tabstop = 2
           vim.opt.shiftwidth = 2
@@ -86,23 +86,19 @@
         visuals = {
           nvim-web-devicons.enable = true;
           nvim-cursorline.enable = true;
-          cinnamon-nvim.enable = true;
 
           highlight-undo.enable = true;
           indent-blankline.enable = true;
-
-          # Fun
-          cellular-automaton.enable = true;
         };
 
         statusline.lualine.enable = true;
 
         theme = {
-          enable = true;
+          # enable = true;
 
           # Catppuccin theme
-          name = "catppuccin";
-          style = "mocha";
+          # name = "catppuccin";
+          # style = "mocha";
 
           # Onedark theme
           # name = "onedark";
@@ -169,17 +165,6 @@
         };
 
         notes = {
-          obsidian = {
-            enable = false;
-            setupOpts = {
-              workspaces = [
-                {
-                  name = "personal";
-                  path = "/home/${user}/Documents/Obsidian Vault";
-                }
-              ];
-            };
-          };
           todo-comments.enable = true;
         };
 

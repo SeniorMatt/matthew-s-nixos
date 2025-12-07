@@ -1,6 +1,6 @@
-{ config, inputs, pkgs, lib, ... }:
+{ config, inputs, pkgs, lib, repoPath, ... }:
 let
-  templateFolder = "/etc/nixos/modules/home-manager/theming/matugen/templates";
+  templateFolder = "${repoPath}/nixos/modules/home-manager/theming/matugen/templates";
 in {
   imports = [
     inputs.matugen.nixosModules.default

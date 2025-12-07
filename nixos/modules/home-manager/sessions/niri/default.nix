@@ -119,6 +119,7 @@ in {
             layout = "us, ru";
             options = "grp:caps_toggle";
           };
+          repeat-delay = 250;
         };
         trackpoint = {
           accel-profile = "flat";
@@ -167,7 +168,7 @@ in {
       ];
       binds = {
         "Mod+Shift+C".action.spawn = "kitty";
-        "Mod+Shift+F".action.spawn = "firefox";
+        "Mod+Shift+F".action.spawn = "zen";
         "Mod+Shift+T".action.spawn = "Telegram";
         "Mod+Shift+O".action.spawn = "obsidian";
 
@@ -233,8 +234,8 @@ in {
         "Mod+R".action.switch-preset-column-width = [];
         "Mod+Shift+R".action.switch-preset-window-height = [];
         "Mod+Ctrl+R".action.reset-window-height = [];
-        "Mod+F".action.maximize-column = [];
-        "Mod+M".action.fullscreen-window = [];
+        "Mod+M".action.maximize-column = [];
+        "Mod+F".action.fullscreen-window = [];
 
         "Mod+Ctrl+F".action.expand-column-to-available-width = [];
 

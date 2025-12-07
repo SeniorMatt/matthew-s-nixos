@@ -121,6 +121,8 @@ in {
       jetbrains-mono # System font
       noto-fonts # Noto fonts
       font-awesome # Icon font
+      minecraftia # Minecraft font
+      monocraft # Mono Minecraft font
       nerd-fonts.jetbrains-mono # Nerd font
     ];
   };

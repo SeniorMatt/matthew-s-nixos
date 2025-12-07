@@ -67,6 +67,9 @@ in {
   # For network support in file manager
   services.gvfs.enable = true;
 
+  # Disabling throttling overriting
+  services.throttled.enable = false;
+
   # Enable CUPS to print documents.
   services.printing.enable = true;
 

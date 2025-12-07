@@ -398,8 +398,8 @@ in {
 
     configFile = {
       "kdeglobals"."General" = {
-        TerminalApplication = "kitty";
-        TerminalService = "kitty.desktop";
+        # TerminalApplication = "kitty";
+        # TerminalService = "kitty.desktop";
         accentColorFromWallpaper = true;
       };
       "plasmanotifyrc"."Notifications" = {

@@ -44,7 +44,7 @@
           inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t480
           ./hosts/t480/configuration.nix
           ./modules/nixos/sessions
-          { session.desktop = "plasma"; }
+          { session.desktop = "niri"; }
         ];
       };
     };

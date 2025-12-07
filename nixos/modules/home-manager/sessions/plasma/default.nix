@@ -45,8 +45,6 @@ in {
     mediaPlayer = "org.kde.haruna.desktop";
   };
 
-  kitty.theme = "catppuccin";
-
   home.packages = with pkgs; [
     kdePackages.dolphin # File manager
     kdePackages.kamoso # Camera app

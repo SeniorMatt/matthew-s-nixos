@@ -4,8 +4,8 @@ My NixOS personal setup.
 # Requirements
 - You will need to install `git` on your current NixOS system to clone the repository.
     > Otherwise, you can use this command `nix-shell -p git` and copy the repo from here.
-- *Optionally, but recommended way* you might install it using flakes, so you will need to have them enabled.
-    > https://wiki.nixos.org/wiki/Flakes#:~:text=permanently-,NixOS,flakes%22%20%5D%3B
+- *Optionally, but it is the recommended way* you might install system using flakes, so you will need to have them enabled.
+    > Follow this https://wiki.nixos.org/wiki/Flakes#:~:text=permanently-,NixOS,flakes%22%20%5D%3B
 
 # To install
 Run this commands inside of your home directory

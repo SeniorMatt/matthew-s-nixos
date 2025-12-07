@@ -105,27 +105,10 @@ in {
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
-    # Deleting all .backup files
-    # (pkgs.writeShellScriptBin "clean-backups" ''
-    #   echo "Deleting ol' backup files..."
-    #   find "$HOME" -type f -name '*.backup' -delete
-    #   echo "Done!"
-    # '')
-
     # Get all .desktop files installed
     (pkgs.writeShellScriptBin "get-all-apps" ''
       ls /etc/profiles/per-user/matthew/share/applications
       ls /run/current-system/sw/share/applications
-    '')
-
-    # Fixes almost any issues
-    (pkgs.writeShellScriptBin "remove-immutable-files" ''
-      echo "Deleting themes files..."
-      rm -f ~/.config/kdeglobals
-      rm -fr ~/.config/gtk-4.0/
-      rm -f ~/.config/qt5ct/qt5ct.conf
-      rm -f ~/.config/qt6ct/qt6ct.conf
-      echo "Done!"
     '')
   ];
 

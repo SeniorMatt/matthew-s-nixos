@@ -29,9 +29,6 @@ And there is an alias for that, after you did your initial setup `nrs`.
 # Usage
 You can switch between different setups by configuring `~/Matthew-s-NixOS/nixos/flake.nix` and changing the `session.desktop` variable.
 
-## Issues
-1. Also if you will ever face any errors while rebuilding, try using 'remove-immutable-files' command in the terminal. You will probably face this issue while rebuilding to a complete DE, like KDE Plasma.
-
 # Screenshots
 ## KDE Plasma using Plasma Manager
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/ff2d11b9-f9d6-4ed4-ae35-17b874d223fe" />

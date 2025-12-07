@@ -5,6 +5,7 @@ let
   generalFont = "Noto Sans";
   fixedFont = "JetBrainsMono";
   generalFontSize = 12;
+  fixedFontSize = 14;
   smallFontSize = 10;
   geometryChange = pkgs.stdenv.mkDerivation {
     pname = "Effect geometry change";
@@ -66,6 +67,13 @@ in {
   ## .config/plasma-org.kde.plasma.desktop-appletsrc
   # ----------------------------------------------------------------
 
+  programs.konsole = {
+    enable = true;
+    extraConfig = {
+      "KonsoleWindow"."RememberWindowSize" = false;
+    };
+  };
+
   # Plasma Manager
   programs.plasma = {
     enable = true;
@@ -79,7 +87,7 @@ in {
     fonts = {
       fixedWidth = {
         family = fixedFont;
-        pointSize = generalFontSize;
+        pointSize = fixedFontSize;
       };
       general = {
         family = generalFont;
@@ -128,7 +136,8 @@ in {
       "services/obsidian.desktop" = {
         "_launch" = "Meta+Shift+O";
       };
-      "services/kitty.desktop" = {
+      # "services/kitty.desktop" = {
+      "org.kde.konsole.desktop" = {
         "_launch" = "Meta+Shift+C";
       };
       kwin = {

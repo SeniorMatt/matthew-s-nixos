@@ -47,7 +47,6 @@
     prismlauncher # The Minecraft launcher
     gnome-mines # Minesweeper
     kdePackages.isoimagewriter # ISO Image Writer
-    kdePackages.partitionmanager # Partition manager
     batmon # TUI battery
     btop # TUI task manager
     gnome-system-monitor # GUI task manager

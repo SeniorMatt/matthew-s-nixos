@@ -37,7 +37,7 @@
 
       # Applications
       "$mainMod + SHIFT, C, exec, $terminal"
-      "$mainMod + SHIFT, F, exec, firefox"
+      "$mainMod + SHIFT, F, exec, zen"
       "$mainMod + SHIFT, O, exec, obsidian"
       "$mainMod + SHIFT, T, exec, Telegram"
 

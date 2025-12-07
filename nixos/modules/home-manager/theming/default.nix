@@ -2,7 +2,7 @@
 let
   fontSizeString = builtins.toString config.theme.font.size;
   cursorSizeString = builtins.toString config.theme.cursor.size;
-  needsPath = "${repoPath}/.needs/";
+  needsPath = "${repoPath}/.needs";
 in
 {
   options.theme = with lib; {
@@ -115,18 +115,18 @@ in
           ADW_DEBUG_COLOR_SCHEME = lib.mkIf gtk.dark "prefer-dark";
         };
 
-        activation = {
-          copy-kde = lib.mkIf qt.enable ''
-            cp -f ${needsPath}/kdeglobals /home/${user}/.config/kdeglobals
-          '';
-          copy-gtk = lib.mkIf gtk.enable ''
-            cp -fr ${needsPath}/gtk-4.0 /home/${user}/.config/gtk-4.0
-          '';
-          copy-qt = lib.mkIf kvantum.enable ''
-            cp -fr ${needsPath}/qt5ct /home/${user}/.config/qt5ct
-            cp -fr ${needsPath}/qt6ct /home/${user}/.config/qt6ct
-          '';
-        };
+        # activation = {
+          # copy-kde = lib.mkIf qt.enable ''
+          #   cp -f ${needsPath}/kdeglobals /home/${user}/.config/kdeglobals
+          # '';
+          # copy-gtk = lib.mkIf gtk.enable ''
+          #   cp -fr ${needsPath}/gtk-4.0 /home/${user}/.config/gtk-4.0
+          # '';
+          # copy-qt = lib.mkIf kvantum.enable ''
+          #   cp -fr ${needsPath}/qt5ct /home/${user}/.config/qt5ct
+          #   cp -fr ${needsPath}/qt6ct /home/${user}/.config/qt6ct
+          # '';
+        # };
       };
 
       gtk = lib.mkIf gtk.enable {
@@ -167,56 +167,69 @@ in
       };
 
       home.file = {
-        "${needsPath}/kdeglobals".text = lib.mkIf (!kvantum.enable) ''
-          [General]
-          font=${font.family},${fontSizeString},-1,5,50,0,0,0,0,0
-          menuFont=${font.family},${fontSizeString},-1,5,50,0,0,0,0,0
-          toolBarFont=${font.family},${fontSizeString},-1,5,50,0,0,0,0,0
-          windowTitleFont=${font.family},${fontSizeString},-1,5,50,0,0,0,0,0
-          smallestReadableFont=${font.family},${fontSizeString},-1,5,50,0,0,0,0,0
-          fixed=${font.family},${fontSizeString},-1,5,50,0,0,0,0,0
+        "${needsPath}/kdeglobals" = {
+          text = ''
+            [General]
+            font=${font.family},${fontSizeString},-1,5,50,0,0,0,0,0
+            menuFont=${font.family},${fontSizeString},-1,5,50,0,0,0,0,0
+            toolBarFont=${font.family},${fontSizeString},-1,5,50,0,0,0,0,0
+            windowTitleFont=${font.family},${fontSizeString},-1,5,50,0,0,0,0,0
+            smallestReadableFont=${font.family},${fontSizeString},-1,5,50,0,0,0,0,0
+            fixed=${font.family},${fontSizeString},-1,5,50,0,0,0,0,0
 
-          ${builtins.readFile "${pkgs.kdePackages.breeze}/share/color-schemes/BreezeDark.colors"}
+            ${builtins.readFile "${pkgs.kdePackages.breeze}/share/color-schemes/BreezeDark.colors"}
         '';
+        onChange = ''cp -f ${needsPath}/kdeglobals /home/${user}/.config/kdeglobals'';
+      };
 
-        # Now symlink the `~/.config/gtk-4.0/` folder declaratively:
-        "${needsPath}/gtk-4.0/assets".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/assets";
-        "${needsPath}/gtk-4.0/gtk.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk.css";
-        "${needsPath}/gtk-4.0/gtk-dark.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk-dark.css";
+        "${needsPath}/gtk-4.0/assets" = {
+          source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/assets";
+          onChange = ''cp -fr ${needsPath}/gtk-4.0 /home/${user}/.config/gtk-4.0'';
+        };
+      
+        "${needsPath}/gtk-4.0/gtk.css" = {
+          source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk.css";
+          onChange = ''cp -fr ${needsPath}/gtk-4.0 /home/${user}/.config/gtk-4.0'';
+        };
 
-        # "${repoPath}/.needs/kdeglobals".text = lib.mkIf kvantum.enable lib.mkForce ''
-        #   [General]
-        #   font=${font.family},${fontSizeString},-1,5,50,0,0,0,0,0
-        #   menuFont=${font.family},${fontSizeString},-1,5,50,0,0,0,0,0
-        #   toolBarFont=${font.family},${fontSizeString},-1,5,50,0,0,0,0,0
-        #   windowTitleFont=${font.family},${fontSizeString},-1,5,50,0,0,0,0,0
-        #   smallestReadableFont=${font.family},${fontSizeString},-1,5,50,0,0,0,0,0
-        #   fixed=${font.family},${fontSizeString},-1,5,50,0,0,0,0,0
-        # '';
-        "${needsPath}/qt5ct/qt5ct.conf".text = lib.mkForce ''
-          [Fonts]
-          general="${font.family},${fontSizeString},-1,5,50,0,0,0,0,0"
-          fixed="${font.family},${fontSizeString},-1,5,50,0,0,0,0,0"
-          [Appearance]
-          icon_theme=${icon.name}
-          custom_palette=true
-          color_scheme_path=/home/${user}/.config/qt5ct/style-colors.conf
-        '';
-        "${needsPath}/qt6ct/qt6ct.conf".text = lib.mkForce ''
-          [Fonts]
-          general="${font.family},${fontSizeString},-1,5,50,0,0,0,0,0"
-          fixed="${font.family},${fontSizeString},-1,5,50,0,0,0,0,0"
-          [Appearance]
-          icon_theme=${icon.name}
-          custom_palette=true
-          color_scheme_path=/home/${user}/.config/qt6ct/style-colors.conf
-        '';
-        ".config/Kvantum/kvantum.kvconfig".text = ''
+        "${needsPath}/gtk-4.0/gtk-dark.css" = {
+          source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk-dark.css";
+          onChange = ''cp -fr ${needsPath}/gtk-4.0 /home/${user}/.config/gtk-4.0'';
+        };
+
+        "${needsPath}/qt5ct/qt5ct.conf" = {
+          text = lib.mkForce ''
+            [Fonts]
+            general="${font.family},${fontSizeString},-1,5,50,0,0,0,0,0"
+            fixed="${font.family},${fontSizeString},-1,5,50,0,0,0,0,0"
+            [Appearance]
+            icon_theme=${icon.name}
+            custom_palette=true
+            color_scheme_path=/home/${user}/.config/qt5ct/style-colors.conf
+          '';
+          onChange = ''cp -fr ${needsPath}/qt5ct /home/${user}/.config/qt5ct'';
+        };
+        "${needsPath}/qt6ct/qt6ct.conf" = {
+          text = lib.mkForce ''
+            [Fonts]
+            general="${font.family},${fontSizeString},-1,5,50,0,0,0,0,0"
+            fixed="${font.family},${fontSizeString},-1,5,50,0,0,0,0,0"
+            [Appearance]
+            icon_theme=${icon.name}
+            custom_palette=true
+            color_scheme_path=/home/${user}/.config/qt6ct/style-colors.conf
+          '';
+          onChange = ''cp -fr ${needsPath}/qt6ct /home/${user}/.config/qt6ct'';
+        };
+      };
+
+      xdg.configFile = {
+        "Kvantum/kvantum.kvconfig".text = ''
           [General]
           theme=${kvantum.name}
           font=${font.family},${fontSizeString},-1,5,50,0,0,0,0,0
         '';
-        ".config/Kvantum/${kvantum.name}".source = "${kvantum.package}/share/Kvantum/${kvantum.name}";
+        "Kvantum/${kvantum.name}".source = "${kvantum.package}/share/Kvantum/${kvantum.name}";
       };
 
       # xdg.configFile = lib.mkMerge [

@@ -24,7 +24,6 @@ in {
     inputs.plasma-manager.homeModules.plasma-manager
     ../../theming
     ../../programs/default-apps
-    ../../theming/oh-my-posh
   ];
 
   theme = {

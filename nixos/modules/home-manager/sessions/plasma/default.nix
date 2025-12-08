@@ -22,6 +22,21 @@ let
       cp -r "$src"/break-reminder-main/package/* "$out/share/plasma/plasmoids/dipzza.break-reminder/"
     '';
   };
+  splitClock = pkgs.stdenv.mkDerivation {
+    pname = "Split clock for vertical panels widget";
+    version = "1.0";
+    src = pkgs.fetchFromGitHub {
+      owner = "bainonline";
+      repo = "split-clock";
+      rev = "main";
+      sha256 = "sha256-PTPVK6zrmEbFaaAwkPUPD9MPgDxJm2PMOkDrSKMAhuo=";
+      stripRoot = false;
+    };
+    installPhase = ''
+      mkdir -p $out/share/plasma/plasmoids/split-clock
+      cp -r "$src"/split-clock-main/* "$out/share/plasma/plasmoids/split-clock/"
+    '';
+  };
   geometryChange = pkgs.stdenv.mkDerivation {
     pname = "Effect geometry change";
     version = "1.0";
@@ -67,8 +82,9 @@ in {
     kdePackages.kcalc # Calculator app
     kdePackages.kclock # Clock app
     kdePackages.ktorrent # Torrent app
-    geometryChange # Geometry change kwin effect
     breakReminder # Break reminder widget
+    splitClock # Split clock widget
+    geometryChange # Geometry change kwin effect
   ];
 
   # How to find needed settings
@@ -313,10 +329,10 @@ in {
 
     panels = [
       {
-        location = "bottom";
+        location = "left";
         height = 44;
         screen = 0;
-        floating = false;
+        floating = true;
         # opacity = "translucent"; # one of “adaptive”, “opaque”, “translucent” # and it doesn't work
         widgets = [
           "org.kde.plasma.kickoff" # Default start menu
@@ -387,7 +403,8 @@ in {
               ];
             };
           }
-          "org.kde.plasma.digitalclock" # clock
+          "split-clock" # vertical clock
+          # "org.kde.plasma.digitalclock" # clock
         ];
       }
     ];

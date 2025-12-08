@@ -412,13 +412,13 @@ in {
       };
     };
 
-    # startup = {
-      # startupScript = {
-      #   krunner = {
-      #     text = "krunner -d";
-      #   };
-      # };
-    # };
+    startup = {
+      startupScript = {
+        krunner = {
+          text = "krunner -d";
+        };
+      };
+    };
 
     configFile = {
       "kdeglobals"."General" = {

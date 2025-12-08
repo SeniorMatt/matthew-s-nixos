@@ -7,6 +7,7 @@
     # '';
     shellAliases = {
       nrs = "sudo nixos-rebuild switch --flake ~/Matthew-s-NixOS/nixos/";
+      nrt = "sudo nixos-rebuild test --flake ~/Matthew-s-NixOS/nixos/";
       nx = "nvim ~/Matthew-s-NixOS";
       nu = "nvim --listen /tmp/nvimsocket";
       p = "ping google.com";

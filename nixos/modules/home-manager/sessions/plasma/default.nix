@@ -7,6 +7,21 @@ let
   generalFontSize = 12;
   fixedFontSize = 14;
   smallFontSize = 10;
+  breakReminder = pkgs.stdenv.mkDerivation {
+    pname = "Break reminder widget";
+    version = "1.0";
+    src = pkgs.fetchFromGitHub {
+      owner = "dipzza";
+      repo = "break-reminder";
+      rev = "main";
+      sha256 = "sha256-ldU+JnVmPdTEnn+lMczNEkRCj/0kXAEM4vFGN5pkR+U=";
+      stripRoot = false;
+    };
+    installPhase = ''
+      mkdir -p $out/share/plasma/plasmoids/dipzza.break-reminder
+      cp -r "$src"/break-reminder-main/package/* "$out/share/plasma/plasmoids/dipzza.break-reminder/"
+    '';
+  };
   geometryChange = pkgs.stdenv.mkDerivation {
     pname = "Effect geometry change";
     version = "1.0";
@@ -53,6 +68,7 @@ in {
     kdePackages.kclock # Clock app
     kdePackages.ktorrent # Torrent app
     geometryChange # Geometry change kwin effect
+    breakReminder # Break reminder widget
   ];
 
   # How to find needed settings
@@ -345,6 +361,14 @@ in {
             config = {
               General = {
                 color = "translucent";
+              };
+            };
+          }
+          {
+            name = "dipzza.break-reminder";
+            config = {
+              General = {
+                focusMinutes = 10;
               };
             };
           }

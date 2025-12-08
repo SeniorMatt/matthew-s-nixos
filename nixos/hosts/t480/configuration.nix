@@ -19,15 +19,13 @@ in {
   # Kernel
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  # OpenCL driver
+  # OpenCL & VA-API & Vulkan drivers
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
     extraPackages = with pkgs; [
-      # For newer
-      # intel-compute-runtime
-      # For older Intel CPU's
-      # intel-compute-runtime-legacy1
+      intel-compute-runtime-legacy1
+      intel-media-driver
     ];
   };
 
@@ -142,6 +140,8 @@ in {
       options = "--delete-older-than 7d";
     };
   };
+
+  # Auto upgrades
   system.autoUpgrade = {
     enable = true;
     flake = "/home/${user}/Matthew-s-NixOS/nixos/";

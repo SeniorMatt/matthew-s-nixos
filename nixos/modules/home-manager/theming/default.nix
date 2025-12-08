@@ -166,7 +166,7 @@ in
             fixed=${font.family},${fontSizeString},-1,5,50,0,0,0,0,0
 
             ${builtins.readFile "${pkgs.kdePackages.breeze}/share/color-schemes/BreezeDark.colors"}
-        '';
+          '';
           onChange = ''cp -f ${needsPath}/kdeglobals /home/${user}/.config/kdeglobals'';
         };
 

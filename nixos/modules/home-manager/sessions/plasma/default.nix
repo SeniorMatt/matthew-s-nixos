@@ -411,11 +411,24 @@ in {
         powerProfile = "balanced";
       };
     };
+  # systemd.user.services.krunner-daemon = {
+  #    Unit = {
+  #     Description = "Push nix store changes to attic binary cache.";
+  #   };
+  #   Install = {
+  #     WantedBy = [ "default.target" ];
+  #   };
+  #   Service = {
+  #     ExecStart = "${pkgs.writeShellScript "watch-store" ''
+  #       #!/run/current-system/sw/bin/bash
+  #     ''}";
+  #   };
+  # };
 
     startup = {
       startupScript = {
-        krunner = {
-          text = "krunner -d";
+        "krunner" = {
+          text = "krunner -d &";
         };
       };
     };

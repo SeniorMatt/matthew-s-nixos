@@ -1,7 +1,6 @@
 { inputs, pkgs, repoPath, ... }: 
 let
-  wallpaperFolder = "${repoPath}/pictures/wallpapers";
-  wallpaper = "${wallpaperFolder}/schreckhorn_switzerland.jpeg";
+  wallpaperFolder = "${repoPath}/pictures/wallpapers"; wallpaper = "${wallpaperFolder}/schreckhorn_switzerland.jpeg";
   generalFont = "Noto Sans";
   fixedFont = "JetBrainsMono";
   generalFontSize = 12;

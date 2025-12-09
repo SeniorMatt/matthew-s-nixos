@@ -284,19 +284,6 @@ in {
     kwin = {
       effects = {
         blur.enable = true;
-        #cube.enable = false;
-        #desktopSwitching.animation = "off";
-        #dimAdminMode.enable = false;
-        #dimInactive.enable = false;
-        #fallApart.enable = false;
-        #fps.enable = false;
-        #minimization.animation = "off";
-        #shakeCursor.enable = false;
-        #slideBack.enable = false;
-        #snapHelper.enable = false;
-        #translucency.enable = false;
-        #windowOpenClose.animation = "off";
-        #wobblyWindows.enable = false;
       };
 
       nightLight = {
@@ -445,6 +432,9 @@ in {
       };
       "plasmanotifyrc"."Notifications" = {
         "PopupTimeout" = 1000;
+      };
+      "krunnerrc"."Plugins/Favorites" = {
+        "plugins" = "krunner_sessions,krunner_powerdevil";
       };
       "spectaclerc" = {
         "GuiConfig"."quitAfterSaveCopyExport" = true;

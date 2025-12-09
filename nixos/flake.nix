@@ -28,6 +28,9 @@
       url = "github:notashelf/nvf?ref=v0.8";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # DaVinci Resolve fix
+    nixpkgs-ee930f975.url = "github:nixos/nixpkgs/ee930f9755f58096ac6e8ca94a1887e0534e2d81";
   };
 
   outputs = {nixpkgs, ...} @ inputs: let

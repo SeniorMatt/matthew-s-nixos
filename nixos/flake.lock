@@ -188,6 +188,22 @@
         "type": "github"
       }
     },
+    "nixpkgs-ee930f975": {
+      "locked": {
+        "lastModified": 1749794982,
+        "narHash": "sha256-Kh9K4taXbVuaLC0IL+9HcfvxsSUx8dPB5s5weJcc9pc=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "ee930f9755f58096ac6e8ca94a1887e0534e2d81",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "ee930f9755f58096ac6e8ca94a1887e0534e2d81",
+        "type": "github"
+      }
+    },
     "nixpkgs-stable": {
       "locked": {
         "lastModified": 1764560356,
@@ -272,6 +288,7 @@
         "matugen": "matugen",
         "niri-flake": "niri-flake",
         "nixpkgs": "nixpkgs",
+        "nixpkgs-ee930f975": "nixpkgs-ee930f975",
         "nixpkgs-stable": "nixpkgs-stable_2",
         "nvf": "nvf",
         "plasma-manager": "plasma-manager",

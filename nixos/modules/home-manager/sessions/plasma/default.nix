@@ -5,7 +5,7 @@ let
   generalFont = "Noto Sans";
   fixedFont = "JetBrainsMono";
   generalFontSize = 12;
-  fixedFontSize = 14;
+  fixedFontSize = 12;
   smallFontSize = 10;
   breakReminder = pkgs.stdenv.mkDerivation {
     pname = "Break reminder widget";
@@ -109,7 +109,7 @@ in {
   # Plasma Manager
   programs.plasma = {
     enable = true;
-    overrideConfig = true;
+    overrideConfig = false;
 
     # Default fonts
     # Small: Noto Sans 8pt

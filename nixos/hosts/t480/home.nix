@@ -3,7 +3,6 @@
   imports = [
     ../../modules/home-manager/shells/bash
     ../../modules/home-manager/programs/firefox
-    ../../modules/home-manager/programs/davinci-resolve
     ../../modules/home-manager/programs/zen-browser
     ../../modules/home-manager/programs/git
     ../../modules/home-manager/programs/nvim
@@ -39,6 +38,7 @@
     zoom-us # Zoom client
     obsidian # Notes
     obs-studio # OBS
+    davinci-resolve # DaVinci Resolve
     kdePackages.kdenlive # Shotcut
     audacity # Audio editor
     prismlauncher # The Minecraft launcher

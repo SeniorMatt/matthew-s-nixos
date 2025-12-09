@@ -1,9 +1,5 @@
 { pkgs, user, repoPath, inputs, ... }: let
   customFont = pkgs.callPackage ../../modules/nixos/fonts {};
-  older-pkgs = import inputs.nixpkgs-c5ae371f1 {
-    system = "x86_64-linux";
-    config.allowUnfree = true;
-  };
 in {
   imports = [
     inputs.home-manager.nixosModules.default
@@ -28,8 +24,8 @@ in {
     enable = true;
     enable32Bit = true;
     extraPackages = with pkgs; [
-      older-pkgs.intel-compute-runtime-legacy1
-      older-pkgs.intel-media-driver
+      intel-compute-runtime-legacy1
+      intel-media-driver
     ];
   };
 

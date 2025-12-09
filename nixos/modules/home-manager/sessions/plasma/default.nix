@@ -168,7 +168,7 @@ in {
       "services/obsidian.desktop" = {
         "_launch" = "Meta+Shift+O";
       };
-      "org.kde.konsole.desktop" = {
+      "kitty.desktop" = {
         "_launch" = "Meta+Shift+C";
       };
       kwin = {
@@ -349,7 +349,7 @@ in {
                   "applications:discord.desktop"
                   "applications:obsidian.desktop"
                   "applications:org.kde.dolphin.desktop"
-                  "applications:org.kde.konsole.desktop"
+                  "applications:kitty.desktop"
                 ];
               };
             };
@@ -437,8 +437,8 @@ in {
 
     configFile = {
       "kdeglobals"."General" = {
-        # TerminalApplication = "kitty";
-        # TerminalService = "kitty.desktop";
+        TerminalApplication = "kitty";
+        TerminalService = "kitty.desktop";
         accentColorFromWallpaper = true;
       };
       "plasmanotifyrc"."Notifications" = {

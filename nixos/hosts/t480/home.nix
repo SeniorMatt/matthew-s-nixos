@@ -41,11 +41,10 @@
     kdePackages.kdenlive # Shotcut
     audacity # Audio editor
     prismlauncher # The Minecraft launcher
-    gnome-mines # Minesweeper
+    kdePackages.kmines # Minesweeper
     kdePackages.isoimagewriter # ISO Image Writer
     batmon # TUI battery
     btop # TUI task manager
-    gnome-system-monitor # GUI task manager
     stress # CPU, Memory and I/O stress test
     # unigine-heaven # GPU stress test
   ];

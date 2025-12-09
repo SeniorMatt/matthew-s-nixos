@@ -109,7 +109,7 @@ in {
   # Plasma Manager
   programs.plasma = {
     enable = true;
-    overrideConfig = false;
+    overrideConfig = true;
 
     # Default fonts
     # Small: Noto Sans 8pt
@@ -372,14 +372,16 @@ in {
               };
             };
           }
-          {
-            name = "org.kde.plasma.notes";
-            config = {
-              General = {
-                color = "translucent";
-              };
-            };
-          }
+          # Sticky notes
+          # Disabled them, 'cause Plasma Manager will override them with overrideConfig enabled
+          # {
+          #   name = "org.kde.plasma.notes";
+          #   config = {
+          #     General = {
+          #       color = "translucent";
+          #     };
+          #   };
+          # }
           {
             name = "dipzza.break-reminder";
             config = {

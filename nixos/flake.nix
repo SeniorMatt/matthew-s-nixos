@@ -30,7 +30,9 @@
     };
 
     # DaVinci Resolve fix
-    nixpkgs-ee930f975.url = "github:nixos/nixpkgs/ee930f9755f58096ac6e8ca94a1887e0534e2d81";
+    # nixpkgs-ee930f975.url = "github:nixos/nixpkgs/ee930f9755f58096ac6e8ca94a1887e0534e2d81";
+    nixpkgs-c5ae371f1.url = "github:nixos/nixpkgs/0c3fc1cd3494aa52a2c111d5f18a7689fd15ab83";
+    # c5ae371f1 a6a7fd27823bc500d9390b38c05fa55
   };
 
   outputs = {nixpkgs, ...} @ inputs: let

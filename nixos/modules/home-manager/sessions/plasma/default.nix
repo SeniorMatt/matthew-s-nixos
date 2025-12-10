@@ -256,10 +256,10 @@ in {
 
     window-rules = [
       {
-        description = "Window settings for firefox";
+        description = "Window settings for zen";
         match = {
           window-class = {
-            value = "firefox";
+            value = "zen";
             type = "substring";
           };
           window-types = ["normal"];

@@ -1,7 +1,7 @@
 { inputs, pkgs, repoPath, ... }: 
 let
   wallpaperFolder = "${repoPath}/pictures/wallpapers";
-  wallpaper = "${wallpaperFolder}/kanistra-studio-20-workplace.jpg";
+  wallpaper = "${wallpaperFolder}/kanistra-studio-8-unicorn.jpg";
   generalFont = "Noto Sans";
   fixedFont = "JetBrainsMono";
   generalFontSize = 12;

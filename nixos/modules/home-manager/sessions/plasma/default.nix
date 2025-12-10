@@ -434,7 +434,7 @@ in {
         "PopupTimeout" = 1000;
       };
       "krunnerrc"."Plugins/Favorites" = {
-        "plugins" = "krunner_sessions,krunner_powerdevil";
+        "plugins" = "krunner_sessions,krunner_powerdevil,krunner_systemsettings,krunner_services";
       };
       "spectaclerc" = {
         "GuiConfig"."quitAfterSaveCopyExport" = true;

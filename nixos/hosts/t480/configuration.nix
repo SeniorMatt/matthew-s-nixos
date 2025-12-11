@@ -7,8 +7,8 @@ in {
     ../../modules/nixos/system/bluetooth
     ../../modules/nixos/system/audio
     # ../../modules/nixos/power/tuned
-    # ../../modules/nixos/power/system76
     # ../../modules/nixos/power/power-profiles-daemon
+    ../../modules/nixos/power/system76
     ../../modules/nixos/power/tlp
   ] ;
 

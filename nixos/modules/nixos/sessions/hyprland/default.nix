@@ -23,7 +23,12 @@
     home-manager = {
       sharedModules = [ 
         ../../../home-manager/sessions/hyprland
-        ({ hyprland.theme = "rice"; })
+        ({ 
+          hyprland = {
+            theme = "minimal";
+            cornerRadius = 0;
+          };
+        })
       ];
     };
   };

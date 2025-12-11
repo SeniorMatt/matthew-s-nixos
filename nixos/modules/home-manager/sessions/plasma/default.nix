@@ -1,12 +1,14 @@
 { inputs, pkgs, repoPath, ... }: 
 let
-  wallpaperFolder = "${repoPath}/pictures/wallpapers";
-  wallpaper = "${wallpaperFolder}/kanistra-studio-8-unicorn.jpg";
+  # wallpaperFolder = "${repoPath}/pictures/wallpapers";
+  # wallpaper = "${wallpaperFolder}/kanistra-studio-8-unicorn.jpg";
+  wallpaper = "${pkgs.kdePackages.plasma-workspace-wallpapers}/share/wallpapers/ScarletTree/contents/images_dark/5120x2880.png";
   generalFont = "Noto Sans";
   fixedFont = "JetBrainsMono";
   generalFontSize = 12;
   fixedFontSize = 12;
   smallFontSize = 10;
+
   breakReminder = pkgs.stdenv.mkDerivation {
     pname = "Break reminder widget";
     version = "1.0";

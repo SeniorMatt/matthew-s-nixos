@@ -4,7 +4,6 @@ let
 in {
   imports = [
     ../../theming
-    ../../theming/oh-my-posh
 
     ../../programs/rofi
     ../../programs/nautilus

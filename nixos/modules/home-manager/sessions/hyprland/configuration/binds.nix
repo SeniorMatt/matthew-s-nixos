@@ -1,3 +1,6 @@
+let
+  windowChangeSize = "25";
+in
 {
   wayland.windowManager.hyprland.settings = {
     # Variables
@@ -9,7 +12,7 @@
     bind = [
       # System
       "$mainMod, C, killactive"
-      "$mainMod, M, exit"
+      "$mainMod + SHIFT, E, exit"
       "$mainMod, E, exec, $fileManager"
       "$mainMod, V, togglefloating"
       "$mainMod, F, fullscreen"
@@ -54,15 +57,10 @@
       "$mainMod + SHIFT, J, movewindow, d"
 
       # Resize windows with vim keys
-      #"$mainMod + CTRL, l, resizeactive, -32 0"
-      "$mainMod + CTRL, h, resizeactive, -128 0"
-      "$mainMod + CTRL, k, resizeactive, 0 -128"
-      #"$mainMod + CTRL, j, resizeactive, 0 -32"
-
-      "$mainMod + CTRL, l, resizeactive, 128 0"
-      #"$mainMod + CTRL, h, resizeactive, 32 0"
-      #"$mainMod + CTRL, k, resizeactive, 0 32"
-      "$mainMod + CTRL, j, resizeactive, 0 128"
+      "$mainMod + CTRL, h, resizeactive, -${windowChangeSize} 0"
+      "$mainMod + CTRL, k, resizeactive, 0 -${windowChangeSize}"
+      "$mainMod + CTRL, l, resizeactive, ${windowChangeSize} 0"
+      "$mainMod + CTRL, j, resizeactive, 0 ${windowChangeSize}"
 
       # Switch workspaces
       "$mainMod, 1, workspace, 1"

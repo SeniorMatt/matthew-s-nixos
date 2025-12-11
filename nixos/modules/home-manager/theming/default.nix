@@ -19,7 +19,7 @@ in
       };
     };
 
-    icon = {
+    icons = {
       name = mkOption {
         type = types.str;
         default = "Adwaita";
@@ -60,12 +60,10 @@ in
       name = mkOption {
         type = types.str;
         default = "adw-gtk3-dark";
-        # default = "Adwaita-dark";
       };
       package = mkOption {
         type = types.package;
         default = pkgs.adw-gtk3;
-        # default = pkgs.gnome-themes-extra;
       };
       dark = mkOption {
         type = types.bool;

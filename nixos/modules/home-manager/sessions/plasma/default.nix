@@ -1,57 +1,15 @@
 { inputs, pkgs, repoPath, ... }: 
 let
-  # wallpaperFolder = "${repoPath}/pictures/wallpapers";
-  # wallpaper = "${wallpaperFolder}/kanistra-studio-8-unicorn.jpg";
-  wallpaper = "${pkgs.kdePackages.plasma-workspace-wallpapers}/share/wallpapers/ScarletTree/contents/images_dark/5120x2880.png";
+  wallpaperFolder = "${repoPath}/pictures/wallpapers";
+  wallpaper = "${wallpaperFolder}/fall-view-from-konsei-pass-japan.jpeg";
   generalFont = "Noto Sans";
   fixedFont = "JetBrainsMono";
   generalFontSize = 12;
   fixedFontSize = 12;
   smallFontSize = 10;
 
-  breakReminder = pkgs.stdenv.mkDerivation {
-    pname = "Break reminder widget";
-    version = "1.0";
-    src = pkgs.fetchFromGitHub {
-      owner = "dipzza";
-      repo = "break-reminder";
-      rev = "main";
-      sha256 = "sha256-ldU+JnVmPdTEnn+lMczNEkRCj/0kXAEM4vFGN5pkR+U=";
-      stripRoot = false;
-    };
-    installPhase = ''
-      mkdir -p $out/share/plasma/plasmoids/dipzza.break-reminder
-      cp -r "$src"/break-reminder-main/package/* "$out/share/plasma/plasmoids/dipzza.break-reminder/"
-    '';
-  };
-  splitClock = pkgs.stdenv.mkDerivation {
-    pname = "Split clock for vertical panels widget";
-    version = "1.0";
-    src = pkgs.fetchFromGitHub {
-      owner = "bainonline";
-      repo = "split-clock";
-      rev = "main";
-      sha256 = "sha256-PTPVK6zrmEbFaaAwkPUPD9MPgDxJm2PMOkDrSKMAhuo=";
-      stripRoot = false;
-    };
-    installPhase = ''
-      mkdir -p $out/share/plasma/plasmoids/split-clock
-      cp -r "$src"/split-clock-main/* "$out/share/plasma/plasmoids/split-clock/"
-    '';
-  };
-  geometryChange = pkgs.stdenv.mkDerivation {
-    pname = "Effect geometry change";
-    version = "1.0";
-    src = pkgs.fetchzip {
-      url = "https://github.com/peterfajdiga/kwin4_effect_geometry_change/releases/download/v1.5/kwin4_effect_geometry_change_1_5.tar.gz";
-      sha256 = "sha256-1xjG6tIaUj97T2yHq+W7MLcODS0BN/yOzKgpql1/q1k=";
-      stripRoot = false;
-    };
-    installPhase = ''
-      mkdir -p $out/share/kwin/effects
-      cp -r "$src"/* "$out/share/kwin/effects/"
-    '';
-  };
+  splitClock = pkgs.callPackage ./extensions/splitClock {};
+  geometryChange = pkgs.callPackage ./extensions/geometryChange {};
 in {
   imports = [
     inputs.plasma-manager.homeModules.plasma-manager
@@ -84,7 +42,6 @@ in {
     kdePackages.kcalc # Calculator app
     kdePackages.kclock # Clock app
     kdePackages.ktorrent # Torrent app
-    # breakReminder # Break reminder widget
     splitClock # Split clock widget
     geometryChange # Geometry change kwin effect
   ];

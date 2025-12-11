@@ -1,7 +1,4 @@
-{
-  stdenvNoCC,
-  lib,
-}:
+{ stdenvNoCC, lib, }:
 stdenvNoCC.mkDerivation {
   pname = "m6x11";
   version = "0.1";

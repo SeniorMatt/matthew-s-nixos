@@ -23,7 +23,7 @@ in {
       };
       
       # Icons
-      icon = {
+      icons = {
         name = "Adwaita";
         package = pkgs.adwaita-icon-theme;
       };

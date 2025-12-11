@@ -43,21 +43,21 @@ You can switch between different setups by configuring `~/Matthew-s-NixOS/nixos/
 # Screenshots
 > Screenshots are slightly outdated, I will update them.
 ## KDE Plasma using Plasma Manager
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/ff2d11b9-f9d6-4ed4-ae35-17b874d223fe" />
+<img width="1920" height="1080" alt="plasma-1" src="https://github.com/user-attachments/assets/4fa495a4-8704-487d-9940-d5291b952003" />
+<img width="1920" height="1080" alt="plasma-2" src="https://github.com/user-attachments/assets/d592dd58-f9d0-4339-921c-5a1d86527cb2" />
 
 ## Niri
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/dc559f1c-3802-40f8-a336-577160638010" />
+<img width="1920" height="1080" alt="niri-1" src="https://github.com/user-attachments/assets/a913aa26-42e4-478a-9886-c5fbf50d23d1" />
+<img width="1920" height="1080" alt="niri-2" src="https://github.com/user-attachments/assets/f2e18852-769b-4fc1-9fa3-418b32fec8c8" />
 
-## Hyprland rice
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/2cef4d07-46ff-460c-82f5-4aaaacd9af83" />
+## Cosmic 
+<img width="1920" height="1080" alt="cosmic-1" src="https://github.com/user-attachments/assets/9b943310-c273-4927-910c-34c96a3fa6f5" />
+<img width="1920" height="1080" alt="cosmic-2" src="https://github.com/user-attachments/assets/da26debc-5f51-48de-a8e3-5042e517f8b8" />
 
 ## Hyprland minimal
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/da1c82bd-2971-46c8-8da1-b7661159ed0c" />
+<img width="1920" height="1080" alt="hyprland-1" src="https://github.com/user-attachments/assets/e323cdfd-ceb9-4236-bbe4-804a704df0f7" />
+<img width="1920" height="1080" alt="hyprland-2" src="https://github.com/user-attachments/assets/86516bb3-58c2-41b6-912b-4e9389fc6dfe" />
 
-### My previous Hyprland rice with blur and stuff :D
-![image_2025-07-09_22-39-49](https://github.com/user-attachments/assets/e1d60ae7-87b9-45bd-adec-3ad1cacef0fc)
-![image](https://github.com/user-attachments/assets/5fed0521-ef1a-4589-9256-612d029f6c6c)
-![image](https://github.com/user-attachments/assets/2815af78-f455-46b9-b14b-e7420467c810)
-![image_2025-07-09_22-39-31](https://github.com/user-attachments/assets/4f265fc6-f89a-463b-a133-57f0f031ae74)
-![image_2025-07-09_22-39-30](https://github.com/user-attachments/assets/3bfebee6-3370-4c8d-bf23-1ce84bfdea7e)
-![image_2025-07-09_22-39-30 (2)](https://github.com/user-attachments/assets/d86757e6-20e4-4889-8289-1f572814da25)
+## Hyprland rice
+<img width="1920" height="1080" alt="hyprland-rice-1" src="https://github.com/user-attachments/assets/f50cd9cb-8656-498f-afa6-9946c4e97292" />
+<img width="1920" height="1080" alt="hyprland-rice-2" src="https://github.com/user-attachments/assets/b60024bb-eac7-4a7e-a0fc-3f4a62c4e205" />

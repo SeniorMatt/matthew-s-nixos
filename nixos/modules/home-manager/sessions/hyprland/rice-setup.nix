@@ -47,6 +47,10 @@ in {
         };
       };
 
+      qt = {
+        enable = false;
+      };
+
       kvantum = {
         enable = true;
         name = "catppuccin-mocha-lavender";

@@ -25,8 +25,8 @@
         ../../../home-manager/sessions/hyprland
         ({ 
           hyprland = {
-            theme = "minimal";
-            cornerRadius = 0;
+            theme = "rice";
+            cornerRadius = 8;
           };
         })
       ];

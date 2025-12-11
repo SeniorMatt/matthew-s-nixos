@@ -2,6 +2,11 @@
   programs.firefox = {
     enable = true;
 
+    # preferences = {
+    #   # disable libadwaita theming for Firefox
+    #   "widget.gtk.libadwaita-colors.enabled" = false;
+    # };
+
     profiles.default.settings = {
       "browser.urlbar.suggest.calculator" = true;
       "browser.newtabpage.activity-stream.trendingSearch.defaultSearchEngine" = "DuckDuckGo";

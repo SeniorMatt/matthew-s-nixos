@@ -1,0 +1,69 @@
+{
+    (
+        modifiers: [
+            Super,
+            Shift,
+        ],
+        key: "c",
+    ): System(Terminal),
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "b",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "t",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "f",
+    ): Fullscreen,
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "q",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "c",
+    ): Close,
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "e",
+    ): System(HomeFolder),
+    (
+        modifiers: [
+            Super,
+            Shift,
+        ],
+        key: "f",
+        description: Some("Zen"),
+    ): Spawn("zen"),
+    (
+        modifiers: [
+            Super,
+            Shift,
+        ],
+        key: "o",
+        description: Some("Obsidian"),
+    ): Spawn("obsidian"),
+    (
+        modifiers: [
+            Super,
+            Shift,
+        ],
+        key: "t",
+        description: Some("Telegram"),
+    ): Spawn("Telegram"),
+}

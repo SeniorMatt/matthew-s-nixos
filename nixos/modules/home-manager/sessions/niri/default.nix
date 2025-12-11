@@ -27,6 +27,9 @@ in {
       package = pkgs.bibata-cursors;
       size = 24;
     };
+    gtk = {
+      buttons = "gnome";
+    };
   };
 
   waybar = {
@@ -46,12 +49,6 @@ in {
 
   matugen = {
     inherit wallpaper;
-  };
-
-  home.activation = {
-    # remove-kde-globals = ''
-    #   rm -f ~/.config/kdeglobals
-    # '';
   };
 
   services = {

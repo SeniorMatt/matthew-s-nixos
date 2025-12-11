@@ -171,19 +171,19 @@ in
         "${needsPath}/gtk-4.0/assets" = {
           enable = gtk.enable;
           source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/assets";
-          onChange = ''cp -fr ${needsPath}/gtk-4.0 /home/${user}/.config/gtk-4.0'';
+          onChange = ''cp -fr ${needsPath}/gtk-4.0/ /home/${user}/.config/gtk-4.0/'';
         };
       
         "${needsPath}/gtk-4.0/gtk.css" = {
           enable = gtk.enable;
           source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk.css";
-          onChange = ''cp -fr ${needsPath}/gtk-4.0 /home/${user}/.config/gtk-4.0'';
+          onChange = ''cp -fr ${needsPath}/gtk-4.0/ /home/${user}/.config/gtk-4.0/'';
         };
 
         "${needsPath}/gtk-4.0/gtk-dark.css" = {
           enable = gtk.enable;
           source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk-dark.css";
-          onChange = ''cp -fr ${needsPath}/gtk-4.0 /home/${user}/.config/gtk-4.0'';
+          onChange = ''cp -fr ${needsPath}/gtk-4.0/ /home/${user}/.config/gtk-4.0/'';
         };
 
         "${needsPath}/qt5ct/qt5ct.conf" = {
@@ -197,7 +197,7 @@ in
             custom_palette=true
             color_scheme_path=/home/${user}/.config/qt5ct/style-colors.conf
           '';
-          onChange = ''cp -fr ${needsPath}/qt5ct /home/${user}/.config/qt5ct'';
+          onChange = ''cp -fr ${needsPath}/qt5ct/ /home/${user}/.config/qt5ct/'';
         };
         "${needsPath}/qt6ct/qt6ct.conf" = {
           enable = kvantum.enable;
@@ -210,7 +210,7 @@ in
             custom_palette=true
             color_scheme_path=/home/${user}/.config/qt6ct/style-colors.conf
           '';
-          onChange = ''cp -fr ${needsPath}/qt6ct /home/${user}/.config/qt6ct'';
+          onChange = ''cp -fr ${needsPath}/qt6ct/ /home/${user}/.config/qt6ct/'';
         };
       };
 

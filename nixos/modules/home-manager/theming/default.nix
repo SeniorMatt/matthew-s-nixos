@@ -19,7 +19,7 @@ in
       };
     };
 
-    icons = {
+    icon = {
       name = mkOption {
         type = types.str;
         default = "Adwaita";

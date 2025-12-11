@@ -408,13 +408,11 @@ in {
         autoSuspend.action = "nothing";
         dimDisplay.idleTimeout = null;
         turnOffDisplay.idleTimeout = "never";
-        powerProfile = "performance";
       };
       battery = {
         autoSuspend.action = "nothing";
         dimDisplay.idleTimeout = 300;
         turnOffDisplay.idleTimeout = 600;
-        powerProfile = "balanced";
       };
     };
 

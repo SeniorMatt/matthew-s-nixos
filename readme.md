@@ -41,7 +41,6 @@ And there is an alias for that, after you did your initial setup `nrs`.
 You can switch between different setups by configuring `~/Matthew-s-NixOS/nixos/flake.nix` and changing the `session.desktop` variable.
 
 # Screenshots
-> Screenshots are slightly outdated, I will update them.
 ## KDE Plasma using Plasma Manager
 <img width="1920" height="1080" alt="plasma-1" src="https://github.com/user-attachments/assets/4fa495a4-8704-487d-9940-d5291b952003" />
 <img width="1920" height="1080" alt="plasma-2" src="https://github.com/user-attachments/assets/d592dd58-f9d0-4339-921c-5a1d86527cb2" />

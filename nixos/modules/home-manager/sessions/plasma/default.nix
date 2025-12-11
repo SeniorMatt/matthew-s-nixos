@@ -82,7 +82,7 @@ in {
     kdePackages.kcalc # Calculator app
     kdePackages.kclock # Clock app
     kdePackages.ktorrent # Torrent app
-    breakReminder # Break reminder widget
+    # breakReminder # Break reminder widget
     splitClock # Split clock widget
     geometryChange # Geometry change kwin effect
   ];
@@ -347,6 +347,7 @@ in {
             config = {
               Appearance = {
                 showTemperatureInCompactMode = true;
+                showTemperatureInBadge = true;
               };
               Units = {
                 pressureUnit = 5029;
@@ -369,14 +370,6 @@ in {
           #     };
           #   };
           # }
-          {
-            name = "dipzza.break-reminder";
-            config = {
-              General = {
-                focusMinutes = 10;
-              };
-            };
-          }
           "org.kde.plasma.marginsseparator" # spacer
           {
             # systray (net, sound, bt, battery…)
